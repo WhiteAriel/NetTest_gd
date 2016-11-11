@@ -1,2 +1,2 @@
 NetTest is a video quality project by hgh and pd on 11.11 2016
-Test hgh branch
+This is the version before release version ,and any one should merge their branch to branch VBR with the argument --no-ff before merge to master
