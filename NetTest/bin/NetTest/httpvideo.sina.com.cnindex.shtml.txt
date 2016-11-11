@@ -1,0 +1,5 @@
+["http://edge.ivideo.sina.com.cn.wscdns.com/140028931.hlv?KID=sina,viask&Expires=1461513600&ssig=6EoLILxk%2Bi",
+ "http://edge.ivideo.sina.com.cn/140051960.hlv?KID=sina,viask&Expires=1461513600&ssig=y6sxp9c4qp", 
+"http://edge.ivideo.sina.com.cn.wscdns.com/140048266.mp4?KID=sina,viask&Expires=1461513600&ssig=m6YbbweI8f", 
+"http://edge.ivideo.sina.com.cn/140011952.hlv?KID=sina,viask&Expires=1461513600&ssig=bxALruOw98", 
+"http://edge.ivideo.sina.com.cn.wscdns.com/140052028.hlv?KID=sina,viask&Expires=1461513600&ssig=KV7kmXmVE4"]

@@ -1,0 +1,742 @@
+F:\复件 NetTest\bin\Debug\NetTest.exe.manifest
+F:\复件 NetTest\bin\Debug\NetTest.application
+F:\复件 NetTest\bin\Debug\NetTest.exe
+F:\复件 NetTest\bin\Debug\NetTest.pdb
+F:\复件 NetTest\bin\Debug\csExWB.dll
+F:\复件 NetTest\bin\Debug\CSockets.dll
+F:\复件 NetTest\bin\Debug\FTPCom.dll
+F:\复件 NetTest\bin\Debug\MIMEParser.dll
+F:\复件 NetTest\bin\Debug\OpenPOP.dll
+F:\复件 NetTest\bin\Debug\SQLite.NET.dll
+F:\复件 NetTest\bin\Debug\Tamir.IPLib.SharpPcap.dll
+F:\复件 NetTest\bin\Debug\Interop.Shell32.dll
+F:\复件 NetTest\obj\Debug\ResolveAssemblyReference.cache
+F:\复件 NetTest\obj\Debug\Interop.Shell32.dll
+F:\复件 NetTest\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+F:\复件 NetTest\obj\Debug\NetTest.FlvRtspAnalys.resources
+F:\复件 NetTest\obj\Debug\NetTest.FlvWebAnalyze.resources
+F:\复件 NetTest\obj\Debug\NetTest.FlvTest.resources
+F:\复件 NetTest\obj\Debug\NetTest.FlvSetting.resources
+F:\复件 NetTest\obj\Debug\NetTest.frmAbout.resources
+F:\复件 NetTest\obj\Debug\NetTest.frmMain.resources
+F:\复件 NetTest\obj\Debug\NetTest.frmTips.resources
+F:\复件 NetTest\obj\Debug\NetTest.Properties.Resources.resources
+F:\复件 NetTest\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+F:\复件 NetTest\obj\Debug\NetTest.exe.licenses
+F:\复件 NetTest\obj\Debug\NetTest.exe.manifest
+F:\复件 NetTest\obj\Debug\NetTest.application
+F:\复件 NetTest\obj\Debug\NetTest.exe
+F:\复件 NetTest\obj\Debug\NetTest.pdb
+F:\Request Busi\obj\Debug\Interop.Shell32.dll
+F:\Request Busi\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+F:\Request Busi\obj\Debug\NetTest.exe
+F:\Request Busi\obj\Debug\NetTest.pdb
+F:\Request Busi\bin\Debug\NetTest.exe.manifest
+F:\Request Busi\bin\Debug\NetTest.application
+F:\Request Busi\bin\Debug\NetTest.exe
+F:\Request Busi\bin\Debug\NetTest.pdb
+F:\Request Busi\bin\Debug\csExWB.dll
+F:\Request Busi\bin\Debug\CSockets.dll
+F:\Request Busi\bin\Debug\FTPCom.dll
+F:\Request Busi\bin\Debug\MIMEParser.dll
+F:\Request Busi\bin\Debug\OpenPOP.dll
+F:\Request Busi\bin\Debug\SQLite.NET.dll
+F:\Request Busi\bin\Debug\Tamir.IPLib.SharpPcap.dll
+F:\Request Busi\bin\Debug\Interop.Shell32.dll
+F:\Request Busi\obj\Debug\ResolveAssemblyReference.cache
+F:\Request Busi\obj\Debug\NetTest.FlvRtspAnalys.resources
+F:\Request Busi\obj\Debug\NetTest.FlvWebAnalyze.resources
+F:\Request Busi\obj\Debug\NetTest.FlvTest.resources
+F:\Request Busi\obj\Debug\NetTest.FlvSetting.resources
+F:\Request Busi\obj\Debug\NetTest.frmAbout.resources
+F:\Request Busi\obj\Debug\NetTest.frmMain.resources
+F:\Request Busi\obj\Debug\NetTest.frmTips.resources
+F:\Request Busi\obj\Debug\NetTest.Properties.Resources.resources
+F:\Request Busi\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+F:\Request Busi\obj\Debug\NetTest.exe.licenses
+F:\Request Busi\obj\Debug\NetTest.exe.manifest
+F:\Request Busi\obj\Debug\NetTest.application
+F:\Request Busi\obj\Debug\Interop.Microsoft.Office.Core.dll
+F:\Request Busi\bin\Debug\Interop.Microsoft.Office.Core.dll
+E:\XY\Request Busi\obj\Debug\Interop.Microsoft.Office.Core.dll
+E:\XY\Request Busi\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+E:\XY\Request Busi\obj\Debug\Interop.Shell32.dll
+E:\XY\Request Busi\obj\Debug\Interop.VBIDE.dll
+E:\XY\Request Busi\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+E:\XY\Request Busi\obj\Debug\NetTest.exe
+E:\XY\Request Busi\obj\Debug\NetTest.pdb
+E:\XY\Request Busi\bin\Debug\NetTest.exe.manifest
+E:\XY\Request Busi\bin\Debug\NetTest.application
+E:\XY\Request Busi\bin\Debug\NetTest.exe
+E:\XY\Request Busi\bin\Debug\NetTest.pdb
+E:\XY\Request Busi\bin\Debug\csExWB.dll
+E:\XY\Request Busi\bin\Debug\CSockets.dll
+E:\XY\Request Busi\bin\Debug\FTPCom.dll
+E:\XY\Request Busi\bin\Debug\MIMEParser.dll
+E:\XY\Request Busi\bin\Debug\OpenPOP.dll
+E:\XY\Request Busi\bin\Debug\SQLite.NET.dll
+E:\XY\Request Busi\bin\Debug\Tamir.IPLib.SharpPcap.dll
+E:\XY\Request Busi\bin\Debug\Interop.Microsoft.Office.Core.dll
+E:\XY\Request Busi\bin\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+E:\XY\Request Busi\bin\Debug\Interop.Shell32.dll
+E:\XY\Request Busi\bin\Debug\Interop.VBIDE.dll
+E:\XY\Request Busi\obj\Debug\ResolveAssemblyReference.cache
+E:\XY\Request Busi\obj\Debug\NetTest.FlvRtspAnalys.resources
+E:\XY\Request Busi\obj\Debug\NetTest.FlvWebAnalyze.resources
+E:\XY\Request Busi\obj\Debug\NetTest.FlvTest.resources
+E:\XY\Request Busi\obj\Debug\NetTest.FlvSetting.resources
+E:\XY\Request Busi\obj\Debug\NetTest.frmAbout.resources
+E:\XY\Request Busi\obj\Debug\NetTest.frmMain.resources
+E:\XY\Request Busi\obj\Debug\NetTest.frmTips.resources
+E:\XY\Request Busi\obj\Debug\NetTest.Properties.Resources.resources
+E:\XY\Request Busi\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+E:\XY\Request Busi\obj\Debug\NetTest.exe.licenses
+E:\XY\Request Busi\obj\Debug\NetTest.exe.manifest
+E:\XY\Request Busi\obj\Debug\NetTest.application
+F:\Request Busi\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+F:\Request Busi\obj\Debug\Interop.VBIDE.dll
+F:\Request Busi\bin\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+F:\Request Busi\bin\Debug\Interop.VBIDE.dll
+D:\request-new\Request Busi\bin\NetTest\NetTest.exe.manifest
+D:\request-new\Request Busi\bin\NetTest\NetTest.application
+D:\request-new\Request Busi\bin\NetTest\NetTest.exe
+D:\request-new\Request Busi\bin\NetTest\NetTest.pdb
+D:\request-new\Request Busi\bin\NetTest\csExWB.dll
+D:\request-new\Request Busi\bin\NetTest\CSockets.dll
+D:\request-new\Request Busi\bin\NetTest\DundasWinChart.dll
+D:\request-new\Request Busi\bin\NetTest\DundasWinGauge.dll
+D:\request-new\Request Busi\bin\NetTest\FTPCom.dll
+D:\request-new\Request Busi\bin\NetTest\MIMEParser.dll
+D:\request-new\Request Busi\bin\NetTest\OpenPOP.dll
+D:\request-new\Request Busi\bin\NetTest\SQLite.NET.dll
+D:\request-new\Request Busi\bin\NetTest\Tamir.IPLib.SharpPcap.dll
+D:\request-new\Request Busi\bin\NetTest\DundasWinChart.xml
+D:\request-new\Request Busi\bin\NetTest\DundasWinGauge.xml
+D:\request-new\Request Busi\bin\NetTest\Interop.Microsoft.Office.Core.dll
+D:\request-new\Request Busi\bin\NetTest\Interop.Microsoft.Office.Interop.Excel.dll
+D:\request-new\Request Busi\bin\NetTest\Interop.Shell32.dll
+D:\request-new\Request Busi\bin\NetTest\Interop.VBIDE.dll
+D:\request-new\Request Busi\obj\Debug\ResolveAssemblyReference.cache
+D:\request-new\Request Busi\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\request-new\Request Busi\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+D:\request-new\Request Busi\obj\Debug\Interop.Shell32.dll
+D:\request-new\Request Busi\obj\Debug\Interop.VBIDE.dll
+D:\request-new\Request Busi\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+D:\request-new\Request Busi\obj\Debug\NetTest.FlvLocalAnalys.resources
+D:\request-new\Request Busi\obj\Debug\NetTest.FlvRtspAnalys.resources
+D:\request-new\Request Busi\obj\Debug\NetTest.FlvWebAnalyze.resources
+D:\request-new\Request Busi\obj\Debug\NetTest.FlvTest.resources
+D:\request-new\Request Busi\obj\Debug\NetTest.FlvSetting.resources
+D:\request-new\Request Busi\obj\Debug\NetTest.frmAbout.resources
+D:\request-new\Request Busi\obj\Debug\NetTest.frmMain.resources
+D:\request-new\Request Busi\obj\Debug\NetTest.frmTips.resources
+D:\request-new\Request Busi\obj\Debug\NetTest.Properties.Resources.resources
+D:\request-new\Request Busi\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+D:\request-new\Request Busi\obj\Debug\NetTest.exe.licenses
+D:\request-new\Request Busi\obj\Debug\NetTest.exe.manifest
+D:\request-new\Request Busi\obj\Debug\NetTest.application
+D:\request-new\Request Busi\obj\Debug\NetTest.exe
+D:\request-new\Request Busi\obj\Debug\NetTest.pdb
+D:\request-new\Request Busi - 5-4\bin\NetTest\NetTest.exe.manifest
+D:\request-new\Request Busi - 5-4\bin\NetTest\NetTest.application
+D:\request-new\Request Busi - 5-4\bin\NetTest\NetTest.exe
+D:\request-new\Request Busi - 5-4\bin\NetTest\NetTest.pdb
+D:\request-new\Request Busi - 5-4\bin\NetTest\csExWB.dll
+D:\request-new\Request Busi - 5-4\bin\NetTest\CSockets.dll
+D:\request-new\Request Busi - 5-4\bin\NetTest\DundasWinChart.dll
+D:\request-new\Request Busi - 5-4\bin\NetTest\DundasWinGauge.dll
+D:\request-new\Request Busi - 5-4\bin\NetTest\FTPCom.dll
+D:\request-new\Request Busi - 5-4\bin\NetTest\MIMEParser.dll
+D:\request-new\Request Busi - 5-4\bin\NetTest\OpenPOP.dll
+D:\request-new\Request Busi - 5-4\bin\NetTest\SQLite.NET.dll
+D:\request-new\Request Busi - 5-4\bin\NetTest\Tamir.IPLib.SharpPcap.dll
+D:\request-new\Request Busi - 5-4\bin\NetTest\DundasWinChart.xml
+D:\request-new\Request Busi - 5-4\bin\NetTest\DundasWinGauge.xml
+D:\request-new\Request Busi - 5-4\bin\NetTest\Interop.Microsoft.Office.Core.dll
+D:\request-new\Request Busi - 5-4\bin\NetTest\Interop.Microsoft.Office.Interop.Excel.dll
+D:\request-new\Request Busi - 5-4\bin\NetTest\Interop.Shell32.dll
+D:\request-new\Request Busi - 5-4\bin\NetTest\Interop.VBIDE.dll
+D:\request-new\Request Busi - 5-4\obj\Debug\ResolveAssemblyReference.cache
+D:\request-new\Request Busi - 5-4\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\request-new\Request Busi - 5-4\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+D:\request-new\Request Busi - 5-4\obj\Debug\Interop.Shell32.dll
+D:\request-new\Request Busi - 5-4\obj\Debug\Interop.VBIDE.dll
+D:\request-new\Request Busi - 5-4\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+D:\request-new\Request Busi - 5-4\obj\Debug\NetTest.FlvLocalAnalys.resources
+D:\request-new\Request Busi - 5-4\obj\Debug\NetTest.FlvRtspAnalys.resources
+D:\request-new\Request Busi - 5-4\obj\Debug\NetTest.FlvWebAnalyze.resources
+D:\request-new\Request Busi - 5-4\obj\Debug\NetTest.FlvTest.resources
+D:\request-new\Request Busi - 5-4\obj\Debug\NetTest.FlvSetting.resources
+D:\request-new\Request Busi - 5-4\obj\Debug\NetTest.frmAbout.resources
+D:\request-new\Request Busi - 5-4\obj\Debug\NetTest.frmMain.resources
+D:\request-new\Request Busi - 5-4\obj\Debug\NetTest.frmTips.resources
+D:\request-new\Request Busi - 5-4\obj\Debug\NetTest.Properties.Resources.resources
+D:\request-new\Request Busi - 5-4\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+D:\request-new\Request Busi - 5-4\obj\Debug\NetTest.exe.licenses
+D:\request-new\Request Busi - 5-4\obj\Debug\NetTest.exe.manifest
+D:\request-new\Request Busi - 5-4\obj\Debug\NetTest.application
+D:\request-new\Request Busi - 5-4\obj\Debug\NetTest.exe
+D:\request-new\Request Busi - 5-4\obj\Debug\NetTest.pdb
+E:\Request Busi - 5-4\obj\Debug\Interop.Microsoft.Office.Core.dll
+E:\Request Busi - 5-4\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+E:\Request Busi - 5-4\obj\Debug\Interop.Shell32.dll
+E:\Request Busi - 5-4\obj\Debug\Interop.VBIDE.dll
+E:\Request Busi - 5-4\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+E:\Request Busi - 5-4\obj\Debug\NetTest.exe
+E:\Request Busi - 5-4\obj\Debug\NetTest.pdb
+E:\Request Busi - 5-4\bin\NetTest\NetTest.exe.manifest
+E:\Request Busi - 5-4\bin\NetTest\NetTest.application
+E:\Request Busi - 5-4\bin\NetTest\NetTest.exe
+E:\Request Busi - 5-4\bin\NetTest\NetTest.pdb
+E:\Request Busi - 5-4\bin\NetTest\csExWB.dll
+E:\Request Busi - 5-4\bin\NetTest\CSockets.dll
+E:\Request Busi - 5-4\bin\NetTest\DundasWinChart.dll
+E:\Request Busi - 5-4\bin\NetTest\DundasWinGauge.dll
+E:\Request Busi - 5-4\bin\NetTest\FTPCom.dll
+E:\Request Busi - 5-4\bin\NetTest\MIMEParser.dll
+E:\Request Busi - 5-4\bin\NetTest\OpenPOP.dll
+E:\Request Busi - 5-4\bin\NetTest\SQLite.NET.dll
+E:\Request Busi - 5-4\bin\NetTest\Tamir.IPLib.SharpPcap.dll
+E:\Request Busi - 5-4\bin\NetTest\DundasWinChart.xml
+E:\Request Busi - 5-4\bin\NetTest\DundasWinGauge.xml
+E:\Request Busi - 5-4\bin\NetTest\Interop.Microsoft.Office.Core.dll
+E:\Request Busi - 5-4\bin\NetTest\Interop.Microsoft.Office.Interop.Excel.dll
+E:\Request Busi - 5-4\bin\NetTest\Interop.Shell32.dll
+E:\Request Busi - 5-4\bin\NetTest\Interop.VBIDE.dll
+E:\Request Busi - 5-4\obj\Debug\ResolveAssemblyReference.cache
+E:\Request Busi - 5-4\obj\Debug\NetTest.FlvLocalAnalys.resources
+E:\Request Busi - 5-4\obj\Debug\NetTest.FlvRtspAnalys.resources
+E:\Request Busi - 5-4\obj\Debug\NetTest.FlvWebAnalyze.resources
+E:\Request Busi - 5-4\obj\Debug\NetTest.FlvTest.resources
+E:\Request Busi - 5-4\obj\Debug\NetTest.FlvSetting.resources
+E:\Request Busi - 5-4\obj\Debug\NetTest.frmAbout.resources
+E:\Request Busi - 5-4\obj\Debug\NetTest.frmMain.resources
+E:\Request Busi - 5-4\obj\Debug\NetTest.frmTips.resources
+E:\Request Busi - 5-4\obj\Debug\NetTest.Properties.Resources.resources
+E:\Request Busi - 5-4\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+E:\Request Busi - 5-4\obj\Debug\NetTest.exe.licenses
+E:\Request Busi - 5-4\obj\Debug\NetTest.exe.manifest
+E:\Request Busi - 5-4\obj\Debug\NetTest.application
+D:\request-new\Request Busi - 5-7\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\request-new\Request Busi - 5-7\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+D:\request-new\Request Busi - 5-7\obj\Debug\Interop.Shell32.dll
+D:\request-new\Request Busi - 5-7\obj\Debug\Interop.VBIDE.dll
+D:\request-new\Request Busi - 5-7\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+D:\request-new\Request Busi - 5-7\obj\Debug\NetTest.exe
+D:\request-new\Request Busi - 5-7\obj\Debug\NetTest.pdb
+D:\request-new\Request Busi - 5-7\obj\Debug\ResolveAssemblyReference.cache
+D:\request-new\Request Busi - 5-7\obj\Debug\NetTest.FlvLocalAnalys.resources
+D:\request-new\Request Busi - 5-7\obj\Debug\NetTest.FlvRtspAnalys.resources
+D:\request-new\Request Busi - 5-7\obj\Debug\NetTest.FlvWebAnalyze.resources
+D:\request-new\Request Busi - 5-7\obj\Debug\NetTest.FlvTest.resources
+D:\request-new\Request Busi - 5-7\obj\Debug\NetTest.FlvSetting.resources
+D:\request-new\Request Busi - 5-7\obj\Debug\NetTest.frmAbout.resources
+D:\request-new\Request Busi - 5-7\obj\Debug\NetTest.frmMain.resources
+D:\request-new\Request Busi - 5-7\obj\Debug\NetTest.frmTips.resources
+D:\request-new\Request Busi - 5-7\obj\Debug\NetTest.Properties.Resources.resources
+D:\request-new\Request Busi - 5-7\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+D:\request-new\Request Busi - 5-7\obj\Debug\NetTest.exe.licenses
+D:\request-new\Request Busi - 5-7\bin\NetTest\NetTest.exe.manifest
+D:\request-new\Request Busi - 5-7\bin\NetTest\NetTest.application
+D:\request-new\Request Busi - 5-7\bin\NetTest\NetTest.exe
+D:\request-new\Request Busi - 5-7\bin\NetTest\NetTest.pdb
+D:\request-new\Request Busi - 5-7\bin\NetTest\csExWB.dll
+D:\request-new\Request Busi - 5-7\bin\NetTest\CSockets.dll
+D:\request-new\Request Busi - 5-7\bin\NetTest\DundasWinChart.dll
+D:\request-new\Request Busi - 5-7\bin\NetTest\DundasWinGauge.dll
+D:\request-new\Request Busi - 5-7\bin\NetTest\FTPCom.dll
+D:\request-new\Request Busi - 5-7\bin\NetTest\MIMEParser.dll
+D:\request-new\Request Busi - 5-7\bin\NetTest\OpenPOP.dll
+D:\request-new\Request Busi - 5-7\bin\NetTest\SQLite.NET.dll
+D:\request-new\Request Busi - 5-7\bin\NetTest\Tamir.IPLib.SharpPcap.dll
+D:\request-new\Request Busi - 5-7\bin\NetTest\DundasWinChart.xml
+D:\request-new\Request Busi - 5-7\bin\NetTest\DundasWinGauge.xml
+D:\request-new\Request Busi - 5-7\bin\NetTest\Interop.Microsoft.Office.Core.dll
+D:\request-new\Request Busi - 5-7\bin\NetTest\Interop.Microsoft.Office.Interop.Excel.dll
+D:\request-new\Request Busi - 5-7\bin\NetTest\Interop.Shell32.dll
+D:\request-new\Request Busi - 5-7\bin\NetTest\Interop.VBIDE.dll
+D:\request-new\Request Busi - 5-7\obj\Debug\NetTest.exe.manifest
+D:\request-new\Request Busi - 5-7\obj\Debug\NetTest.application
+D:\request-new\Request Busi - 5-16\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\request-new\Request Busi - 5-16\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+D:\request-new\Request Busi - 5-16\obj\Debug\Interop.Shell32.dll
+D:\request-new\Request Busi - 5-16\obj\Debug\Interop.VBIDE.dll
+D:\request-new\Request Busi - 5-16\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+D:\request-new\Request Busi - 5-16\obj\Debug\NetTest.exe
+D:\request-new\Request Busi - 5-16\obj\Debug\NetTest.pdb
+D:\request-new\Request Busi - 5-16\bin\NetTest\NetTest.exe.manifest
+D:\request-new\Request Busi - 5-16\bin\NetTest\NetTest.application
+D:\request-new\Request Busi - 5-16\bin\NetTest\NetTest.exe
+D:\request-new\Request Busi - 5-16\bin\NetTest\NetTest.pdb
+D:\request-new\Request Busi - 5-16\bin\NetTest\csExWB.dll
+D:\request-new\Request Busi - 5-16\bin\NetTest\CSockets.dll
+D:\request-new\Request Busi - 5-16\bin\NetTest\DundasWinChart.dll
+D:\request-new\Request Busi - 5-16\bin\NetTest\DundasWinGauge.dll
+D:\request-new\Request Busi - 5-16\bin\NetTest\FTPCom.dll
+D:\request-new\Request Busi - 5-16\bin\NetTest\MIMEParser.dll
+D:\request-new\Request Busi - 5-16\bin\NetTest\OpenPOP.dll
+D:\request-new\Request Busi - 5-16\bin\NetTest\SQLite.NET.dll
+D:\request-new\Request Busi - 5-16\bin\NetTest\Tamir.IPLib.SharpPcap.dll
+D:\request-new\Request Busi - 5-16\bin\NetTest\DundasWinChart.xml
+D:\request-new\Request Busi - 5-16\bin\NetTest\DundasWinGauge.xml
+D:\request-new\Request Busi - 5-16\bin\NetTest\Interop.Microsoft.Office.Core.dll
+D:\request-new\Request Busi - 5-16\bin\NetTest\Interop.Microsoft.Office.Interop.Excel.dll
+D:\request-new\Request Busi - 5-16\bin\NetTest\Interop.Shell32.dll
+D:\request-new\Request Busi - 5-16\bin\NetTest\Interop.VBIDE.dll
+D:\request-new\Request Busi - 5-16\obj\Debug\ResolveAssemblyReference.cache
+D:\request-new\Request Busi - 5-16\obj\Debug\NetTest.FlvLocalAnalys.resources
+D:\request-new\Request Busi - 5-16\obj\Debug\NetTest.FlvRtspAnalys.resources
+D:\request-new\Request Busi - 5-16\obj\Debug\NetTest.FlvWebAnalyze.resources
+D:\request-new\Request Busi - 5-16\obj\Debug\NetTest.FlvTest.resources
+D:\request-new\Request Busi - 5-16\obj\Debug\NetTest.FlvSetting.resources
+D:\request-new\Request Busi - 5-16\obj\Debug\NetTest.frmAbout.resources
+D:\request-new\Request Busi - 5-16\obj\Debug\NetTest.frmMain.resources
+D:\request-new\Request Busi - 5-16\obj\Debug\NetTest.frmTips.resources
+D:\request-new\Request Busi - 5-16\obj\Debug\NetTest.Properties.Resources.resources
+D:\request-new\Request Busi - 5-16\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+D:\request-new\Request Busi - 5-16\obj\Debug\NetTest.exe.licenses
+D:\request-new\Request Busi - 5-16\obj\Debug\NetTest.exe.manifest
+D:\request-new\Request Busi - 5-16\obj\Debug\NetTest.application
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\Interop.Shell32.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\Interop.VBIDE.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.exe
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.pdb
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\NetTest.exe.manifest
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\NetTest.application
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\NetTest.exe
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\NetTest.pdb
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\csExWB.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\CSockets.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\DundasWinChart.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\DundasWinGauge.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\FTPCom.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\MIMEParser.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\OpenPOP.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\SQLite.NET.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\Tamir.IPLib.SharpPcap.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\DundasWinChart.xml
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\DundasWinGauge.xml
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\Interop.Microsoft.Office.Core.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\Interop.Microsoft.Office.Interop.Excel.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\Interop.Shell32.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\bin\NetTest\Interop.VBIDE.dll
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\ResolveAssemblyReference.cache
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.FlvLocalAnalys.resources
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.FlvRtspAnalys.resources
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.FlvWebAnalyze.resources
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.FlvTest.resources
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.FlvSetting.resources
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.frmAbout.resources
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.frmMain.resources
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.frmTips.resources
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.Properties.Resources.resources
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.exe.licenses
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.exe.manifest
+D:\张老师4月-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.application
+D:\张老师4月-贵州-视频点播类\Request Busi - 5-16\obj\Debug\Interop.Microsoft.Office.Core.dll
+D:\张老师4月-贵州-视频点播类\Request Busi - 5-16\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+D:\张老师4月-贵州-视频点播类\Request Busi - 5-16\obj\Debug\Interop.Shell32.dll
+D:\张老师4月-贵州-视频点播类\Request Busi - 5-16\obj\Debug\Interop.VBIDE.dll
+D:\张老师4月-贵州-视频点播类\Request Busi - 5-16\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+D:\张老师4月-贵州-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.exe
+D:\张老师4月-贵州-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.pdb
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\Interop.Shell32.dll
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\Interop.VBIDE.dll
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.exe
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.pdb
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.FlvLocalAnalys.resources
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.FlvRtspAnalys.resources
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.FlvWebAnalyze.resources
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.FlvTest.resources
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.FlvSetting.resources
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.frmAbout.resources
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.frmMain.resources
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.frmTips.resources
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.Properties.Resources.resources
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+C:\Users\aa\研究生文档\程力的毕业代码\广东-视频点播类\Request Busi - 5-16\obj\Debug\NetTest.exe.licenses
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\Interop.Shell32.dll
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\Interop.VBIDE.dll
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\NetTest.exe
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\NetTest.pdb
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\NetTest.exe.manifest
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\NetTest.application
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\NetTest.exe
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\NetTest.pdb
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\csExWB.dll
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\CSockets.dll
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\FTPCom.dll
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\MIMEParser.dll
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\OpenPOP.dll
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\SQLite.NET.dll
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\Tamir.IPLib.SharpPcap.dll
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\DundasWinChart.xml
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\DundasWinGauge.xml
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\Interop.Microsoft.Office.Core.dll
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\Interop.Microsoft.Office.Interop.Excel.dll
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\Interop.Shell32.dll
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\bin\NetTest\Interop.VBIDE.dll
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\NetTest.FlvLocalAnalys.resources
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\NetTest.FlvRtspAnalys.resources
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\NetTest.FlvWebAnalyze.resources
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\NetTest.FlvTest.resources
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\NetTest.FlvSetting.resources
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\NetTest.frmAbout.resources
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\NetTest.frmMain.resources
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\NetTest.frmTips.resources
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\NetTest.Properties.Resources.resources
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\NetTest.exe.licenses
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\NetTest.exe.manifest
+C:\Users\cy\Documents\Tencent Files\992928827\FileRecv\Request Busi - 5-16\obj\Debug\NetTest.application
+F:\Request Busi - 5-16\obj\Debug\Interop.Microsoft.Office.Core.dll
+F:\Request Busi - 5-16\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+F:\Request Busi - 5-16\obj\Debug\Interop.Shell32.dll
+F:\Request Busi - 5-16\obj\Debug\Interop.VBIDE.dll
+F:\Request Busi - 5-16\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+F:\Request Busi - 5-16\obj\Debug\NetTest.exe
+F:\Request Busi - 5-16\obj\Debug\NetTest.pdb
+F:\Request Busi - 5-16\bin\NetTest\NetTest.exe.manifest
+F:\Request Busi - 5-16\bin\NetTest\NetTest.application
+F:\Request Busi - 5-16\bin\NetTest\NetTest.exe
+F:\Request Busi - 5-16\bin\NetTest\NetTest.pdb
+F:\Request Busi - 5-16\bin\NetTest\csExWB.dll
+F:\Request Busi - 5-16\bin\NetTest\CSockets.dll
+F:\Request Busi - 5-16\bin\NetTest\FTPCom.dll
+F:\Request Busi - 5-16\bin\NetTest\MIMEParser.dll
+F:\Request Busi - 5-16\bin\NetTest\OpenPOP.dll
+F:\Request Busi - 5-16\bin\NetTest\SQLite.NET.dll
+F:\Request Busi - 5-16\bin\NetTest\Tamir.IPLib.SharpPcap.dll
+F:\Request Busi - 5-16\bin\NetTest\Interop.Microsoft.Office.Core.dll
+F:\Request Busi - 5-16\bin\NetTest\Interop.Microsoft.Office.Interop.Excel.dll
+F:\Request Busi - 5-16\bin\NetTest\Interop.Shell32.dll
+F:\Request Busi - 5-16\bin\NetTest\Interop.VBIDE.dll
+F:\Request Busi - 5-16\obj\Debug\ResolveAssemblyReference.cache
+F:\Request Busi - 5-16\obj\Debug\NetTest.FlvLocalAnalys.resources
+F:\Request Busi - 5-16\obj\Debug\NetTest.FlvRtspAnalys.resources
+F:\Request Busi - 5-16\obj\Debug\NetTest.FlvWebAnalyze.resources
+F:\Request Busi - 5-16\obj\Debug\NetTest.FlvTest.resources
+F:\Request Busi - 5-16\obj\Debug\NetTest.FlvSetting.resources
+F:\Request Busi - 5-16\obj\Debug\NetTest.frmAbout.resources
+F:\Request Busi - 5-16\obj\Debug\NetTest.frmMain.resources
+F:\Request Busi - 5-16\obj\Debug\NetTest.frmTips.resources
+F:\Request Busi - 5-16\obj\Debug\NetTest.Properties.Resources.resources
+F:\Request Busi - 5-16\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+F:\Request Busi - 5-16\obj\Debug\NetTest.exe.licenses
+F:\Request Busi - 5-16\obj\Debug\NetTest.exe.manifest
+F:\Request Busi - 5-16\obj\Debug\NetTest.application
+F:\Request Busi - 5-16\bin\NetTest\NetTest.exe.config
+C:\Users\aa\Request Busi\bin\NetTest\NetTest.exe.config
+C:\Users\aa\Request Busi\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\aa\Request Busi\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+C:\Users\aa\Request Busi\obj\Debug\Interop.Shell32.dll
+C:\Users\aa\Request Busi\obj\Debug\Interop.VBIDE.dll
+C:\Users\aa\Request Busi\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+C:\Users\aa\Request Busi\obj\Debug\NetTest.exe
+C:\Users\aa\Request Busi\obj\Debug\NetTest.pdb
+C:\Users\aa\Request Busi\bin\NetTest\NetTest.exe.manifest
+C:\Users\aa\Request Busi\bin\NetTest\NetTest.application
+C:\Users\aa\Request Busi\bin\NetTest\NetTest.exe
+C:\Users\aa\Request Busi\bin\NetTest\NetTest.pdb
+C:\Users\aa\Request Busi\bin\NetTest\csExWB.dll
+C:\Users\aa\Request Busi\bin\NetTest\CSockets.dll
+C:\Users\aa\Request Busi\bin\NetTest\FTPCom.dll
+C:\Users\aa\Request Busi\bin\NetTest\MIMEParser.dll
+C:\Users\aa\Request Busi\bin\NetTest\OpenPOP.dll
+C:\Users\aa\Request Busi\bin\NetTest\SQLite.NET.dll
+C:\Users\aa\Request Busi\bin\NetTest\Tamir.IPLib.SharpPcap.dll
+C:\Users\aa\Request Busi\bin\NetTest\Interop.Microsoft.Office.Core.dll
+C:\Users\aa\Request Busi\bin\NetTest\Interop.Microsoft.Office.Interop.Excel.dll
+C:\Users\aa\Request Busi\bin\NetTest\Interop.Shell32.dll
+C:\Users\aa\Request Busi\bin\NetTest\Interop.VBIDE.dll
+C:\Users\aa\Request Busi\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\aa\Request Busi\obj\Debug\NetTest.FlvLocalAnalys.resources
+C:\Users\aa\Request Busi\obj\Debug\NetTest.FlvRtspAnalys.resources
+C:\Users\aa\Request Busi\obj\Debug\NetTest.FlvWebAnalyze.resources
+C:\Users\aa\Request Busi\obj\Debug\NetTest.FlvTest.resources
+C:\Users\aa\Request Busi\obj\Debug\NetTest.FlvSetting.resources
+C:\Users\aa\Request Busi\obj\Debug\NetTest.frmAbout.resources
+C:\Users\aa\Request Busi\obj\Debug\NetTest.frmMain.resources
+C:\Users\aa\Request Busi\obj\Debug\NetTest.frmTips.resources
+C:\Users\aa\Request Busi\obj\Debug\NetTest.Properties.Resources.resources
+C:\Users\aa\Request Busi\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+C:\Users\aa\Request Busi\obj\Debug\NetTest.exe.licenses
+C:\Users\aa\Request Busi\obj\Debug\NetTest.exe.manifest
+C:\Users\aa\Request Busi\obj\Debug\NetTest.application
+C:\Users\think\Desktop\Request Busi\bin\NetTest\NetTest.exe.config
+C:\Users\think\Desktop\Request Busi\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\think\Desktop\Request Busi\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+C:\Users\think\Desktop\Request Busi\obj\Debug\Interop.Shell32.dll
+C:\Users\think\Desktop\Request Busi\obj\Debug\Interop.VBIDE.dll
+C:\Users\think\Desktop\Request Busi\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+C:\Users\think\Desktop\Request Busi\obj\Debug\NetTest.exe
+C:\Users\think\Desktop\Request Busi\obj\Debug\NetTest.pdb
+C:\Users\think\Desktop\Request Busi\bin\NetTest\NetTest.exe.manifest
+C:\Users\think\Desktop\Request Busi\bin\NetTest\NetTest.application
+C:\Users\think\Desktop\Request Busi\bin\NetTest\NetTest.exe
+C:\Users\think\Desktop\Request Busi\bin\NetTest\NetTest.pdb
+C:\Users\think\Desktop\Request Busi\bin\NetTest\csExWB.dll
+C:\Users\think\Desktop\Request Busi\bin\NetTest\CSockets.dll
+C:\Users\think\Desktop\Request Busi\bin\NetTest\FTPCom.dll
+C:\Users\think\Desktop\Request Busi\bin\NetTest\MIMEParser.dll
+C:\Users\think\Desktop\Request Busi\bin\NetTest\OpenPOP.dll
+C:\Users\think\Desktop\Request Busi\bin\NetTest\SQLite.NET.dll
+C:\Users\think\Desktop\Request Busi\bin\NetTest\Tamir.IPLib.SharpPcap.dll
+C:\Users\think\Desktop\Request Busi\bin\NetTest\Interop.Microsoft.Office.Core.dll
+C:\Users\think\Desktop\Request Busi\bin\NetTest\Interop.Microsoft.Office.Interop.Excel.dll
+C:\Users\think\Desktop\Request Busi\bin\NetTest\Interop.Shell32.dll
+C:\Users\think\Desktop\Request Busi\bin\NetTest\Interop.VBIDE.dll
+C:\Users\think\Desktop\Request Busi\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\think\Desktop\Request Busi\obj\Debug\NetTest.FlvLocalAnalys.resources
+C:\Users\think\Desktop\Request Busi\obj\Debug\NetTest.FlvRtspAnalys.resources
+C:\Users\think\Desktop\Request Busi\obj\Debug\NetTest.FlvWebAnalyze.resources
+C:\Users\think\Desktop\Request Busi\obj\Debug\NetTest.FlvTest.resources
+C:\Users\think\Desktop\Request Busi\obj\Debug\NetTest.FlvSetting.resources
+C:\Users\think\Desktop\Request Busi\obj\Debug\NetTest.frmAbout.resources
+C:\Users\think\Desktop\Request Busi\obj\Debug\NetTest.frmMain.resources
+C:\Users\think\Desktop\Request Busi\obj\Debug\NetTest.frmTips.resources
+C:\Users\think\Desktop\Request Busi\obj\Debug\NetTest.Properties.Resources.resources
+C:\Users\think\Desktop\Request Busi\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+C:\Users\think\Desktop\Request Busi\obj\Debug\NetTest.exe.licenses
+C:\Users\think\Desktop\Request Busi\obj\Debug\NetTest.exe.manifest
+C:\Users\think\Desktop\Request Busi\obj\Debug\NetTest.application
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\bin\NetTest\NetTest.exe.config
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\Interop.Shell32.dll
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\Interop.VBIDE.dll
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\NetTest.exe
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\NetTest.pdb
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\bin\NetTest\NetTest.exe.manifest
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\bin\NetTest\NetTest.application
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\bin\NetTest\NetTest.exe
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\bin\NetTest\NetTest.pdb
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\bin\NetTest\csExWB.dll
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\bin\NetTest\CSockets.dll
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\bin\NetTest\FTPCom.dll
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\bin\NetTest\MIMEParser.dll
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\bin\NetTest\OpenPOP.dll
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\bin\NetTest\SQLite.NET.dll
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\bin\NetTest\Tamir.IPLib.SharpPcap.dll
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\bin\NetTest\Interop.Microsoft.Office.Interop.Excel.dll
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\bin\NetTest\Interop.Shell32.dll
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\bin\NetTest\Interop.VBIDE.dll
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\ResolveAssemblyReference.cache
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\NetTest.FlvLocalAnalys.resources
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\NetTest.FlvRtspAnalys.resources
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\NetTest.FlvWebAnalyze.resources
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\NetTest.FlvTest.resources
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\NetTest.FlvSetting.resources
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\NetTest.frmAbout.resources
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\NetTest.frmMain.resources
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\NetTest.frmTips.resources
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\NetTest.Properties.Resources.resources
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\NetTest.exe.licenses
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\NetTest.exe.manifest
+D:\华哲\NetTest_muti\NetTest_muti_与平台无关版本\Request Busi\obj\Debug\NetTest.application
+F:\vlc视频\Request Busi\bin\NetTest\NetTest.exe.config
+F:\vlc视频\Request Busi\obj\Debug\Interop.Microsoft.Office.Core.dll
+F:\vlc视频\Request Busi\obj\Debug\Interop.Shell32.dll
+F:\vlc视频\Request Busi\obj\Debug\Interop.VBIDE.dll
+F:\vlc视频\Request Busi\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+F:\vlc视频\Request Busi\obj\Debug\NetTest.exe
+F:\vlc视频\Request Busi\obj\Debug\NetTest.pdb
+E:\实验室项目\vlc视频质量检测\源代码\Request+Busi（20160528）\Request Busi\bin\NetTest\NetTest.exe.config
+E:\实验室项目\vlc视频质量检测\源代码\Request+Busi（20160528）\Request Busi\obj\Debug\Interop.Microsoft.Office.Core.dll
+E:\实验室项目\vlc视频质量检测\源代码\Request+Busi（20160528）\Request Busi\obj\Debug\Interop.Shell32.dll
+E:\实验室项目\vlc视频质量检测\源代码\Request+Busi（20160528）\Request Busi\obj\Debug\Interop.VBIDE.dll
+E:\实验室项目\vlc视频质量检测\源代码\Request+Busi（20160528）\Request Busi\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+E:\实验室项目\vlc视频质量检测\源代码\Request+Busi（20160528）\Request Busi\obj\Debug\NetTest.exe
+E:\实验室项目\vlc视频质量检测\源代码\Request+Busi（20160528）\Request Busi\obj\Debug\NetTest.pdb
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\NetTest.exe.config
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\Interop.Shell32.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\Interop.VBIDE.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.exe
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.pdb
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\findIeUrl.py
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\findIeUrl2.py
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\parseUrl.py
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\NetTest.exe.manifest
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\NetTest.application
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\NetTest.exe
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\NetTest.pdb
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\csExWB.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\CSockets.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\FTPCom.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\IronPython.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\IronPython.Modules.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\Microsoft.Dynamic.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\Microsoft.Scripting.Core.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\Microsoft.Scripting.Debugging.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\Microsoft.Scripting.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\MIMEParser.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\MySql.Data.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\OpenPOP.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\SQLite.NET.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\Microsoft.Scripting.ExtensionAttribute.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\Newtonsoft.Json.pdb
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\Newtonsoft.Json.xml
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\IronPython.Modules.xml
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\IronPython.xml
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\Interop.Microsoft.Office.Core.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\Interop.Shell32.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\Interop.VBIDE.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.FlvWebAnalyze.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.FlvTest.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.FlvSetting.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.frmAbout.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.frmMain.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.frmTips.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.Properties.Resources.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.WebAnalyse.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.WebSettings.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.WebTest.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.exe.licenses
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.exe.manifest
+C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.application
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\findIeUrl.py
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\findIeUrl2.py
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\parseUrl.py
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\NetTest.exe.config
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\NetTest.exe.manifest
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\NetTest.application
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\NetTest.exe
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\NetTest.pdb
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\csExWB.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\CSockets.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\FTPCom.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\MIMEParser.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\MySql.Data.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\OpenPOP.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\SQLite.NET.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\Newtonsoft.Json.pdb
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\Newtonsoft.Json.xml
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\Interop.Microsoft.Office.Core.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\Interop.Shell32.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\Interop.VBIDE.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\Interop.Shell32.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\Interop.VBIDE.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.FlvWebAnalyze.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.FlvTest.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.FlvSetting.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.frmAbout.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.frmMain.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.frmTips.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.Properties.Resources.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.WebAnalyse.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.WebSettings.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.WebTest.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.exe.licenses
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.exe.manifest
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.application
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.exe
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.pdb
+C:\Users\Administrator\Desktop\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\log4net.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\NetTest.exe.config
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\Interop.Shell32.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\Interop.VBIDE.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.exe
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.pdb
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\findIeUrl.py
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\findIeUrl2.py
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\parseUrl.py
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\NetTest.exe.manifest
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\NetTest.application
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\NetTest.exe
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\NetTest.pdb
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\csExWB.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\CSockets.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\FTPCom.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\log4net.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\MIMEParser.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\MySql.Data.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\OpenPOP.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\SQLite.NET.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\Newtonsoft.Json.pdb
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\Newtonsoft.Json.xml
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\Interop.Microsoft.Office.Core.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\Interop.Shell32.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\bin\NetTest\Interop.VBIDE.dll
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.FlvWebAnalyze.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.FlvTest.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.FlvSetting.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.frmAbout.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.frmMain.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.frmTips.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.Properties.Resources.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.WebAnalyse.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.WebSettings.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.WebTest.resources
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.exe.licenses
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.exe.manifest
+C:\Users\Administrator\Desktop\RequestBusi（20161107）\RequestBusi（20161102）\RequestBusi（20161028）\Request Busi\obj\Debug\NetTest.application
+E:\RequestBusi20161109\bin\NetTest\NetTest.exe.config
+E:\RequestBusi20161109\obj\Debug\Interop.Microsoft.Office.Core.dll
+E:\RequestBusi20161109\obj\Debug\Interop.Shell32.dll
+E:\RequestBusi20161109\obj\Debug\Interop.VBIDE.dll
+E:\RequestBusi20161109\obj\Debug\Request Busi.csproj.ResolveComReference.cache
+E:\RequestBusi20161109\obj\Debug\NetTest.exe
+E:\RequestBusi20161109\obj\Debug\NetTest.pdb
+E:\RequestBusi20161109\bin\NetTest\findIeUrl.py
+E:\RequestBusi20161109\bin\NetTest\findIeUrl2.py
+E:\RequestBusi20161109\bin\NetTest\parseUrl.py
+E:\RequestBusi20161109\bin\NetTest\NetTest.exe.manifest
+E:\RequestBusi20161109\bin\NetTest\NetTest.application
+E:\RequestBusi20161109\bin\NetTest\NetTest.exe
+E:\RequestBusi20161109\bin\NetTest\csExWB.dll
+E:\RequestBusi20161109\bin\NetTest\CSockets.dll
+E:\RequestBusi20161109\bin\NetTest\FTPCom.dll
+E:\RequestBusi20161109\bin\NetTest\log4net.dll
+E:\RequestBusi20161109\bin\NetTest\MIMEParser.dll
+E:\RequestBusi20161109\bin\NetTest\MySql.Data.dll
+E:\RequestBusi20161109\bin\NetTest\Newtonsoft.Json.dll
+E:\RequestBusi20161109\bin\NetTest\OpenPOP.dll
+E:\RequestBusi20161109\bin\NetTest\SQLite.NET.dll
+E:\RequestBusi20161109\bin\NetTest\Newtonsoft.Json.pdb
+E:\RequestBusi20161109\bin\NetTest\Newtonsoft.Json.xml
+E:\RequestBusi20161109\obj\Debug\ResolveAssemblyReference.cache
+E:\RequestBusi20161109\obj\Debug\NetTest.FlvWebAnalyze.resources
+E:\RequestBusi20161109\obj\Debug\NetTest.FlvTest.resources
+E:\RequestBusi20161109\obj\Debug\NetTest.FlvSetting.resources
+E:\RequestBusi20161109\obj\Debug\NetTest.frmAbout.resources
+E:\RequestBusi20161109\obj\Debug\NetTest.frmMain.resources
+E:\RequestBusi20161109\obj\Debug\NetTest.frmTips.resources
+E:\RequestBusi20161109\obj\Debug\NetTest.Properties.Resources.resources
+E:\RequestBusi20161109\obj\Debug\NetTest.WebAnalyse.resources
+E:\RequestBusi20161109\obj\Debug\NetTest.WebSettings.resources
+E:\RequestBusi20161109\obj\Debug\NetTest.WebTest.resources
+E:\RequestBusi20161109\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+E:\RequestBusi20161109\obj\Debug\NetTest.exe.licenses
+E:\RequestBusi20161109\obj\Debug\NetTest.exe.manifest
+E:\RequestBusi20161109\obj\Debug\NetTest.application
+E:\RequestBusi20161109\bin\NetTest\NetTest.pdb
+E:\RequestBusi20161109\bin\NetTest\Interop.Microsoft.Office.Core.dll
+E:\RequestBusi20161109\bin\NetTest\Interop.Shell32.dll
+E:\RequestBusi20161109\bin\NetTest\Interop.VBIDE.dll

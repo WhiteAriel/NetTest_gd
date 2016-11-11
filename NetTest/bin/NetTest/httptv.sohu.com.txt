@@ -1,0 +1,4 @@
+["http://data.vod.itc.cn/?rb=1&prot=1&key=jbZhEJhlqlUN-Wj_HEI8BjaVqKNFvDrn&prod=flash&pt=1&new=/251/187/Nsfp4Iehe3oZamNDlNsMa7.mp4", 
+"http://data.vod.itc.cn/?rb=1&prot=1&key=jbZhEJhlqlUN-Wj_HEI8BjaVqKNFvDrn&prod=flash&pt=1&new=/215/182/HK7oe8wPoRRNjFSI5F4JiF.mp4",
+ "http://data.vod.itc.cn/?rb=1&prot=1&key=jbZhEJhlqlUN-Wj_HEI8BjaVqKNFvDrn&prod=flash&pt=1&new=/38/237/DNCIt8p7IX1CfDSUHIe9qF.mp4", 
+"http://data.vod.itc.cn/?rb=1&prot=1&key=jbZhEJhlqlUN-Wj_HEI8BjaVqKNFvDrn&prod=flash&pt=1&new=/170/112/dS8VXLRbIKZOM9b5K9eFBF.mp4"]

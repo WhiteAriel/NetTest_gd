@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="NetTest">
+</Property><Property Name="解决方案文件" Value="C:\NetTest\NetTest.sln">
+</Property><Property Name="用户选项文件" Value="C:\NetTest\NetTest.suo">
+</Property><Property Name="Date" Value="2010年10月8日">
+</Property><Property Name="Time" Value="21:51">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="NetTest.sln" Description="文件已成功备份为 C:\NetTest\Backup\NetTest.sln">
+</Event><Event ErrorLevel="0" Project="" Source="NetTest.suo" Description="文件已成功备份为 C:\NetTest\Backup\NetTest.suo">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="NetTest.csproj" Description="项目文件已成功备份为 C:\NetTest\Backup\NetTest.csproj">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="NetTest.csproj.user" Description="项目用户文件成功备份为 C:\NetTest\Backup\NetTest.csproj.user">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="AllForms.cs" Description="文件已成功备份为 C:\NetTest\Backup\AllForms.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="CacheClear.cs" Description="文件已成功备份为 C:\NetTest\Backup\CacheClear.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="CMyPipe.cs" Description="文件已成功备份为 C:\NetTest\Backup\CMyPipe.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="ExcelWriter.cs" Description="文件已成功备份为 C:\NetTest\Backup\ExcelWriter.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="ExtractIcon.cs" Description="文件已成功备份为 C:\NetTest\Backup\ExtractIcon.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="FlvSetting.cs" Description="文件已成功备份为 C:\NetTest\Backup\FlvSetting.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="FlvSetting.Designer.cs" Description="文件已成功备份为 C:\NetTest\Backup\FlvSetting.Designer.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="frmAbout.cs" Description="文件已成功备份为 C:\NetTest\Backup\frmAbout.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="frmAbout.Designer.cs" Description="文件已成功备份为 C:\NetTest\Backup\frmAbout.Designer.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="frmFTPTips.cs" Description="文件已成功备份为 C:\NetTest\Backup\frmFTPTips.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="frmFTPTips.Designer.cs" Description="文件已成功备份为 C:\NetTest\Backup\frmFTPTips.Designer.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="frmMain.cs" Description="文件已成功备份为 C:\NetTest\Backup\frmMain.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="frmMain.Designer.cs" Description="文件已成功备份为 C:\NetTest\Backup\frmMain.Designer.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="frmTips.cs" Description="文件已成功备份为 C:\NetTest\Backup\frmTips.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="frmTips.Designer.cs" Description="文件已成功备份为 C:\NetTest\Backup\frmTips.Designer.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="FtpClient.cs" Description="文件已成功备份为 C:\NetTest\Backup\FtpClient.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="FTPSettings.cs" Description="文件已成功备份为 C:\NetTest\Backup\FTPSettings.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="FTPSettings.Designer.cs" Description="文件已成功备份为 C:\NetTest\Backup\FTPSettings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="FTPTest.cs" Description="文件已成功备份为 C:\NetTest\Backup\FTPTest.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="FTPTest.Designer.cs" Description="文件已成功备份为 C:\NetTest\Backup\FTPTest.Designer.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="ini.cs" Description="文件已成功备份为 C:\NetTest\Backup\ini.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="JParser.cs" Description="文件已成功备份为 C:\NetTest\Backup\JParser.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="ListViewColumnSorter.cs" Description="文件已成功备份为 C:\NetTest\Backup\ListViewColumnSorter.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="MailSet.cs" Description="文件已成功备份为 C:\NetTest\Backup\MailSet.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="MailSet.Designer.cs" Description="文件已成功备份为 C:\NetTest\Backup\MailSet.Designer.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="MailTest.cs" Description="文件已成功备份为 C:\NetTest\Backup\MailTest.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="MailTest.Designer.cs" Description="文件已成功备份为 C:\NetTest\Backup\MailTest.Designer.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="Program.cs" Description="文件已成功备份为 C:\NetTest\Backup\Program.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="Properties\AssemblyInfo.cs" Description="文件已成功备份为 C:\NetTest\Backup\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="Properties\Resources.Designer.cs" Description="文件已成功备份为 C:\NetTest\Backup\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="Properties\Settings.Designer.cs" Description="文件已成功备份为 C:\NetTest\Backup\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="QuickRegistry.cs" Description="文件已成功备份为 C:\NetTest\Backup\QuickRegistry.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="ReceiveMail.cs" Description="文件已成功备份为 C:\NetTest\Backup\ReceiveMail.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="FlvTest.cs" Description="文件已成功备份为 C:\NetTest\Backup\FlvTest.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="FlvTest.Designer.cs" Description="文件已成功备份为 C:\NetTest\Backup\FlvTest.Designer.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="WebSettings.cs" Description="文件已成功备份为 C:\NetTest\Backup\WebSettings.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="WebSettings.Designer.cs" Description="文件已成功备份为 C:\NetTest\Backup\WebSettings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="WebTest.cs" Description="文件已成功备份为 C:\NetTest\Backup\WebTest.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="WebTest.Designer.cs" Description="文件已成功备份为 C:\NetTest\Backup\WebTest.Designer.cs">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="ClassDiagram1.cd" Description="文件已成功备份为 C:\NetTest\Backup\ClassDiagram1.cd">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="NetTest_TemporaryKey.pfx" Description="文件已成功备份为 C:\NetTest\Backup\NetTest_TemporaryKey.pfx">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="Properties\Settings.settings" Description="文件已成功备份为 C:\NetTest\Backup\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="Resources\navBarWebSet.LargeImage.png" Description="文件已成功备份为 C:\NetTest\Backup\Resources\navBarWebSet.LargeImage.png">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="Shuffle.ico" Description="文件已成功备份为 C:\NetTest\Backup\Shuffle.ico">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="FlvTest.resx" Description="文件已成功备份为 C:\NetTest\Backup\FlvTest.resx">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="FlvSetting.resx" Description="文件已成功备份为 C:\NetTest\Backup\FlvSetting.resx">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="frmAbout.resx" Description="文件已成功备份为 C:\NetTest\Backup\frmAbout.resx">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="frmFTPTips.resx" Description="文件已成功备份为 C:\NetTest\Backup\frmFTPTips.resx">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="frmMain.resx" Description="文件已成功备份为 C:\NetTest\Backup\frmMain.resx">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="frmTips.resx" Description="文件已成功备份为 C:\NetTest\Backup\frmTips.resx">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="FTPSettings.resx" Description="文件已成功备份为 C:\NetTest\Backup\FTPSettings.resx">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="FTPTest.resx" Description="文件已成功备份为 C:\NetTest\Backup\FTPTest.resx">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="MailSet.resx" Description="文件已成功备份为 C:\NetTest\Backup\MailSet.resx">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="MailTest.resx" Description="文件已成功备份为 C:\NetTest\Backup\MailTest.resx">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="Properties\Resources.resx" Description="文件已成功备份为 C:\NetTest\Backup\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="WebSettings.resx" Description="文件已成功备份为 C:\NetTest\Backup\WebSettings.resx">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="WebTest.resx" Description="文件已成功备份为 C:\NetTest\Backup\WebTest.resx">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="NetTest.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="NetTest" Source="NetTest.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="NetTest.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="NetTest.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="NetTest" Source="NetTest.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event></UpgradeLog>

@@ -1,0 +1,900 @@
+ VlcDialog
+
+ Timestamp is 4eddc137 (Tue Dec 06 15:16:07 2011)
+
+ Preferred load address is 00400000
+
+ Start         Length     Name                   Class
+ 0001:00000000 0000802cH .text                   CODE
+ 0001:00008030 00000435H .text$x                 CODE
+ 0002:00000000 000000b8H .text                   CODE
+ 0003:00000000 00000448H .idata$5                DATA
+ 0003:00000448 000008d4H .rdata                  DATA
+ 0003:00000d20 0000045cH .rdata$r                DATA
+ 0003:00001180 00000448H .xdata$x                DATA
+ 0003:000015c8 000000dcH .idata$2                DATA
+ 0003:000016a4 00000014H .idata$3                DATA
+ 0003:000016b8 00000448H .idata$4                DATA
+ 0003:00001b00 000008f0H .idata$6                DATA
+ 0003:000023f0 00000068H .idata$7                DATA
+ 0003:00002458 00000000H .edata                  DATA
+ 0004:00000000 00000004H .CRT$XCA                DATA
+ 0004:00000004 00000004H .CRT$XCL                DATA
+ 0004:00000008 0000000cH .CRT$XCU                DATA
+ 0004:00000014 00000004H .CRT$XCZ                DATA
+ 0004:00000018 00000004H .CRT$XIA                DATA
+ 0004:0000001c 00000004H .CRT$XIZ                DATA
+ 0004:00000020 00000614H .data                   DATA
+ 0004:00000638 00003d5cH .bss                    DATA
+ 0005:00000000 00000718H .rsrc$01                DATA
+ 0005:00000720 00007520H .rsrc$02                DATA
+
+  Address         Publics by Value              Rva+Base     Lib:Object
+
+ 0001:00000000       _WinMain@16                00401000 f   APPMODUL.OBJ
+ 0001:0000001c       ?AfxInitialize@@YGHHK@Z    0040101c f   APPMODUL.OBJ
+ 0001:00000080       ?init_blockMem@@YAXHH@Z    00401080 f   ComputeBlock.obj
+ 0001:00000138       ?clear_blockMem@@YAXHH@Z   00401138 f   ComputeBlock.obj
+ 0001:000001d8       ?CopyMemData@@YAXPAEHH@Z   004011d8 f   ComputeBlock.obj
+ 0001:0000023e       ?ComputeGBIM@@YANHH@Z      0040123e f   ComputeBlock.obj
+ 0001:00000c0b       ?ComputeHighEnengy@@YANHHPAN000@Z 00401c0b f   ComputeBlock.obj
+ 0001:00000e0f       ?forward8x8@@YANPAPAH0HH@Z 00401e0f f   ComputeBlock.obj
+ 0001:00001710       ??1CScreen@@QAE@XZ         00402710 f   CScreen.obj
+ 0001:00001796       ?GetScreen@CScreen@@QAEXXZ 00402796 f   CScreen.obj
+ 0001:00001803       ?GetScreen@CScreen@@QAEXHHHH@Z 00402803 f   CScreen.obj
+ 0001:00001870       ?SetScreentoPath@CScreen@@QAEXPAD@Z 00402870 f   CScreen.obj
+ 0001:000018fe       ?SetScreen@CScreen@@QAEXXZ 004028fe f   CScreen.obj
+ 0001:0000194b       ?SetScreen@CScreen@@QAEXHHHH@Z 0040294b f   CScreen.obj
+ 0001:000019cb       ?JoinScrData@CScreen@@QAEXPAD@Z 004029cb f   CScreen.obj
+ 0001:00001a00       ?_GetBaseMessageMap@CVlcDialogApp@@KGPBUAFX_MSGMAP@@XZ 00402a00 f   VlcDialog.obj
+ 0001:00001a0a       ?GetMessageMap@CVlcDialogApp@@MBEPBUAFX_MSGMAP@@XZ 00402a0a f   VlcDialog.obj
+ 0001:00001a1a       ??0CVlcDialogApp@@QAE@XZ   00402a1a f   VlcDialog.obj
+ 0001:00001a7a       ?InitInstance@CVlcDialogApp@@UAEHXZ 00402a7a f   VlcDialog.obj
+ 0001:00001b10       ?Serialize@CObject@@UAEXAAVCArchive@@@Z 00402b10 f i VlcDialog.obj
+ 0001:00001b20       ?AssertValid@CObject@@UBEXXZ 00402b20 f i VlcDialog.obj
+ 0001:00001b30       ?Dump@CObject@@UBEXAAVCDumpContext@@@Z 00402b30 f i VlcDialog.obj
+ 0001:00001b40       ??_GCVlcDialogApp@@UAEPAXI@Z 00402b40 f i VlcDialog.obj
+ 0001:00001b40       ??_ECVlcDialogApp@@UAEPAXI@Z 00402b40 f i VlcDialog.obj
+ 0001:00001b70       ??1CVlcDialogApp@@UAE@XZ   00402b70 f i VlcDialog.obj
+ 0001:00001c12       ??0CAboutDlg@@QAE@XZ       00402c12 f   VlcDialogDlg.obj
+ 0001:00001c9f       ?OnInitDialog@CAboutDlg@@MAEHXZ 00402c9f f   VlcDialogDlg.obj
+ 0001:00001d54       ?DoDataExchange@CAboutDlg@@MAEXPAVCDataExchange@@@Z 00402d54 f   VlcDialogDlg.obj
+ 0001:00001d8e       ?_GetBaseMessageMap@CAboutDlg@@KGPBUAFX_MSGMAP@@XZ 00402d8e f   VlcDialogDlg.obj
+ 0001:00001d98       ?GetMessageMap@CAboutDlg@@MBEPBUAFX_MSGMAP@@XZ 00402d98 f   VlcDialogDlg.obj
+ 0001:00001da8       ??0CVlcDialogDlg@@QAE@PAVCWnd@@@Z 00402da8 f   VlcDialogDlg.obj
+ 0001:00002228       ??1CVlcDialogDlg@@UAE@XZ   00403228 f   VlcDialogDlg.obj
+ 0001:0000249b       ?DoDataExchange@CVlcDialogDlg@@MAEXPAVCDataExchange@@@Z 0040349b f   VlcDialogDlg.obj
+ 0001:000025db       ?_GetBaseMessageMap@CVlcDialogDlg@@KGPBUAFX_MSGMAP@@XZ 004035db f   VlcDialogDlg.obj
+ 0001:000025e5       ?GetMessageMap@CVlcDialogDlg@@MBEPBUAFX_MSGMAP@@XZ 004035e5 f   VlcDialogDlg.obj
+ 0001:000025f5       ?OnInitDialog@CVlcDialogDlg@@MAEHXZ 004035f5 f   VlcDialogDlg.obj
+ 0001:000033e0       ?RecalcLayout@CVlcDialogDlg@@IAEXHH@Z 004043e0 f   VlcDialogDlg.obj
+ 0001:00003581       ?OnSysCommand@CVlcDialogDlg@@IAEXIJ@Z 00404581 f   VlcDialogDlg.obj
+ 0001:0000361c       ?OnPaint@CVlcDialogDlg@@IAEXXZ 0040461c f   VlcDialogDlg.obj
+ 0001:00003764       ?OnQueryDragIcon@CVlcDialogDlg@@IAEPAUHICON__@@XZ 00404764 f   VlcDialogDlg.obj
+ 0001:00003778       ?OnHScroll@CVlcDialogDlg@@IAEXIIPAVCScrollBar@@@Z 00404778 f   VlcDialogDlg.obj
+ 0001:000038ef       ?OnShowWindow@CVlcDialogDlg@@IAEXHI@Z 004048ef f   VlcDialogDlg.obj
+ 0001:00003904       ?OnBnClickedButtonPlay@CVlcDialogDlg@@IAEXXZ 00404904 f   VlcDialogDlg.obj
+ 0001:0000391a       ?OnBnClickedButtonStop@CVlcDialogDlg@@IAEXXZ 0040491a f   VlcDialogDlg.obj
+ 0001:00003b9f       ?OnBnClickedButtonPause@CVlcDialogDlg@@IAEXXZ 00404b9f f   VlcDialogDlg.obj
+ 0001:00003c0a       ?OnBnClickedButtonMute@CVlcDialogDlg@@IAEXXZ 00404c0a f   VlcDialogDlg.obj
+ 0001:00003cb2       ?OnBnClickedButtonLoad@CVlcDialogDlg@@IAEXXZ 00404cb2 f   VlcDialogDlg.obj
+ 0001:00003ff7       ?CacuQoe@CVlcDialogDlg@@QAEXXZ 00404ff7 f   VlcDialogDlg.obj
+ 0001:000044a5       ?CacuHist@CVlcDialogDlg@@QAEXXZ 004054a5 f   VlcDialogDlg.obj
+ 0001:0000464c       ?PipeData@CVlcDialogDlg@@QAEXXZ 0040564c f   VlcDialogDlg.obj
+ 0001:0000481b       ?OnBnClickedButtonSnapshot@CVlcDialogDlg@@IAEXXZ 0040581b f   VlcDialogDlg.obj
+ 0001:00005363       ?display@CVlcDialogDlg@@QAEXNNNPAN0NN@Z 00406363 f   VlcDialogDlg.obj
+ 0001:00005805       ?OnOK@CVlcDialogDlg@@MAEXXZ 00406805 f   VlcDialogDlg.obj
+ 0001:00005818       ?UpdatePosition@CVlcDialogDlg@@QAEXXZ 00406818 f   VlcDialogDlg.obj
+ 0001:000059df       ?OnSize@CVlcDialogDlg@@IAEXIHH@Z 004069df f   VlcDialogDlg.obj
+ 0001:00005a15       ?OnGetMinMaxInfo@CVlcDialogDlg@@IAEXPAUtagMINMAXINFO@@@Z 00406a15 f   VlcDialogDlg.obj
+ 0001:00005a4f       ?OnTimer@CVlcDialogDlg@@IAEXI@Z 00406a4f f   VlcDialogDlg.obj
+ 0001:00005bd3       ?OnClose@CVlcDialogDlg@@IAEXXZ 00406bd3 f   VlcDialogDlg.obj
+ 0001:00005c3b       ?TransFrameData@CVlcDialogDlg@@QAEXPAE0HHHHHH@Z 00406c3b f   VlcDialogDlg.obj
+ 0001:00005e70       ??_GCAboutDlg@@UAEPAXI@Z   00406e70 f i VlcDialogDlg.obj
+ 0001:00005e70       ??_ECAboutDlg@@UAEPAXI@Z   00406e70 f i VlcDialogDlg.obj
+ 0001:00005ea0       ??1CAboutDlg@@UAE@XZ       00406ea0 f i VlcDialogDlg.obj
+ 0001:00005f00       ??_GCObject@@UAEPAXI@Z     00406f00 f i VlcDialogDlg.obj
+ 0001:00005f00       ??_ECObject@@UAEPAXI@Z     00406f00 f i VlcDialogDlg.obj
+ 0001:00005f30       ??1CException@@UAE@XZ      00406f30 f i VlcDialogDlg.obj
+ 0001:00005f50       ??_ECException@@UAEPAXI@Z  00406f50 f i VlcDialogDlg.obj
+ 0001:00005f50       ??_GCException@@UAEPAXI@Z  00406f50 f i VlcDialogDlg.obj
+ 0001:00005f80       ??_GCFileException@@UAEPAXI@Z 00406f80 f i VlcDialogDlg.obj
+ 0001:00005f80       ??_ECFileException@@UAEPAXI@Z 00406f80 f i VlcDialogDlg.obj
+ 0001:00005fb0       ??1CFileException@@UAE@XZ  00406fb0 f i VlcDialogDlg.obj
+ 0001:00006010       ??_ECVlcDialogDlg@@UAEPAXI@Z 00407010 f i VlcDialogDlg.obj
+ 0001:00006010       ??_GCVlcDialogDlg@@UAEPAXI@Z 00407010 f i VlcDialogDlg.obj
+ 0001:00006040       ??1CObject@@UAE@XZ         00407040 f i VlcDialogDlg.obj
+ 0001:00006060       ?AfxTrace@@YAXPBDZZ        00407060 f i VlcDialogDlg.obj
+ 0001:00006070       ?GetCurTime@CVlcDialogDlg@@QAEXXZ 00407070 f i VlcDialogDlg.obj
+ 0001:00006170       ?DoDataExchange@CWnd@@MAEXPAVCDataExchange@@@Z 00407170 f i VlcDialogDlg.obj
+ 0001:00006180       ?BeginModalState@CWnd@@UAEXXZ 00407180 f i VlcDialogDlg.obj
+ 0001:000061a0       ?EndModalState@CWnd@@UAEXXZ 004071a0 f i VlcDialogDlg.obj
+ 0001:000061c0       ??_ECStatic@@UAEPAXI@Z     004071c0 f i VlcDialogDlg.obj
+ 0001:000061c0       ??_GCStatic@@UAEPAXI@Z     004071c0 f i VlcDialogDlg.obj
+ 0001:000061f0       ??_GCButton@@UAEPAXI@Z     004071f0 f i VlcDialogDlg.obj
+ 0001:000061f0       ??_ECButton@@UAEPAXI@Z     004071f0 f i VlcDialogDlg.obj
+ 0001:00006220       ??_ECEdit@@UAEPAXI@Z       00407220 f i VlcDialogDlg.obj
+ 0001:00006220       ??_GCEdit@@UAEPAXI@Z       00407220 f i VlcDialogDlg.obj
+ 0001:00006250       ??_ECSliderCtrl@@UAEPAXI@Z 00407250 f i VlcDialogDlg.obj
+ 0001:00006250       ??_GCSliderCtrl@@UAEPAXI@Z 00407250 f i VlcDialogDlg.obj
+ 0001:00006280       ??1?$CList@PAVCWnd@@PAV1@@@UAE@XZ 00407280 f i VlcDialogDlg.obj
+ 0001:00006360       ?Serialize@?$CList@PAVCWnd@@PAV1@@@UAEXAAVCArchive@@@Z 00407360 f i VlcDialogDlg.obj
+ 0001:000065a0       ??_G?$CList@PAVCWnd@@PAV1@@@UAEPAXI@Z 004075a0 f i VlcDialogDlg.obj
+ 0001:000065a0       ??_E?$CList@PAVCWnd@@PAV1@@@UAEPAXI@Z 004075a0 f i VlcDialogDlg.obj
+ 0001:000065d0       ?NewNode@?$CList@PAVCWnd@@PAV1@@@IAEPAUCNode@1@PAU21@0@Z 004075d0 f i VlcDialogDlg.obj
+ 0001:000066e0       ??0VLCWrapper@@QAE@XZ      004076e0 f   VLCWrapper.obj
+ 0001:00006761       ??1VLCWrapper@@QAE@XZ      00407761 f   VLCWrapper.obj
+ 0001:000067bd       ?SetOutputWindow@VLCWrapper@@QAEXPAX@Z 004077bd f   VLCWrapper.obj
+ 0001:000067e1       ?SetExceptionHandler@VLCWrapper@@QAEXP6AXPBD@Z@Z 004077e1 f   VLCWrapper.obj
+ 0001:00006805       ?SetEventHandler@VLCWrapper@@QAEXP6AXPBUlibvlc_event_t@@PAX@Z1@Z 00407805 f   VLCWrapper.obj
+ 0001:0000682d       ?Play@VLCWrapper@@QAEXXZ   0040782d f   VLCWrapper.obj
+ 0001:0000684b       ?Snapshot@VLCWrapper@@QAEXPADII@Z 0040784b f   VLCWrapper.obj
+ 0001:00006877       ?Pause@VLCWrapper@@QAEXXZ  00407877 f   VLCWrapper.obj
+ 0001:00006895       ?Stop@VLCWrapper@@QAEXXZ   00407895 f   VLCWrapper.obj
+ 0001:000068b3       ?GetLength@VLCWrapper@@QAE_JXZ 004078b3 f   VLCWrapper.obj
+ 0001:000068d1       ?GetTime@VLCWrapper@@QAE_JXZ 004078d1 f   VLCWrapper.obj
+ 0001:000068ef       ?SetTime@VLCWrapper@@QAEX_J@Z 004078ef f   VLCWrapper.obj
+ 0001:00006917       ?GetFps@VLCWrapper@@QAEMXZ 00407917 f   VLCWrapper.obj
+ 0001:00006935       ?GetHeight@VLCWrapper@@QAEHXZ 00407935 f   VLCWrapper.obj
+ 0001:00006953       ?GetWidth@VLCWrapper@@QAEHXZ 00407953 f   VLCWrapper.obj
+ 0001:00006971       ?Mute@VLCWrapper@@QAEX_N@Z 00407971 f   VLCWrapper.obj
+ 0001:00006995       ?GetMute@VLCWrapper@@QAE_NXZ 00407995 f   VLCWrapper.obj
+ 0001:000069b3       ?GetVolume@VLCWrapper@@QAEHXZ 004079b3 f   VLCWrapper.obj
+ 0001:000069d1       ?SetVolume@VLCWrapper@@QAEXH@Z 004079d1 f   VLCWrapper.obj
+ 0001:000069f5       ?OpenMedia@VLCWrapper@@QAEXPBD@Z 004079f5 f   VLCWrapper.obj
+ 0001:00006a20       ??0VLCWrapperImpl@@QAE@XZ  00407a20 f   VLCWrapperImpl.obj
+ 0001:00006b0a       ??1VLCWrapperImpl@@QAE@XZ  00407b0a f   VLCWrapperImpl.obj
+ 0001:00006b32       ?SetOutputWindow@VLCWrapperImpl@@QAEXPAX@Z 00407b32 f   VLCWrapperImpl.obj
+ 0001:00006b68       ?SetExceptionHandler@VLCWrapperImpl@@QAEXP6AXPBD@Z@Z 00407b68 f   VLCWrapperImpl.obj
+ 0001:00006b7e       ?SetEventHandler@VLCWrapperImpl@@QAEXP6AXPBUlibvlc_event_t@@PAX@Z1@Z 00407b7e f   VLCWrapperImpl.obj
+ 0001:00006bc9       ?Play@VLCWrapperImpl@@QAEXXZ 00407bc9 f   VLCWrapperImpl.obj
+ 0001:00006bf9       ?Snapshot@VLCWrapperImpl@@QAEXPADII@Z 00407bf9 f   VLCWrapperImpl.obj
+ 0001:00006c39       ?Pause@VLCWrapperImpl@@QAEXXZ 00407c39 f   VLCWrapperImpl.obj
+ 0001:00006c69       ?Stop@VLCWrapperImpl@@QAEXXZ 00407c69 f   VLCWrapperImpl.obj
+ 0001:00006c99       ?GetLength@VLCWrapperImpl@@QAE_JXZ 00407c99 f   VLCWrapperImpl.obj
+ 0001:00006cc1       ?GetTime@VLCWrapperImpl@@QAE_JXZ 00407cc1 f   VLCWrapperImpl.obj
+ 0001:00006cff       ?SetTime@VLCWrapperImpl@@QAEX_J@Z 00407cff f   VLCWrapperImpl.obj
+ 0001:00006d39       ?GetFps@VLCWrapperImpl@@QAEMXZ 00407d39 f   VLCWrapperImpl.obj
+ 0001:00006d71       ?GetHeight@VLCWrapperImpl@@QAEHXZ 00407d71 f   VLCWrapperImpl.obj
+ 0001:00006da9       ?GetWidth@VLCWrapperImpl@@QAEHXZ 00407da9 f   VLCWrapperImpl.obj
+ 0001:00006de1       ?Mute@VLCWrapperImpl@@QAEX_N@Z 00407de1 f   VLCWrapperImpl.obj
+ 0001:00006e1c       ?GetMute@VLCWrapperImpl@@QAE_NXZ 00407e1c f   VLCWrapperImpl.obj
+ 0001:00006e5a       ?GetVolume@VLCWrapperImpl@@QAEHXZ 00407e5a f   VLCWrapperImpl.obj
+ 0001:00006e92       ?SetVolume@VLCWrapperImpl@@QAEXH@Z 00407e92 f   VLCWrapperImpl.obj
+ 0001:00006ec8       ?OpenMedia@VLCWrapperImpl@@QAEXPBD@Z 00407ec8 f   VLCWrapperImpl.obj
+ 0001:00006f20       ?InitConvt@@YAXHH@Z        00407f20 f   yuv2rgb.obj
+ 0001:0000711d       ?yuv420_prog_planar_to_rgb_packed@@YAXPAE0HH@Z 0040811d f   yuv2rgb.obj
+ 0001:000077da       _cvReleaseImage            004087da f   cxcore:cxcore100.dll
+ 0001:000077e0       _cvGetReal1D               004087e0 f   cxcore:cxcore100.dll
+ 0001:000077e6       _cvReleaseImageHeader      004087e6 f   cxcore:cxcore100.dll
+ 0001:000077ec       _cvCopy                    004087ec f   cxcore:cxcore100.dll
+ 0001:000077f2       _cvCreateImage             004087f2 f   cxcore:cxcore100.dll
+ 0001:000077f8       _cvGetSize                 004087f8 f   cxcore:cxcore100.dll
+ 0001:000077fe       _cvSetData                 004087fe f   cxcore:cxcore100.dll
+ 0001:00007804       _cvCreateImageHeader       00408804 f   cxcore:cxcore100.dll
+ 0001:0000780a       _cvAvg                     0040880a f   cxcore:cxcore100.dll
+ 0001:00007810       _cvReleaseHist             00408810 f   cv:cv100.dll
+ 0001:00007816       _cvCalcArrHist             00408816 f   cv:cv100.dll
+ 0001:0000781c       _cvCreateHist              0040881c f   cv:cv100.dll
+ 0001:00007822       _cvCvtColor                00408822 f   cv:cv100.dll
+ 0001:00007828       _cvCanny                   00408828 f   cv:cv100.dll
+ 0001:0000782e       _deleteptr                 0040882e f   detection:detection.dll
+ 0001:00007834       _definition                00408834 f   detection:detection.dll
+ 0001:0000783a       _Entropy                   0040883a f   detection:detection.dll
+ 0001:00007840       _Deviation                 00408840 f   detection:detection.dll
+ 0001:00007846       _brightness                00408846 f   detection:detection.dll
+ 0001:0000784c       _QualityTesting            0040884c f   detection:detection.dll
+ 0001:00007852       _SaveToYUV                 00408852 f   RGB2YUV_DLL:RGB2YUV_DLL.dll
+ 0001:00007858       ?AfxWinMain@@YGHPAUHINSTANCE__@@0PADH@Z 00408858 f   mfc42:MFC42.DLL
+ 0001:0000785e       ?AfxGetModuleState@@YGPAVAFX_MODULE_STATE@@XZ 0040885e f   mfc42:MFC42.DLL
+ 0001:00007864       ??2@YAPAXI@Z               00408864 f   mfc42:MFC42.DLL
+ 0001:0000786a       ??3@YAXPAX@Z               0040886a f   mfc42:MFC42.DLL
+ 0001:00007870       ?OnHelp@CWinApp@@IAEXXZ    00408870 f   mfc42:MFC42.DLL
+ 0001:00007876       ?WinHelpA@CWinApp@@UAEXKI@Z 00408876 f   mfc42:MFC42.DLL
+ 0001:0000787c       ?OnDDECommand@CWinApp@@UAEHPAD@Z 0040887c f   mfc42:MFC42.DLL
+ 0001:00007882       ?DoWaitCursor@CWinApp@@UAEXH@Z 00408882 f   mfc42:MFC42.DLL
+ 0001:00007888       ?DoMessageBox@CWinApp@@UAEHPBDII@Z 00408888 f   mfc42:MFC42.DLL
+ 0001:0000788e       ?SaveAllModified@CWinApp@@UAEHXZ 0040888e f   mfc42:MFC42.DLL
+ 0001:00007894       ?InitApplication@CWinApp@@UAEHXZ 00408894 f   mfc42:MFC42.DLL
+ 0001:0000789a       ?AddToRecentFileList@CWinApp@@UAEXPBD@Z 0040889a f   mfc42:MFC42.DLL
+ 0001:000078a0       ?OpenDocumentFile@CWinApp@@UAEPAVCDocument@@PBD@Z 004088a0 f   mfc42:MFC42.DLL
+ 0001:000078a6       ?Delete@CWinThread@@UAEXXZ 004088a6 f   mfc42:MFC42.DLL
+ 0001:000078ac       ?GetMainWnd@CWinThread@@UAEPAVCWnd@@XZ 004088ac f   mfc42:MFC42.DLL
+ 0001:000078b2       ?ProcessMessageFilter@CWinThread@@UAEHHPAUtagMSG@@@Z 004088b2 f   mfc42:MFC42.DLL
+ 0001:000078b8       ?ProcessWndProcException@CWinApp@@UAEJPAVCException@@PBUtagMSG@@@Z 004088b8 f   mfc42:MFC42.DLL
+ 0001:000078be       ?ExitInstance@CWinApp@@UAEHXZ 004088be f   mfc42:MFC42.DLL
+ 0001:000078c4       ?IsIdleMessage@CWinThread@@UAEHPAUtagMSG@@@Z 004088c4 f   mfc42:MFC42.DLL
+ 0001:000078ca       ?OnIdle@CWinApp@@UAEHJ@Z   004088ca f   mfc42:MFC42.DLL
+ 0001:000078d0       ?PumpMessage@CWinThread@@UAEHXZ 004088d0 f   mfc42:MFC42.DLL
+ 0001:000078d6       ?PreTranslateMessage@CWinThread@@UAEHPAUtagMSG@@@Z 004088d6 f   mfc42:MFC42.DLL
+ 0001:000078dc       ?Run@CWinApp@@UAEHXZ       004088dc f   mfc42:MFC42.DLL
+ 0001:000078e2       ?GetConnectionHook@CCmdTarget@@MAEPAUIConnectionPoint@@ABU_GUID@@@Z 004088e2 f   mfc42:MFC42.DLL
+ 0001:000078e8       ?GetExtraConnectionPoints@CCmdTarget@@MAEHPAVCPtrArray@@@Z 004088e8 f   mfc42:MFC42.DLL
+ 0001:000078ee       ?GetInterfaceHook@CCmdTarget@@UAEPAUIUnknown@@PBX@Z 004088ee f   mfc42:MFC42.DLL
+ 0001:000078f4       ?OnCreateAggregates@CCmdTarget@@UAEHXZ 004088f4 f   mfc42:MFC42.DLL
+ 0001:000078fa       ?GetEventSinkMap@CCmdTarget@@MBEPBUAFX_EVENTSINKMAP@@XZ 004088fa f   mfc42:MFC42.DLL
+ 0001:00007900       ?GetInterfaceMap@CCmdTarget@@MBEPBUAFX_INTERFACEMAP@@XZ 00408900 f   mfc42:MFC42.DLL
+ 0001:00007906       ?GetConnectionMap@CCmdTarget@@MBEPBUAFX_CONNECTIONMAP@@XZ 00408906 f   mfc42:MFC42.DLL
+ 0001:0000790c       ?GetDispatchMap@CCmdTarget@@MBEPBUAFX_DISPMAP@@XZ 0040890c f   mfc42:MFC42.DLL
+ 0001:00007912       ?GetCommandMap@CCmdTarget@@MBEPBUAFX_OLECMDMAP@@XZ 00408912 f   mfc42:MFC42.DLL
+ 0001:00007918       ?GetTypeLib@CCmdTarget@@UAEJKPAPAUITypeLib@@@Z 00408918 f   mfc42:MFC42.DLL
+ 0001:0000791e       ?GetTypeLibCache@CCmdTarget@@UAEPAVCTypeLibCache@@XZ 0040891e f   mfc42:MFC42.DLL
+ 0001:00007924       ?GetTypeInfoCount@CCmdTarget@@UAEIXZ 00408924 f   mfc42:MFC42.DLL
+ 0001:0000792a       ?GetDispatchIID@CCmdTarget@@UAEHPAU_GUID@@@Z 0040892a f   mfc42:MFC42.DLL
+ 0001:00007930       ?IsInvokeAllowed@CCmdTarget@@UAEHJ@Z 00408930 f   mfc42:MFC42.DLL
+ 0001:00007936       ?OnFinalRelease@CCmdTarget@@UAEXXZ 00408936 f   mfc42:MFC42.DLL
+ 0001:0000793c       ?OnCmdMsg@CCmdTarget@@UAEHIHPAXPAUAFX_CMDHANDLERINFO@@@Z 0040893c f   mfc42:MFC42.DLL
+ 0001:00007942       ?GetRuntimeClass@CWinApp@@UBEPAUCRuntimeClass@@XZ 00408942 f   mfc42:MFC42.DLL
+ 0001:00007948       ??0CWinApp@@QAE@PBD@Z      00408948 f   mfc42:MFC42.DLL
+ 0001:0000794e       ??1CWinApp@@UAE@XZ         0040894e f   mfc42:MFC42.DLL
+ 0001:00007954       ?DoModal@CDialog@@UAEHXZ   00408954 f   mfc42:MFC42.DLL
+ 0001:0000795a       ?Enable3dControls@CWinApp@@IAEHXZ 0040895a f   mfc42:MFC42.DLL
+ 0001:00007960       ?PreInitDialog@CDialog@@MAEXXZ 00408960 f   mfc42:MFC42.DLL
+ 0001:00007966       ?OnCancel@CDialog@@MAEXXZ  00408966 f   mfc42:MFC42.DLL
+ 0001:0000796c       ?OnOK@CDialog@@MAEXXZ      0040896c f   mfc42:MFC42.DLL
+ 0001:00007972       ?OnSetFont@CDialog@@UAEXPAVCFont@@@Z 00408972 f   mfc42:MFC42.DLL
+ 0001:00007978       ?SetOccDialogInfo@CDialog@@MAEHPAU_AFX_OCC_DIALOG_INFO@@@Z 00408978 f   mfc42:MFC42.DLL
+ 0001:0000797e       ?CheckAutoCenter@CDialog@@UAEHXZ 0040897e f   mfc42:MFC42.DLL
+ 0001:00007984       ?PreTranslateMessage@CDialog@@UAEHPAUtagMSG@@@Z 00408984 f   mfc42:MFC42.DLL
+ 0001:0000798a       ?OnCmdMsg@CDialog@@UAEHIHPAXPAUAFX_CMDHANDLERINFO@@@Z 0040898a f   mfc42:MFC42.DLL
+ 0001:00007990       ?GetRuntimeClass@CDialog@@UBEPAUCRuntimeClass@@XZ 00408990 f   mfc42:MFC42.DLL
+ 0001:00007996       ?GetRuntimeClass@CEdit@@UBEPAUCRuntimeClass@@XZ 00408996 f   mfc42:MFC42.DLL
+ 0001:0000799c       ?SetOccDialogInfo@CWnd@@MAEHPAU_AFX_OCC_DIALOG_INFO@@@Z 0040899c f   mfc42:MFC42.DLL
+ 0001:000079a2       ?IsFrameWnd@CWnd@@UBEHXZ   004089a2 f   mfc42:MFC42.DLL
+ 0001:000079a8       ?CheckAutoCenter@CWnd@@UAEHXZ 004089a8 f   mfc42:MFC42.DLL
+ 0001:000079ae       ?OnChildNotify@CWnd@@MAEHIIJPAJ@Z 004089ae f   mfc42:MFC42.DLL
+ 0001:000079b4       ?PostNcDestroy@CWnd@@MAEXXZ 004089b4 f   mfc42:MFC42.DLL
+ 0001:000079ba       ?DefWindowProcA@CWnd@@MAEJIIJ@Z 004089ba f   mfc42:MFC42.DLL
+ 0001:000079c0       ?OnWndMsg@CWnd@@MAEHIIJPAJ@Z 004089c0 f   mfc42:MFC42.DLL
+ 0001:000079c6       ?WindowProc@CWnd@@MAEJIIJ@Z 004089c6 f   mfc42:MFC42.DLL
+ 0001:000079cc       ?OnAmbientProperty@CWnd@@UAEHPAVCOleControlSite@@JPAUtagVARIANT@@@Z 004089cc f   mfc42:MFC42.DLL
+ 0001:000079d2       ?PreTranslateMessage@CWnd@@UAEHPAUtagMSG@@@Z 004089d2 f   mfc42:MFC42.DLL
+ 0001:000079d8       ?GetSuperWndProcAddr@CWnd@@MAEPAP6GJPAUHWND__@@IIJ@ZXZ 004089d8 f   mfc42:MFC42.DLL
+ 0001:000079de       ?OnNotify@CWnd@@MAEHIJPAJ@Z 004089de f   mfc42:MFC42.DLL
+ 0001:000079e4       ?OnCommand@CWnd@@MAEHIJ@Z  004089e4 f   mfc42:MFC42.DLL
+ 0001:000079ea       ?EndModalLoop@CWnd@@UAEXH@Z 004089ea f   mfc42:MFC42.DLL
+ 0001:000079f0       ?ContinueModal@CWnd@@UAEHXZ 004089f0 f   mfc42:MFC42.DLL
+ 0001:000079f6       ?WinHelpA@CWnd@@UAEXKI@Z   004089f6 f   mfc42:MFC42.DLL
+ 0001:000079fc       ?GetScrollBarCtrl@CWnd@@UBEPAVCScrollBar@@H@Z 004089fc f   mfc42:MFC42.DLL
+ 0001:00007a02       ?OnToolHitTest@CWnd@@UBEHVCPoint@@PAUtagTOOLINFOA@@@Z 00408a02 f   mfc42:MFC42.DLL
+ 0001:00007a08       ?CalcWindowRect@CWnd@@UAEXPAUtagRECT@@I@Z 00408a08 f   mfc42:MFC42.DLL
+ 0001:00007a0e       ?PreCreateWindow@CWnd@@UAEHAAUtagCREATESTRUCTA@@@Z 00408a0e f   mfc42:MFC42.DLL
+ 0001:00007a14       ?DestroyWindow@CWnd@@UAEHXZ 00408a14 f   mfc42:MFC42.DLL
+ 0001:00007a1a       ?Create@CWnd@@UAEHPBD0KABUtagRECT@@PAV1@IPAUCCreateContext@@@Z 00408a1a f   mfc42:MFC42.DLL
+ 0001:00007a20       ?PreSubclassWindow@CWnd@@UAEXXZ 00408a20 f   mfc42:MFC42.DLL
+ 0001:00007a26       ?GetMessageMap@CWnd@@MBEPBUAFX_MSGMAP@@XZ 00408a26 f   mfc42:MFC42.DLL
+ 0001:00007a2c       ?OnFinalRelease@CWnd@@UAEXXZ 00408a2c f   mfc42:MFC42.DLL
+ 0001:00007a32       ?GetRuntimeClass@CStatic@@UBEPAUCRuntimeClass@@XZ 00408a32 f   mfc42:MFC42.DLL
+ 0001:00007a38       ??1CEdit@@UAE@XZ           00408a38 f   mfc42:MFC42.DLL
+ 0001:00007a3e       ??1CDialog@@UAE@XZ         00408a3e f   mfc42:MFC42.DLL
+ 0001:00007a44       ??0CWnd@@QAE@XZ            00408a44 f   mfc42:MFC42.DLL
+ 0001:00007a4a       ??0CDialog@@QAE@IPAVCWnd@@@Z 00408a4a f   mfc42:MFC42.DLL
+ 0001:00007a50       ??1CStatic@@UAE@XZ         00408a50 f   mfc42:MFC42.DLL
+ 0001:00007a56       ??1CString@@QAE@XZ         00408a56 f   mfc42:MFC42.DLL
+ 0001:00007a5c       ?LoadStringA@CString@@QAEHI@Z 00408a5c f   mfc42:MFC42.DLL
+ 0001:00007a62       ?SetWindowTextA@CWnd@@QAEXPBD@Z 00408a62 f   mfc42:MFC42.DLL
+ 0001:00007a68       ?Format@CString@@QAAXPBDZZ 00408a68 f   mfc42:MFC42.DLL
+ 0001:00007a6e       ??0CString@@QAE@XZ         00408a6e f   mfc42:MFC42.DLL
+ 0001:00007a74       ?OnInitDialog@CDialog@@UAEHXZ 00408a74 f   mfc42:MFC42.DLL
+ 0001:00007a7a       ?DDX_Control@@YGXPAVCDataExchange@@HAAVCWnd@@@Z 00408a7a f   mfc42:MFC42.DLL
+ 0001:00007a80       ?ReportError@CException@@UAEHII@Z 00408a80 f   mfc42:MFC42.DLL
+ 0001:00007a86       ?GetErrorMessage@CFileException@@UAEHPADIPAI@Z 00408a86 f   mfc42:MFC42.DLL
+ 0001:00007a8c       ?GetRuntimeClass@CFileException@@UBEPAUCRuntimeClass@@XZ 00408a8c f   mfc42:MFC42.DLL
+ 0001:00007a92       ?DrawItem@CButton@@UAEXPAUtagDRAWITEMSTRUCT@@@Z 00408a92 f   mfc42:MFC42.DLL
+ 0001:00007a98       ?OnChildNotify@CButton@@MAEHIIJPAJ@Z 00408a98 f   mfc42:MFC42.DLL
+ 0001:00007a9e       ?GetRuntimeClass@CButton@@UBEPAUCRuntimeClass@@XZ 00408a9e f   mfc42:MFC42.DLL
+ 0001:00007aa4       ?GetRuntimeClass@CSliderCtrl@@UBEPAUCRuntimeClass@@XZ 00408aa4 f   mfc42:MFC42.DLL
+ 0001:00007aaa       ?GetRuntimeClass@CObject@@UBEPAUCRuntimeClass@@XZ 00408aaa f   mfc42:MFC42.DLL
+ 0001:00007ab0       ??1CFile@@UAE@XZ           00408ab0 f   mfc42:MFC42.DLL
+ 0001:00007ab6       ??1CSliderCtrl@@UAE@XZ     00408ab6 f   mfc42:MFC42.DLL
+ 0001:00007abc       ??1CButton@@UAE@XZ         00408abc f   mfc42:MFC42.DLL
+ 0001:00007ac2       ?AfxFindResourceHandle@@YGPAUHINSTANCE__@@PBD0@Z 00408ac2 f   mfc42:MFC42.DLL
+ 0001:00007ac8       ??4CString@@QAEABV0@PBD@Z  00408ac8 f   mfc42:MFC42.DLL
+ 0001:00007ace       ??0CException@@QAE@XZ      00408ace f   mfc42:MFC42.DLL
+ 0001:00007ad4       ??0CFile@@QAE@XZ           00408ad4 f   mfc42:MFC42.DLL
+ 0001:00007ada       ?GetErrorMessage@CException@@UAEHPADIPAI@Z 00408ada f   mfc42:MFC42.DLL
+ 0001:00007ae0       ?GetRuntimeClass@CException@@UBEPAUCRuntimeClass@@XZ 00408ae0 f   mfc42:MFC42.DLL
+ 0001:00007ae6       ?FreeDataChain@CPlex@@QAEXXZ 00408ae6 f   mfc42:MFC42.DLL
+ 0001:00007aec       ??YCString@@QAEABV0@PBD@Z  00408aec f   mfc42:MFC42.DLL
+ 0001:00007af2       ??0CString@@QAE@PBD@Z      00408af2 f   mfc42:MFC42.DLL
+ 0001:00007af8       ??H@YG?AVCString@@ABV0@PBD@Z 00408af8 f   mfc42:MFC42.DLL
+ 0001:00007afe       ??4CString@@QAEABV0@ABV0@@Z 00408afe f   mfc42:MFC42.DLL
+ 0001:00007b04       ?Left@CString@@QBE?AV1@H@Z 00408b04 f   mfc42:MFC42.DLL
+ 0001:00007b0a       ?ReverseFind@CString@@QBEHD@Z 00408b0a f   mfc42:MFC42.DLL
+ 0001:00007b10       ?SetRange@CSliderCtrl@@QAEXHHH@Z 00408b10 f   mfc42:MFC42.DLL
+ 0001:00007b16       ?FromHandle@CMenu@@SGPAV1@PAUHMENU__@@@Z 00408b16 f   mfc42:MFC42.DLL
+ 0001:00007b1c       ?SetWindowPos@CWnd@@QAEHPBV1@HHHHI@Z 00408b1c f   mfc42:MFC42.DLL
+ 0001:00007b22       ?ScreenToClient@CWnd@@QBEXPAUtagRECT@@@Z 00408b22 f   mfc42:MFC42.DLL
+ 0001:00007b28       ?MoveWindow@CWnd@@QAEXHHHHH@Z 00408b28 f   mfc42:MFC42.DLL
+ 0001:00007b2e       ?Default@CWnd@@IAEJXZ      00408b2e f   mfc42:MFC42.DLL
+ 0001:00007b34       ??1CPaintDC@@UAE@XZ        00408b34 f   mfc42:MFC42.DLL
+ 0001:00007b3a       ??0CPaintDC@@QAE@PAVCWnd@@@Z 00408b3a f   mfc42:MFC42.DLL
+ 0001:00007b40       ?OnHScroll@CWnd@@IAEXIIPAVCScrollBar@@@Z 00408b40 f   mfc42:MFC42.DLL
+ 0001:00007b46       ??H@YG?AVCString@@ABV0@0@Z 00408b46 f   mfc42:MFC42.DLL
+ 0001:00007b4c       ?Right@CString@@QBE?AV1@H@Z 00408b4c f   mfc42:MFC42.DLL
+ 0001:00007b52       ?GetWindowTextA@CWnd@@QBEXAAVCString@@@Z 00408b52 f   mfc42:MFC42.DLL
+ 0001:00007b58       ?GetBuffer@CString@@QAEPADH@Z 00408b58 f   mfc42:MFC42.DLL
+ 0001:00007b5e       ?AfxMessageBox@@YGHPBDII@Z 00408b5e f   mfc42:MFC42.DLL
+ 0001:00007b64       ?GetLocalTm@CTime@@QBEPAUtm@@PAU2@@Z 00408b64 f   mfc42:MFC42.DLL
+ 0001:00007b6a       ?GetTickCount@CTime@@SG?AV1@XZ 00408b6a f   mfc42:MFC42.DLL
+ 0001:00007b70       ?Create@CPlex@@SGPAU1@AAPAU1@II@Z 00408b70 f   mfc42:MFC42.DLL
+ 0001:00007b76       ?ReadCount@CArchive@@QAEKXZ 00408b76 f   mfc42:MFC42.DLL
+ 0001:00007b7c       ?Read@CArchive@@QAEIPAXI@Z 00408b7c f   mfc42:MFC42.DLL
+ 0001:00007b82       ?Write@CArchive@@QAEXPBXI@Z 00408b82 f   mfc42:MFC42.DLL
+ 0001:00007b88       ?WriteCount@CArchive@@QAEXK@Z 00408b88 f   mfc42:MFC42.DLL
+ 0001:00007b8e       __setmbcp                  00408b8e f   msvcrt:MSVCRT.dll
+ 0001:00007b94       _log                       00408b94 f   msvcrt:MSVCRT.dll
+ 0001:00007b9a       _sqrt                      00408b9a f   msvcrt:MSVCRT.dll
+ 0001:00007ba0       _abs                       00408ba0 f   msvcrt:MSVCRT.dll
+ 0001:00007ba6       _memcpy                    00408ba6 f   msvcrt:MSVCRT.dll
+ 0001:00007bac       ??0type_info@@AAE@ABV0@@Z  00408bac f   msvcrt:ti_inst.obj
+ 0001:00007bb7       ??_Etype_info@@UAEPAXI@Z   00408bb7 f i msvcrt:ti_inst.obj
+ 0001:00007bb7       ??_Gtype_info@@UAEPAXI@Z   00408bb7 f i msvcrt:ti_inst.obj
+ 0001:00007bd3       ??4type_info@@AAEAAV0@ABV0@@Z 00408bd3 f   msvcrt:ti_inst.obj
+ 0001:00007bd8       __onexit                   00408bd8 f   msvcrt:atonexit.obj
+ 0001:00007c04       _atexit                    00408c04 f   msvcrt:atonexit.obj
+ 0001:00007c16       ___CxxFrameHandler         00408c16 f   msvcrt:MSVCRT.dll
+ 0001:00007c1c       _memset                    00408c1c f   msvcrt:MSVCRT.dll
+ 0001:00007c22       _sprintf                   00408c22 f   msvcrt:MSVCRT.dll
+ 0001:00007c30       __allmul                   00408c30 f   msvcrt:llmul.obj
+ 0001:00007c70       __alldiv                   00408c70 f   msvcrt:lldiv.obj
+ 0001:00007d1a       _fclose                    00408d1a f   msvcrt:MSVCRT.dll
+ 0001:00007d20       _strlen                    00408d20 f   msvcrt:MSVCRT.dll
+ 0001:00007d26       _strncpy                   00408d26 f   msvcrt:MSVCRT.dll
+ 0001:00007d2c       _calloc                    00408d2c f   msvcrt:MSVCRT.dll
+ 0001:00007d32       _fprintf                   00408d32 f   msvcrt:MSVCRT.dll
+ 0001:00007d38       _fopen                     00408d38 f   msvcrt:MSVCRT.dll
+ 0001:00007d3e       _fflush                    00408d3e f   msvcrt:MSVCRT.dll
+ 0001:00007d44       __ftol                     00408d44 f   msvcrt:MSVCRT.dll
+ 0001:00007d4a       _strcpy                    00408d4a f   msvcrt:MSVCRT.dll
+ 0001:00007d50       _WinMainCRTStartup         00408d50 f   msvcrt:crtexew.obj
+ 0001:00007eae       ??1type_info@@UAE@XZ       00408eae f   msvcrt:MSVCRT.dll
+ 0001:00007eb4       ___dllonexit               00408eb4 f   msvcrt:MSVCRT.dll
+ 0001:00007eba       __exit                     00408eba f   msvcrt:MSVCRT.dll
+ 0001:00007ec0       __XcptFilter               00408ec0 f   msvcrt:MSVCRT.dll
+ 0001:00007ec6       _exit                      00408ec6 f   msvcrt:MSVCRT.dll
+ 0001:00007ecc       ___getmainargs             00408ecc f   msvcrt:MSVCRT.dll
+ 0001:00007ed2       __initterm                 00408ed2 f   msvcrt:MSVCRT.dll
+ 0001:00007ed8       __setdefaultprecision      00408ed8 f   msvcrt:fp8.obj
+ 0001:00007eea       ___setusermatherr          00408eea f   msvcrt:MSVCRT.dll
+ 0001:00007ef0       __matherr                  00408ef0 f   msvcrt:merr.obj
+ 0001:00007ef3       __setargv                  00408ef3 f   msvcrt:dllargv.obj
+ 0001:00007ef4       ___p__commode              00408ef4 f   msvcrt:MSVCRT.dll
+ 0001:00007efa       ___p__fmode                00408efa f   msvcrt:MSVCRT.dll
+ 0001:00007f00       ___set_app_type            00408f00 f   msvcrt:MSVCRT.dll
+ 0001:00007f06       __except_handler3          00408f06 f   msvcrt:MSVCRT.dll
+ 0001:00007f0c       __controlfp                00408f0c f   msvcrt:MSVCRT.dll
+ 0001:00007f12       _CloseHandle@4             00408f12 f   kernel32:KERNEL32.dll
+ 0001:00007f18       _WriteFile@20              00408f18 f   kernel32:KERNEL32.dll
+ 0001:00007f1e       _CreateFileA@28            00408f1e f   kernel32:KERNEL32.dll
+ 0001:00007f24       _WaitNamedPipeA@8          00408f24 f   kernel32:KERNEL32.dll
+ 0001:00007f2a       _GetPrivateProfileIntA@16  00408f2a f   kernel32:KERNEL32.dll
+ 0001:00007f30       _GetPrivateProfileStringA@24 00408f30 f   kernel32:KERNEL32.dll
+ 0001:00007f36       _Sleep@4                   00408f36 f   kernel32:KERNEL32.dll
+ 0001:00007f3c       _QueryPerformanceFrequency@4 00408f3c f   kernel32:KERNEL32.dll
+ 0001:00007f42       _QueryPerformanceCounter@4 00408f42 f   kernel32:KERNEL32.dll
+ 0001:00007f48       _SystemTimeToFileTime@8    00408f48 f   kernel32:KERNEL32.dll
+ 0001:00007f4e       _GetSystemTime@4           00408f4e f   kernel32:KERNEL32.dll
+ 0001:00007f54       _GetModuleHandleA@4        00408f54 f   kernel32:KERNEL32.dll
+ 0001:00007f5a       _GetStartupInfoA@4         00408f5a f   kernel32:KERNEL32.dll
+ 0001:00007f60       _LoadIconA@8               00408f60 f   user32:USER32.dll
+ 0001:00007f66       _KillTimer@8               00408f66 f   user32:USER32.dll
+ 0001:00007f6c       _GetClientRect@8           00408f6c f   user32:USER32.dll
+ 0001:00007f72       _LoadImageA@24             00408f72 f   user32:USER32.dll
+ 0001:00007f78       _SendMessageA@16           00408f78 f   user32:USER32.dll
+ 0001:00007f7e       _AppendMenuA@16            00408f7e f   user32:USER32.dll
+ 0001:00007f84       _GetSystemMenu@8           00408f84 f   user32:USER32.dll
+ 0001:00007f8a       _GetWindowRect@8           00408f8a f   user32:USER32.dll
+ 0001:00007f90       _RedrawWindow@16           00408f90 f   user32:USER32.dll
+ 0001:00007f96       _DrawIcon@16               00408f96 f   user32:USER32.dll
+ 0001:00007f9c       _GetSystemMetrics@4        00408f9c f   user32:USER32.dll
+ 0001:00007fa2       _IsIconic@4                00408fa2 f   user32:USER32.dll
+ 0001:00007fa8       _SetTimer@16               00408fa8 f   user32:USER32.dll
+ 0001:00007fae       _GetDC@4                   00408fae f   user32:USER32.dll
+ 0001:00007fb4       _InvalidateRect@12         00408fb4 f   user32:USER32.dll
+ 0001:00007fba       _PostMessageA@16           00408fba f   user32:USER32.dll
+ 0001:00007fc0       _EnableWindow@8            00408fc0 f   user32:USER32.dll
+ 0001:00007fc6       _DeleteObject@4            00408fc6 f   gdi32:GDI32.dll
+ 0001:00007fcc       _DeleteDC@4                00408fcc f   gdi32:GDI32.dll
+ 0001:00007fd2       _SelectObject@8            00408fd2 f   gdi32:GDI32.dll
+ 0001:00007fd8       _GetDIBits@28              00408fd8 f   gdi32:GDI32.dll
+ 0001:00007fde       _BitBlt@36                 00408fde f   gdi32:GDI32.dll
+ 0001:00007fe4       _SetDIBitsToDevice@48      00408fe4 f   gdi32:GDI32.dll
+ 0001:00007fea       _StretchBlt@44             00408fea f   gdi32:GDI32.dll
+ 0001:00007ff0       _SetDIBits@28              00408ff0 f   gdi32:GDI32.dll
+ 0001:00007ff6       _GetObjectA@12             00408ff6 f   gdi32:GDI32.dll
+ 0001:00007ffc       _CreateCompatibleBitmap@12 00408ffc f   gdi32:GDI32.dll
+ 0001:00008002       _CreateCompatibleDC@4      00409002 f   gdi32:GDI32.dll
+ 0001:00008008       _GetDeviceCaps@8           00409008 f   gdi32:GDI32.dll
+ 0001:0000800e       _CreateDCA@16              0040900e f   gdi32:GDI32.dll
+ 0001:00008014       ??0Init@ios_base@std@@QAE@XZ 00409014 f   msvcprt:MSVCP60.dll
+ 0001:0000801a       ??1Init@ios_base@std@@QAE@XZ 0040901a f   msvcprt:MSVCP60.dll
+ 0001:00008020       ??0_Winit@std@@QAE@XZ      00409020 f   msvcprt:MSVCP60.dll
+ 0001:00008026       ??1_Winit@std@@QAE@XZ      00409026 f   msvcprt:MSVCP60.dll
+ 0002:00000000       _libvlc_media_player_event_manager 0040a000     libvlc:d000108.o
+ 0002:00000008       _libvlc_media_player_new   0040a008     libvlc:d000128.o
+ 0002:00000010       _libvlc_new                0040a010     libvlc:d000157.o
+ 0002:00000018       _libvlc_release            0040a018     libvlc:d000160.o
+ 0002:00000020       _libvlc_media_player_release 0040a020     libvlc:d000135.o
+ 0002:00000028       _libvlc_media_player_set_hwnd 0040a028     libvlc:d000139.o
+ 0002:00000030       _libvlc_event_attach       0040a030     libvlc:d000026.o
+ 0002:00000038       _libvlc_media_player_play  0040a038     libvlc:d000133.o
+ 0002:00000040       _libvlc_video_take_snapshot 0040a040     libvlc:d000207.o
+ 0002:00000048       _libvlc_media_player_pause 0040a048     libvlc:d000132.o
+ 0002:00000050       _libvlc_media_player_stop  0040a050     libvlc:d000148.o
+ 0002:00000058       _libvlc_media_player_get_length 0040a058     libvlc:d000115.o
+ 0002:00000060       _libvlc_media_player_get_time 0040a060     libvlc:d000121.o
+ 0002:00000068       _libvlc_media_player_set_time 0040a068     libvlc:d000145.o
+ 0002:00000070       _libvlc_media_player_get_fps 0040a070     libvlc:d000113.o
+ 0002:00000078       _libvlc_video_get_height   0040a078     libvlc:d000174.o
+ 0002:00000080       _libvlc_video_get_width    0040a080     libvlc:d000188.o
+ 0002:00000088       _libvlc_audio_set_mute     0040a088     libvlc:d000020.o
+ 0002:00000090       _libvlc_audio_get_mute     0040a090     libvlc:d000004.o
+ 0002:00000098       _libvlc_audio_get_volume   0040a098     libvlc:d000008.o
+ 0002:000000a0       _libvlc_audio_set_volume   0040a0a0     libvlc:d000022.o
+ 0002:000000a8       _libvlc_media_player_set_media 0040a0a8     libvlc:d000140.o
+ 0002:000000b0       _libvlc_media_new_path     0040a0b0     libvlc:d000104.o
+ 0003:00000000       __imp__SelectObject@8      0040b000     gdi32:GDI32.dll
+ 0003:00000004       __imp__DeleteDC@4          0040b004     gdi32:GDI32.dll
+ 0003:00000008       __imp__GetDIBits@28        0040b008     gdi32:GDI32.dll
+ 0003:0000000c       __imp__BitBlt@36           0040b00c     gdi32:GDI32.dll
+ 0003:00000010       __imp__SetDIBitsToDevice@48 0040b010     gdi32:GDI32.dll
+ 0003:00000014       __imp__CreateDCA@16        0040b014     gdi32:GDI32.dll
+ 0003:00000018       __imp__GetDeviceCaps@8     0040b018     gdi32:GDI32.dll
+ 0003:0000001c       __imp__CreateCompatibleDC@4 0040b01c     gdi32:GDI32.dll
+ 0003:00000020       __imp__CreateCompatibleBitmap@12 0040b020     gdi32:GDI32.dll
+ 0003:00000024       __imp__GetObjectA@12       0040b024     gdi32:GDI32.dll
+ 0003:00000028       __imp__SetDIBits@28        0040b028     gdi32:GDI32.dll
+ 0003:0000002c       __imp__StretchBlt@44       0040b02c     gdi32:GDI32.dll
+ 0003:00000030       __imp__DeleteObject@4      0040b030     gdi32:GDI32.dll
+ 0003:00000034       \177GDI32_NULL_THUNK_DATA  0040b034     gdi32:GDI32.dll
+ 0003:00000038       __imp__CreateFileA@28      0040b038     kernel32:KERNEL32.dll
+ 0003:0000003c       __imp__CloseHandle@4       0040b03c     kernel32:KERNEL32.dll
+ 0003:00000040       __imp__WriteFile@20        0040b040     kernel32:KERNEL32.dll
+ 0003:00000044       __imp__WaitNamedPipeA@8    0040b044     kernel32:KERNEL32.dll
+ 0003:00000048       __imp__GetPrivateProfileIntA@16 0040b048     kernel32:KERNEL32.dll
+ 0003:0000004c       __imp__GetStartupInfoA@4   0040b04c     kernel32:KERNEL32.dll
+ 0003:00000050       __imp__GetModuleHandleA@4  0040b050     kernel32:KERNEL32.dll
+ 0003:00000054       __imp__GetSystemTime@4     0040b054     kernel32:KERNEL32.dll
+ 0003:00000058       __imp__SystemTimeToFileTime@8 0040b058     kernel32:KERNEL32.dll
+ 0003:0000005c       __imp__QueryPerformanceCounter@4 0040b05c     kernel32:KERNEL32.dll
+ 0003:00000060       __imp__QueryPerformanceFrequency@4 0040b060     kernel32:KERNEL32.dll
+ 0003:00000064       __imp__Sleep@4             0040b064     kernel32:KERNEL32.dll
+ 0003:00000068       __imp__GetPrivateProfileStringA@24 0040b068     kernel32:KERNEL32.dll
+ 0003:0000006c       \177KERNEL32_NULL_THUNK_DATA 0040b06c     kernel32:KERNEL32.dll
+ 0003:00000070       __imp_?FromHandle@CMenu@@SGPAV1@PAUHMENU__@@@Z 0040b070     mfc42:MFC42.DLL
+ 0003:00000074       __imp_?SetWindowPos@CWnd@@QAEHPBV1@HHHHI@Z 0040b074     mfc42:MFC42.DLL
+ 0003:00000078       __imp_?ScreenToClient@CWnd@@QBEXPAUtagRECT@@@Z 0040b078     mfc42:MFC42.DLL
+ 0003:0000007c       __imp_?LoadStringA@CString@@QAEHI@Z 0040b07c     mfc42:MFC42.DLL
+ 0003:00000080       __imp_?SetRange@CSliderCtrl@@QAEXHHH@Z 0040b080     mfc42:MFC42.DLL
+ 0003:00000084       __imp_?WriteCount@CArchive@@QAEXK@Z 0040b084     mfc42:MFC42.DLL
+ 0003:00000088       __imp_?Write@CArchive@@QAEXPBXI@Z 0040b088     mfc42:MFC42.DLL
+ 0003:0000008c       __imp_?Read@CArchive@@QAEIPAXI@Z 0040b08c     mfc42:MFC42.DLL
+ 0003:00000090       __imp_?ReadCount@CArchive@@QAEKXZ 0040b090     mfc42:MFC42.DLL
+ 0003:00000094       __imp_?Create@CPlex@@SGPAU1@AAPAU1@II@Z 0040b094     mfc42:MFC42.DLL
+ 0003:00000098       __imp_?GetTickCount@CTime@@SG?AV1@XZ 0040b098     mfc42:MFC42.DLL
+ 0003:0000009c       __imp_?GetLocalTm@CTime@@QBEPAUtm@@PAU2@@Z 0040b09c     mfc42:MFC42.DLL
+ 0003:000000a0       __imp_?AfxMessageBox@@YGHPBDII@Z 0040b0a0     mfc42:MFC42.DLL
+ 0003:000000a4       __imp_?GetBuffer@CString@@QAEPADH@Z 0040b0a4     mfc42:MFC42.DLL
+ 0003:000000a8       __imp_?GetWindowTextA@CWnd@@QBEXAAVCString@@@Z 0040b0a8     mfc42:MFC42.DLL
+ 0003:000000ac       __imp_?Right@CString@@QBE?AV1@H@Z 0040b0ac     mfc42:MFC42.DLL
+ 0003:000000b0       __imp_??H@YG?AVCString@@ABV0@0@Z 0040b0b0     mfc42:MFC42.DLL
+ 0003:000000b4       __imp_?OnHScroll@CWnd@@IAEXIIPAVCScrollBar@@@Z 0040b0b4     mfc42:MFC42.DLL
+ 0003:000000b8       __imp_??0CPaintDC@@QAE@PAVCWnd@@@Z 0040b0b8     mfc42:MFC42.DLL
+ 0003:000000bc       __imp_??1CPaintDC@@UAE@XZ  0040b0bc     mfc42:MFC42.DLL
+ 0003:000000c0       __imp_?Default@CWnd@@IAEJXZ 0040b0c0     mfc42:MFC42.DLL
+ 0003:000000c4       __imp_?AfxWinMain@@YGHPAUHINSTANCE__@@0PADH@Z 0040b0c4     mfc42:MFC42.DLL
+ 0003:000000c8       __imp_?AfxGetModuleState@@YGPAVAFX_MODULE_STATE@@XZ 0040b0c8     mfc42:MFC42.DLL
+ 0003:000000cc       __imp_??2@YAPAXI@Z         0040b0cc     mfc42:MFC42.DLL
+ 0003:000000d0       __imp_??3@YAXPAX@Z         0040b0d0     mfc42:MFC42.DLL
+ 0003:000000d4       __imp_?OnHelp@CWinApp@@IAEXXZ 0040b0d4     mfc42:MFC42.DLL
+ 0003:000000d8       __imp_?messageMap@CWinApp@@1UAFX_MSGMAP@@B 0040b0d8     mfc42:MFC42.DLL
+ 0003:000000dc       __imp_?WinHelpA@CWinApp@@UAEXKI@Z 0040b0dc     mfc42:MFC42.DLL
+ 0003:000000e0       __imp_?OnDDECommand@CWinApp@@UAEHPAD@Z 0040b0e0     mfc42:MFC42.DLL
+ 0003:000000e4       __imp_?DoWaitCursor@CWinApp@@UAEXH@Z 0040b0e4     mfc42:MFC42.DLL
+ 0003:000000e8       __imp_?DoMessageBox@CWinApp@@UAEHPBDII@Z 0040b0e8     mfc42:MFC42.DLL
+ 0003:000000ec       __imp_?SaveAllModified@CWinApp@@UAEHXZ 0040b0ec     mfc42:MFC42.DLL
+ 0003:000000f0       __imp_?InitApplication@CWinApp@@UAEHXZ 0040b0f0     mfc42:MFC42.DLL
+ 0003:000000f4       __imp_?AddToRecentFileList@CWinApp@@UAEXPBD@Z 0040b0f4     mfc42:MFC42.DLL
+ 0003:000000f8       __imp_?OpenDocumentFile@CWinApp@@UAEPAVCDocument@@PBD@Z 0040b0f8     mfc42:MFC42.DLL
+ 0003:000000fc       __imp_?Delete@CWinThread@@UAEXXZ 0040b0fc     mfc42:MFC42.DLL
+ 0003:00000100       __imp_?GetMainWnd@CWinThread@@UAEPAVCWnd@@XZ 0040b100     mfc42:MFC42.DLL
+ 0003:00000104       __imp_?ProcessMessageFilter@CWinThread@@UAEHHPAUtagMSG@@@Z 0040b104     mfc42:MFC42.DLL
+ 0003:00000108       __imp_?ProcessWndProcException@CWinApp@@UAEJPAVCException@@PBUtagMSG@@@Z 0040b108     mfc42:MFC42.DLL
+ 0003:0000010c       __imp_?ExitInstance@CWinApp@@UAEHXZ 0040b10c     mfc42:MFC42.DLL
+ 0003:00000110       __imp_?IsIdleMessage@CWinThread@@UAEHPAUtagMSG@@@Z 0040b110     mfc42:MFC42.DLL
+ 0003:00000114       __imp_?OnIdle@CWinApp@@UAEHJ@Z 0040b114     mfc42:MFC42.DLL
+ 0003:00000118       __imp_?PumpMessage@CWinThread@@UAEHXZ 0040b118     mfc42:MFC42.DLL
+ 0003:0000011c       __imp_?PreTranslateMessage@CWinThread@@UAEHPAUtagMSG@@@Z 0040b11c     mfc42:MFC42.DLL
+ 0003:00000120       __imp_?Run@CWinApp@@UAEHXZ 0040b120     mfc42:MFC42.DLL
+ 0003:00000124       __imp_?GetConnectionHook@CCmdTarget@@MAEPAUIConnectionPoint@@ABU_GUID@@@Z 0040b124     mfc42:MFC42.DLL
+ 0003:00000128       __imp_?GetExtraConnectionPoints@CCmdTarget@@MAEHPAVCPtrArray@@@Z 0040b128     mfc42:MFC42.DLL
+ 0003:0000012c       __imp_?GetInterfaceHook@CCmdTarget@@UAEPAUIUnknown@@PBX@Z 0040b12c     mfc42:MFC42.DLL
+ 0003:00000130       __imp_?OnCreateAggregates@CCmdTarget@@UAEHXZ 0040b130     mfc42:MFC42.DLL
+ 0003:00000134       __imp_?GetEventSinkMap@CCmdTarget@@MBEPBUAFX_EVENTSINKMAP@@XZ 0040b134     mfc42:MFC42.DLL
+ 0003:00000138       __imp_?GetInterfaceMap@CCmdTarget@@MBEPBUAFX_INTERFACEMAP@@XZ 0040b138     mfc42:MFC42.DLL
+ 0003:0000013c       __imp_?GetConnectionMap@CCmdTarget@@MBEPBUAFX_CONNECTIONMAP@@XZ 0040b13c     mfc42:MFC42.DLL
+ 0003:00000140       __imp_?GetDispatchMap@CCmdTarget@@MBEPBUAFX_DISPMAP@@XZ 0040b140     mfc42:MFC42.DLL
+ 0003:00000144       __imp_?GetCommandMap@CCmdTarget@@MBEPBUAFX_OLECMDMAP@@XZ 0040b144     mfc42:MFC42.DLL
+ 0003:00000148       __imp_?GetTypeLib@CCmdTarget@@UAEJKPAPAUITypeLib@@@Z 0040b148     mfc42:MFC42.DLL
+ 0003:0000014c       __imp_?GetTypeLibCache@CCmdTarget@@UAEPAVCTypeLibCache@@XZ 0040b14c     mfc42:MFC42.DLL
+ 0003:00000150       __imp_?GetTypeInfoCount@CCmdTarget@@UAEIXZ 0040b150     mfc42:MFC42.DLL
+ 0003:00000154       __imp_?GetDispatchIID@CCmdTarget@@UAEHPAU_GUID@@@Z 0040b154     mfc42:MFC42.DLL
+ 0003:00000158       __imp_?IsInvokeAllowed@CCmdTarget@@UAEHJ@Z 0040b158     mfc42:MFC42.DLL
+ 0003:0000015c       __imp_?OnFinalRelease@CCmdTarget@@UAEXXZ 0040b15c     mfc42:MFC42.DLL
+ 0003:00000160       __imp_?OnCmdMsg@CCmdTarget@@UAEHIHPAXPAUAFX_CMDHANDLERINFO@@@Z 0040b160     mfc42:MFC42.DLL
+ 0003:00000164       __imp_?GetRuntimeClass@CWinApp@@UBEPAUCRuntimeClass@@XZ 0040b164     mfc42:MFC42.DLL
+ 0003:00000168       __imp_??0CWinApp@@QAE@PBD@Z 0040b168     mfc42:MFC42.DLL
+ 0003:0000016c       __imp_??1CWinApp@@UAE@XZ   0040b16c     mfc42:MFC42.DLL
+ 0003:00000170       __imp_?DoModal@CDialog@@UAEHXZ 0040b170     mfc42:MFC42.DLL
+ 0003:00000174       __imp_?Enable3dControls@CWinApp@@IAEHXZ 0040b174     mfc42:MFC42.DLL
+ 0003:00000178       __imp_?PreInitDialog@CDialog@@MAEXXZ 0040b178     mfc42:MFC42.DLL
+ 0003:0000017c       __imp_?OnCancel@CDialog@@MAEXXZ 0040b17c     mfc42:MFC42.DLL
+ 0003:00000180       __imp_?OnOK@CDialog@@MAEXXZ 0040b180     mfc42:MFC42.DLL
+ 0003:00000184       __imp_?OnSetFont@CDialog@@UAEXPAVCFont@@@Z 0040b184     mfc42:MFC42.DLL
+ 0003:00000188       __imp_?SetOccDialogInfo@CDialog@@MAEHPAU_AFX_OCC_DIALOG_INFO@@@Z 0040b188     mfc42:MFC42.DLL
+ 0003:0000018c       __imp_?CheckAutoCenter@CDialog@@UAEHXZ 0040b18c     mfc42:MFC42.DLL
+ 0003:00000190       __imp_?PreTranslateMessage@CDialog@@UAEHPAUtagMSG@@@Z 0040b190     mfc42:MFC42.DLL
+ 0003:00000194       __imp_?OnCmdMsg@CDialog@@UAEHIHPAXPAUAFX_CMDHANDLERINFO@@@Z 0040b194     mfc42:MFC42.DLL
+ 0003:00000198       __imp_?GetRuntimeClass@CDialog@@UBEPAUCRuntimeClass@@XZ 0040b198     mfc42:MFC42.DLL
+ 0003:0000019c       __imp_?GetRuntimeClass@CEdit@@UBEPAUCRuntimeClass@@XZ 0040b19c     mfc42:MFC42.DLL
+ 0003:000001a0       __imp_?SetOccDialogInfo@CWnd@@MAEHPAU_AFX_OCC_DIALOG_INFO@@@Z 0040b1a0     mfc42:MFC42.DLL
+ 0003:000001a4       __imp_?IsFrameWnd@CWnd@@UBEHXZ 0040b1a4     mfc42:MFC42.DLL
+ 0003:000001a8       __imp_?CheckAutoCenter@CWnd@@UAEHXZ 0040b1a8     mfc42:MFC42.DLL
+ 0003:000001ac       __imp_?OnChildNotify@CWnd@@MAEHIIJPAJ@Z 0040b1ac     mfc42:MFC42.DLL
+ 0003:000001b0       __imp_?PostNcDestroy@CWnd@@MAEXXZ 0040b1b0     mfc42:MFC42.DLL
+ 0003:000001b4       __imp_?DefWindowProcA@CWnd@@MAEJIIJ@Z 0040b1b4     mfc42:MFC42.DLL
+ 0003:000001b8       __imp_?OnWndMsg@CWnd@@MAEHIIJPAJ@Z 0040b1b8     mfc42:MFC42.DLL
+ 0003:000001bc       __imp_?WindowProc@CWnd@@MAEJIIJ@Z 0040b1bc     mfc42:MFC42.DLL
+ 0003:000001c0       __imp_?OnAmbientProperty@CWnd@@UAEHPAVCOleControlSite@@JPAUtagVARIANT@@@Z 0040b1c0     mfc42:MFC42.DLL
+ 0003:000001c4       __imp_?PreTranslateMessage@CWnd@@UAEHPAUtagMSG@@@Z 0040b1c4     mfc42:MFC42.DLL
+ 0003:000001c8       __imp_?GetSuperWndProcAddr@CWnd@@MAEPAP6GJPAUHWND__@@IIJ@ZXZ 0040b1c8     mfc42:MFC42.DLL
+ 0003:000001cc       __imp_?OnNotify@CWnd@@MAEHIJPAJ@Z 0040b1cc     mfc42:MFC42.DLL
+ 0003:000001d0       __imp_?OnCommand@CWnd@@MAEHIJ@Z 0040b1d0     mfc42:MFC42.DLL
+ 0003:000001d4       __imp_?EndModalLoop@CWnd@@UAEXH@Z 0040b1d4     mfc42:MFC42.DLL
+ 0003:000001d8       __imp_?ContinueModal@CWnd@@UAEHXZ 0040b1d8     mfc42:MFC42.DLL
+ 0003:000001dc       __imp_?WinHelpA@CWnd@@UAEXKI@Z 0040b1dc     mfc42:MFC42.DLL
+ 0003:000001e0       __imp_?GetScrollBarCtrl@CWnd@@UBEPAVCScrollBar@@H@Z 0040b1e0     mfc42:MFC42.DLL
+ 0003:000001e4       __imp_?OnToolHitTest@CWnd@@UBEHVCPoint@@PAUtagTOOLINFOA@@@Z 0040b1e4     mfc42:MFC42.DLL
+ 0003:000001e8       __imp_?CalcWindowRect@CWnd@@UAEXPAUtagRECT@@I@Z 0040b1e8     mfc42:MFC42.DLL
+ 0003:000001ec       __imp_?PreCreateWindow@CWnd@@UAEHAAUtagCREATESTRUCTA@@@Z 0040b1ec     mfc42:MFC42.DLL
+ 0003:000001f0       __imp_?DestroyWindow@CWnd@@UAEHXZ 0040b1f0     mfc42:MFC42.DLL
+ 0003:000001f4       __imp_?Create@CWnd@@UAEHPBD0KABUtagRECT@@PAV1@IPAUCCreateContext@@@Z 0040b1f4     mfc42:MFC42.DLL
+ 0003:000001f8       __imp_?PreSubclassWindow@CWnd@@UAEXXZ 0040b1f8     mfc42:MFC42.DLL
+ 0003:000001fc       __imp_?GetMessageMap@CWnd@@MBEPBUAFX_MSGMAP@@XZ 0040b1fc     mfc42:MFC42.DLL
+ 0003:00000200       __imp_?OnFinalRelease@CWnd@@UAEXXZ 0040b200     mfc42:MFC42.DLL
+ 0003:00000204       __imp_?GetRuntimeClass@CStatic@@UBEPAUCRuntimeClass@@XZ 0040b204     mfc42:MFC42.DLL
+ 0003:00000208       __imp_??1CEdit@@UAE@XZ     0040b208     mfc42:MFC42.DLL
+ 0003:0000020c       __imp_??1CDialog@@UAE@XZ   0040b20c     mfc42:MFC42.DLL
+ 0003:00000210       __imp_??0CWnd@@QAE@XZ      0040b210     mfc42:MFC42.DLL
+ 0003:00000214       __imp_??0CDialog@@QAE@IPAVCWnd@@@Z 0040b214     mfc42:MFC42.DLL
+ 0003:00000218       __imp_??1CStatic@@UAE@XZ   0040b218     mfc42:MFC42.DLL
+ 0003:0000021c       __imp_??1CString@@QAE@XZ   0040b21c     mfc42:MFC42.DLL
+ 0003:00000220       __imp_?ReverseFind@CString@@QBEHD@Z 0040b220     mfc42:MFC42.DLL
+ 0003:00000224       __imp_?SetWindowTextA@CWnd@@QAEXPBD@Z 0040b224     mfc42:MFC42.DLL
+ 0003:00000228       __imp_?Format@CString@@QAAXPBDZZ 0040b228     mfc42:MFC42.DLL
+ 0003:0000022c       __imp_??0CString@@QAE@XZ   0040b22c     mfc42:MFC42.DLL
+ 0003:00000230       __imp_?OnInitDialog@CDialog@@UAEHXZ 0040b230     mfc42:MFC42.DLL
+ 0003:00000234       __imp_?DDX_Control@@YGXPAVCDataExchange@@HAAVCWnd@@@Z 0040b234     mfc42:MFC42.DLL
+ 0003:00000238       __imp_?messageMap@CDialog@@1UAFX_MSGMAP@@B 0040b238     mfc42:MFC42.DLL
+ 0003:0000023c       __imp_?ReportError@CException@@UAEHII@Z 0040b23c     mfc42:MFC42.DLL
+ 0003:00000240       __imp_?GetErrorMessage@CFileException@@UAEHPADIPAI@Z 0040b240     mfc42:MFC42.DLL
+ 0003:00000244       __imp_?GetRuntimeClass@CFileException@@UBEPAUCRuntimeClass@@XZ 0040b244     mfc42:MFC42.DLL
+ 0003:00000248       __imp_?DrawItem@CButton@@UAEXPAUtagDRAWITEMSTRUCT@@@Z 0040b248     mfc42:MFC42.DLL
+ 0003:0000024c       __imp_?OnChildNotify@CButton@@MAEHIIJPAJ@Z 0040b24c     mfc42:MFC42.DLL
+ 0003:00000250       __imp_?GetRuntimeClass@CButton@@UBEPAUCRuntimeClass@@XZ 0040b250     mfc42:MFC42.DLL
+ 0003:00000254       __imp_?GetRuntimeClass@CSliderCtrl@@UBEPAUCRuntimeClass@@XZ 0040b254     mfc42:MFC42.DLL
+ 0003:00000258       __imp_?GetRuntimeClass@CObject@@UBEPAUCRuntimeClass@@XZ 0040b258     mfc42:MFC42.DLL
+ 0003:0000025c       __imp_??1CFile@@UAE@XZ     0040b25c     mfc42:MFC42.DLL
+ 0003:00000260       __imp_??1CSliderCtrl@@UAE@XZ 0040b260     mfc42:MFC42.DLL
+ 0003:00000264       __imp_??1CButton@@UAE@XZ   0040b264     mfc42:MFC42.DLL
+ 0003:00000268       __imp_?AfxFindResourceHandle@@YGPAUHINSTANCE__@@PBD0@Z 0040b268     mfc42:MFC42.DLL
+ 0003:0000026c       __imp_??4CString@@QAEABV0@PBD@Z 0040b26c     mfc42:MFC42.DLL
+ 0003:00000270       __imp_??0CException@@QAE@XZ 0040b270     mfc42:MFC42.DLL
+ 0003:00000274       __imp_??0CFile@@QAE@XZ     0040b274     mfc42:MFC42.DLL
+ 0003:00000278       __imp_?GetErrorMessage@CException@@UAEHPADIPAI@Z 0040b278     mfc42:MFC42.DLL
+ 0003:0000027c       __imp_?GetRuntimeClass@CException@@UBEPAUCRuntimeClass@@XZ 0040b27c     mfc42:MFC42.DLL
+ 0003:00000280       __imp_?FreeDataChain@CPlex@@QAEXXZ 0040b280     mfc42:MFC42.DLL
+ 0003:00000284       __imp_??YCString@@QAEABV0@PBD@Z 0040b284     mfc42:MFC42.DLL
+ 0003:00000288       __imp_??0CString@@QAE@PBD@Z 0040b288     mfc42:MFC42.DLL
+ 0003:0000028c       __imp_??H@YG?AVCString@@ABV0@PBD@Z 0040b28c     mfc42:MFC42.DLL
+ 0003:00000290       __imp_??4CString@@QAEABV0@ABV0@@Z 0040b290     mfc42:MFC42.DLL
+ 0003:00000294       __imp_?Left@CString@@QBE?AV1@H@Z 0040b294     mfc42:MFC42.DLL
+ 0003:00000298       __imp_?MoveWindow@CWnd@@QAEXHHHHH@Z 0040b298     mfc42:MFC42.DLL
+ 0003:0000029c       \177MFC42_NULL_THUNK_DATA  0040b29c     mfc42:MFC42.DLL
+ 0003:000002a0       __imp_??1Init@ios_base@std@@QAE@XZ 0040b2a0     msvcprt:MSVCP60.dll
+ 0003:000002a4       __imp_??0_Winit@std@@QAE@XZ 0040b2a4     msvcprt:MSVCP60.dll
+ 0003:000002a8       __imp_??1_Winit@std@@QAE@XZ 0040b2a8     msvcprt:MSVCP60.dll
+ 0003:000002ac       __imp_??0Init@ios_base@std@@QAE@XZ 0040b2ac     msvcprt:MSVCP60.dll
+ 0003:000002b0       \177MSVCP60_NULL_THUNK_DATA 0040b2b0     msvcprt:MSVCP60.dll
+ 0003:000002b4       __imp____dllonexit         0040b2b4     msvcrt:MSVCRT.dll
+ 0003:000002b8       __imp__strcpy              0040b2b8     msvcrt:MSVCRT.dll
+ 0003:000002bc       __imp___controlfp          0040b2bc     msvcrt:MSVCRT.dll
+ 0003:000002c0       __imp___except_handler3    0040b2c0     msvcrt:MSVCRT.dll
+ 0003:000002c4       __imp____set_app_type      0040b2c4     msvcrt:MSVCRT.dll
+ 0003:000002c8       __imp____p__fmode          0040b2c8     msvcrt:MSVCRT.dll
+ 0003:000002cc       __imp____p__commode        0040b2cc     msvcrt:MSVCRT.dll
+ 0003:000002d0       __imp___adjust_fdiv        0040b2d0     msvcrt:MSVCRT.dll
+ 0003:000002d4       __imp____setusermatherr    0040b2d4     msvcrt:MSVCRT.dll
+ 0003:000002d8       __imp___initterm           0040b2d8     msvcrt:MSVCRT.dll
+ 0003:000002dc       __imp____getmainargs       0040b2dc     msvcrt:MSVCRT.dll
+ 0003:000002e0       __imp___acmdln             0040b2e0     msvcrt:MSVCRT.dll
+ 0003:000002e4       __imp__exit                0040b2e4     msvcrt:MSVCRT.dll
+ 0003:000002e8       __imp___XcptFilter         0040b2e8     msvcrt:MSVCRT.dll
+ 0003:000002ec       __imp___exit               0040b2ec     msvcrt:MSVCRT.dll
+ 0003:000002f0       __imp___onexit             0040b2f0     msvcrt:MSVCRT.dll
+ 0003:000002f4       __imp___setmbcp            0040b2f4     msvcrt:MSVCRT.dll
+ 0003:000002f8       __imp__log                 0040b2f8     msvcrt:MSVCRT.dll
+ 0003:000002fc       __imp__sqrt                0040b2fc     msvcrt:MSVCRT.dll
+ 0003:00000300       __imp__abs                 0040b300     msvcrt:MSVCRT.dll
+ 0003:00000304       __imp__memcpy              0040b304     msvcrt:MSVCRT.dll
+ 0003:00000308       __imp____CxxFrameHandler   0040b308     msvcrt:MSVCRT.dll
+ 0003:0000030c       __imp__memset              0040b30c     msvcrt:MSVCRT.dll
+ 0003:00000310       __imp__sprintf             0040b310     msvcrt:MSVCRT.dll
+ 0003:00000314       __imp__fclose              0040b314     msvcrt:MSVCRT.dll
+ 0003:00000318       __imp__strlen              0040b318     msvcrt:MSVCRT.dll
+ 0003:0000031c       __imp__strncpy             0040b31c     msvcrt:MSVCRT.dll
+ 0003:00000320       __imp__calloc              0040b320     msvcrt:MSVCRT.dll
+ 0003:00000324       __imp__fprintf             0040b324     msvcrt:MSVCRT.dll
+ 0003:00000328       __imp__fopen               0040b328     msvcrt:MSVCRT.dll
+ 0003:0000032c       __imp__fflush              0040b32c     msvcrt:MSVCRT.dll
+ 0003:00000330       __imp___ftol               0040b330     msvcrt:MSVCRT.dll
+ 0003:00000334       __imp_??1type_info@@UAE@XZ 0040b334     msvcrt:MSVCRT.dll
+ 0003:00000338       \177MSVCRT_NULL_THUNK_DATA 0040b338     msvcrt:MSVCRT.dll
+ 0003:0000033c       __imp__SaveToYUV           0040b33c     RGB2YUV_DLL:RGB2YUV_DLL.dll
+ 0003:00000340       \177RGB2YUV_DLL_NULL_THUNK_DATA 0040b340     RGB2YUV_DLL:RGB2YUV_DLL.dll
+ 0003:00000344       __imp__SendMessageA@16     0040b344     user32:USER32.dll
+ 0003:00000348       __imp__GetClientRect@8     0040b348     user32:USER32.dll
+ 0003:0000034c       __imp__KillTimer@8         0040b34c     user32:USER32.dll
+ 0003:00000350       __imp__LoadIconA@8         0040b350     user32:USER32.dll
+ 0003:00000354       __imp__AppendMenuA@16      0040b354     user32:USER32.dll
+ 0003:00000358       __imp__GetSystemMenu@8     0040b358     user32:USER32.dll
+ 0003:0000035c       __imp__GetWindowRect@8     0040b35c     user32:USER32.dll
+ 0003:00000360       __imp__RedrawWindow@16     0040b360     user32:USER32.dll
+ 0003:00000364       __imp__IsIconic@4          0040b364     user32:USER32.dll
+ 0003:00000368       __imp__SetTimer@16         0040b368     user32:USER32.dll
+ 0003:0000036c       __imp__GetDC@4             0040b36c     user32:USER32.dll
+ 0003:00000370       __imp__InvalidateRect@12   0040b370     user32:USER32.dll
+ 0003:00000374       __imp__PostMessageA@16     0040b374     user32:USER32.dll
+ 0003:00000378       __imp__EnableWindow@8      0040b378     user32:USER32.dll
+ 0003:0000037c       __imp__DrawIcon@16         0040b37c     user32:USER32.dll
+ 0003:00000380       __imp__LoadImageA@24       0040b380     user32:USER32.dll
+ 0003:00000384       __imp__GetSystemMetrics@4  0040b384     user32:USER32.dll
+ 0003:00000388       \177USER32_NULL_THUNK_DATA 0040b388     user32:USER32.dll
+ 0003:0000038c       __imp__cvCalcArrHist       0040b38c     cv:cv100.dll
+ 0003:00000390       __imp__cvCreateHist        0040b390     cv:cv100.dll
+ 0003:00000394       __imp__cvCvtColor          0040b394     cv:cv100.dll
+ 0003:00000398       __imp__cvCanny             0040b398     cv:cv100.dll
+ 0003:0000039c       __imp__cvReleaseHist       0040b39c     cv:cv100.dll
+ 0003:000003a0       \177cv100_NULL_THUNK_DATA  0040b3a0     cv:cv100.dll
+ 0003:000003a4       __imp__cvCreateImage       0040b3a4     cxcore:cxcore100.dll
+ 0003:000003a8       __imp__cvReleaseImage      0040b3a8     cxcore:cxcore100.dll
+ 0003:000003ac       __imp__cvGetReal1D         0040b3ac     cxcore:cxcore100.dll
+ 0003:000003b0       __imp__cvReleaseImageHeader 0040b3b0     cxcore:cxcore100.dll
+ 0003:000003b4       __imp__cvCopy              0040b3b4     cxcore:cxcore100.dll
+ 0003:000003b8       __imp__cvCreateImageHeader 0040b3b8     cxcore:cxcore100.dll
+ 0003:000003bc       __imp__cvGetSize           0040b3bc     cxcore:cxcore100.dll
+ 0003:000003c0       __imp__cvSetData           0040b3c0     cxcore:cxcore100.dll
+ 0003:000003c4       __imp__cvAvg               0040b3c4     cxcore:cxcore100.dll
+ 0003:000003c8       \177cxcore100_NULL_THUNK_DATA 0040b3c8     cxcore:cxcore100.dll
+ 0003:000003cc       __imp__libvlc_audio_get_mute 0040b3cc     libvlc:d000004.o
+ 0003:000003d0       __imp__libvlc_audio_get_volume 0040b3d0     libvlc:d000008.o
+ 0003:000003d4       __imp__libvlc_audio_set_mute 0040b3d4     libvlc:d000020.o
+ 0003:000003d8       __imp__libvlc_audio_set_volume 0040b3d8     libvlc:d000022.o
+ 0003:000003dc       __imp__libvlc_event_attach 0040b3dc     libvlc:d000026.o
+ 0003:000003e0       __imp__libvlc_media_new_path 0040b3e0     libvlc:d000104.o
+ 0003:000003e4       __imp__libvlc_media_player_event_manager 0040b3e4     libvlc:d000108.o
+ 0003:000003e8       __imp__libvlc_media_player_get_fps 0040b3e8     libvlc:d000113.o
+ 0003:000003ec       __imp__libvlc_media_player_get_length 0040b3ec     libvlc:d000115.o
+ 0003:000003f0       __imp__libvlc_media_player_get_time 0040b3f0     libvlc:d000121.o
+ 0003:000003f4       __imp__libvlc_media_player_new 0040b3f4     libvlc:d000128.o
+ 0003:000003f8       __imp__libvlc_media_player_pause 0040b3f8     libvlc:d000132.o
+ 0003:000003fc       __imp__libvlc_media_player_play 0040b3fc     libvlc:d000133.o
+ 0003:00000400       __imp__libvlc_media_player_release 0040b400     libvlc:d000135.o
+ 0003:00000404       __imp__libvlc_media_player_set_hwnd 0040b404     libvlc:d000139.o
+ 0003:00000408       __imp__libvlc_media_player_set_media 0040b408     libvlc:d000140.o
+ 0003:0000040c       __imp__libvlc_media_player_set_time 0040b40c     libvlc:d000145.o
+ 0003:00000410       __imp__libvlc_media_player_stop 0040b410     libvlc:d000148.o
+ 0003:00000414       __imp__libvlc_new          0040b414     libvlc:d000157.o
+ 0003:00000418       __imp__libvlc_release      0040b418     libvlc:d000160.o
+ 0003:0000041c       __imp__libvlc_video_get_height 0040b41c     libvlc:d000174.o
+ 0003:00000420       __imp__libvlc_video_get_width 0040b420     libvlc:d000188.o
+ 0003:00000424       __imp__libvlc_video_take_snapshot 0040b424     libvlc:d000207.o
+ 0003:0000042c       __imp__deleteptr           0040b42c     detection:detection.dll
+ 0003:00000430       __imp__definition          0040b430     detection:detection.dll
+ 0003:00000434       __imp__QualityTesting      0040b434     detection:detection.dll
+ 0003:00000438       __imp__brightness          0040b438     detection:detection.dll
+ 0003:0000043c       __imp__Deviation           0040b43c     detection:detection.dll
+ 0003:00000440       __imp__Entropy             0040b440     detection:detection.dll
+ 0003:00000444       \177detection_NULL_THUNK_DATA 0040b444     detection:detection.dll
+ 0003:00000470       __real@8@4001e000000000000000 0040b470     ComputeBlock.obj
+ 0003:00000478       __real@8@4006ff00000000000000 0040b478     ComputeBlock.obj
+ 0003:00000480       __real@8@3fff9375104d551d6800 0040b480     ComputeBlock.obj
+ 0003:00000488       __real@8@3fff8000000000000000 0040b488     ComputeBlock.obj
+ 0003:00000490       __real@8@4005a200000000000000 0040b490     ComputeBlock.obj
+ 0003:00000498       __real@8@40028000000000000000 0040b498     ComputeBlock.obj
+ 0003:000004a0       __real@8@40008000000000000000 0040b4a0     ComputeBlock.obj
+ 0003:000004a8       __real@8@40058000000000000000 0040b4a8     ComputeBlock.obj
+ 0003:000004b0       ?messageMap@CVlcDialogApp@@1UAFX_MSGMAP@@B 0040b4b0     VlcDialog.obj
+ 0003:000004b8       ?_messageEntries@CVlcDialogApp@@0QBUAFX_MSGMAP_ENTRY@@B 0040b4b8     VlcDialog.obj
+ 0003:000004ec       ??_7CVlcDialogApp@@6B@     0040b4ec     VlcDialog.obj
+ 0003:00000590       ?messageMap@CAboutDlg@@1UAFX_MSGMAP@@B 0040b590     VlcDialogDlg.obj
+ 0003:00000598       ?_messageEntries@CAboutDlg@@0QBUAFX_MSGMAP_ENTRY@@B 0040b598     VlcDialogDlg.obj
+ 0003:000005b0       ?messageMap@CVlcDialogDlg@@1UAFX_MSGMAP@@B 0040b5b0     VlcDialogDlg.obj
+ 0003:000005b8       ?_messageEntries@CVlcDialogDlg@@0QBUAFX_MSGMAP_ENTRY@@B 0040b5b8     VlcDialogDlg.obj
+ 0003:0000073c       ??_7CAboutDlg@@6B@         0040b73c     VlcDialogDlg.obj
+ 0003:00000818       ??_7CStatic@@6B@           0040b818     VlcDialogDlg.obj
+ 0003:000008dc       ??_7CEdit@@6B@             0040b8dc     VlcDialogDlg.obj
+ 0003:000009a0       ??_7CVlcDialogDlg@@6B@     0040b9a0     VlcDialogDlg.obj
+ 0003:00000a7c       ??_7CFileException@@6B@    0040ba7c     VlcDialogDlg.obj
+ 0003:00000a9c       ??_7CSliderCtrl@@6B@       0040ba9c     VlcDialogDlg.obj
+ 0003:00000b60       ??_7CButton@@6B@           0040bb60     VlcDialogDlg.obj
+ 0003:00000c28       ??_7?$CList@PAVCWnd@@PAV1@@@6B@ 0040bc28     VlcDialogDlg.obj
+ 0003:00000c40       ??_7CObject@@6B@           0040bc40     VlcDialogDlg.obj
+ 0003:00000c58       ??_7CException@@6B@        0040bc58     VlcDialogDlg.obj
+ 0003:00000c78       __real@8@4002a000000000000000 0040bc78     VlcDialogDlg.obj
+ 0003:00000c80       __real@8@3fffc000000000000000 0040bc80     VlcDialogDlg.obj
+ 0003:00000c88       __real@8@3ffe8000000000000000 0040bc88     VlcDialogDlg.obj
+ 0003:00000c90       __real@8@4005c800000000000000 0040bc90     VlcDialogDlg.obj
+ 0003:00000c98       _IID_IDocHostUIHandlerDispatch 0040bc98     mfcs42:stdafx.obj
+ 0003:00000ca8       _IID_IInternalConnection   0040bca8     mfcs42:stdafx.obj
+ 0003:00000cb8       _IID_IAxWinAmbientDispatch 0040bcb8     mfcs42:stdafx.obj
+ 0003:00000cc8       _IID_IAxWinHostWindow      0040bcc8     mfcs42:stdafx.obj
+ 0003:00000cd8       _IID_IRegistrar            0040bcd8     mfcs42:stdafx.obj
+ 0003:00000ce8       _CLSID_Registrar           0040bce8     mfcs42:stdafx.obj
+ 0003:00000cf8       _LIBID_ATLLib              0040bcf8     mfcs42:stdafx.obj
+ 0003:00000d0c       ??_7type_info@@6B@         0040bd0c     msvcrt:ti_inst.obj
+ 0003:00000d20       ??_R1A@?0A@A@CObject@@8    0040bd20     VlcDialog.obj
+ 0003:00000d38       ??_R1A@?0A@A@CCmdTarget@@8 0040bd38     VlcDialog.obj
+ 0003:00000d50       ??_R1A@?0A@A@CWinThread@@8 0040bd50     VlcDialog.obj
+ 0003:00000d68       ??_R1A@?0A@A@CWinApp@@8    0040bd68     VlcDialog.obj
+ 0003:00000d80       ??_R1A@?0A@A@CVlcDialogApp@@8 0040bd80     VlcDialog.obj
+ 0003:00000d98       ??_R2CVlcDialogApp@@8      0040bd98     VlcDialog.obj
+ 0003:00000db0       ??_R3CVlcDialogApp@@8      0040bdb0     VlcDialog.obj
+ 0003:00000dc0       ??_R4CVlcDialogApp@@6B@    0040bdc0     VlcDialog.obj
+ 0003:00000dd8       ??_R1A@?0A@A@CDialog@@8    0040bdd8     VlcDialogDlg.obj
+ 0003:00000df0       ??_R1A@?0A@A@CAboutDlg@@8  0040bdf0     VlcDialogDlg.obj
+ 0003:00000e08       ??_R2CAboutDlg@@8          0040be08     VlcDialogDlg.obj
+ 0003:00000e20       ??_R3CAboutDlg@@8          0040be20     VlcDialogDlg.obj
+ 0003:00000e30       ??_R4CAboutDlg@@6B@        0040be30     VlcDialogDlg.obj
+ 0003:00000e48       ??_R1A@?0A@A@CEdit@@8      0040be48     VlcDialogDlg.obj
+ 0003:00000e60       ??_R2CEdit@@8              0040be60     VlcDialogDlg.obj
+ 0003:00000e78       ??_R3CEdit@@8              0040be78     VlcDialogDlg.obj
+ 0003:00000e88       ??_R4CEdit@@6B@            0040be88     VlcDialogDlg.obj
+ 0003:00000ea0       ??_R1A@?0A@A@CWnd@@8       0040bea0     VlcDialogDlg.obj
+ 0003:00000eb8       ??_R1A@?0A@A@CStatic@@8    0040beb8     VlcDialogDlg.obj
+ 0003:00000ed0       ??_R2CStatic@@8            0040bed0     VlcDialogDlg.obj
+ 0003:00000ee8       ??_R3CStatic@@8            0040bee8     VlcDialogDlg.obj
+ 0003:00000ef8       ??_R4CStatic@@6B@          0040bef8     VlcDialogDlg.obj
+ 0003:00000f10       ??_R1A@?0A@A@CVlcDialogDlg@@8 0040bf10     VlcDialogDlg.obj
+ 0003:00000f28       ??_R2CVlcDialogDlg@@8      0040bf28     VlcDialogDlg.obj
+ 0003:00000f40       ??_R3CVlcDialogDlg@@8      0040bf40     VlcDialogDlg.obj
+ 0003:00000f50       ??_R4CVlcDialogDlg@@6B@    0040bf50     VlcDialogDlg.obj
+ 0003:00000f68       ??_R1A@?0A@A@CException@@8 0040bf68     VlcDialogDlg.obj
+ 0003:00000f80       ??_R1A@?0A@A@CFileException@@8 0040bf80     VlcDialogDlg.obj
+ 0003:00000f98       ??_R2CFileException@@8     0040bf98     VlcDialogDlg.obj
+ 0003:00000fa8       ??_R3CFileException@@8     0040bfa8     VlcDialogDlg.obj
+ 0003:00000fb8       ??_R4CFileException@@6B@   0040bfb8     VlcDialogDlg.obj
+ 0003:00000fcc       ??_R2CObject@@8            0040bfcc     VlcDialogDlg.obj
+ 0003:00000fd8       ??_R3CObject@@8            0040bfd8     VlcDialogDlg.obj
+ 0003:00000fe8       ??_R4CObject@@6B@          0040bfe8     VlcDialogDlg.obj
+ 0003:00001000       ??_R1A@?0A@A@CButton@@8    0040c000     VlcDialogDlg.obj
+ 0003:00001018       ??_R2CButton@@8            0040c018     VlcDialogDlg.obj
+ 0003:00001030       ??_R3CButton@@8            0040c030     VlcDialogDlg.obj
+ 0003:00001040       ??_R4CButton@@6B@          0040c040     VlcDialogDlg.obj
+ 0003:00001058       ??_R1A@?0A@A@CSliderCtrl@@8 0040c058     VlcDialogDlg.obj
+ 0003:00001070       ??_R2CSliderCtrl@@8        0040c070     VlcDialogDlg.obj
+ 0003:00001088       ??_R3CSliderCtrl@@8        0040c088     VlcDialogDlg.obj
+ 0003:00001098       ??_R4CSliderCtrl@@6B@      0040c098     VlcDialogDlg.obj
+ 0003:000010b0       ??_R1A@?0A@A@?$CList@PAVCWnd@@PAV1@@@8 0040c0b0     VlcDialogDlg.obj
+ 0003:000010c8       ??_R2?$CList@PAVCWnd@@PAV1@@@8 0040c0c8     VlcDialogDlg.obj
+ 0003:000010d8       ??_R3?$CList@PAVCWnd@@PAV1@@@8 0040c0d8     VlcDialogDlg.obj
+ 0003:000010e8       ??_R4?$CList@PAVCWnd@@PAV1@@@6B@ 0040c0e8     VlcDialogDlg.obj
+ 0003:00001100       ??_R2CException@@8         0040c100     VlcDialogDlg.obj
+ 0003:00001110       ??_R3CException@@8         0040c110     VlcDialogDlg.obj
+ 0003:00001120       ??_R4CException@@6B@       0040c120     VlcDialogDlg.obj
+ 0003:00001138       ??_R1A@?0A@A@type_info@@8  0040c138     msvcrt:ti_inst.obj
+ 0003:00001150       ??_R2type_info@@8          0040c150     msvcrt:ti_inst.obj
+ 0003:00001158       ??_R3type_info@@8          0040c158     msvcrt:ti_inst.obj
+ 0003:00001168       ??_R4type_info@@6B@        0040c168     msvcrt:ti_inst.obj
+ 0003:000015c8       __head_libvlc_dll          0040c5c8     libvlc:d000000.o
+ 0003:000015dc       __IMPORT_DESCRIPTOR_cxcore100 0040c5dc     cxcore:cxcore100.dll
+ 0003:000015f0       __IMPORT_DESCRIPTOR_cv100  0040c5f0     cv:cv100.dll
+ 0003:00001604       __IMPORT_DESCRIPTOR_detection 0040c604     detection:detection.dll
+ 0003:00001618       __IMPORT_DESCRIPTOR_RGB2YUV_DLL 0040c618     RGB2YUV_DLL:RGB2YUV_DLL.dll
+ 0003:0000162c       __IMPORT_DESCRIPTOR_MFC42  0040c62c     mfc42:MFC42.DLL
+ 0003:00001640       __IMPORT_DESCRIPTOR_MSVCRT 0040c640     msvcrt:MSVCRT.dll
+ 0003:00001654       __IMPORT_DESCRIPTOR_KERNEL32 0040c654     kernel32:KERNEL32.dll
+ 0003:00001668       __IMPORT_DESCRIPTOR_USER32 0040c668     user32:USER32.dll
+ 0003:0000167c       __IMPORT_DESCRIPTOR_GDI32  0040c67c     gdi32:GDI32.dll
+ 0003:00001690       __IMPORT_DESCRIPTOR_MSVCP60 0040c690     msvcprt:MSVCP60.dll
+ 0003:000016a4       __NULL_IMPORT_DESCRIPTOR   0040c6a4     cxcore:cxcore100.dll
+ 0003:0000244c       _libvlc_dll_iname          0040d44c     libvlc:d000231.o
+ 0004:00000000       ___xc_a                    0040e000     msvcrt:cinitexe.obj
+ 0004:00000014       ___xc_z                    0040e014     msvcrt:cinitexe.obj
+ 0004:00000018       ___xi_a                    0040e018     msvcrt:cinitexe.obj
+ 0004:0000001c       ___xi_z                    0040e01c     msvcrt:cinitexe.obj
+ 0004:00000020       ??_R0?AVCObject@@@8        0040e020     VlcDialog.obj
+ 0004:00000038       ??_R0?AVCCmdTarget@@@8     0040e038     VlcDialog.obj
+ 0004:00000058       ??_R0?AVCWinThread@@@8     0040e058     VlcDialog.obj
+ 0004:00000078       ??_R0?AVCWinApp@@@8        0040e078     VlcDialog.obj
+ 0004:00000090       ??_R0?AVCVlcDialogApp@@@8  0040e090     VlcDialog.obj
+ 0004:000000b0       ??_R0?AVCDialog@@@8        0040e0b0     VlcDialogDlg.obj
+ 0004:000000c8       ??_R0?AVCAboutDlg@@@8      0040e0c8     VlcDialogDlg.obj
+ 0004:000000e0       ??_R0?AVCEdit@@@8          0040e0e0     VlcDialogDlg.obj
+ 0004:000000f8       ??_R0?AVCWnd@@@8           0040e0f8     VlcDialogDlg.obj
+ 0004:00000110       ??_R0?AVCStatic@@@8        0040e110     VlcDialogDlg.obj
+ 0004:000004f0       ??_R0?AVCVlcDialogDlg@@@8  0040e4f0     VlcDialogDlg.obj
+ 0004:00000510       ??_R0?AVCException@@@8     0040e510     VlcDialogDlg.obj
+ 0004:00000530       ??_R0?AVCFileException@@@8 0040e530     VlcDialogDlg.obj
+ 0004:00000550       ??_R0?AVCButton@@@8        0040e550     VlcDialogDlg.obj
+ 0004:00000568       ??_R0?AVCSliderCtrl@@@8    0040e568     VlcDialogDlg.obj
+ 0004:00000588       ??_R0?AV?$CList@PAVCWnd@@PAV1@@@@8 0040e588     VlcDialogDlg.obj
+ 0004:000005b0       ??_C@_07LGIJ@DISPLAY?$AA@  0040e5b0     VlcDialogDlg.obj
+ 0004:000005b8       ??_C@_0M@IINL@?$CF2d?3?$CF2d?3?$CF2d?$AA@ 0040e5b8     VlcDialogDlg.obj
+ 0004:000005f8       ?GUID_ATLVer30@ATL@@3U_GUID@@A 0040e5f8     mfcs42:stdafx.obj
+ 0004:00000610       ??_R0?AVtype_info@@@8      0040e610     msvcrt:ti_inst.obj
+ 0004:00000630       ___defaultmatherr          0040e630     msvcrt:merr.obj
+ 0004:00000638       ?_afxInitAppState@@3DA     0040e638     APPMODUL.OBJ
+ 0004:00000640       ?SumHighEnengyRD@@3NA      0040e640     ComputeBlock.obj
+ 0004:00000648       ?SumHighEnengyLD@@3NA      0040e648     ComputeBlock.obj
+ 0004:00000650       ?SumHighEnengyRU@@3NA      0040e650     ComputeBlock.obj
+ 0004:00000658       ?SumLOWEnengyLU@@3NA       0040e658     ComputeBlock.obj
+ 0004:00000660       ?SumHighEnengy@@3NA        0040e660     ComputeBlock.obj
+ 0004:00000668       ?I_trans@@3PAPAHA          0040e668     ComputeBlock.obj
+ 0004:0000066c       ?Y_value@@3PAPAHA          0040e66c     ComputeBlock.obj
+ 0004:00000670       ?theApp@@3VCVlcDialogApp@@A 0040e670     VlcDialog.obj
+ 0004:00000734       ?ptrbufoutframe@@3PAEA     0040e734     VlcDialogDlg.obj
+ 0004:00000738       ?outframesize@@3HA         0040e738     VlcDialogDlg.obj
+ 0004:0000073c       ?inframesize@@3HA          0040e73c     VlcDialogDlg.obj
+ 0004:00000740       ?height@@3HA               0040e740     VlcDialogDlg.obj
+ 0004:00000744       ?width@@3HA                0040e744     VlcDialogDlg.obj
+ 0004:00000758       ?clp@@3PAEA                0040e758     yuv2rgb.obj
+ 0004:00000b58       ?vb_tab@@3PAJA             0040eb58     yuv2rgb.obj
+ 0004:00000f58       ?vg_tab@@3PAJA             0040ef58     yuv2rgb.obj
+ 0004:00001358       ?vr_tab@@3PAJA             0040f358     yuv2rgb.obj
+ 0004:00001758       ?ub_tab@@3PAJA             0040f758     yuv2rgb.obj
+ 0004:00001b58       ?ug_tab@@3PAJA             0040fb58     yuv2rgb.obj
+ 0004:00001f58       ?ur_tab@@3PAJA             0040ff58     yuv2rgb.obj
+ 0004:00002358       ?yb_tab@@3PAJA             00410358     yuv2rgb.obj
+ 0004:00002758       ?yg_tab@@3PAJA             00410758     yuv2rgb.obj
+ 0004:00002b58       ?yr_tab@@3PAJA             00410b58     yuv2rgb.obj
+ 0004:00002f58       ?tab_76309@@3PAJA          00410f58     yuv2rgb.obj
+ 0004:00003358       ?cgv_tab@@3PAJA            00411358     yuv2rgb.obj
+ 0004:00003758       ?cgu_tab@@3PAJA            00411758     yuv2rgb.obj
+ 0004:00003b58       ?cbu_tab@@3PAJA            00411b58     yuv2rgb.obj
+ 0004:00003f58       ?crv_tab@@3PAJA            00411f58     yuv2rgb.obj
+ 0004:00004358       __afxForceEXCLUDE          00412358     mfcs42:nolib.obj
+ 0004:0000435c       ?ATL_CREATE_OBJECT@CComApartment@ATL@@2IA 0041235c     mfcs42:stdafx.obj
+ 0004:00004360       ?m_libid@CComModule@ATL@@2U_GUID@@A 00412360     mfcs42:stdafx.obj
+ 0004:00004370       ?_pModule@ATL@@3PAVCComModule@1@A 00412370     mfcs42:stdafx.obj
+ 0004:00004374       __afxForceSTDAFX           00412374     mfcs42:stdafx.obj
+ 0004:00004378       __dowildcard               00412378     msvcrt:wildcard.obj
+ 0004:0000437c       __newmode                  0041237c     msvcrt:_newmode.obj
+ 0004:00004380       __commode                  00412380     msvcrt:xncommod.obj
+ 0004:00004384       __fmode                    00412384     msvcrt:xtxtmode.obj
+ 0004:00004388       __adjust_fdiv              00412388     <common>
+ 0004:0000438c       ___onexitend               0041238c     <common>
+ 0004:00004390       ___onexitbegin             00412390     <common>
+
+ entry point at        0001:00007d50
+
+ Static symbols
+
+ 0001:00006b05       ?ProcessVLCException@@YAXPAUlibvlc_exception_t@@P6AXPBD@Z@Z 00407b05 f   VLCWrapperImpl.obj
+ 0001:00001b90       _$E224                     00402b90 f   VlcDialogDlg.obj
+ 0001:00001b9f       _$E221                     00402b9f f   VlcDialogDlg.obj
+ 0001:00001baf       _$E223                     00402baf f   VlcDialogDlg.obj
+ 0001:00001bc1       _$E222                     00402bc1 f   VlcDialogDlg.obj
+ 0001:00001bd1       _$E230                     00402bd1 f   VlcDialogDlg.obj
+ 0001:00001be0       _$E227                     00402be0 f   VlcDialogDlg.obj
+ 0001:00001bf0       _$E229                     00402bf0 f   VlcDialogDlg.obj
+ 0001:00001c02       _$E228                     00402c02 f   VlcDialogDlg.obj
+ 0001:0000335a       ?HandleVLCException@@YAXPBD@Z 0040435a f   VlcDialogDlg.obj
+ 0001:00003388       ?HandleVLCEvents@@YAXPBUlibvlc_event_t@@PAX@Z 00404388 f   VlcDialogDlg.obj
+ 0001:00001a3b       _$E232                     00402a3b f   VlcDialog.obj
+ 0001:00001a4a       _$E229                     00402a4a f   VlcDialog.obj
+ 0001:00001a59       _$E231                     00402a59 f   VlcDialog.obj
+ 0001:00001a6b       _$E230                     00402a6b f   VlcDialog.obj
+ 0001:00000059       _$E201                     00401059 f   APPMODUL.OBJ
+ 0001:00000063       _$E200                     00401063 f   APPMODUL.OBJ

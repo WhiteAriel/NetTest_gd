@@ -1,0 +1,272 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C92690D4-CBB8-49D6-94F7-495DF8FECC51}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NetTest</RootNamespace>
+    <AssemblyName>NetTest</AssemblyName>
+    <ApplicationIcon>Shuffle.ico</ApplicationIcon>
+    <ManifestCertificateThumbprint>EBA06E94175A13DED751299C34B129C15F8FDF84</ManifestCertificateThumbprint>
+    <ManifestKeyFile>NetTest_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>c:\NetTest\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="csExWB, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\csExWB.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v8.2, Version=8.2.2.0, Culture=neutral, PublicKeyToken=49d90c14d24271b5" />
+    <Reference Include="DevExpress.Utils.v8.2, Version=8.2.2.0, Culture=neutral, PublicKeyToken=49d90c14d24271b5" />
+    <Reference Include="DevExpress.XtraBars.v8.2, Version=8.2.2.0, Culture=neutral, PublicKeyToken=49d90c14d24271b5" />
+    <Reference Include="DevExpress.XtraEditors.v8.2, Version=8.2.2.0, Culture=neutral, PublicKeyToken=49d90c14d24271b5" />
+    <Reference Include="DevExpress.XtraNavBar.v8.2, Version=8.2.2.0, Culture=neutral, PublicKeyToken=49d90c14d24271b5, processorArchitecture=MSIL" />
+    <Reference Include="FTPCom, Version=1.0.3567.37826, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\FTPCom.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.ComUtilitiesLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="MIMEParser, Version=2004.5.8.12, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\MIMEParser.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenPOP, Version=2004.6.16.1248, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\OpenPOP.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite.NET, Version=0.21.1869.3794, Culture=neutral, PublicKeyToken=c273bd375e695f9c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\SQLite.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tamir.IPLib.SharpPcap, Version=1.0.2.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Tamir.IPLib.SharpPcap.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AllForms.cs" />
+    <Compile Include="CacheClear.cs" />
+    <Compile Include="CMyPipe.cs" />
+    <Compile Include="ExcelWriter.cs" />
+    <Compile Include="ExtractIcon.cs" />
+    <Compile Include="FlvSetting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FlvSetting.Designer.cs">
+      <DependentUpon>FlvSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFTPTips.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFTPTips.Designer.cs">
+      <DependentUpon>frmFTPTips.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTips.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTips.Designer.cs">
+      <DependentUpon>frmTips.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FtpClient.cs" />
+    <Compile Include="FTPSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FTPSettings.Designer.cs">
+      <DependentUpon>FTPSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FTPTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FTPTest.Designer.cs">
+      <DependentUpon>FTPTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ini.cs" />
+    <Compile Include="JParser.cs" />
+    <Compile Include="ListViewColumnSorter.cs" />
+    <Compile Include="MailSet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MailSet.Designer.cs">
+      <DependentUpon>MailSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MailTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MailTest.Designer.cs">
+      <DependentUpon>MailTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FlvTest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FlvTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FlvSetting.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FlvSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAbout.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFTPTips.resx">
+      <DependentUpon>frmFTPTips.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTips.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmTips.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FTPSettings.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FTPSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FTPTest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FTPTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MailSet.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MailSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MailTest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MailTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebSettings.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>WebSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebTest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>WebTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="NetTest_TemporaryKey.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="QuickRegistry.cs" />
+    <Compile Include="ReceiveMail.cs" />
+    <Compile Include="FlvTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FlvTest.Designer.cs">
+      <DependentUpon>FlvTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WebSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WebSettings.Designer.cs">
+      <DependentUpon>WebSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WebTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WebTest.Designer.cs">
+      <DependentUpon>WebTest.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Shell32">
+      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\navBarWebSet.LargeImage.png" />
+    <Content Include="Shuffle.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

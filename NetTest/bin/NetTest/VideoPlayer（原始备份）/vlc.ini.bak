@@ -1,0 +1,17 @@
+[interface]
+result=D:\TestLog\Web\VOD-web-ref-2012-5-5-11-16-2.txt 				
+option_flags=463
+pipename=MyPipe					
+ref=0		
+storepath=E:\5.4temp\Request Busi（代码修改中 ）\bin\NetTest\Flv-new.yuv
+hist =E:\5.4temp\Request Busi（代码修改中 ）\bin\NetTest\Flv-hist.txt
+timerinterval=180
+abanontime=5
+
+width_left=
+width_right=
+height_up=
+height_down=
+abandontime=5
+
+videosource=http://f.youku.com/player/getFlvPath/sid/1374167015227000010029454_00/st/flv/fileid/0300020100516AED4FFB7208221326726199C0-C485-3B22-EE15-B740DDAE96AC?K=d97e317acba49af2261d1f2d
