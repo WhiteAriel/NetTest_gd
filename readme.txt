@@ -1,2 +1,2 @@
 NetTest is a video quality project by hgh and pd on 11.11 2016
-Test pd branch
+branch master only merge by hgh 
