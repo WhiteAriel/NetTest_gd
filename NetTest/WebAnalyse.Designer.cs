@@ -145,7 +145,7 @@
             this.columnHeaderWeb74 = new System.Windows.Forms.ColumnHeader();
             this.columnHeaderWeb75 = new System.Windows.Forms.ColumnHeader();
             this.TabPageDNSWeb = new DevExpress.XtraTab.XtraTabPage();
-          
+
             this.panelWeb11web = new System.Windows.Forms.Panel();
             this.ChartDNSWeb = new Dundas.Charting.WinControl.Chart();
             this.panelWeb10web = new System.Windows.Forms.Panel();
@@ -227,7 +227,7 @@
             this.TabPageTCPFlowWeb.SuspendLayout();
             this.tabControlWeb1.SuspendLayout();
             this.TCPFlowGeneralWeb.SuspendLayout();
-            this.TCPFlowExceptionWeb.SuspendLayout();  
+            this.TCPFlowExceptionWeb.SuspendLayout();
 
             this.TabPageHTTPWeb.SuspendLayout();
             this.chartPanelHttpWeb.SuspendLayout();
@@ -1080,7 +1080,7 @@
             this.panelWeb11web.Name = "panelWeb11web";
             this.panelWeb11web.Size = new System.Drawing.Size(786, 278);
             this.panelWeb11web.TabIndex = 2;
-           
+
             // 
             // ChartDNSWeb
             // 

@@ -96,3 +96,68 @@ System.IO.IOException: 文件“E:\RequestBusi20161109\bin\NetTest\ResultTxtWeb.tmp
    在 NetTest.WebAnalyse.ResultDisplay2() 位置 E:\RequestBusi20161109\WebAnalyse.cs:行号 2170
    在 NetTest.WebAnalyse.ResultDisplay() 位置 E:\RequestBusi20161109\WebAnalyse.cs:行号 2086
    在 NetTest.WebAnalyse.ParseWebPacket() 位置 E:\RequestBusi20161109\WebAnalyse.cs:行号 223
+2016-11-11 18:50:55,678 [4404] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebAnalyse.ParseWebPacket() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 225
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.IndexOutOfRangeException: 索引超出了数组界限。
+   在 NetTest.WebAnalyse.ShowLVHTTPAnalysWeb() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 1618
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 881
+   在 NetTest.WebAnalyse.ParseWebPacket() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 219
+2016-11-11 18:55:41,737 [5036] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebAnalyse.ParseWebPacket() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 225
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.IndexOutOfRangeException: 索引超出了数组界限。
+   在 NetTest.WebAnalyse.ShowLVHTTPAnalysWeb() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 1610
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 873
+   在 NetTest.WebAnalyse.ParseWebPacket() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 219
+2016-11-11 19:16:05,254 [17336] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebAnalyse.ParseWebPacket() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 225
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 NetTest.WebAnalyse.ResultDisplay2() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 2240
+   在 NetTest.WebAnalyse.ResultDisplay() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 2126
+   在 NetTest.WebAnalyse.ParseWebPacket() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 220
+2016-11-11 19:55:25,348 [9300] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 897
+   在 NetTest.WebAnalyse.ParseWebPacket() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 222
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.AccessViolationException: 尝试读取或写入受保护的内存。这通常指示其他内存已损坏。
+   在 NetTest.WebAnalyse.pcap_file_close_inCS()
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 893
+2016-11-11 20:00:59,285 [11492] (:0) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebAnalyse.ParseWebPacket()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 NetTest.WebAnalyse.ResultDisplay2()
+   在 NetTest.WebAnalyse.ResultDisplay()
+   在 NetTest.WebAnalyse.ParseWebPacket()

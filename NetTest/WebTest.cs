@@ -82,44 +82,44 @@ namespace NetTest
         [DllImport("NetpryDll.dll")]
         public extern static int webTest_tofile(string tmpfilename);
 
-       
-
-[DllImport("user32.dll")]
-private static extern int SetParent(IntPtr hWndChild,IntPtr hWndParent);
-
-[DllImport("user32.dll")]
-private static extern bool ShowWindowAsync(IntPtr hWnd,int nCmdShow);
-
-[DllImport("user32.dll", SetLastError = true)]
-private static extern bool PostMessage(IntPtr hWnd,uint Msg,int wParam,int lParam);
-
-[DllImport("user32.dll", EntryPoint = "SetWindowPos")]
-private static extern bool SetWindowPos(IntPtr hWnd,int hWndInsertAfter,
-            int X,int Y,int cx,int cy,uint uFlags);
-
-[DllImport("user32.dll")]
-private static extern int SendMessage(IntPtr hWnd,uint Msg,int wParam,int lParam);
-
-[DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-private static extern uint SetWindowLong(IntPtr hwnd, int nIndex, uint newLong);
-
-[DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-private static extern uint GetWindowLong(IntPtr hwnd, int nIndex);
-
-[DllImport("user32.dll", CharSet = CharSet.Auto)]
-private static  extern bool ShowWindow(IntPtr hWnd, short State);
 
 
-private const int HWND_TOP = 0x0;
-private const int WM_COMMAND = 0x0112;
-private const int WM_QT_PAINT = 0xC2DC;
-private const int WM_PAINT = 0x000F;
-private const int WM_SIZE = 0x0005;
-private const int SWP_FRAMECHANGED = 0x0020;
-public const int SW_MAXIMIZE = 3;
-public const int SW_MINIMIZE = 6;
-public const int SW_NORMAL = 1;
-public const int SW_RESTORE = 9;
+        [DllImport("user32.dll")]
+        private static extern int SetParent(IntPtr hWndChild, IntPtr hWndParent);
+
+        [DllImport("user32.dll")]
+        private static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern bool PostMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
+
+        [DllImport("user32.dll", EntryPoint = "SetWindowPos")]
+        private static extern bool SetWindowPos(IntPtr hWnd, int hWndInsertAfter,
+                    int X, int Y, int cx, int cy, uint uFlags);
+
+        [DllImport("user32.dll")]
+        private static extern int SendMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
+
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        private static extern uint SetWindowLong(IntPtr hwnd, int nIndex, uint newLong);
+
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        private static extern uint GetWindowLong(IntPtr hwnd, int nIndex);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern bool ShowWindow(IntPtr hWnd, short State);
+
+
+        private const int HWND_TOP = 0x0;
+        private const int WM_COMMAND = 0x0112;
+        private const int WM_QT_PAINT = 0xC2DC;
+        private const int WM_PAINT = 0x000F;
+        private const int WM_SIZE = 0x0005;
+        private const int SWP_FRAMECHANGED = 0x0020;
+        public const int SW_MAXIMIZE = 3;
+        public const int SW_MINIMIZE = 6;
+        public const int SW_NORMAL = 1;
+        public const int SW_RESTORE = 9;
 
         /******************************************************************************
            init the user components WebTest 
@@ -253,7 +253,7 @@ public const int SW_RESTORE = 9;
         /******************************************************************************
            start the test single or loop, the main process call WebTesting() 
         /*******************************************************************************/
-        public void webStartFunc()
+        public void WebServerTaskStartFunc()
         {
             while (true)
             {
@@ -268,11 +268,7 @@ public const int SW_RESTORE = 9;
                     iProMem = 0;
                     this.sBTest.Enabled = false;
                     this.timer1.Enabled = false;
-
-                    if (serverTest == true)   //服务器任务不允许手动停止
-                        this.btnWebStop.Enabled = false;
-                    else
-                        this.btnWebStop.Enabled = true;
+                    this.btnWebStop.Enabled = false;
 
                     string tmp = inis.IniReadValue("Web", "WebPage");
                     tmp = validateFileName(tmp);
@@ -295,14 +291,56 @@ public const int SW_RESTORE = 9;
                 else
                     Thread.Sleep(2000);
             }
-           
+
         }
 
+
+        public void WebTerminalTaskStartFunc()
+        {
+            while (true)
+            {
+                if (Taskon == false)
+                {
+                    Taskon = true;   //任务开始执行
+                    iTimeThrehold = 0;
+                    if (strbFile.Length > 0) strbFile.Remove(0, strbFile.Length);
+
+                    if (intCheckContinuous == 0) this.iTest = 0;
+                    if (iTest == 0) intIndex = int.Parse(inis.IniReadValue("Web", "WebIndex"));
+                    iProMem = 0;
+                    this.sBTest.Enabled = false;
+                    this.timer1.Enabled = false;
+                    this.btnWebStop.Enabled = true;
+
+                    string tmp = inis.IniReadValue("Web", "WebPage");
+                    tmp = validateFileName(tmp);
+
+                    strFile = inis.IniReadValue("Web", "Path") + "\\Web-" + inis.IniReadValue("Web", "Browser") + "-"
+                        + tmp + "-" + DateTime.Now.Year.ToString() + "-"
+                        + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Day.ToString() + "-"
+                        + DateTime.Now.Hour.ToString() + "-" + DateTime.Now.Minute.ToString() + "-"
+                        + DateTime.Now.Second.ToString();// +".cap";
+                    strLogFile = strFile + ".xls";
+                    strFile = strFile + ".pcap";
+
+                    inis.IniWriteValue("Web", "webPcapPath", strFile);   //抓包文件路径
+
+                    if (!Directory.Exists(inis.IniReadValue("Web", "Path"))) Directory.CreateDirectory(inis.IniReadValue("Web", "Path"));
+
+                    this.WebTesting();
+                    break;
+                }
+                else
+                    Thread.Sleep(2000);
+            }
+
+        }
 
 
         private void sBTest_Click(object sender, EventArgs e)
         {
-            webStartFunc();
+            //webStartFunc();
+            WebTerminalTaskStartFunc();
         }
 
         /******************************************************************************
@@ -310,7 +348,7 @@ public const int SW_RESTORE = 9;
         /*******************************************************************************/
         private void WebTesting()
         {
-            if (iDevice<0)
+            if (iDevice < 0)
             {
                 this.memoPcap.Items.Clear();
                 this.memoPcap.Items.Add("没有联网网卡！请检查网络设置。\n");
@@ -349,7 +387,7 @@ public const int SW_RESTORE = 9;
 
             try
             {
-                this.CloseBrowser();     
+                this.CloseBrowser();
                 if (iBool > 0)
                 {
                     if (strBro == "Google")
@@ -357,9 +395,9 @@ public const int SW_RESTORE = 9;
                         Thread.Sleep(400);
                         //this.CleanFiles(inis.IniReadValue("Web", "GoogleCookies"));
                         string dir = System.Environment.GetEnvironmentVariable("AppData");   //获取的值后有个Roarming
-                        int n=dir.LastIndexOf("\\");
-                        dir=dir.Substring(0,n)+@"\Local\Google\Chrome\User Data\Default\Cache";
-                    
+                        int n = dir.LastIndexOf("\\");
+                        dir = dir.Substring(0, n) + @"\Local\Google\Chrome\User Data\Default\Cache";
+
                         this.CleanFiles(dir);    //删除缓冲文件夹
                         Thread.Sleep(400);
                         this.memoPcap.Items.Add(" cookies, caches 删除操作完成...");
@@ -625,7 +663,7 @@ public const int SW_RESTORE = 9;
             try
             {
                 i = pcap_file_dissect_inCS(strFile);
-                
+
                 //创建临时文件
                 FileStream fs = File.Create(tmpFile);
                 fs.Close();
@@ -634,7 +672,7 @@ public const int SW_RESTORE = 9;
             catch (System.Exception ex)
             {
                 i = -1;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
             }
 
             if (i < 0)
@@ -646,64 +684,64 @@ public const int SW_RESTORE = 9;
                 }
                 catch (System.Exception ex)
                 {
-                   Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                    Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
                 }
                 return;
-            }         
-           pcap_file_close_inCS();         //清除内存信息
+            }
+            pcap_file_close_inCS();         //清除内存信息
             //解析没有出错
-           FileStream fsPacket = new FileStream(tmpFile, FileMode.Open, FileAccess.Read);
-           StreamReader srPacket = new StreamReader(fsPacket, Encoding.Default);
-           string  strLine = srPacket.ReadLine();   //第一行为解释
-           strLine = srPacket.ReadLine();
-           string[] str = strLine.Split(new Char[] {'\t'},5);  //Tcp重传率	Tcp并发特性	HTTP Get成功率	Dns响应延迟 Dns响应成功率
-           srPacket.Close();        
-        strbFile.Append("--------------------------------------\r\n");
-        strbFile.Append("|  量 化 指 标  |  数  值  |  评  分  |\r\n");
-        strbFile.Append("--------------------------------------\r\n");
-        strbFile.Append("|  业务延时(秒)    |  " + ts2.ToString("F2") + "|\r\n");
-        strbFile.Append("--------------------------------------\r\n");
-        strbFile.Append("|  Tcp重传率(%)    |  " + str[0]  +"|\r\n");
-        strbFile.Append("--------------------------------------\r\n");
-        strbFile.Append("|  Tcp并发特性(/s) |  " + str[1]  +"|\r\n");
-        strbFile.Append("--------------------------------------\r\n");
-        strbFile.Append("|  HTTP Get成功率(%)|  " + str[2] + "|\r\n");
-        strbFile.Append("--------------------------------------\r\n");
-        strbFile.Append("|  Dns响应延迟    |  " + str[3] + "|\r\n");
-        strbFile.Append("--------------------------------------\r\n");
-        strbFile.Append("|  Dns响应成功率(%)|  " + str[4] + "|\r\n");
-        strbFile.Append("--------------------------------------\r\n");
+            FileStream fsPacket = new FileStream(tmpFile, FileMode.Open, FileAccess.Read);
+            StreamReader srPacket = new StreamReader(fsPacket, Encoding.Default);
+            string strLine = srPacket.ReadLine();   //第一行为解释
+            strLine = srPacket.ReadLine();
+            string[] str = strLine.Split(new Char[] { '\t' }, 5);  //Tcp重传率	Tcp并发特性	HTTP Get成功率	Dns响应延迟 Dns响应成功率
+            srPacket.Close();
+            strbFile.Append("--------------------------------------\r\n");
+            strbFile.Append("|  量 化 指 标  |  数  值  |  评  分  |\r\n");
+            strbFile.Append("--------------------------------------\r\n");
+            strbFile.Append("|  业务延时(秒)    |  " + ts2.ToString("F2") + "|\r\n");
+            strbFile.Append("--------------------------------------\r\n");
+            strbFile.Append("|  Tcp重传率(%)    |  " + str[0] + "|\r\n");
+            strbFile.Append("--------------------------------------\r\n");
+            strbFile.Append("|  Tcp并发特性(/s) |  " + str[1] + "|\r\n");
+            strbFile.Append("--------------------------------------\r\n");
+            strbFile.Append("|  HTTP Get成功率(%)|  " + str[2] + "|\r\n");
+            strbFile.Append("--------------------------------------\r\n");
+            strbFile.Append("|  Dns响应延迟    |  " + str[3] + "|\r\n");
+            strbFile.Append("--------------------------------------\r\n");
+            strbFile.Append("|  Dns响应成功率(%)|  " + str[4] + "|\r\n");
+            strbFile.Append("--------------------------------------\r\n");
 
-        //this.memoPcap.Items.Add("\n"); 
-        //this.memoPcap.Items.Add("Web测试质量报告:\n");
-        //this.memoPcap.Items.Add("--------------------------------------\r\n");
-        //this.memoPcap.Items.Add("|  量 化 指 标  |  数  值  |  评  分  |\r\n");
-        //this.memoPcap.Items.Add("--------------------------------------\r\n");
-        //this.memoPcap.Items.Add("|  业务延时(秒) |  " + ts2.ToString("F2") + "   |          |\r\n");
-        //this.memoPcap.Items.Add("--------------------------------------\r\n");
-        //this.memoPcap.Items.Add("|  丢 包 率(%)  |  " + loss.ToString("F2") + "  |" + perf1 + "  |\r\n");
-        //this.memoPcap.Items.Add("--------------------------------------\r\n");
-        //this.memoPcap.Items.Add("|  重 传 率(%)  |  " + retrans.ToString("F2") + "  |" + perf2 + "  |\r\n");
-        //this.memoPcap.Items.Add("--------------------------------------\r\n");
-        //this.memoPcap.Items.Add("|  失 序 率(%)  |  " + mis.ToString("F2") + "  |" + perf3 + "  |\r\n");
-        //this.memoPcap.Items.Add("--------------------------------------\r\n");
+            //this.memoPcap.Items.Add("\n"); 
+            //this.memoPcap.Items.Add("Web测试质量报告:\n");
+            //this.memoPcap.Items.Add("--------------------------------------\r\n");
+            //this.memoPcap.Items.Add("|  量 化 指 标  |  数  值  |  评  分  |\r\n");
+            //this.memoPcap.Items.Add("--------------------------------------\r\n");
+            //this.memoPcap.Items.Add("|  业务延时(秒) |  " + ts2.ToString("F2") + "   |          |\r\n");
+            //this.memoPcap.Items.Add("--------------------------------------\r\n");
+            //this.memoPcap.Items.Add("|  丢 包 率(%)  |  " + loss.ToString("F2") + "  |" + perf1 + "  |\r\n");
+            //this.memoPcap.Items.Add("--------------------------------------\r\n");
+            //this.memoPcap.Items.Add("|  重 传 率(%)  |  " + retrans.ToString("F2") + "  |" + perf2 + "  |\r\n");
+            //this.memoPcap.Items.Add("--------------------------------------\r\n");
+            //this.memoPcap.Items.Add("|  失 序 率(%)  |  " + mis.ToString("F2") + "  |" + perf3 + "  |\r\n");
+            //this.memoPcap.Items.Add("--------------------------------------\r\n");
 
-        this.memoPcap.Items.Add("--------------------------------------\r\n");
-        this.memoPcap.Items.Add("|  量 化 指 标  |  数  值  |  评  分  |\r\n");
-        this.memoPcap.Items.Add("--------------------------------------\r\n");
-        this.memoPcap.Items.Add("|  业务延时(秒) |  " + ts2.ToString("F2") + "|\r\n");
-        this.memoPcap.Items.Add("--------------------------------------\r\n");
-        this.memoPcap.Items.Add("|  Tcp重传率(%)  |  " + str[0] + "|\r\n");
-        this.memoPcap.Items.Add("--------------------------------------\r\n");
-        this.memoPcap.Items.Add("|  Tcp并发特性(/s) |  " + str[1] + "|\r\n");
-        this.memoPcap.Items.Add("--------------------------------------\r\n");
-        this.memoPcap.Items.Add("|  HTTP Get成功率(%)|  " + str[2] + "|\r\n");
-        this.memoPcap.Items.Add("--------------------------------------\r\n");
-        this.memoPcap.Items.Add("|  Dns响应延迟  |  " + str[3] + "|\r\n");
-        this.memoPcap.Items.Add("--------------------------------------\r\n");
-        this.memoPcap.Items.Add("|  Dns响应成功率(%)|  " + str[4] + "|\r\n");
-        this.memoPcap.Items.Add("--------------------------------------\r\n");
-          
+            this.memoPcap.Items.Add("--------------------------------------\r\n");
+            this.memoPcap.Items.Add("|  量 化 指 标  |  数  值  |  评  分  |\r\n");
+            this.memoPcap.Items.Add("--------------------------------------\r\n");
+            this.memoPcap.Items.Add("|  业务延时(秒) |  " + ts2.ToString("F2") + "|\r\n");
+            this.memoPcap.Items.Add("--------------------------------------\r\n");
+            this.memoPcap.Items.Add("|  Tcp重传率(%)  |  " + str[0] + "|\r\n");
+            this.memoPcap.Items.Add("--------------------------------------\r\n");
+            this.memoPcap.Items.Add("|  Tcp并发特性(/s) |  " + str[1] + "|\r\n");
+            this.memoPcap.Items.Add("--------------------------------------\r\n");
+            this.memoPcap.Items.Add("|  HTTP Get成功率(%)|  " + str[2] + "|\r\n");
+            this.memoPcap.Items.Add("--------------------------------------\r\n");
+            this.memoPcap.Items.Add("|  Dns响应延迟  |  " + str[3] + "|\r\n");
+            this.memoPcap.Items.Add("--------------------------------------\r\n");
+            this.memoPcap.Items.Add("|  Dns响应成功率(%)|  " + str[4] + "|\r\n");
+            this.memoPcap.Items.Add("--------------------------------------\r\n");
+
             //    else
             //    {
             //        strbFile.Append("总包数丢失...\r\n");
@@ -716,7 +754,7 @@ public const int SW_RESTORE = 9;
             //    strbFile.Append("包指标分析失败...\r\n");
             //    this.memoPcap.Items.Add("包指标分析失败...\r\n");
             //}
-            
+
         }
 
         /******************************************************************************
@@ -732,7 +770,7 @@ public const int SW_RESTORE = 9;
                 //if (strBro == "Firefox") strProcessFile = inis.IniReadValue("Web", "FirefoxPlus");// "Firefox";
                 if (strBro == "Firefox") strProcessFile = "firefox.exe";
                 //this.memoPcap.Items.Add(strProcessFile);
-                 string testURL = inis.IniReadValue("Web", "WebPage");
+                string testURL = inis.IniReadValue("Web", "WebPage");
                 ProcessStartInfo psi = new ProcessStartInfo(strProcessFile);
                 ///psi = new ProcessStartInfo(strProcessFile);
                 psi.FileName = strProcessFile;
@@ -743,8 +781,8 @@ public const int SW_RESTORE = 9;
                 psi.Arguments = testURL;
 
                 Process ps = new Process();
-                
-       
+
+
                 //if (strBro == "Firefox ") ps.StartInfo.FileName = strProcessFile;
                 //else
                 //ps.StartInfo.FileName = strProcessFile + ".exe";
@@ -755,11 +793,11 @@ public const int SW_RESTORE = 9;
                 this.memoPcap.Items.Add("页面: " + testURL);
                 strbFile.Append("页面: " + testURL + "\r\n");
 
-               // ps.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                // ps.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 ps.StartInfo = psi;
                 ps.Start();
 
-                    //这里必须等待,否则启动程序的句柄还没有创建,不能控制程序
+                //这里必须等待,否则启动程序的句柄还没有创建,不能控制程序
                 while (ps.MainWindowHandle.ToInt32() == 0)
                 {
                     Thread.Sleep(300);
@@ -767,7 +805,7 @@ public const int SW_RESTORE = 9;
                     ps.StartInfo = psi;
                 }
                 //Thread.Sleep(1500);
-               //设置被绑架程序的父窗口
+                //设置被绑架程序的父窗口
                 SetParent(ps.MainWindowHandle, this.panelExplore.Handle);
                 //恢复窗口
                 ShowWindow(ps.MainWindowHandle, (short)SW_RESTORE);
@@ -800,16 +838,16 @@ public const int SW_RESTORE = 9;
             SendMessage(ps.MainWindowHandle, WM_COMMAND, WM_PAINT, 0);
             PostMessage(ps.MainWindowHandle, WM_QT_PAINT, 0, 0);
 
-        
-             SetWindowPos(
-           ps.MainWindowHandle,
-             HWND_TOP,
-             0,//设置偏移量,把原来窗口的菜单遮住
-              0 -70,
-             (int)this.Width - 150,          //像素宽度
-             (int)this.Height - 190,     //像素高度
-             SWP_FRAMECHANGED);
-    
+
+            SetWindowPos(
+          ps.MainWindowHandle,
+            HWND_TOP,
+            0,//设置偏移量,把原来窗口的菜单遮住
+             0 - 70,
+            (int)this.Width - 150,          //像素宽度
+            (int)this.Height - 190,     //像素高度
+            SWP_FRAMECHANGED);
+
             SendMessage(ps.MainWindowHandle, WM_COMMAND, WM_SIZE, 0);
         }
 
@@ -879,7 +917,7 @@ public const int SW_RESTORE = 9;
             {
                 this.memoPcap.Items.Add(ex.Message);
             }
-           
+
 
         }
 
