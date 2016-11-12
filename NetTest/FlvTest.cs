@@ -608,10 +608,6 @@ namespace NetTest
 
         public void StartTerminalTaskFunc()   //兼容服务器任务和终端任务，如果终端任务在执行，服务器任务等待
         {
-            while (true)
-            {
-                if (!taskon)
-                {
                     Log.Info("It's serverTask!");
                     this.btnFlvStart.Enabled = false;
                     this.btnFlvStop.Enabled = true;     //终端任务可以暂停
@@ -689,11 +685,6 @@ namespace NetTest
                     }
                     this.ClearDns();
                     this.FlvTesting();
-                    break;
-                }
-                else
-                    Thread.Sleep(2000);  //wait 2s if handon task is running 
-            }
         }
 
         private void btnFlvStart_Click(object sender, EventArgs e)

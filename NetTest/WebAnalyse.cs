@@ -41,9 +41,9 @@ namespace NetTest
             AverInOutWeb = 0.0;
             AverDelayWeb = 0.0;
             AverJitterWeb = 0.0;
-            TcpInfoWeb = null;
-            TcpExWeb = null;
-            FrameRateWeb = null;
+            TcpInfoWeb = "";
+            TcpExWeb = "";
+            FrameRateWeb = "";
         }
     }
 
@@ -208,7 +208,7 @@ namespace NetTest
             mysqlWebA = new MySQLInterface(inisWeb.IniReadValue("Mysql", "serverIp"), inisWeb.IniReadValue("Mysql", "user"), inisWeb.IniReadValue("Mysql", "passwd"));
             if (mysqlWebA.MysqlInit(inisWeb.IniReadValue("Mysql", "dbname")))
                 mysqlWebFlagA = true;
-
+            Init();
         }
 
 
@@ -235,6 +235,7 @@ namespace NetTest
             btnStartWebAnaly.Enabled = true;
             btnWebSelCapWeb.Enabled = true;
             analyzeOn = false;
+            serverTest = false;
         }
 
 
@@ -285,18 +286,19 @@ namespace NetTest
                     {
                         Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
                     }
+                    while (analyzeOn)
+                        Thread.Sleep(200);
                     break;
                 }
                 else
-                    Thread.Sleep(2000);
+                    Thread.Sleep(500);
             }
         }
 
 
         public void WebTerminalAnalyzeStartFunc()
         {
-                if (!analyzeOn)
-                {
+
                     analyzeOn = true;
                     //清除Excel进程
                     Process[] p = Process.GetProcessesByName("EXCEL");
@@ -336,11 +338,7 @@ namespace NetTest
                     catch (System.Exception ex)
                     {
                         Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
-                    }
-                }
-                else
-                    Thread.Sleep(2000);
-           
+                    }         
         }
 
         public void btnStartWebAnaly_Click(object sender, EventArgs e)
@@ -1511,7 +1509,7 @@ namespace NetTest
             Console.WriteLine("DNS into Mysql!");
             //txt文件压入到数据库
             if (mysqlWebFlagA && serverTest)
-                mysqlWebA.TxTInsertMySQL(tmpfileName, currentId + "#" + "Web", Application.StartupPath + "\\" + "DNSAnalysis");
+                mysqlWebA.TxTInsertMySQL("DNSAnalysis", currentId + "#" + "Web", Application.StartupPath + "\\" + tmpfileName);
             //删除临时文件
 #if RELEASE
             File.Delete(tmpfileName);
@@ -1672,7 +1670,7 @@ namespace NetTest
 
             //txt文件压入到数据库 
             if (mysqlWebFlagA && serverTest)
-                mysqlWebA.TxTInsertMySQL(tmpfileName, currentId + "#" + "Web", Application.StartupPath + "HttpAnalysis");
+                mysqlWebA.TxTInsertMySQL("HttpAnalysis", currentId + "#" + "Web", Application.StartupPath +"\\"+ tmpfileName);
 
             //删除临时文件
 #if RELEASE
@@ -1837,8 +1835,8 @@ namespace NetTest
             this.ChartInOutWeb.Invalidate();
 
             //txt文件压入到数据库
-            if (mysqlWebFlagA && serverTest)
-                mysqlWebA.TxTInsertMySQL(tmpfileName, currentId + "#" + "Web", "InOutAnalysis");
+           // if (mysqlWebFlagA && serverTest)
+            //mysqlWebA.TxTInsertMySQL("InOutAnalysis", currentId + "#" + "Web", Application.StartupPath + "\\" +tmpfileName);
             //删除临时文件
             //  File.Delete(tmpfileName);
             return true;
@@ -1987,7 +1985,7 @@ namespace NetTest
             while (strLine != null)
             {
 
-                string[] str = strLine.Split(new Char[] { '\t' }, 11);
+                string[] str = strLine.Split(new Char[] { '\t' });
 
                 //滤除掉那些由于操作导致的过大的延时和抖动
                 if (double.Parse(str[3]) > 2.0 || double.Parse(str[4]) > 2.0)
@@ -2118,7 +2116,7 @@ namespace NetTest
 
             //txt文件压入到数据库
             if (mysqlWebFlagA && serverTest)
-                mysqlWebA.TxTInsertMySQL(tmpfileName, currentId + "#" + "Web", Application.StartupPath + "\\" + "DelayJitterAnalysis");
+                mysqlWebA.TxTInsertMySQL("DelayJitter", currentId + "#" + "Web", Application.StartupPath + "\\" + tmpfileName);
 
             //图像重构
             this.ChartDelayJitterWeb.Invalidate();
@@ -2263,7 +2261,7 @@ namespace NetTest
                     ResultTmp.Close();
                     //txt文件压入到数据库
                     if (mysqlWebFlagA && serverTest)
-                        mysqlWebA.TxTInsertMySQL(resultTxt, currentId + "#" + "Web", Application.StartupPath + "\\" + "TestReport");
+                        mysqlWebA.TxTInsertMySQL("TestReport", currentId + "#" + "Web", Application.StartupPath + "\\" + resultTxt);
                     //删除临时文件
 #if RELEASE
                     File.Delete(resultTxt);

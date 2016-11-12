@@ -478,6 +478,7 @@ namespace MultiMySQL
             {
                 errorInfo = errorInfo + " 数据插入表失败" + ex.Message;
                Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+               Console.WriteLine("TaskListFilter");
                 return null;
             }
         }
@@ -500,6 +501,7 @@ namespace MultiMySQL
             {
                 errorInfo = errorInfo + " 数据插入表失败" + ex.Message;
                Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+               Console.WriteLine("UpdateTaskListColumn");
                 return false;
             }
         }

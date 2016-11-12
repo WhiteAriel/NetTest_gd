@@ -320,6 +320,7 @@ namespace NetTest
                     Console.WriteLine("Web start,Url:{0}", webTask.taskUrl);
                     inis.IniWriteValue("Web", "WebPage", webTask.taskUrl);
                     webTest1.serverTest = true;   //服务器任务
+                    webAnalyse1.serverTest = true;
                     if (mysqlFlag)
                         mysqlInit.UpdateTaskListColumn("ActionStatus", 3, "TaskId=" + "'" + webTask.taskId + "'");  //读取任务后状态改成等待
                     webTest1.WebServerTaskStartFunc();   //在结束条件下能自动调用停止函数，//内部做了阻塞等待
@@ -406,10 +407,14 @@ namespace NetTest
                                         TcpSocketClient clientSocket = new TcpSocketClient(ipAndPort[0], Int32.Parse(ipAndPort[1]));
                                         Log.Console(string.Format("{0}", item.serverIp));
                                         clientSocket.ConnectToServer();
-                                        clientSocket.SendMessage(msg);
-                                        clientSocket.ShutConnect();
+                                        if (clientSocket.IsConnect())
+                                        {
+                                            clientSocket.SendMessage(msg);
+                                            clientSocket.ShutConnect();
+                                            mysqlInit.UpdateTaskListColumn("SyncStatus", item.actionStatus, "TaskId=" + "'" + item.taskId + "'");
+                                        }                                      
                                     }
-                                    mysqlInit.UpdateTaskListColumn("SyncStatus", item.actionStatus, "TaskId=" + "'" + item.taskId + "'");
+                                   
                                 }
                                 catch (Exception ex)
                                 {

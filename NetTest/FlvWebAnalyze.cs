@@ -315,10 +315,6 @@ namespace NetTest
 
         public void StartTerminalAnalyzeFunc()
         {
-            while (true)
-            {
-                if (analyzeOn == false)
-                {
                     //清除Excel进程
                     analyzeOn = true;
                     Process[] p = Process.GetProcessesByName("EXCEL");
@@ -364,12 +360,6 @@ namespace NetTest
                     {
                         Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
                     }
-                    break;
-                }
-                else
-                    Thread.Sleep(1500);   //休眠等待
-            }
-
         }
 
         public void btnStartAnaly_Click(object sender, EventArgs e)
