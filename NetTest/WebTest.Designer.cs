@@ -35,7 +35,7 @@ namespace NetTest
             this.sBTest = new DevExpress.XtraEditors.SimpleButton();
             this.panelExplore = new System.Windows.Forms.Panel();
             this.memoPcap = new System.Windows.Forms.ListBox();
-            this.timWeb = new System.Windows.Forms.Timer(this.components);
+            //this.timWeb = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelWeb)).BeginInit();
             this.panelWeb.SuspendLayout();
@@ -109,8 +109,8 @@ namespace NetTest
             // 
             // timWeb
             // 
-            this.timWeb.Interval = 3000;
-            this.timWeb.Tick += new System.EventHandler(this.timWeb_Tick);
+            //this.timWeb.Interval = 3000;
+            //this.timWeb.Tick += new System.EventHandler(this.timWeb_Tick);
             // 
             // timer1
             // 
@@ -139,7 +139,7 @@ namespace NetTest
         private DevExpress.XtraEditors.SimpleButton btnWebStop;
         private DevExpress.XtraEditors.SimpleButton sBTest;
         private System.Windows.Forms.ListBox memoPcap;
-        private System.Windows.Forms.Timer timWeb;
+        //private System.Windows.Forms.Timer timWeb;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panelExplore;
     }

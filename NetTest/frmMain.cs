@@ -35,26 +35,26 @@ namespace NetTest
         Queue<TaskItems> videoTaskQue = new Queue<TaskItems>(); //视频检测任务队列
         Queue<TaskItems> webTaskQue = new Queue<TaskItems>();   //网页测评队列
         object videoQueLocker = new object();
-        object webQueLocker= new object();
+        object webQueLocker = new object();
         //TcpClient对象
-         TcpListener client = null; 
-         TcpClient clientSocket = null;
+        TcpListener client = null;
+        TcpClient clientSocket = null;
         //TcpServer对象,需要讨论下是不是需要
-        
-         string serverIp = null;
-         int recycle = 0;
+
+        string serverIp = null;
+        int recycle = 0;
         // bool pause = false;
         //数据库
-        private MySQLInterface mysqlInit =null;
+        private MySQLInterface mysqlInit = null;
         private bool mysqlFlag = false;   //数据库初始化标志
         //控制线程
-         ManualResetEvent mEvent = new ManualResetEvent(true);
-         StackTrace st = new StackTrace(new StackFrame(true));
+        ManualResetEvent mEvent = new ManualResetEvent(true);
+        StackTrace st = new StackTrace(new StackFrame(true));
 
         //第一次扫描条件
-         bool firstScan = true;
+        bool firstScan = true;
 
-        
+
 
 
         public frmMain()
@@ -110,10 +110,10 @@ namespace NetTest
             }
             catch (Exception ex)
             {
-               Log.Console(Environment.StackTrace,ex);
-               Log.Error(Environment.StackTrace, ex);
-               MessageBox.Show("注册表操作异常,程序退出!");
-               this.Close();
+                Log.Console(Environment.StackTrace, ex);
+                Log.Error(Environment.StackTrace, ex);
+                MessageBox.Show("注册表操作异常,程序退出!");
+                this.Close();
             }
 
             if (mysqlFlag)
@@ -130,7 +130,7 @@ namespace NetTest
                 else
                     Log.Warn(mysqlInit.errorInfo);
             }
-         
+
             //mysqlInit.CreatVideoPara();
 
 
@@ -149,8 +149,8 @@ namespace NetTest
                 Log.Error("播放器进程无法关闭！软件退出！");
                 Application.Exit();
             }
-             string strPcap=System.Environment.GetFolderPath(Environment.SpecialFolder.System) + "\\wpcap.dll";
-             if (!File.Exists(strPcap))
+            string strPcap = System.Environment.GetFolderPath(Environment.SpecialFolder.System) + "\\wpcap.dll";
+            if (!File.Exists(strPcap))
             {
                 MessageBox.Show("运行本程序前请先安装WinPcap！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Log.Error("未安装WinPcap!软件退出！");
@@ -186,8 +186,8 @@ namespace NetTest
                     }
                 }
             }
-            
-            var devices =LibPcapLiveDeviceList.Instance;
+
+            var devices = LibPcapLiveDeviceList.Instance;
             if (devices.Count < 1)
             {
                 MessageBox.Show("未发现有效网卡,程序退出！\r\n可能是因为WireShark没有安装成功导致的！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -216,7 +216,7 @@ namespace NetTest
             //socketThread.Start();
             TcpSocketConfig serverConfig = new TcpSocketConfig();
             //serverConfig.Ip = "192.168.50.101";   //在TcpSocketServer类里做了处理，如果没有指定ip就监听本机上所有ip的指定端口
-            serverConfig.Port = Int32.Parse(inis.IniReadValue("Task","ListenPort"));
+            serverConfig.Port = Int32.Parse(inis.IniReadValue("Task", "ListenPort"));
             serverConfig.ReadCompleteCallback = serverReadCompleteFunc;
             serverConfig.ReadExceptionCallback = serverReadExceptionFunc;
             try
@@ -228,7 +228,7 @@ namespace NetTest
                 Log.Console(Environment.StackTrace, ex);
                 Log.Error(Environment.StackTrace, ex);
             }
-           
+
 
             //20161029  task线程
             Thread videoTaskThread = new Thread(videoTaskFunc);
@@ -260,8 +260,7 @@ namespace NetTest
 
         public void serverReadCompleteFunc(string taskJson)   //回调函数，用于json串解析后压入数据库
         {
-            Log.Info(taskJson);
-            List<AttributeJson> taskList=new List<AttributeJson>();
+            List<AttributeJson> taskList = new List<AttributeJson>();
             int sign = OperateJson.ParseJson(taskJson, ref taskList, ref recycle, ref serverIp);//解析从服务器端接收的json数据包
 
             // sign 标志从服务器端发来的数据的格式的正确性 0表示空，1表示格式正确，2表示格式错误
@@ -273,7 +272,7 @@ namespace NetTest
                         if (mysqlFlag)
                         {
                             for (int listcount = 0; listcount < taskList.Count; listcount++)
-                                mysqlInit.TaskListInsertMySQL(taskList[listcount].BatchNo+"#"+taskList[listcount].Id + "#" + taskList[listcount].Type + "#" + taskList[listcount].Url + "#" + serverIp);
+                                mysqlInit.TaskListInsertMySQL(taskList[listcount].BatchNo + "#" + taskList[listcount].Id + "#" + taskList[listcount].Type + "#" + taskList[listcount].Url + "#" + serverIp);
                         }
                         taskList.Clear();
                         break;
@@ -321,31 +320,31 @@ namespace NetTest
                     Console.WriteLine("Web start,Url:{0}", webTask.taskUrl);
                     inis.IniWriteValue("Web", "WebPage", webTask.taskUrl);
                     webTest1.serverTest = true;   //服务器任务
-                    if(mysqlFlag)
-                        mysqlInit.UpdateTaskListColumn("ActionStatus", 3, "TaskId=" + "'" + webTask.taskId + "'");  //读取任务后状态改成等待
-                    webTest1.webStartFunc();   //在结束条件下能自动调用停止函数，//内部做了阻塞等待
-                    webTest1.serverTest = false;   //服务器任务结束
-                    webAnalyse1.webStartFunc();  //内部做了阻塞等待
+                    webAnalyse1.serverTest = true;
                     if (mysqlFlag)
-                        mysqlInit.UpdateTaskListColumn("ActionStatus", 4, "TaskId=" +"'" + webTask.taskId + "'");  //读取任务后状态改成等待
+                        mysqlInit.UpdateTaskListColumn("ActionStatus", 3, "TaskId=" + "'" + webTask.taskId + "'");  //读取任务后状态改成等待
+                    webTest1.WebServerTaskStartFunc();   //在结束条件下能自动调用停止函数，//内部做了阻塞等待
+                    webTest1.serverTest = false;   //服务器任务结束
+                    webAnalyse1.WebServerAnalyzeStartFunc();  //内部做了阻塞等待
+                    if (mysqlFlag)
+                        mysqlInit.UpdateTaskListColumn("ActionStatus", 4, "TaskId=" + "'" + webTask.taskId + "'");  //读取任务后状态改成等待
+                    Thread.Sleep(4000);
                 }
                 else
                     Thread.Sleep(200);    //每200ms查询队列中是否有任务 
             }
         }
 
-
-
         void videoTaskFunc()
         {
-            TaskItems videoTask=null;
+            TaskItems videoTask = null;
             while (true)
             {
                 mEvent.WaitOne();   //门一直开着，除非在SocketFunc中获取到暂停的指令调用reset
-                int countVideo=0;
+                int countVideo = 0;
                 lock (videoQueLocker)
                 {
-                    countVideo = videoTaskQue.Count; 
+                    countVideo = videoTaskQue.Count;
                 }
                 if (countVideo > 0)
                 {
@@ -360,14 +359,17 @@ namespace NetTest
                     flvWebAnalyze1.serverTest = true;
                     if (mysqlFlag)
                         mysqlInit.UpdateTaskListColumn("ActionStatus", 3, "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
-                    flvTest1.startFunc();   //内部做了阻塞等待
+                    //flvTest1.startFunc();   //内部做了阻塞等待
+                    flvTest1.StartServerTaskFunc();
                     Log.Info("flv Test start!");
                     //仅用于测试，1分钟后停止,实际播放器停止需要播放器的信息
                     Thread.Sleep(20000);
-                    flvTest1.stopFunc();    //内部做了阻塞等待
+                    //flvTest1.stopFunc();    //内部做了阻塞等待
+                    flvTest1.StopServerTaskFunc();
                     Log.Info("flv Test stop!");
                     flvTest1.serverTest = false;   //服务器任务结束
-                    flvWebAnalyze1.startFunc();
+                    //flvWebAnalyze1.startFunc();
+                    flvWebAnalyze1.StartServerAnalyzeFunc();
                     Log.Info("Analyze start!");
                     if (mysqlFlag)
                         mysqlInit.UpdateTaskListColumn("ActionStatus", 4, "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成结束
@@ -375,9 +377,8 @@ namespace NetTest
                 }
                 else
                     Thread.Sleep(200);    //每200ms查询队列中是否有任务           
-            }            
+            }
         }
-
 
 
         //每5s会进来一次
@@ -411,15 +412,13 @@ namespace NetTest
                                             clientSocket.SendMessage(msg);
                                             clientSocket.ShutConnect();
                                             mysqlInit.UpdateTaskListColumn("SyncStatus", item.actionStatus, "TaskId=" + "'" + item.taskId + "'");
-                                       }
-                                        
+                                        }                                      
                                     }
-                                    
+                                   
                                 }
                                 catch (Exception ex)
                                 {
-                                    Log.Console(Environment.StackTrace, ex);
-                                    Log.Error(Environment.StackTrace, ex);
+                                    Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
                                 }
                             }
                         }
@@ -432,8 +431,7 @@ namespace NetTest
                 }
             }
             else
-                Log.Error("Mysql Init fail! StatusUpload Thread end!");
-                //Console.WriteLine("Mysql Init fail! StatusUpload Thread end!");           
+                Console.WriteLine("Mysql Init fail! StatusUpload Thread end!");
         }
 
         void taskScanFunc()
@@ -454,7 +452,7 @@ namespace NetTest
                         else
                             //调用数据库对象获取“执行状态=收到1"的记录
                             taskItemsLists = mysqlInit.TaskListFilter("ActionStatus=1");
-                        if (taskItemsLists != null && taskItemsLists.Count>0)
+                        if (taskItemsLists != null && taskItemsLists.Count > 0)
                         {
                             lock (videoQueLocker)
                             {
@@ -466,7 +464,7 @@ namespace NetTest
                                             webTaskQue.Enqueue(item);
                                         else if (item.taskType == "Video")
                                             videoTaskQue.Enqueue(item);
-                                        mysqlInit.UpdateTaskListColumn("ActionStatus", 2, "TaskId=" + "'"+item.taskId+"'");  //读取任务后状态改成等待2
+                                        mysqlInit.UpdateTaskListColumn("ActionStatus", 2, "TaskId=" + "'" + item.taskId + "'");  //读取任务后状态改成等待2
                                     }
                                 }
                             }
@@ -474,15 +472,13 @@ namespace NetTest
                     }
                     catch (Exception ex)
                     {
-                        Log.Console(Environment.StackTrace, ex); 
-                        Log.Error(Environment.StackTrace, ex);
+                        Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
                     }
                     Thread.Sleep(2000);
                 }
-            } 
+            }
             else
-                Log.Error("Mysql Init fail! taskScan Thread end!");
-                //Console.WriteLine("Mysql Init fail! taskScan Thread end!");                  
+                Console.WriteLine("Mysql Init fail! taskScan Thread end!");
         }
 
 
@@ -502,7 +498,7 @@ namespace NetTest
             if (!WebTest.DoTest)
             {
                 this.webTest1.Init();
-            }           
+            }
             this.lbText.Text = "网页测试...";
         }
 
@@ -544,17 +540,17 @@ namespace NetTest
             this.flvTest1.StopClosePlayer();
             System.Diagnostics.Process.GetCurrentProcess().Kill();
 
-            if (FlvTest.serverThread!=null&&FlvTest.serverThread.IsAlive)
-            {
-                if (FlvTest.mysock!=null&&FlvTest.mysock.Connected)
-                {
-                    FlvTest.mysock.Shutdown(System.Net.Sockets.SocketShutdown.Both);
-                }
-                FlvTest.serverThread.Abort();
-            }
+            //if (FlvTest.serverThread != null && FlvTest.serverThread.IsAlive)
+            //{
+            //    if (FlvTest.mysock != null && FlvTest.mysock.Connected)
+            //    {
+            //        FlvTest.mysock.Shutdown(System.Net.Sockets.SocketShutdown.Both);
+            //    }
+            //    FlvTest.serverThread.Abort();
+            //}
 
         }
-        
+
         private void navBarFlv_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             Thread.Sleep(500);
@@ -570,7 +566,7 @@ namespace NetTest
             {
                 this.flvTest1.Init();
             }
-            
+
             lbText.Text = "流媒体测评...";
         }
 
@@ -584,7 +580,7 @@ namespace NetTest
             webTest1.Visible = false;
             webSettings1.Visible = false;
             this.flvTest1.Visible = false;
-            this.flvSetting1.Init();            
+            this.flvSetting1.Init();
             lbText.Text = "流媒体设置...";
         }
 
@@ -592,11 +588,11 @@ namespace NetTest
         {
             Analyze();
         }
-        
+
         private void barButtonTip_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmTips tips = new frmTips();
-            tips.ShowDialog();           
+            tips.ShowDialog();
         }
 
         private void barBtnHelp_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -617,7 +613,7 @@ namespace NetTest
             if (inis.IniReadValue("Flv", "Envir").Equals("web"))
             {
                 flvWebAnalyze1.Visible = true;
-                webAnalyse1.Visible = false;  
+                webAnalyse1.Visible = false;
                 flvWebAnalyze1.Dock = DockStyle.Fill;
                 flvWebAnalyze1.Init();
                 lbText.Text = "流媒体网络分析...";

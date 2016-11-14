@@ -65,7 +65,7 @@ namespace NetTest
             this.navBarSet = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarAnaly = new DevExpress.XtraNavBar.NavBarItem();
             this.panelMain = new DevExpress.XtraEditors.PanelControl();
-           this.flvSetting1 = new NetTest.FlvSetting();
+            this.flvSetting1 = new NetTest.FlvSetting();
             this.flvWebAnalyze1 = new NetTest.FlvWebAnalyze();
             this.flvTest1 = new NetTest.FlvTest();
             this.webTest1 = new NetTest.WebTest();
@@ -339,9 +339,9 @@ namespace NetTest
             this.navBarWebAnalyse.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarFlvanaly.LargeImage")));
             this.navBarWebAnalyse.Name = "navBarWebAnalyse";
             this.navBarWebAnalyse.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarWebAnalyse_LinkClicked);
-            
-            
-            
+
+
+
             // 
             // navBarSingle
             // 

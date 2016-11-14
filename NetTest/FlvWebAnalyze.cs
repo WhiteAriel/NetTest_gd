@@ -40,10 +40,10 @@ namespace NetTest
         public static double AverInOut = 0.0;
         public static double AverDelay = 0.0;
         public static double AverJitter = 0.0;
-        public static string TcpInfo = null;
-        public static string TcpEx = null;
-        public static string FrameRate = null;
-        
+        public static string TcpInfo = "";
+        public static string TcpEx = "";
+        public static string FrameRate = "";
+
 
         public static void InitValue()
         {
@@ -53,9 +53,9 @@ namespace NetTest
             AverInOut = 0.0;
             AverDelay = 0.0;
             AverJitter = 0.0;
-            TcpInfo = null;
-            TcpEx = null;
-            FrameRate = null;
+            TcpInfo = "";
+            TcpEx = "";
+            FrameRate = "";
         }
     }
 
@@ -68,7 +68,7 @@ namespace NetTest
         const int PACKETPAGESIZE = 2000;      //数据包展示页面每次加载1000条
         const int GROUPCOUNT = 200;           //每次数据表刷新200条记录
         //测试次数
-       // int testNum = 0;
+        // int testNum = 0;
         //全局变量，判断是否分析结束
         bool IsAnalysed = false;
         //抓包文件名
@@ -96,7 +96,7 @@ namespace NetTest
         //判断txt转换为xsl
         bool iTxt2Xls = false;
         //f分析次数
-       // int iStartAnalyze = 0;
+        // int iStartAnalyze = 0;
         //批处理cap文件名称
         //string[] filesinpath = null;
         //判断是否是选择现在pcap文件
@@ -104,9 +104,9 @@ namespace NetTest
 
         private bool analyzeOn = false;
         public bool serverTest = false;
-        
+
         //数据库对象
-        private MySQLInterface mysqlWeb=null;
+        private MySQLInterface mysqlWeb = null;
         private bool mysqlWebFlag = false;
         //private MySQLInterface mysqlWeb = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname"));
         //设置解析线程
@@ -124,7 +124,7 @@ namespace NetTest
 
 
         //当前任务id和类型
-        string currentId;      
+        string currentId;
 
 
         ArrayList datalist = ArrayList.Synchronized(new ArrayList());//数据包arraylist，保存cap包名字
@@ -219,43 +219,41 @@ namespace NetTest
             InitializeComponent();
             this.RealTimechart();
             datalist.Clear();
-            mysqlWeb=new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"));
+            mysqlWeb = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"));
             if (mysqlWeb.MysqlInit(inis.IniReadValue("Mysql", "dbname")))
                 mysqlWebFlag = true;
         }
 
 
-         private void ParsePacket()
-         {
-             //4部分的解析函数
+        private void ParsePacket()
+        {
+            //4部分的解析函数
 
-             currentId = inis.IniReadValue("Task", "currentVideoId");
-             try
-             {
-                 WebInfoAnalys();         //web播放的相关内容解析
-                 InOutFrameLenAnalys();    //分析吞吐量、帧长分布信息
-                 PcapTcpDnsHttpAnalys();  //分析文件概要、数据包、TCP、DNS、HTTP等信息
-                 ResultDisplay();          //测试报告结果显示
-                 //storeResult();
-             }
-             catch (System.Exception ex)
-             {
-                 Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
-             }
-             if (WrongReason != null &&!serverTest)
-             {
-                 MessageBox.Show(WrongReason + "出错可能的原因有：\n 1、没有相关的数据包 \n 2、网卡选择不正确 \n 3、服务器上没有相关视频文件 \n 4、解析不支持对应的视频格式 \n");
-             }
-             btnStartAnaly.Enabled = true;
-             btnWebSelCap.Enabled = true;
-             isSelectPcap = false;
-             //if (setParseTrd.IsAlive)
-             //    setParseTrd.Abort();
-             analyzeOn = false;
-             serverTest = false;
-         }
+            currentId = inis.IniReadValue("Task", "currentVideoId");
+            try
+            {
+                WebInfoAnalys();         //web播放的相关内容解析
+                InOutFrameLenAnalys();    //分析吞吐量、帧长分布信息
+                PcapTcpDnsHttpAnalys();  //分析文件概要、数据包、TCP、DNS、HTTP等信息
+                ResultDisplay();          //测试报告结果显示
+                //storeResult();
+            }
+            catch (System.Exception ex)
+            {
+                Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
+            }
+            if (WrongReason != null && !serverTest)
+            {
+                MessageBox.Show(WrongReason + "出错可能的原因有：\n 1、没有相关的数据包 \n 2、网卡选择不正确 \n 3、服务器上没有相关视频文件 \n 4、解析不支持对应的视频格式 \n");
+            }
+            btnStartAnaly.Enabled = true;
+            btnWebSelCap.Enabled = true;
+            isSelectPcap = false;
+            analyzeOn = false;
+            serverTest = false;
+        }
 
-        public void startFunc()
+        public void StartServerAnalyzeFunc()
         {
             while (true)
             {
@@ -304,20 +302,70 @@ namespace NetTest
                     }
                     catch (System.Exception ex)
                     {
-                       Log.Console(Environment.StackTrace,ex); Log.Error(Environment.StackTrace,ex);
+                        Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
                     }
                     break;
                 }
                 else
                     Thread.Sleep(1500);   //休眠等待
             }
-           
+
         }
 
 
+        public void StartTerminalAnalyzeFunc()
+        {
+                    //清除Excel进程
+                    analyzeOn = true;
+                    Process[] p = Process.GetProcessesByName("EXCEL");
+                    if (p.Length > 0)
+                    {
+                        for (int i = 0; i < p.Length; i++)
+                        {
+                            p[i].CloseMainWindow();
+                            p[i].Kill();
+                        }
+                    }
+                    if (isSelectPcap == false)              //如果没有在分析之前选择pcap文件时读取上一次的文件
+                    {
+                        PcapFileName = inis.IniReadValue("Flv", "PcapFile");
+                        TxtFileName = inis.IniReadValue("Flv", "PlayerFile");
+                    }
+
+
+                    if (!File.Exists(PcapFileName))
+                    {
+                        MessageBox.Show("找不到数据包文件：" + PcapFileName);
+                        Log.Warn("找不到数据包文件");
+                        return;
+                    }
+
+                    IsAnalysed = true;    //是否进行了分析
+                    WrongReason = null;   //清空错误信息
+                    //清空图表
+                    this.InitChart();
+                    this.InitListView();
+                    //清空上次计算的平均值
+                    AverValue.InitValue();
+
+                    btnStartAnaly.Enabled = false;
+                    btnWebSelCap.Enabled = false;
+
+                    try
+                    {
+                        setParseTrd = new Thread(new ThreadStart(ParsePacket));
+                        setParseTrd.Start();
+                    }
+                    catch (System.Exception ex)
+                    {
+                        Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
+                    }
+        }
+
         public void btnStartAnaly_Click(object sender, EventArgs e)
         {
-            startFunc();
+            //startFunc();
+            StartTerminalAnalyzeFunc();
         }
 
         //保存测试报告
@@ -349,7 +397,7 @@ namespace NetTest
                 }
                 catch (System.Exception ex)
                 {
-                   Log.Console(Environment.StackTrace,ex); Log.Error(Environment.StackTrace,ex);
+                    Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
                 }
 
             }
@@ -386,7 +434,7 @@ namespace NetTest
                 }
                 Log.Error(Environment.StackTrace, ex);
             }
-            
+
             return;
         }
 
@@ -464,7 +512,7 @@ namespace NetTest
             }
             catch (System.Exception ex)
             {
-               Log.Console(Environment.StackTrace,ex); Log.Error(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
             }
 
             if (AnalysOK == -6)
@@ -842,7 +890,7 @@ namespace NetTest
                 }
                 catch (System.Exception ex)
                 {
-                   Log.Console(Environment.StackTrace,ex); Log.Error(Environment.StackTrace,ex);
+                    Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
                 }
                 WrongReason = "数据包打开错误，无法进行文件概要、数据包、TCP、DNS、HTTP的分析 \n";
                 return;
@@ -869,7 +917,7 @@ namespace NetTest
             }
             catch (System.Exception ex)
             {
-               Log.Console(Environment.StackTrace,ex); Log.Error(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
             }
             return;
 
@@ -909,7 +957,7 @@ namespace NetTest
             catch (System.Exception ex)
             {
                 retCode = -1;
-               Log.Console(Environment.StackTrace,ex); Log.Error(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
             }
 
             if (retCode < 0)
@@ -1001,23 +1049,23 @@ namespace NetTest
             //这里要用接口获取包总数
             totalNum = getPacketNum();
             //totalNum=200000;
-            if (totalNum/PACKETPAGESIZE>0)
+            if (totalNum / PACKETPAGESIZE > 0)
             {
-                if (totalNum%PACKETPAGESIZE==0)
+                if (totalNum % PACKETPAGESIZE == 0)
                 {
-                    pageNum = totalNum/PACKETPAGESIZE;
+                    pageNum = totalNum / PACKETPAGESIZE;
                 }
                 else
-                pageNum=totalNum/PACKETPAGESIZE+1;   
-            } 
+                    pageNum = totalNum / PACKETPAGESIZE + 1;
+            }
             else
-                pageNum=1;
+                pageNum = 1;
             //初始化时上一页不能用，下一页要判断总页数和每一页的记录数2000的大小
-            if (pageNum>1)
+            if (pageNum > 1)
             {
                 btnNextPage.Enabled = true;
             }
-           
+
             btnJump.Enabled = true;     //使能跳转，在响应函数里判断输入范围
 
             labelTotal.Text = "总记录数:" + totalNum + " 总页数:" + pageNum;
@@ -1025,13 +1073,13 @@ namespace NetTest
 
             comboxJumpPage.Items.Clear();
             comboxJumpPage.Enabled = true;    //初始选择combox
-            for (int i = 0; i < pageNum;i++)
+            for (int i = 0; i < pageNum; i++)
             {
-                comboxJumpPage.Items.Add(i+1);
+                comboxJumpPage.Items.Add(i + 1);
             }
             comboxJumpPage.SelectedIndex = 0;
 
-            getPageRecord(tmpfileName,currentPage);
+            getPageRecord(tmpfileName, currentPage);
 
             //删除临时文件(修改后不删除，用于分页)
             // File.Delete(tmpfileName);
@@ -1078,7 +1126,7 @@ namespace NetTest
             catch (System.Exception ex)
             {
                 retCode = -1;
-               Log.Console(Environment.StackTrace,ex); Log.Error(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
             }
 
             if (retCode < 0)
@@ -1149,10 +1197,10 @@ namespace NetTest
                 averrtt += double.Parse(str[11]);
 
                 strLine = sr.ReadLine();
-                
+
             }
 
-           
+
             sr.Close();
 
             //删除临时文件
@@ -1191,7 +1239,7 @@ namespace NetTest
             catch (System.Exception ex)
             {
                 retCode = -1;
-               Log.Console(Environment.StackTrace,ex); Log.Error(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
 
             }
 
@@ -1317,7 +1365,7 @@ namespace NetTest
             //创建文件读流
             StreamReader sr = new StreamReader(tmpfileName);
             sr.ReadLine();
-            string strLine = sr.ReadLine(); 
+            string strLine = sr.ReadLine();
             //ListView数据项和子数据项
             ListViewItem[] lvi;
             ListViewItem.ListViewSubItem lvsi;
@@ -1397,8 +1445,8 @@ namespace NetTest
             Console.WriteLine("DNS into Mysql!");
             //txt文件压入到数据库
             //Application.StartupPath +"\\文件.txt"
-            if(mysqlWebFlag)
-                mysqlWeb.TxTInsertMySQL("DNSAnalysis", currentId + "#" + "Video", Application.StartupPath+"\\"+tmpfileName);
+            if (mysqlWebFlag && serverTest)
+                mysqlWeb.TxTInsertMySQL("DNSAnalysis", currentId + "#" + "Video", Application.StartupPath + "\\" + tmpfileName);
             //删除临时文件,调试需要注释
 #if RELEASE
             File.Delete(tmpfileName);
@@ -1432,7 +1480,7 @@ namespace NetTest
             catch (System.Exception ex)
             {
                 retCode = -1;
-               Log.Console(Environment.StackTrace,ex); Log.Error(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
             }
             if (retCode < 0)
             {
@@ -1458,7 +1506,7 @@ namespace NetTest
             //读取每一行数据
             while (strLine != null)
             {
-              
+
                 //得到每一单元数据
                 //string[] str = strLine.Split(new Char[] { '\t' }, 7);
                 string[] str = strLine.Split(new Char[] { '\t' });
@@ -1530,7 +1578,7 @@ namespace NetTest
                 //lvi[lineCount].SubItems.Add(lvsi);
                 //lvi[lineCount].SubItems[3].ForeColor = System.Drawing.Color.Green;
 
-                
+
                 lineCount++;
                 SumLine++;
                 strLine = sr.ReadLine();
@@ -1566,13 +1614,13 @@ namespace NetTest
             AverValue.AverHTTP = Math.Round(AverValue.AverHTTP, 6);
 
             //txt文件压入到数据库  
-            if(mysqlWebFlag)
+            if (mysqlWebFlag && serverTest)
                 mysqlWeb.TxTInsertMySQL("HttpAnalysis", currentId + "#" + "Video", Application.StartupPath + "\\" + tmpfileName);
-          //删除临时文件
+            //删除临时文件
 #if RELEASE
             File.Delete(tmpfileName);
 #endif
-          return true;
+            return true;
         }
 
         /********************************************************************************
@@ -1619,7 +1667,7 @@ namespace NetTest
             catch (System.Exception ex)
             {
                 retCode = -1;
-               Log.Console(Environment.StackTrace,ex); Log.Error(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
             }
             if (retCode < 0)
             {
@@ -1628,7 +1676,7 @@ namespace NetTest
                 return false;
             }
 
-           
+
 
             //清空列表
             LVInOut.Items.Clear();
@@ -1733,6 +1781,7 @@ namespace NetTest
             //更新图像
             this.ChartInOut.Invalidate();
             //txt文件压入到数据库
+            //if (mysqlWebFlag && serverTest)
             //此处还要修改********************************************************************
             //mysqlWeb.TxTInsertMySQL("InOutAnalysis", currentId + "#" + "Video",tmpfileName);
             //删除临时文件
@@ -1825,7 +1874,7 @@ namespace NetTest
             }
             catch (System.Exception ex)
             {
-               Log.Console(Environment.StackTrace,ex); Log.Error(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
             }
 
             return;
@@ -1895,7 +1944,7 @@ namespace NetTest
                 }
 
                 lv[linecount] = new ListViewItem();
-                lv[linecount].Text = str[1];
+                lv[linecount].Text = str[2];
 
                 //求延时抖动最值
                 if (Convert.ToDouble(str[3]) >= MaxDelay)
@@ -2017,7 +2066,7 @@ namespace NetTest
             //图像重构
             this.ChartDelayJitter.Invalidate();
             //txt文件压入到数据库
-            if(mysqlWebFlag)
+            if (mysqlWebFlag && serverTest)
                 mysqlWeb.TxTInsertMySQL("DelayJitter", currentId + "#" + "Video", Application.StartupPath + "\\" + tmpfileName);
 #if RELEASE
             File.Delete(tmpfileName);
@@ -2142,27 +2191,27 @@ namespace NetTest
                         try
                         {
                             swlog.Write("视频格式:" + "\t" + fileType + "\r\n");
-                            ResultTmp.Write((++index).ToString()+"\t"+"VideoFormat\t" + fileType + "\r\n");
+                            ResultTmp.Write((++index).ToString() + "\t" + "VideoFormat\t" + fileType + "\r\n");
                             FileStream fs1 = new FileStream(strMediaInfo, FileMode.Open, FileAccess.Read);
                             StreamReader sr1 = new StreamReader(fs1, Encoding.Default);
                             String[] MediaInfo = null;
                             strMediaInfo = sr1.ReadLine();    //持续时间(s):	232.33
                             MediaInfo = strMediaInfo.Split('\t');
-                            if (MediaInfo.Length==2)
-                                ResultTmp.Write((++index).ToString() + "\t" + "DurationTime" + "\t" + MediaInfo[1] + "\r\n");
+                            if (MediaInfo.Length == 2)
+                                ResultTmp.Write((++index).ToString() + "\t" + "持续时间(s)" + "\t" + MediaInfo[1] + "\r\n");
                             strMediaInfo = sr1.ReadLine();   //Videosize:	10797209.00
                             MediaInfo = strMediaInfo.Split('\t');
                             if (MediaInfo.Length == 2)
-                                ResultTmp.Write((++index).ToString() + "\t" + "VideoSize" + "\t" + MediaInfo[1] + "\r\n");
+                                ResultTmp.Write((++index).ToString() + "\t" + "视频大小" + "\t" + MediaInfo[1] + "\r\n");
                             strMediaInfo = sr1.ReadLine();   //视频帧率(fps):	15.01
                             MediaInfo = strMediaInfo.Split('\t');
                             if (MediaInfo.Length == 2)
-                                ResultTmp.Write((++index).ToString() + "\t" + "VideoFps" + "\t" + MediaInfo[1] + "\r\n");
+                                ResultTmp.Write((++index).ToString() + "\t" + "视频帧率(fps)" + "\t" + MediaInfo[1] + "\r\n");
                             swlog.Write(strMediaInfo + "\r\n");
                             strMediaInfo = sr1.ReadLine();   //视频码率(kbps):	361.78
                             MediaInfo = strMediaInfo.Split('\t');
                             if (MediaInfo.Length == 2)
-                                ResultTmp.Write((++index).ToString() + "\t" + "VideoCodeRate" + "\t" + MediaInfo[1] + "\r\n");
+                                ResultTmp.Write((++index).ToString() + "\t" + "视频码率(kbps)" + "\t" + MediaInfo[1] + "\r\n");
                             {
                                 swlog.Write(strMediaInfo + "\r\n");
                                 strMediaInfo = sr1.ReadLine();   //videocodecid:	7.00	AVC-H.264
@@ -2170,12 +2219,12 @@ namespace NetTest
                                 if (MediaInfo.Length == 3)
                                 {
                                     swlog.Write("视频编码方式:" + "\t" + MediaInfo[2] + "\r\n");
-                                    ResultTmp.Write((++index).ToString() + "\t" + "CodeingFormat" + "\t" + MediaInfo[2] + "\r\n");
+                                    ResultTmp.Write((++index).ToString() + "\t" + "视频编码方式" + "\t" + MediaInfo[2] + "\r\n");
                                 }
                                 else if (MediaInfo.Length == 2)
                                 {
                                     swlog.Write("视频编码方式:" + "\t" + MediaInfo[1] + "\r\n");
-                                    ResultTmp.Write((++index).ToString() + "\t" + "CodeingFormat" + "\t" + MediaInfo[1] + "\r\n");
+                                    ResultTmp.Write((++index).ToString() + "\t" + "视频编码方式" + "\t" + MediaInfo[1] + "\r\n");
                                 }
                                 MediaInfo = null;
                                 strMediaInfo = sr1.ReadLine();  //width:	480.00
@@ -2187,7 +2236,7 @@ namespace NetTest
                                 string height = MediaInfo[1];
                                 MediaInfo = null;
                                 swlog.Write("视频分辨率:" + "\t" + width + "*" + height + "\r\n");
-                                ResultTmp.Write((++index).ToString() + "\t" + "VideoResolutionRate" + "\t" + width + "*" + height + "\r\n");
+                                ResultTmp.Write((++index).ToString() + "\t" + "视频分辨率" + "\t" + width + "*" + height + "\r\n");
                             }
                             sr1.Close();
                             fs1.Close();
@@ -2210,47 +2259,47 @@ namespace NetTest
                         AverValue.FrameRate = "WEB分析不成功，无法获得视频帧率";
                     //swlog.Write(AverValue.FrameRate + "\t\r\n");
                     swlog.Write("DNS响应平均延时(秒)\t" + AverValue.AverDNS.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "DNS mean_delay(s)\t" + AverValue.AverDNS.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "DNS响应平均延时(s)\t" + AverValue.AverDNS.ToString() + "\r\n");
 
                     swlog.Write("HTTP响应平均延时(秒)\t" + AverValue.AverHTTP.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "HTTP mean_delay(s)\t" + AverValue.AverHTTP.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "HTTP响应平均延时(s)\t" + AverValue.AverHTTP.ToString() + "\r\n");
 
                     swlog.Write("服务器响应平均延时(秒)\t" + AverValue.AverHTTP.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "SERVER mean_delay(s)\t" + AverValue.AverHTTP.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "服务器响应平均延时(s)\t" + AverValue.AverHTTP.ToString() + "\r\n");
 
                     swlog.Write("吞吐量均值(字节/秒))\t" + AverValue.AverInOut.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "InOut mean_delay(s)\t" + AverValue.AverInOut.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "吞吐量均值(byte)\t" + AverValue.AverInOut.ToString() + "\r\n");
 
                     swlog.Write("平均延时(秒)\t" + AverValue.AverDelay.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "mean_delay(s)\t" + AverValue.AverDelay.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "平均延时(s)\t" + AverValue.AverDelay.ToString() + "\r\n");
 
                     swlog.Write("平均抖动(秒)\t" + AverValue.AverJitter.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "mean_jitter(s)\t" + AverValue.AverJitter.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "平均抖动(s)\t" + AverValue.AverJitter.ToString() + "\r\n");
                     //写TCP连接信息
                     swlog.Write("\r\n" + AverValue.TcpInfo + "\r\n");
                     string[] tcpInfo = AverValue.TcpInfo.Split(new string[] { "\t\r\n" }, StringSplitOptions.RemoveEmptyEntries); ;
-                    for (int i = 0; i < tcpInfo.Length;i++ )
+                    for (int i = 0; i < tcpInfo.Length; i++)
                     {
-                        if (i == 0) continue; 
+                        if (i == 0) continue;
                         ResultTmp.Write((++index).ToString() + "\t" + tcpInfo[i] + "\r\n");
                     }
                     //写入TCP异常信息
                     swlog.Write("\r\n" + AverValue.TcpEx + "\r\n");
                     string[] tcpExInfo = AverValue.TcpEx.Split(new string[] { "\t\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-                    for (int i = 0; i < tcpExInfo.Length;i++ )
+                    for (int i = 0; i < tcpExInfo.Length; i++)
                     {
-                        if(i==0)continue;
+                        if (i == 0) continue;
                         ResultTmp.Write((++index).ToString() + "\t" + tcpExInfo[i] + "\r\n");
                     }
-                  
+
                     swlog.Close();
                     ResultTmp.Close();
                     fs3.Close();
                     //txt文件压入到数据库
-                    if(mysqlWebFlag)
+                    if (mysqlWebFlag && serverTest)
                         mysqlWeb.TxTInsertMySQL("TestReport", currentId + "#" + "Video", Application.StartupPath + "\\" + resultTxt);
                     //删除临时文件
-                     File.Delete(resultTxt);
+                    File.Delete(resultTxt);
                 }
             }
         }
@@ -2284,7 +2333,7 @@ namespace NetTest
             {
                 btnLastPage.Enabled = false;    //第一页时上一页不能用
             }
-            comboxJumpPage.SelectedIndex = currentPage-1;
+            comboxJumpPage.SelectedIndex = currentPage - 1;
             string packageFile = "dissectPacket.tmp";
             getPageRecord(packageFile, currentPage);    //获取当前页的记录
         }
@@ -2294,11 +2343,11 @@ namespace NetTest
         {
             currentPage++;
             btnLastPage.Enabled = true;    //上一页使能
-            if (currentPage==pageNum)    //当前页是总页数，没有下一页
+            if (currentPage == pageNum)    //当前页是总页数，没有下一页
             {
-                btnNextPage.Enabled = false;   
+                btnNextPage.Enabled = false;
             }
-            comboxJumpPage.SelectedIndex = currentPage-1;
+            comboxJumpPage.SelectedIndex = currentPage - 1;
             string packageFile = "dissectPacket.tmp";
             getPageRecord(packageFile, currentPage);    //获取当前页的记录
         }
@@ -2307,12 +2356,12 @@ namespace NetTest
         {
             string selectText = comboxJumpPage.Text;
             currentPage = int.Parse(selectText);
-            if (currentPage==1)
+            if (currentPage == 1)
             {
                 btnLastPage.Enabled = false;
                 btnNextPage.Enabled = true;
-            } 
-            else if (currentPage==pageNum)
+            }
+            else if (currentPage == pageNum)
             {
                 btnNextPage.Enabled = false;
                 btnLastPage.Enabled = true;
@@ -2336,10 +2385,10 @@ namespace NetTest
                     FileStream fsPacket = new FileStream(packageFile, FileMode.Open, FileAccess.Read);
                     StreamReader srPacket = new StreamReader(fsPacket, Encoding.Default);
                     //string strLine = srPacket.ReadLine();    //第一行是标题行，去掉
-                    string strLine=null;
-                    if (currentPage==1)
+                    string strLine = null;
+                    if (currentPage == 1)
                     {
-                        strLine=srPacket.ReadLine();     //第一页时读取第一行
+                        strLine = srPacket.ReadLine();     //第一页时读取第一行
                     }
                     int count = 0;
                     while (count < (currentPage - 1) * PACKETPAGESIZE)
@@ -2355,7 +2404,7 @@ namespace NetTest
                     ListViewItem[] lvi;
                     ListViewItem.ListViewSubItem lvsi;
                     lvi = new ListViewItem[GROUPCOUNT];     //200个为一组，批量刷新list
-                    int lineCount = 0;  
+                    int lineCount = 0;
                     while (strLine != null && tempSumInPage < PACKETPAGESIZE) //文件没有读取到记录或达到一页的展示量2000
                     {
                         //得到每一单元数据
@@ -2440,12 +2489,12 @@ namespace NetTest
         {
             string selectText = comboxJumpPageTcpGene.Text;
             currentPageTcpGene = int.Parse(selectText);
-            if (currentPageTcpGene== 1)
+            if (currentPageTcpGene == 1)
             {
                 btnLastPageTcpGene.Enabled = false;
                 btnNextPageTcpGene.Enabled = true;
             }
-            else if (currentPageTcpGene== pageNumTcpGene)
+            else if (currentPageTcpGene == pageNumTcpGene)
             {
                 btnNextPageTcpGene.Enabled = false;
                 btnLastPageTcpGene.Enabled = true;

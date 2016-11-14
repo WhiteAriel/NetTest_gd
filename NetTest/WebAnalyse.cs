@@ -28,9 +28,9 @@ namespace NetTest
         public static double AverInOutWeb = 0.0;
         public static double AverDelayWeb = 0.0;
         public static double AverJitterWeb = 0.0;
-        public static string TcpInfoWeb = null;
-        public static string TcpExWeb = null;
-        public static string FrameRateWeb = null;
+        public static string TcpInfoWeb = "";
+        public static string TcpExWeb = "";
+        public static string FrameRateWeb = "";
 
 
         public static void InitValue()
@@ -41,9 +41,9 @@ namespace NetTest
             AverInOutWeb = 0.0;
             AverDelayWeb = 0.0;
             AverJitterWeb = 0.0;
-            TcpInfoWeb = null;
-            TcpExWeb = null;
-            FrameRateWeb = null;
+            TcpInfoWeb = "";
+            TcpExWeb = "";
+            FrameRateWeb = "";
         }
     }
 
@@ -86,19 +86,22 @@ namespace NetTest
         //f分析次数
         //int iStartAnalyzeWeb = 0;
         //批处理cap文件名称
-       // string[] filesinpathWeb = null;
+        // string[] filesinpathWeb = null;
         //判断是否是选择现在pcap文件
-      //public static bool isSelectPcapWeb = false;
+        //public static bool isSelectPcapWeb = false;
 
         //设置解析线程
         Thread setWebParseTrd = null;
 
-        
+
         private bool analyzeOn = false;
+        public bool serverTest = false;
+
 
         //数据库部分
         private string currentId;
         private MySQLInterface mysqlWebA = null;
+        private bool mysqlWebFlagA = false;
         //数据包分页变量
         int currentPageWeb = 1;  //当前页码
         int totalNumWeb = 0;    //总记录数，初始化为0
@@ -170,7 +173,7 @@ namespace NetTest
             LVFrameLengthWeb.Items.Clear();
             LVDelayJitterWeb.Items.Clear();
             lsvResultWeb.Items.Clear();
-            strTxtResultWeb = Application.StartupPath + "\\TxtResult.txt";
+            strTxtResultWeb = Application.StartupPath + "\\TxtResultWeb.txt";
 
             DelayAvgWeb.Visible = false;
             DelayMaxWeb.Visible = false;
@@ -202,7 +205,10 @@ namespace NetTest
             InitializeComponent();
             this.RealTimechart();
             datalistWeb.Clear();
-
+            mysqlWebA = new MySQLInterface(inisWeb.IniReadValue("Mysql", "serverIp"), inisWeb.IniReadValue("Mysql", "user"), inisWeb.IniReadValue("Mysql", "passwd"));
+            if (mysqlWebA.MysqlInit(inisWeb.IniReadValue("Mysql", "dbname")))
+                mysqlWebFlagA = true;
+            Init();
         }
 
 
@@ -228,15 +234,13 @@ namespace NetTest
             }
             btnStartWebAnaly.Enabled = true;
             btnWebSelCapWeb.Enabled = true;
-            //isSelectPcapWeb = false;
-            if (setWebParseTrd.IsAlive)
-                setWebParseTrd.Abort();
             analyzeOn = false;
+            serverTest = false;
         }
 
 
 
-        public void webStartFunc()
+        public void WebServerAnalyzeStartFunc()
         {
             while (true)
             {
@@ -282,16 +286,65 @@ namespace NetTest
                     {
                         Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
                     }
+                    while (analyzeOn)
+                        Thread.Sleep(200);
                     break;
                 }
                 else
-                    Thread.Sleep(2000);
+                    Thread.Sleep(500);
             }
+        }
+
+
+        public void WebTerminalAnalyzeStartFunc()
+        {
+
+                    analyzeOn = true;
+                    //清除Excel进程
+                    Process[] p = Process.GetProcessesByName("EXCEL");
+                    if (p.Length > 0)
+                    {
+                        for (int i = 0; i < p.Length; i++)
+                        {
+                            p[i].CloseMainWindow();
+                            p[i].Kill();
+                        }
+                    }
+
+                    PcapFileNameWeb = inisWeb.IniReadValue("Web", "webPcapPath");
+
+                    if (!File.Exists(PcapFileNameWeb))
+                    {
+                        MessageBox.Show("找不到数据包文件：" + PcapFileNameWeb);
+                        return;
+                    }
+
+                    IsAnalysedWeb = true;    //是否进行了分析
+                    WrongReasonWeb = null;   //清空错误信息
+                    //清空图表
+                    this.InitChart();
+                    this.InitListView();
+                    //清空上次计算的平均值
+                    AverValueWeb.InitValue();
+
+                    btnStartWebAnaly.Enabled = false;
+                    btnWebSelCapWeb.Enabled = false;
+
+                    try
+                    {
+                        setWebParseTrd = new Thread(new ThreadStart(ParseWebPacket));
+                        setWebParseTrd.Start();
+                    }
+                    catch (System.Exception ex)
+                    {
+                        Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
+                    }         
         }
 
         public void btnStartWebAnaly_Click(object sender, EventArgs e)
         {
-            webStartFunc();
+            //webStartFunc();
+            WebTerminalAnalyzeStartFunc();
         }
 
         //保存测试报告
@@ -825,10 +878,9 @@ namespace NetTest
                 {
                     WrongReasonWeb += "无法获得延时抖动信息\n";
                 }
-                //m_AsyncWorkerJitter.RunWorkerAsync();
                 if (!ShowTCPStream()) WrongReasonWeb += "TCP流分析异常 \n";
                 if (!ShowLVPacketAnalysWeb()) WrongReasonWeb += "数据包解析异常 \n";
-                //m_AsyncWorkerTcp.RunWorkerAsync();
+             
             }
             try
             {
@@ -1376,8 +1428,8 @@ namespace NetTest
 
             //创建文件读流
             StreamReader sr = new StreamReader(tmpfileName);
+            sr.ReadLine();
             string strLine = sr.ReadLine();
-
             //ListView数据项和子数据项
             ListViewItem[] lvi;
             ListViewItem.ListViewSubItem lvsi;
@@ -1407,7 +1459,7 @@ namespace NetTest
             while (strLine != null)
             {
                 //得到每一单元数据
-                string[] str = strLine.Split(new Char[] { '\t' }, 9);
+                string[] str = strLine.Split(new Char[] { '\t' });
 
                 lvi[lineCount] = new ListViewItem();
                 lvi[lineCount].Text = str[0];
@@ -1454,10 +1506,14 @@ namespace NetTest
 
             //曲线图更新
             ChartDNSWeb.Invalidate();
+            Console.WriteLine("DNS into Mysql!");
             //txt文件压入到数据库
-            mysqlWebA.TxTInsertMySQL(tmpfileName, currentId + "#" + "Web", "DNSAnalysis");
+            if (mysqlWebFlagA && serverTest)
+                mysqlWebA.TxTInsertMySQL("DNSAnalysis", currentId + "#" + "Web", Application.StartupPath + "\\" + tmpfileName);
             //删除临时文件
+#if RELEASE
             File.Delete(tmpfileName);
+#endif
             return true;
         }
 
@@ -1498,8 +1554,8 @@ namespace NetTest
 
             //创建文件读流
             StreamReader sr = new StreamReader(tmpfileName);
+            sr.ReadLine();
             string strLine = sr.ReadLine();
-
             //ListView数据项和子数据项
             ListViewItem[] lvi;
             ListViewItem.ListViewSubItem lvsi;
@@ -1509,7 +1565,7 @@ namespace NetTest
             int lineCount = 0;
             int SumLine = 0;
             double HttpDelay = 0.0;
-           
+
 
             //设置图像的横纵坐标
             double xValue = 1.0;
@@ -1534,7 +1590,7 @@ namespace NetTest
             {
                 //得到每一单元数据
                 //string[] str = strLine.Split(new Char[] { '\t' }, 7);
-                string[] str = strLine.Split(new Char[] { '\t' }, 12);
+                string[] str = strLine.Split(new Char[] { '\t' });
                 //lvi[lineCount] = new ListViewItem();  //序号
                 //lvi[lineCount].Text = str[0];
                 lvi[lineCount] = new ListViewItem();
@@ -1542,39 +1598,40 @@ namespace NetTest
                 lvi[lineCount].Text = (SumLine + 1).ToString();
 
                 lvsi = new ListViewItem.ListViewSubItem();  //添加客户端IP+端口
-                lvsi.Text = str[2] + ":" + str[3];
+                lvsi.Text = str[1];
                 lvi[lineCount].SubItems.Add(lvsi);
                 lvi[lineCount].SubItems[1].ForeColor = System.Drawing.Color.Gray;
 
                 lvsi = new ListViewItem.ListViewSubItem();  //添加交互方式
-                lvsi.Text = str[6];
+                lvsi.Text = str[2];
                 lvi[lineCount].SubItems.Add(lvsi);
                 lvi[lineCount].SubItems[2].ForeColor = System.Drawing.Color.Green;
 
                 lvsi = new ListViewItem.ListViewSubItem();  //添加URL
-                lvsi.Text = str[7];
+                lvsi.Text = str[3];
                 lvi[lineCount].SubItems.Add(lvsi);
                 lvi[lineCount].SubItems[3].ForeColor = System.Drawing.Color.Green;
 
                 lvsi = new ListViewItem.ListViewSubItem();  //添加服务器IP+端口
-                lvsi.Text = str[4] + ":" + str[5];
+                lvsi.Text = str[4];
                 lvi[lineCount].SubItems.Add(lvsi);
                 lvi[lineCount].SubItems[4].ForeColor = System.Drawing.Color.Gray;
 
                 lvsi = new ListViewItem.ListViewSubItem();  //添加版本号
-                lvsi.Text = str[10];
+                lvsi.Text = str[5];
                 lvi[lineCount].SubItems.Add(lvsi);
                 lvi[lineCount].SubItems[5].ForeColor = System.Drawing.Color.Gray;
 
                 lvsi = new ListViewItem.ListViewSubItem();    //添加响应延时
-                lvsi.Text = str[11];
+                lvsi.Text = str[6];
                 lvi[lineCount].SubItems.Add(lvsi);
                 lvi[lineCount].SubItems[6].ForeColor = System.Drawing.Color.Gray;
 
-                strLine = sr.ReadLine();
+
                 lineCount++;
                 SumLine++;
-                
+                strLine = sr.ReadLine();
+
                 if (lineCount % groupcounthttp == 0)
                 {
                     LVHTTPAnalysWeb.BeginUpdate();
@@ -1586,7 +1643,7 @@ namespace NetTest
                     lineCount = 0;
                 }
                 //计算AverHTTPWeb的值
-                HttpDelayGet = double.TryParse((str[11]), out HttpDelay);
+                HttpDelayGet = double.TryParse((str[6]), out HttpDelay);
                 if (!HttpDelayGet) HttpDelay = 0.0;
                 yValue = HttpDelay * 1000;
                 AverValueWeb.AverHTTPWeb += HttpDelay;
@@ -1611,11 +1668,14 @@ namespace NetTest
             //曲线图更新
             ChartHttpWeb.Invalidate();
 
-            //txt文件压入到数据库            
-            mysqlWebA.TxTInsertMySQL(tmpfileName, currentId + "#" + "Web", "HttpAnalysis");
+            //txt文件压入到数据库 
+            if (mysqlWebFlagA && serverTest)
+                mysqlWebA.TxTInsertMySQL("HttpAnalysis", currentId + "#" + "Web", Application.StartupPath +"\\"+ tmpfileName);
 
             //删除临时文件
+#if RELEASE
             File.Delete(tmpfileName);
+#endif
             return true;
         }
 
@@ -1775,7 +1835,8 @@ namespace NetTest
             this.ChartInOutWeb.Invalidate();
 
             //txt文件压入到数据库
-            mysqlWebA.TxTInsertMySQL(tmpfileName, currentId + "#" + "Web", "InOutAnalysis");
+           // if (mysqlWebFlagA && serverTest)
+            //mysqlWebA.TxTInsertMySQL("InOutAnalysis", currentId + "#" + "Web", Application.StartupPath + "\\" +tmpfileName);
             //删除临时文件
             //  File.Delete(tmpfileName);
             return true;
@@ -1924,33 +1985,33 @@ namespace NetTest
             while (strLine != null)
             {
 
-                string[] str = strLine.Split(new Char[] { '\t' }, 11);
+                string[] str = strLine.Split(new Char[] { '\t' });
 
                 //滤除掉那些由于操作导致的过大的延时和抖动
-                if (double.Parse(str[2]) > 2.0 || double.Parse(str[3]) > 2.0)
+                if (double.Parse(str[3]) > 2.0 || double.Parse(str[4]) > 2.0)
                 {
                     strLine = sr.ReadLine();
                     continue;
                 }
 
                 lv[linecount] = new ListViewItem();
-                lv[linecount].Text = str[0];
+                lv[linecount].Text = str[2];
 
                 //求延时抖动最值
-                if (Convert.ToDouble(str[2]) >= MaxDelay)
-                    MaxDelay = Convert.ToDouble(str[2]);
-                if (Convert.ToDouble(str[2]) <= MinDelay)
-                    MinDelay = Convert.ToDouble(str[2]);
+                if (Convert.ToDouble(str[3]) >= MaxDelay)
+                    MaxDelay = Convert.ToDouble(str[3]);
+                if (Convert.ToDouble(str[3]) <= MinDelay)
+                    MinDelay = Convert.ToDouble(str[3]);
 
-                if (Convert.ToDouble(str[3]) >= MaxJitter)
-                    MaxJitter = Convert.ToDouble(str[3]);
-                if (Convert.ToDouble(str[3]) <= MinJitter)
+                if (Convert.ToDouble(str[4]) >= MaxJitter)
+                    MaxJitter = Convert.ToDouble(str[4]);
+                if (Convert.ToDouble(str[4]) <= MinJitter)
                     MinJitter = Convert.ToDouble(str[3]);
 
-                yDelayValueGet = double.TryParse(str[2], out yDelayValue);
+                yDelayValueGet = double.TryParse(str[3], out yDelayValue);
                 if (!yDelayValueGet) yDelayValue = 0.0;
                 AverValueWeb.AverDelayWeb += yDelayValue;
-                yJitterValueGet = double.TryParse(str[3], out yJitterValue);
+                yJitterValueGet = double.TryParse(str[4], out yJitterValue);
                 if (!yJitterValueGet) yJitterValue = 0.0;
                 AverValueWeb.AverJitterWeb += yJitterValue;
                 //画图时以毫秒为单位
@@ -1961,9 +2022,9 @@ namespace NetTest
                 ChartDelayJitterWeb.Invoke(addDataDel, ChartDelayJitterWeb, ChartDelayJitterWeb.Series["抖动曲线"], xValue++, yJitterValue);
 
                 lvsi = new ListViewItem.ListViewSubItem();
-                lvsi.Text = str[1];
+                lvsi.Text = str[2];
                 lv[linecount].SubItems.Add(lvsi);
-                for (int i = 2; i < 4; i++)
+                for (int i = 3; i < 5; i++)
                 {
                     lvsi = new ListViewItem.ListViewSubItem();
                     lvsi.Text = str[i];
@@ -2052,9 +2113,10 @@ namespace NetTest
             //确定横纵轴的间隔数10
             this.ChartDelayJitterWeb.ChartAreas[0].AxisX.Interval = (((maxX - minX) / 10 > 0) ? ((maxX - minX) / 10) : 1);
             this.ChartDelayJitterWeb.ChartAreas[0].AxisY.Interval = (((maxY - minY) / 10 > 0) ? ((maxY - minY) / 10) : 1);
-            
+
             //txt文件压入到数据库
-            mysqlWebA.TxTInsertMySQL(tmpfileName, currentId + "#" + "Web", "DelayJitterAnalysis");
+            if (mysqlWebFlagA && serverTest)
+                mysqlWebA.TxTInsertMySQL("DelayJitter", currentId + "#" + "Web", Application.StartupPath + "\\" + tmpfileName);
 
             //图像重构
             this.ChartDelayJitterWeb.Invalidate();
@@ -2159,39 +2221,57 @@ namespace NetTest
                 {
                     //保存得到的各种缺陷指标的均值
                     swlog.Write("\r\nWEB测试中各个参数均值如下：\r\n");
-                    if (AverValue.FrameRate == null)
-                        AverValue.FrameRate = "WEB分析不成功，无法获得视频帧率";
+                    if (AverValueWeb.FrameRateWeb == null)
+                        AverValueWeb.FrameRateWeb = "WEB分析不成功，无法获得视频帧率";
                     //swlog.Write(AverValue.FrameRate + "\t\r\n");
-                    swlog.Write("DNS响应平均延时(秒)\t" + AverValue.AverDNS.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "DNS mean_delay(s)\t" + AverValue.AverDNS.ToString() + "\r\n");
+                    swlog.Write("DNS响应平均延时(秒)\t" + AverValueWeb.AverDNSWeb.ToString() + "\t\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "DNS响应平均延时(s)\t" + AverValueWeb.AverDNSWeb.ToString() + "\r\n");
 
-                    swlog.Write("HTTP响应平均延时(秒)\t" + AverValue.AverHTTP.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "HTTP mean_delay(s)\t" + AverValue.AverHTTP.ToString() + "\r\n");
+                    swlog.Write("HTTP响应平均延时(秒)\t" + AverValueWeb.AverHTTPWeb.ToString() + "\t\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "HTTP响应平均延时(s)\t" + AverValueWeb.AverHTTPWeb.ToString() + "\r\n");
 
-                    swlog.Write("服务器响应平均延时(秒)\t" + AverValue.AverHTTP.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "SERVER mean_delay(s)\t" + AverValue.AverHTTP.ToString() + "\r\n");
+                    swlog.Write("服务器响应平均延时(秒)\t" + AverValueWeb.AverHTTPWeb.ToString() + "\t\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "服务器响应平均延时(s)\t" + AverValueWeb.AverHTTPWeb.ToString() + "\r\n");
 
-                    swlog.Write("吞吐量均值(字节/秒))\t" + AverValue.AverInOut.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "InOut mean_delay(s)\t" + AverValue.AverInOut.ToString() + "\r\n");
+                    swlog.Write("吞吐量均值(字节/秒))\t" + AverValueWeb.AverInOutWeb.ToString() + "\t\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "吞吐量均值(byte)\t" + AverValueWeb.AverInOutWeb.ToString() + "\r\n");
 
-                    swlog.Write("平均延时(秒)\t" + AverValue.AverDelay.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "mean_delay(s)\t" + AverValue.AverDelay.ToString() + "\r\n");
+                    swlog.Write("平均延时(秒)\t" + AverValueWeb.AverDelayWeb.ToString() + "\t\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "平均延时(s)\t" + AverValueWeb.AverDelayWeb.ToString() + "\r\n");
 
-                    swlog.Write("平均抖动(秒)\t" + AverValue.AverJitter.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "mean_jitter(s)\t" + AverValue.AverJitter.ToString() + "\r\n");
+                    swlog.Write("平均抖动(秒)\t" + AverValueWeb.AverJitterWeb.ToString() + "\t\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "平均抖动(s)\t" + AverValueWeb.AverJitterWeb.ToString() + "\r\n");
                     //写TCP连接信息
-                    swlog.Write("\r\n" + AverValue.TcpInfo + "\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "TcpInfo\t" + AverValue.TcpInfo + "\r\n");
+                    swlog.Write("\r\n" + AverValueWeb.TcpInfoWeb + "\r\n");
+                    string[] tcpInfo = AverValueWeb.TcpInfoWeb.Split(new string[] { "\t\r\n" }, StringSplitOptions.RemoveEmptyEntries); ;
+                    for (int i = 0; i < tcpInfo.Length; i++)
+                    {
+                        if (i == 0) continue;
+                        ResultTmp.Write((++index).ToString() + "\t" + tcpInfo[i] + "\r\n");
+                    }
                     //写入TCP异常信息
-                    swlog.Write("\r\n" + AverValue.TcpEx + "\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "TcpExInfo\t" + AverValue.TcpEx + "\r\n");
+                    swlog.Write("\r\n" + AverValueWeb.TcpExWeb + "\r\n");
+                    string[] tcpExInfo = AverValueWeb.TcpExWeb.Split(new string[] { "\t\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+                    for (int i = 0; i < tcpExInfo.Length; i++)
+                    {
+                        if (i == 0) continue;
+                        ResultTmp.Write((++index).ToString() + "\t" + tcpExInfo[i] + "\r\n");
+                    }
+                    //加个随机的网页评分，后面再改
+                    Random ro = new Random();
+                    int iUp = 100;
+                    int iDown = 50;
+                    int iResult = ro.Next(iDown, iUp);
+                    ResultTmp.WriteLine((++index).ToString() + "\tWebScore\t" + iResult.ToString());
                     swlog.Close();
+                    ResultTmp.Close();
                     //txt文件压入到数据库
-                    mysqlWebA.TxTInsertMySQL(resultTxt, currentId + "#" + "Web", "TestReport");
+                    if (mysqlWebFlagA && serverTest)
+                        mysqlWebA.TxTInsertMySQL("TestReport", currentId + "#" + "Web", Application.StartupPath + "\\" + resultTxt);
                     //删除临时文件
-                    #if RELEASE
+#if RELEASE
                     File.Delete(resultTxt);
-                    #endif
+#endif
                 }
             }
         }

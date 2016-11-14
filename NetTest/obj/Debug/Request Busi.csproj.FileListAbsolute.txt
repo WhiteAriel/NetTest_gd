@@ -740,16 +740,27 @@ E:\RequestBusi20161109\bin\NetTest\NetTest.pdb
 E:\RequestBusi20161109\bin\NetTest\Interop.Microsoft.Office.Core.dll
 E:\RequestBusi20161109\bin\NetTest\Interop.Shell32.dll
 E:\RequestBusi20161109\bin\NetTest\Interop.VBIDE.dll
-D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.exe.config
+D:\GitWork\NetTest_gd\NetTest\obj\Debug\ResolveAssemblyReference.cache
 D:\GitWork\NetTest_gd\NetTest\obj\Debug\Interop.Microsoft.Office.Core.dll
 D:\GitWork\NetTest_gd\NetTest\obj\Debug\Interop.Shell32.dll
 D:\GitWork\NetTest_gd\NetTest\obj\Debug\Interop.VBIDE.dll
 D:\GitWork\NetTest_gd\NetTest\obj\Debug\Request Busi.csproj.ResolveComReference.cache
-D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.exe
-D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.pdb
+D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.FlvWebAnalyze.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.FlvTest.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.FlvSetting.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.frmAbout.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.frmMain.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.frmTips.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.Properties.Resources.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.WebSettings.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.WebTest.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Debug\Request Busi.csproj.GenerateResource.Cache
+D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.exe.licenses
+D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.WebAnalyse.resources
 D:\GitWork\NetTest_gd\NetTest\bin\NetTest\findIeUrl.py
 D:\GitWork\NetTest_gd\NetTest\bin\NetTest\findIeUrl2.py
 D:\GitWork\NetTest_gd\NetTest\bin\NetTest\parseUrl.py
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.exe.config
 D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.exe.manifest
 D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.application
 D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.exe
@@ -768,18 +779,7 @@ D:\GitWork\NetTest_gd\NetTest\bin\NetTest\Newtonsoft.Json.xml
 D:\GitWork\NetTest_gd\NetTest\bin\NetTest\Interop.Microsoft.Office.Core.dll
 D:\GitWork\NetTest_gd\NetTest\bin\NetTest\Interop.Shell32.dll
 D:\GitWork\NetTest_gd\NetTest\bin\NetTest\Interop.VBIDE.dll
-D:\GitWork\NetTest_gd\NetTest\obj\Debug\ResolveAssemblyReference.cache
-D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.FlvWebAnalyze.resources
-D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.FlvTest.resources
-D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.FlvSetting.resources
-D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.frmAbout.resources
-D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.frmMain.resources
-D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.frmTips.resources
-D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.Properties.Resources.resources
-D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.WebAnalyse.resources
-D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.WebSettings.resources
-D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.WebTest.resources
-D:\GitWork\NetTest_gd\NetTest\obj\Debug\Request Busi.csproj.GenerateResource.Cache
-D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.exe.licenses
 D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.exe.manifest
 D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.application
+D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.exe
+D:\GitWork\NetTest_gd\NetTest\obj\Debug\NetTest.pdb
