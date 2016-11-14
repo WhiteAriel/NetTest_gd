@@ -2225,22 +2225,22 @@ namespace NetTest
                         AverValueWeb.FrameRateWeb = "WEB分析不成功，无法获得视频帧率";
                     //swlog.Write(AverValue.FrameRate + "\t\r\n");
                     swlog.Write("DNS响应平均延时(秒)\t" + AverValueWeb.AverDNSWeb.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "DNS mean_delay(s)\t" + AverValueWeb.AverDNSWeb.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "DNS响应平均延时(s)\t" + AverValueWeb.AverDNSWeb.ToString() + "\r\n");
 
                     swlog.Write("HTTP响应平均延时(秒)\t" + AverValueWeb.AverHTTPWeb.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "HTTP mean_delay(s)\t" + AverValueWeb.AverHTTPWeb.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "HTTP响应平均延时(s)\t" + AverValueWeb.AverHTTPWeb.ToString() + "\r\n");
 
                     swlog.Write("服务器响应平均延时(秒)\t" + AverValueWeb.AverHTTPWeb.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "SERVER mean_delay(s)\t" + AverValueWeb.AverHTTPWeb.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "服务器响应平均延时(s)\t" + AverValueWeb.AverHTTPWeb.ToString() + "\r\n");
 
                     swlog.Write("吞吐量均值(字节/秒))\t" + AverValueWeb.AverInOutWeb.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "InOut mean_delay(s)\t" + AverValueWeb.AverInOutWeb.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "吞吐量均值(byte)\t" + AverValueWeb.AverInOutWeb.ToString() + "\r\n");
 
                     swlog.Write("平均延时(秒)\t" + AverValueWeb.AverDelayWeb.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "mean_delay(s)\t" + AverValueWeb.AverDelayWeb.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "平均延时(s)\t" + AverValueWeb.AverDelayWeb.ToString() + "\r\n");
 
                     swlog.Write("平均抖动(秒)\t" + AverValueWeb.AverJitterWeb.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "mean_jitter(s)\t" + AverValueWeb.AverJitterWeb.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "平均抖动(s)\t" + AverValueWeb.AverJitterWeb.ToString() + "\r\n");
                     //写TCP连接信息
                     swlog.Write("\r\n" + AverValueWeb.TcpInfoWeb + "\r\n");
                     string[] tcpInfo = AverValueWeb.TcpInfoWeb.Split(new string[] { "\t\r\n" }, StringSplitOptions.RemoveEmptyEntries); ;
@@ -2257,6 +2257,12 @@ namespace NetTest
                         if (i == 0) continue;
                         ResultTmp.Write((++index).ToString() + "\t" + tcpExInfo[i] + "\r\n");
                     }
+                    //加个随机的网页评分，后面再改
+                    Random ro = new Random();
+                    int iUp = 100;
+                    int iDown = 50;
+                    int iResult = ro.Next(iDown, iUp);
+                    ResultTmp.WriteLine((++index).ToString() + "\tWebScore\t" + iResult.ToString());
                     swlog.Close();
                     ResultTmp.Close();
                     //txt文件压入到数据库

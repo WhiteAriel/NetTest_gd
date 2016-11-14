@@ -2198,20 +2198,20 @@ namespace NetTest
                             strMediaInfo = sr1.ReadLine();    //持续时间(s):	232.33
                             MediaInfo = strMediaInfo.Split('\t');
                             if (MediaInfo.Length == 2)
-                                ResultTmp.Write((++index).ToString() + "\t" + "DurationTime" + "\t" + MediaInfo[1] + "\r\n");
+                                ResultTmp.Write((++index).ToString() + "\t" + "持续时间(s)" + "\t" + MediaInfo[1] + "\r\n");
                             strMediaInfo = sr1.ReadLine();   //Videosize:	10797209.00
                             MediaInfo = strMediaInfo.Split('\t');
                             if (MediaInfo.Length == 2)
-                                ResultTmp.Write((++index).ToString() + "\t" + "VideoSize" + "\t" + MediaInfo[1] + "\r\n");
+                                ResultTmp.Write((++index).ToString() + "\t" + "视频大小" + "\t" + MediaInfo[1] + "\r\n");
                             strMediaInfo = sr1.ReadLine();   //视频帧率(fps):	15.01
                             MediaInfo = strMediaInfo.Split('\t');
                             if (MediaInfo.Length == 2)
-                                ResultTmp.Write((++index).ToString() + "\t" + "VideoFps" + "\t" + MediaInfo[1] + "\r\n");
+                                ResultTmp.Write((++index).ToString() + "\t" + "视频帧率(fps)" + "\t" + MediaInfo[1] + "\r\n");
                             swlog.Write(strMediaInfo + "\r\n");
                             strMediaInfo = sr1.ReadLine();   //视频码率(kbps):	361.78
                             MediaInfo = strMediaInfo.Split('\t');
                             if (MediaInfo.Length == 2)
-                                ResultTmp.Write((++index).ToString() + "\t" + "VideoCodeRate" + "\t" + MediaInfo[1] + "\r\n");
+                                ResultTmp.Write((++index).ToString() + "\t" + "视频码率(kbps)" + "\t" + MediaInfo[1] + "\r\n");
                             {
                                 swlog.Write(strMediaInfo + "\r\n");
                                 strMediaInfo = sr1.ReadLine();   //videocodecid:	7.00	AVC-H.264
@@ -2219,12 +2219,12 @@ namespace NetTest
                                 if (MediaInfo.Length == 3)
                                 {
                                     swlog.Write("视频编码方式:" + "\t" + MediaInfo[2] + "\r\n");
-                                    ResultTmp.Write((++index).ToString() + "\t" + "CodeingFormat" + "\t" + MediaInfo[2] + "\r\n");
+                                    ResultTmp.Write((++index).ToString() + "\t" + "视频编码方式" + "\t" + MediaInfo[2] + "\r\n");
                                 }
                                 else if (MediaInfo.Length == 2)
                                 {
                                     swlog.Write("视频编码方式:" + "\t" + MediaInfo[1] + "\r\n");
-                                    ResultTmp.Write((++index).ToString() + "\t" + "CodeingFormat" + "\t" + MediaInfo[1] + "\r\n");
+                                    ResultTmp.Write((++index).ToString() + "\t" + "视频编码方式" + "\t" + MediaInfo[1] + "\r\n");
                                 }
                                 MediaInfo = null;
                                 strMediaInfo = sr1.ReadLine();  //width:	480.00
@@ -2236,7 +2236,7 @@ namespace NetTest
                                 string height = MediaInfo[1];
                                 MediaInfo = null;
                                 swlog.Write("视频分辨率:" + "\t" + width + "*" + height + "\r\n");
-                                ResultTmp.Write((++index).ToString() + "\t" + "VideoResolutionRate" + "\t" + width + "*" + height + "\r\n");
+                                ResultTmp.Write((++index).ToString() + "\t" + "视频分辨率" + "\t" + width + "*" + height + "\r\n");
                             }
                             sr1.Close();
                             fs1.Close();
@@ -2259,22 +2259,22 @@ namespace NetTest
                         AverValue.FrameRate = "WEB分析不成功，无法获得视频帧率";
                     //swlog.Write(AverValue.FrameRate + "\t\r\n");
                     swlog.Write("DNS响应平均延时(秒)\t" + AverValue.AverDNS.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "DNS mean_delay(s)\t" + AverValue.AverDNS.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "DNS响应平均延时(s)\t" + AverValue.AverDNS.ToString() + "\r\n");
 
                     swlog.Write("HTTP响应平均延时(秒)\t" + AverValue.AverHTTP.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "HTTP mean_delay(s)\t" + AverValue.AverHTTP.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "HTTP响应平均延时(s)\t" + AverValue.AverHTTP.ToString() + "\r\n");
 
                     swlog.Write("服务器响应平均延时(秒)\t" + AverValue.AverHTTP.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "SERVER mean_delay(s)\t" + AverValue.AverHTTP.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "服务器响应平均延时(s)\t" + AverValue.AverHTTP.ToString() + "\r\n");
 
                     swlog.Write("吞吐量均值(字节/秒))\t" + AverValue.AverInOut.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "InOut mean_delay(s)\t" + AverValue.AverInOut.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "吞吐量均值(byte)\t" + AverValue.AverInOut.ToString() + "\r\n");
 
                     swlog.Write("平均延时(秒)\t" + AverValue.AverDelay.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "mean_delay(s)\t" + AverValue.AverDelay.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "平均延时(s)\t" + AverValue.AverDelay.ToString() + "\r\n");
 
                     swlog.Write("平均抖动(秒)\t" + AverValue.AverJitter.ToString() + "\t\r\n");
-                    ResultTmp.Write((++index).ToString() + "\t" + "mean_jitter(s)\t" + AverValue.AverJitter.ToString() + "\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "平均抖动(s)\t" + AverValue.AverJitter.ToString() + "\r\n");
                     //写TCP连接信息
                     swlog.Write("\r\n" + AverValue.TcpInfo + "\r\n");
                     string[] tcpInfo = AverValue.TcpInfo.Split(new string[] { "\t\r\n" }, StringSplitOptions.RemoveEmptyEntries); ;

@@ -1,0 +1,23 @@
+2016-11-14 09:41:16,762 [6844] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - 数据初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-11-14 09:41:16,878 [6844] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - 软件使用时限过期！请获取完整版！
+2016-11-14 09:41:16,882 [6844] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - 数据库所有表格创建成功!
+2016-11-14 09:41:18,217 [6844] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - video Task Thread Start!
+2016-11-14 09:41:18,220 [6844] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - web Task Thread Start!
+2016-11-14 11:23:23,986 [31928] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - 数据初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-11-14 11:23:24,107 [31928] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - 软件使用时限过期！请获取完整版！
+2016-11-14 11:23:24,112 [31928] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - 数据库所有表格创建成功!
+2016-11-14 11:23:25,458 [31928] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - video Task Thread Start!
+2016-11-14 11:23:25,461 [31928] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - web Task Thread Start!
+2016-11-14 11:39:51,298 [5336] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - 数据初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-11-14 11:39:51,435 [5336] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - 软件使用时限过期！请获取完整版！
+2016-11-14 11:39:51,440 [5336] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - 数据库所有表格创建成功!
+2016-11-14 11:39:52,769 [5336] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - video Task Thread Start!
+2016-11-14 11:39:52,770 [5336] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - web Task Thread Start!
+2016-11-14 11:40:36,769 [39584] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - 数据初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-11-14 11:40:36,896 [39584] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - 软件使用时限过期！请获取完整版！
+2016-11-14 11:40:36,900 [39584] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - 数据库所有表格创建成功!
+2016-11-14 11:40:38,163 [39584] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - video Task Thread Start!
+2016-11-14 11:40:38,184 [39584] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - web Task Thread Start!
+2016-11-14 11:40:46,406 [33500] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - Seng Message:{"Id":"0a2a173a-a83c-4ab1-8df8-5c7eb983c72c","ErrorCode":1,"Message":""}<EOF>
+2016-11-14 11:40:48,829 [33500] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - Seng Message:{"Id":"0a2a173a-a83c-4ab1-8df8-5c7eb983c72c","ErrorCode":3,"Message":""}<EOF>
+2016-11-14 11:41:15,561 [33500] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:86) INFO  NetInfo [(null)] - Seng Message:{"Id":"0a2a173a-a83c-4ab1-8df8-5c7eb983c72c","ErrorCode":4,"Message":""}<EOF>
