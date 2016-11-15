@@ -102,8 +102,8 @@ namespace NetTest
         //判断是否是选择现在pcap文件
         public static bool isSelectPcap = false;
 
-        private bool analyzeOn = false;
-        public bool serverTest = false;
+        private volatile bool analyzeOn = false;
+        public volatile bool serverTest = false;
 
         //数据库对象
         private MySQLInterface mysqlWeb = null;
@@ -219,7 +219,7 @@ namespace NetTest
             InitializeComponent();
             this.RealTimechart();
             datalist.Clear();
-            mysqlWeb = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"));
+            mysqlWeb = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname"));
             if (mysqlWeb.MysqlInit(inis.IniReadValue("Mysql", "dbname")))
                 mysqlWebFlag = true;
         }
@@ -242,10 +242,17 @@ namespace NetTest
             {
                 Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
             }
-            if (WrongReason != null && !serverTest)
+            if (WrongReason != null )
             {
-                MessageBox.Show(WrongReason + "出错可能的原因有：\n 1、没有相关的数据包 \n 2、网卡选择不正确 \n 3、服务器上没有相关视频文件 \n 4、解析不支持对应的视频格式 \n");
+                if (!serverTest)
+                {
+                    MessageBox.Show(WrongReason + "出错可能的原因有：\n 1、没有相关的数据包 \n 2、网卡选择不正确 \n 3、服务器上没有相关视频文件 \n 4、解析不支持对应的视频格式 \n");
+                    Log.Error(WrongReason);
+                }
+                else
+                    Log.Error(WrongReason);
             }
+            
             btnStartAnaly.Enabled = true;
             btnWebSelCap.Enabled = true;
             isSelectPcap = false;
@@ -304,6 +311,7 @@ namespace NetTest
                     {
                         Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
                     }
+                    setParseTrd.Join();   //阻塞等待解析线程结束
                     break;
                 }
                 else

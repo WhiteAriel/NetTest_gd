@@ -94,8 +94,8 @@ namespace NetTest
         Thread setWebParseTrd = null;
 
 
-        private bool analyzeOn = false;
-        public bool serverTest = false;
+        private volatile  bool analyzeOn = false;
+        public volatile bool serverTest = false;
 
 
         //数据库部分
@@ -205,7 +205,7 @@ namespace NetTest
             InitializeComponent();
             this.RealTimechart();
             datalistWeb.Clear();
-            mysqlWebA = new MySQLInterface(inisWeb.IniReadValue("Mysql", "serverIp"), inisWeb.IniReadValue("Mysql", "user"), inisWeb.IniReadValue("Mysql", "passwd"));
+            mysqlWebA = new MySQLInterface(inisWeb.IniReadValue("Mysql", "serverIp"), inisWeb.IniReadValue("Mysql", "user"), inisWeb.IniReadValue("Mysql", "passwd"), inisWeb.IniReadValue("Mysql", "dbname"));
             if (mysqlWebA.MysqlInit(inisWeb.IniReadValue("Mysql", "dbname")))
                 mysqlWebFlagA = true;
             Init();
@@ -229,13 +229,18 @@ namespace NetTest
             }
             if (WrongReasonWeb != null)
             {
-                MessageBox.Show(WrongReasonWeb + "出错可能的原因有：\n 1、没有相关的数据包 \n 2、网卡选择不正确 \n ");
-                Log.Error(WrongReasonWeb);
+                if (!serverTest)
+                {
+                    MessageBox.Show(WrongReasonWeb + "出错可能的原因有：\n 1、没有相关的数据包 \n 2、网卡选择不正确 \n ");
+                    Log.Error(WrongReasonWeb);
+                }
+                else
+                    Log.Error(WrongReasonWeb);
             }
             btnStartWebAnaly.Enabled = true;
             btnWebSelCapWeb.Enabled = true;
             analyzeOn = false;
-            serverTest = false;
+            
         }
 
 
@@ -286,8 +291,7 @@ namespace NetTest
                     {
                         Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
                     }
-                    while (analyzeOn)
-                        Thread.Sleep(200);
+                    setWebParseTrd.Join();
                     break;
                 }
                 else

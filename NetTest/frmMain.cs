@@ -37,8 +37,8 @@ namespace NetTest
         object videoQueLocker = new object();
         object webQueLocker = new object();
         //TcpClient对象
-        TcpListener client = null;
-        TcpClient clientSocket = null;
+        //TcpListener client = null;
+        //TcpClient clientSocket = null;
         //TcpServer对象,需要讨论下是不是需要
 
         string serverIp = null;
@@ -60,7 +60,7 @@ namespace NetTest
         public frmMain()
         {
             InitializeComponent();
-            mysqlInit = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"));
+            mysqlInit = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname"));
             if (mysqlInit.MysqlInit(inis.IniReadValue("Mysql", "dbname")))
             {
                 mysqlFlag = true;
@@ -326,6 +326,7 @@ namespace NetTest
                     webTest1.WebServerTaskStartFunc();   //在结束条件下能自动调用停止函数，//内部做了阻塞等待
                     webTest1.serverTest = false;   //服务器任务结束
                     webAnalyse1.WebServerAnalyzeStartFunc();  //内部做了阻塞等待
+                    webAnalyse1.serverTest = false;
                     if (mysqlFlag)
                         mysqlInit.UpdateTaskListColumn("ActionStatus", 4, "TaskId=" + "'" + webTask.taskId + "'");  //读取任务后状态改成等待
                     Thread.Sleep(4000);
@@ -359,11 +360,11 @@ namespace NetTest
                     flvWebAnalyze1.serverTest = true;
                     if (mysqlFlag)
                         mysqlInit.UpdateTaskListColumn("ActionStatus", 3, "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
-                    //flvTest1.startFunc();   //内部做了阻塞等待
-                    flvTest1.StartServerTaskFunc();
+                    //flvTest1.startFunc();   
+                    flvTest1.StartServerTaskFunc();    //2016.11.16现在为非阻塞
                     Log.Info("flv Test start!");
                     //仅用于测试，1分钟后停止,实际播放器停止需要播放器的信息
-                    Thread.Sleep(20000);
+                    Thread.Sleep(60000);
                     //flvTest1.stopFunc();    //内部做了阻塞等待
                     flvTest1.StopServerTaskFunc();
                     Log.Info("flv Test stop!");
