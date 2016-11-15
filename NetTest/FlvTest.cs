@@ -36,8 +36,8 @@ namespace NetTest
         public static IniFile inisvlc = new IniFile(Application.StartupPath + "\\VideoPlayer\\vlc.ini"); //ini class
         //IniFile inisref = new IniFile(Application.StartupPath + "\\RefTool" + "\\referencesetup.ini");
 
-        public bool taskon = false;    //表示任务没有运行
-        public bool serverTest = false;   //表示执行的是服务器任务还是终端自己的任务
+        public volatile  bool taskon = false;    //表示任务没有运行
+        public volatile bool serverTest = false;   //表示执行的是服务器任务还是终端自己的任务
 
 
         ArrayList player_list = new ArrayList();    //保存播放器进程信息
@@ -162,7 +162,7 @@ namespace NetTest
 
 
             //数据库对象初始化
-            mysqlTest = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"));
+            mysqlTest = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname"));
             if (mysqlTest.MysqlInit(inis.IniReadValue("Mysql", "dbname")))
                 mysqlTestFlag = true;
             this.RealTimechart();
@@ -232,7 +232,7 @@ namespace NetTest
             inis.IniWriteValue("Flv", "Player", Application.StartupPath + "\\VideoPlayer");
             //获取播放器信息
             strPlayer = inis.IniReadValue("Flv", "Player") + "\\VLCDialog.exe";
-            this.dataGridView1.Visible = false;
+            //this.dataGridView1.Visible = false;
 
             if (iDevice < 0)
             {
@@ -848,68 +848,68 @@ namespace NetTest
             }
             else
             {
-                for (int i = 0; i < StartTimeList.Count; i++)
-                {
-                    DateTime dtStart = (DateTime)(StartTimeList[i]);
-                    StringBuilder strbFile = (StringBuilder)(strbFileList[i]);
-                    string strpcap = inis.IniReadValue("result", "test" + (i + 1));
-                    TimeSpan ts = dtEnd - dtStart;
-                    float ts2 = ts.Seconds + (float)ts.Milliseconds / 1000;
+                //for (int i = 0; i < StartTimeList.Count; i++)
+                //{
+                //    DateTime dtStart = (DateTime)(StartTimeList[i]);
+                //    StringBuilder strbFile = (StringBuilder)(strbFileList[i]);
+                //    string strpcap = inis.IniReadValue("result", "test" + (i + 1));
+                //    TimeSpan ts = dtEnd - dtStart;
+                //    float ts2 = ts.Seconds + (float)ts.Milliseconds / 1000;
 
-                    strbFile.Append("测试结束,耗时 " + ts.Minutes + "分 " + ts2.ToString() + "秒" + "\r\n");
-                    //对参数文件处理，给出评分
-                    string strfScore = "qoe_score.txt";
-                    if (File.Exists(strfScore))     //删除的是上一次测试的qoe_score.txt文件
-                    {
-                        File.Delete(strfScore);
-                    }
-                    Thread.Sleep(500);
-                    //打分
-                    double score = this.UnRefScore(i + 1, strfScore);      //成功调用UnRefScore函数后会生成本次测试的qoe_score.txt文件
+                //    strbFile.Append("测试结束,耗时 " + ts.Minutes + "分 " + ts2.ToString() + "秒" + "\r\n");
+                //    //对参数文件处理，给出评分
+                //    string strfScore = "qoe_score.txt";
+                //    if (File.Exists(strfScore))     //删除的是上一次测试的qoe_score.txt文件
+                //    {
+                //        File.Delete(strfScore);
+                //    }
+                //    Thread.Sleep(500);
+                //    //打分
+                //    double score = this.UnRefScore(i + 1, strfScore);      //成功调用UnRefScore函数后会生成本次测试的qoe_score.txt文件
 
-                    if (score >= 0 && score <= 10)
-                    {
-                        int index = this.dataGridView1.Rows.Add();
-                        this.dataGridView1.Rows[index].Cells[0].Value = i + 1;
-                        this.dataGridView1.Rows[index].Cells[1].Value = inis.IniReadValue("Flv", "Envir");
-                        this.dataGridView1.Rows[index].Cells[2].Value = (score * 10).ToString().Substring(0, 5);
-                    }
-                    else
-                    {
-                        int index = this.dataGridView1.Rows.Add();
-                        this.dataGridView1.Rows[index].Cells[0].Value = i + 1;
-                        this.dataGridView1.Rows[index].Cells[1].Value = inis.IniReadValue("Flv", "Envir");
-                        this.dataGridView1.Rows[index].Cells[2].Value = 0;
-                        Log.Warn(string.Format("评分有误!分数:{0}", score.ToString()));
-                    }
+                //    if (score >= 0 && score <= 10)
+                //    {
+                //        int index = this.dataGridView1.Rows.Add();
+                //        this.dataGridView1.Rows[index].Cells[0].Value = i + 1;
+                //        this.dataGridView1.Rows[index].Cells[1].Value = inis.IniReadValue("Flv", "Envir");
+                //        this.dataGridView1.Rows[index].Cells[2].Value = (score * 10).ToString().Substring(0, 5);
+                //    }
+                //    else
+                //    {
+                //        int index = this.dataGridView1.Rows.Add();
+                //        this.dataGridView1.Rows[index].Cells[0].Value = i + 1;
+                //        this.dataGridView1.Rows[index].Cells[1].Value = inis.IniReadValue("Flv", "Envir");
+                //        this.dataGridView1.Rows[index].Cells[2].Value = 0;
+                //        Log.Warn(string.Format("评分有误!分数:{0}", score.ToString()));
+                //    }
 
 
-                    //播放结束,写xls文件
-                    strbFile.Append("测试被用户中断\r\n");
-                    //获取评分模块处理结果,写入xls文件缓存
-                    if (File.Exists(strfScore))       //将本次测试生成的qoe_score.txt中的内容写入strbFile
-                    {
-                        strbFile.Append("\r\n");
-                        FileStream fs1 = new FileStream(strfScore, FileMode.Open, FileAccess.Read);
-                        StreamReader sr = new StreamReader(fs1, Encoding.Default);
-                        strbFile.Append(sr.ReadToEnd());
-                        sr.Close();
-                        fs1.Close();
-                    }
+                //    //播放结束,写xls文件
+                //    strbFile.Append("测试被用户中断\r\n");
+                //    //获取评分模块处理结果,写入xls文件缓存
+                //    if (File.Exists(strfScore))       //将本次测试生成的qoe_score.txt中的内容写入strbFile
+                //    {
+                //        strbFile.Append("\r\n");
+                //        FileStream fs1 = new FileStream(strfScore, FileMode.Open, FileAccess.Read);
+                //        StreamReader sr = new StreamReader(fs1, Encoding.Default);
+                //        strbFile.Append(sr.ReadToEnd());
+                //        sr.Close();
+                //        fs1.Close();
+                //    }
 
-                    //写入xls(txt格式)文件
-                    string strLogResult = strpcap.Replace(".pcap", "-log.txt");
-                    if (File.Exists(strLogResult))
-                    {
-                        File.Delete(strLogResult);
-                    }
-                    FileStream fs3 = new FileStream(strLogResult, FileMode.Create, FileAccess.Write);
-                    StreamWriter sw3 = new StreamWriter(fs3, Encoding.Default);
-                    sw3.Write(strbFile);
-                    sw3.Close();
-                    fs3.Close();
-                    DisplayState("日志文件:" + strLogResult + "生成成功\r\n");
-                }
+                //    //写入xls(txt格式)文件
+                //    string strLogResult = strpcap.Replace(".pcap", "-log.txt");
+                //    if (File.Exists(strLogResult))
+                //    {
+                //        File.Delete(strLogResult);
+                //    }
+                //    FileStream fs3 = new FileStream(strLogResult, FileMode.Create, FileAccess.Write);
+                //    StreamWriter sw3 = new StreamWriter(fs3, Encoding.Default);
+                //    sw3.Write(strbFile);
+                //    sw3.Close();
+                //    fs3.Close();
+                //    DisplayState("日志文件:" + strLogResult + "生成成功\r\n");
+                //}
             }
 
             DateTime start = (DateTime)(StartTimeList[0]);
@@ -1149,6 +1149,8 @@ namespace NetTest
                     DisplayState("日志文件:" + strLogResult + "生成成功\r\n");
                 }
             }
+            //显示得分
+            this.dataGridView1.Visible = true;
 
             DateTime start = (DateTime)(StartTimeList[0]);
             TimeSpan timediff = dtEnd - start;
@@ -1162,7 +1164,7 @@ namespace NetTest
             strbFileList.Clear();
             comboBox1.Items.Clear();
             comboBox1.Text = "";
-            this.dataGridView1.Visible = true;
+           
             //设置正在测试的标示位
             DoTest = false;
             //设置开始停止测试的标识位

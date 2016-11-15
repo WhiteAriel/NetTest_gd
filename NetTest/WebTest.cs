@@ -42,8 +42,8 @@ namespace NetTest
 
         public bool flagAdapter = false;
 
-        public bool serverTest = false;    //任务是否是服务器下发的任务，服务器任务不允许手动暂停
-        public bool Taskon = false;        //表示是否有任务在进行
+        public volatile bool serverTest = false;    //任务是否是服务器下发的任务，服务器任务不允许手动暂停
+        public volatile bool Taskon = false;        //表示是否有任务在进行
 
         //stop perf
         public string strBro;
@@ -385,7 +385,7 @@ namespace NetTest
 
             try
             {
-                this.CloseBrowser();
+                //this.CloseBrowser();
                 if (iBool > 0)
                 {
                     if (strBro == "Google")
@@ -399,18 +399,15 @@ namespace NetTest
                         this.CleanFiles(dir);    //删除缓冲文件夹
                         Thread.Sleep(400);
                         this.memoPcap.Items.Add(" cookies, caches 删除操作完成...");
-                        strbFile.Append(" cookies, caches 删除操作完成...");
-
+                       strbFile.Append(" cookies, caches 删除操作完成...");
                     }
                     if (strBro == "Firefox")
                     {
-
                         string str = this.ClearFirefoxCookies();
                         if (str == "Cookies成功删除...")
                         {
                             this.memoPcap.Items.Add(" cookies, caches 删除操作完成...");
                             strbFile.Append(" cookies, caches 删除操作完成...\r\n");
-
                         }
                         else
                         {
@@ -424,26 +421,20 @@ namespace NetTest
                         int iResultCaches = cc.ClearAllCache(string.Empty);
                         this.memoPcap.Items.Add(iResultCookies + " cookies, " + iResultCaches + " caches 删除...");
                         strbFile.Append(iResultCookies + " cookies, " + iResultCaches + " caches 删除...\r\n");
-
                     }
                     this.ClearDns();
-
-
                 }
                 else
                 {
                     this.memoPcap.Items.Add("Cookies/caches 未完全删除...");
                     strbFile.Append("Cookies/caches 未完全删除...\r\n");
-
                 }
             }
             catch (Exception ex)
             {
-
                 this.memoPcap.Items.Add(ex.Message);
                 this.memoPcap.Items.Add("Cookies/caches 未完全删除...");
                 strbFile.Append("Cookies/caches 未完全删除...\r\n");
-
             }
 
             string ip = netDev.IpAddress;
@@ -462,23 +453,19 @@ namespace NetTest
             //Register our handler function to the 'packet arrival' event
             device.PcapOnPacketArrival +=
                 new Tamir.IPLib.SharpPcap.PacketArrivalEvent(device_PcapOnPacketArrival);
-
             //Open the device for capturing
             //true -- means promiscuous mode
             //1000 -- means a read wait of 1000ms
-
             device.PcapOpen(true, 100);
             device.PcapSetFilter("(tcp or udp) and host " + ip);     //获取IP用于过滤
             device.PcapDumpOpen(strFile);
+
             if (!m_AsyncWorker.IsBusy)
             {
                 m_AsyncWorker.RunWorkerAsync();
             }
             webTimer.Enabled=true;
             webTimer.Start();
-            //this.timWeb.Enabled = true;
-            //this.timWeb.Start();
-
         }
 
 
@@ -523,8 +510,21 @@ namespace NetTest
                     }
                 }
             }
-            device.PcapStopCapture();
-            device.PcapClose();
+            //一旦满足停止条件就关闭定时器
+            webTimer.Stop();
+            webTimer.Enabled = false;
+            //
+            try
+            {
+                device.PcapStopCapture();
+                device.PcapClose();
+            }
+            catch (System.Exception ex)
+            {
+                Log.Console(ex.ToString());
+                Log.Error(ex.ToString());
+            }
+
             //this.CloseBrowser();    //终止测试或者测试完成的时候关闭浏览器，重新测试的时候要再检查，这里关容易出问题
 
             DateTime dtEnd = DateTime.Now;
@@ -607,10 +607,7 @@ namespace NetTest
                 Log.Console(Environment.StackTrace, ex);
             }
             CloseBrowser();
-            webTimer.Stop();
-            webTimer.Enabled = false;
-            Taskon = false;
-            
+            Taskon = false;           
         }
 
         /******************************************************************************
@@ -719,37 +716,26 @@ namespace NetTest
                 string strProcessFile = strBro;
                 if (strBro == "IE Explorer") strProcessFile = "iexplore.exe";
                 if (strBro == "Google") strProcessFile = "chrome.exe";
-                //if (strBro == "Firefox") strProcessFile = inis.IniReadValue("Web", "FirefoxPlus");// "Firefox";
                 if (strBro == "Firefox") strProcessFile = "firefox.exe";
-                //this.memoPcap.Items.Add(strProcessFile);
                 string testURL = inis.IniReadValue("Web", "WebPage");
                 ProcessStartInfo psi = new ProcessStartInfo(strProcessFile);
-                ///psi = new ProcessStartInfo(strProcessFile);
                 psi.FileName = strProcessFile;
                 //psi.RedirectStandardInput = true;
                 //psi.RedirectStandardOutput = true;
                 //psi.UseShellExecute = false;
-                //psi.WindowStyle = ProcessWindowStyle.Minimized;
-                psi.WindowStyle = ProcessWindowStyle.Hidden;
+                if(!serverTest)
+                    psi.WindowStyle = ProcessWindowStyle.Hidden;
+                else
+                    psi.WindowStyle = ProcessWindowStyle.Minimized;
+                //psi.CreateNoWindow = true;
                 psi.Arguments = testURL;
-
                 Process ps = new Process();
-
-
-                //if (strBro == "Firefox ") ps.StartInfo.FileName = strProcessFile;
-                //else
-                //ps.StartInfo.FileName = strProcessFile + ".exe";
-                //ps.StartInfo.Arguments = testURL;
                 this.memoPcap.Items.Add("浏览器: " + strBro);
                 strbFile.Append("浏览器: " + strBro + "\r\n");
-
                 this.memoPcap.Items.Add("页面: " + testURL);
                 strbFile.Append("页面: " + testURL + "\r\n");
-
-                // ps.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
                 ps.StartInfo = psi;
                 ps.Start();
-
                 //这里必须等待,否则启动程序的句柄还没有创建,不能控制程序
                 while (ps.MainWindowHandle.ToInt32() == 0)
                 {
@@ -757,22 +743,28 @@ namespace NetTest
                     ps.Refresh();//必须刷新状态才能重新获得
                     ps.StartInfo = psi;
                 }
-                //Thread.Sleep(1500);
                 //设置被绑架程序的父窗口
                 SetParent(ps.MainWindowHandle, this.panelExplore.Handle);
                 //改变尺寸
                 ResizeControl(ps);
                 //恢复窗口
                 ShowWindow(ps.MainWindowHandle, (short)SW_RESTORE);
-
-
+                
+ 
             }
-            catch (Exception ex)
+            catch (System.ComponentModel.Win32Exception ex)   //进程没有启动
             {
                 this.memoPcap.Items.Add(ex.Message);
+                Log.Error(ex.ToString());
+                //播放器进程无法打开，关闭判定定时器和抓包文件
+                device.PcapClose();
+                webTimer.Enabled = false;
+                webTimer.Stop();
+                //按钮和变量处理
                 this.sBTest.Enabled = true;
                 this.btnWebStop.Enabled = false;
                 DoTest = false;
+                Taskon = false;
                 return;
             }
 
@@ -893,12 +885,7 @@ namespace NetTest
                     else
                         CleanFiles(d); //递归删除子文件夹 
                 }
-                //Directory.Delete(dir); //删除已空文件夹 
-                //Response.Write(dir + " 文件夹删除成功");
             }
-            //else
-            //    Response.Write(dir + " 该文件夹不存在"); //如果文件夹不存在则提示 
-
         }
 
         /******************************************************************************
@@ -914,7 +901,6 @@ namespace NetTest
             p.StartInfo.FileName = "ipconfig.exe";
             p.StartInfo.Arguments = "/flushdns";
             p.Start();
-            //string Text = p.StandardOutput.ReadToEnd();
             p.WaitForExit();
 
         }

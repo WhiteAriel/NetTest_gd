@@ -204,7 +204,9 @@
     <Compile Include="JParser.cs" />
     <Compile Include="jsonParse.cs" />
     <Compile Include="ListViewColumnSorter.cs" />
-    <Compile Include="MySQLInterface.cs" />
+    <Compile Include="MySQLInterface.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="NetLog.cs" />
     <Compile Include="PacketCap.cs" />
     <Compile Include="Pipeserver.cs" />
