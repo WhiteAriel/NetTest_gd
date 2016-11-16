@@ -44,6 +44,7 @@ namespace NetTest
 
         public volatile bool serverTest = false;    //任务是否是服务器下发的任务，服务器任务不允许手动暂停
         public volatile bool Taskon = false;        //表示是否有任务在进行
+        private object taskLock = new object();
 
         //stop perf
         public string strBro;
@@ -135,7 +136,7 @@ namespace NetTest
             m_AsyncWorker.DoWork += new DoWorkEventHandler(bwAsync_DoWork);
 
             Control.CheckForIllegalCrossThreadCalls = false;
-            webTimer=new System.Timers.Timer(3000);//实例化Timer类，设置间隔时间为10000毫秒；
+            webTimer=new System.Timers.Timer(3000);//实例化Timer类，设置间隔时间为3000毫秒；
             webTimer.Elapsed += new System.Timers.ElapsedEventHandler(timWeb_Tick);//到达时间的时候执行事件；
             webTimer.AutoReset = true;
             Init();
@@ -169,45 +170,59 @@ namespace NetTest
         /*******************************************************************************/
         public void webStopFunc()
         {
-            this.sBTest.Enabled = true;
-            this.btnWebStop.Enabled = false;
-            device.PcapStopCapture();
-            this.memoPcap.Items.Clear();
-            this.memoPcap.Items.Add("测试被用户中断\n");
-            if (DoTest)
+            lock (taskLock)
             {
-                strbFile.Append("测试被用户中断\n");
-                if (!File.Exists(this.strLogFile))
-                {
-                    FileStream fs1 = new FileStream(this.strLogFile, FileMode.CreateNew, FileAccess.Write);
-                    StreamWriter sw = new StreamWriter(fs1);
-                    sw.Write(this.strbFile.ToString());
-                    sw.Close();
-                    fs1.Close();
-                }
-                else
-                {
-                    FileStream fs1 = new FileStream(this.strLogFile, FileMode.Append, FileAccess.Write);
-                    StreamWriter sw = new StreamWriter(fs1);
-                    sw.Write(this.strbFile.ToString());
-                    sw.Close();
-                    fs1.Close();
-                }
-
-                this.memoPcap.Items.Add("抓包文件: " + strFile + " 创建");
-
-                this.memoPcap.Items.Add("日志文件: " + strLogFile);
-                Thread.Sleep(300);
-
+                Taskon = false;
             }
-            iTest = 0;
-            //this.timWeb.Stop();
-            webTimer.Enabled = false;
-            webTimer.Stop();
-            this.timer1.Stop();
-            CloseBrowser();
-            DoTest = false;
-            Taskon = false;
+            try
+            {
+                this.sBTest.Enabled = true;
+                this.btnWebStop.Enabled = false;
+                device.PcapStopCapture();
+                this.memoPcap.Items.Clear();
+                this.memoPcap.Items.Add("测试被用户中断\n");
+                if (DoTest)
+                {
+                    strbFile.Append("测试被用户中断\n");
+                    if (!File.Exists(this.strLogFile))
+                    {
+                        FileStream fs1 = new FileStream(this.strLogFile, FileMode.CreateNew, FileAccess.Write);
+                        StreamWriter sw = new StreamWriter(fs1);
+                        sw.Write(this.strbFile.ToString());
+                        sw.Close();
+                        fs1.Close();
+                    }
+                    else
+                    {
+                        FileStream fs1 = new FileStream(this.strLogFile, FileMode.Append, FileAccess.Write);
+                        StreamWriter sw = new StreamWriter(fs1);
+                        sw.Write(this.strbFile.ToString());
+                        sw.Close();
+                        fs1.Close();
+                    }
+
+                    this.memoPcap.Items.Add("抓包文件: " + strFile + " 创建");
+
+                    this.memoPcap.Items.Add("日志文件: " + strLogFile);
+                    Thread.Sleep(300);
+
+                }
+                iTest = 0;
+                //this.timWeb.Stop();
+                webTimer.Enabled = false;
+                webTimer.Stop();
+                this.timer1.Stop();
+                //停止webbrowser
+                webEx.Visible = false;
+                //CloseBrowser();
+                DoTest = false;
+            }
+            catch (System.Exception ex)
+            {
+                Log.Console(ex.ToString());
+                Log.Console(ex.ToString());
+            }
+           
         }
 
 
@@ -215,6 +230,81 @@ namespace NetTest
         {
             webStopFunc();
         }
+
+        //网页加载完成回调
+        private void webEx_LoadCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            Log.Console(" WebBrowserDocumentCompletedEvent trigger WebTest End!");
+            Log.Info(" WebBrowserDocumentCompletedEvent trigger WebTest End!");
+            lock (taskLock)
+            {
+                if (!DoTest)   //任务被手动停止或定时器停止了
+                    return;
+                DoTest = false;
+            }
+
+                //停止抓包
+                try
+                {
+                    //一旦满足停止条件就关闭定时器
+                    webTimer.Stop();
+                    webTimer.Enabled = false;
+                    device.PcapStopCapture();
+                    device.PcapClose();
+                    webEx.Visible = false;
+                }
+                catch (System.Exception ex)
+                {
+                    Log.Console(Environment.StackTrace, ex);
+                    Log.Error(Environment.StackTrace, ex);
+                }
+
+                DateTime dtEnd = DateTime.Now;
+                TimeSpan ts = dtEnd - dtStart;
+                float ts2 = ts.Seconds + (float)ts.Milliseconds / 1000;
+
+
+                this.memoPcap.Items.Add("测试结束,耗时 " + ts.Minutes + "分 " + ts2.ToString() + "秒");
+                strbFile.Append("测试结束,耗时 " + ts.Minutes + "分 " + ts2.ToString() + "秒" + "\r\n");
+
+                strbFile.Append("抓包文件: " + strFile + "\r\n");
+
+                DoTest = false;
+                try
+                {
+                    this.performance(ts2);
+                    if (!File.Exists(this.strLogFile))
+                    {
+                        FileStream fs1 = new FileStream(this.strLogFile, FileMode.CreateNew, FileAccess.Write);
+                        StreamWriter sw = new StreamWriter(fs1, Encoding.Default);
+                        sw.Write(this.strbFile.ToString());
+                        sw.Close();
+                        fs1.Close();
+                    }
+                    else
+                    {
+                        FileStream fs1 = new FileStream(this.strLogFile, FileMode.Append, FileAccess.Write);
+                        StreamWriter sw = new StreamWriter(fs1, Encoding.Default);
+                        sw.Write(this.strbFile.ToString());
+                        sw.Close();
+                        fs1.Close();
+                    }
+                    this.memoPcap.Items.Add("抓包文件: " + strFile + " 创建");
+                    this.memoPcap.Items.Add("日志文件: " + strLogFile);
+
+                    this.sBTest.Enabled = true;
+                    this.btnWebStop.Enabled = false;
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(Environment.StackTrace, ex);
+                    Log.Console(Environment.StackTrace, ex);
+                }
+
+                Taskon = false;
+            }
+           
+  
 
         private string validateFileName(string str)    //处理网页中不能做文件名的字符
         {
@@ -369,8 +459,6 @@ namespace NetTest
                 return;
             }
 
-
-
             DoTest = true;
             this.iTest++;
             if (iTest == 1) this.memoPcap.Items.Clear();
@@ -386,86 +474,124 @@ namespace NetTest
             try
             {
                 //this.CloseBrowser();
-                if (iBool > 0)
-                {
-                    if (strBro == "Google")
-                    {
-                        Thread.Sleep(400);
-                        //this.CleanFiles(inis.IniReadValue("Web", "GoogleCookies"));
-                        string dir = System.Environment.GetEnvironmentVariable("AppData");   //获取的值后有个Roarming
-                        int n = dir.LastIndexOf("\\");
-                        dir = dir.Substring(0, n) + @"\Local\Google\Chrome\User Data\Default\Cache";
+                //    if (iBool > 0)
+                //    {
+                //        if (strBro == "Google")
+                //        {
+                //            Thread.Sleep(400);
+                //            //this.CleanFiles(inis.IniReadValue("Web", "GoogleCookies"));
+                //            string dir = System.Environment.GetEnvironmentVariable("AppData");   //获取的值后有个Roarming
+                //            int n = dir.LastIndexOf("\\");
+                //            dir = dir.Substring(0, n) + @"\Local\Google\Chrome\User Data\Default\Cache";
 
-                        this.CleanFiles(dir);    //删除缓冲文件夹
-                        Thread.Sleep(400);
-                        this.memoPcap.Items.Add(" cookies, caches 删除操作完成...");
-                       strbFile.Append(" cookies, caches 删除操作完成...");
-                    }
-                    if (strBro == "Firefox")
-                    {
-                        string str = this.ClearFirefoxCookies();
-                        if (str == "Cookies成功删除...")
-                        {
-                            this.memoPcap.Items.Add(" cookies, caches 删除操作完成...");
-                            strbFile.Append(" cookies, caches 删除操作完成...\r\n");
-                        }
-                        else
-                        {
-                            this.memoPcap.Items.Add(str);
-                            strbFile.Append(str + "\r\n");
-                        }
-                    }
-                    if (strBro == "IE Explorer")
+                //            this.CleanFiles(dir);    //删除缓冲文件夹
+                //            Thread.Sleep(400);
+                //            this.memoPcap.Items.Add(" cookies, caches 删除操作完成...");
+                //           strbFile.Append(" cookies, caches 删除操作完成...");
+                //        }
+                //        if (strBro == "Firefox")
+                //        {
+                //            string str = this.ClearFirefoxCookies();
+                //            if (str == "Cookies成功删除...")
+                //            {
+                //                this.memoPcap.Items.Add(" cookies, caches 删除操作完成...");
+                //                strbFile.Append(" cookies, caches 删除操作完成...\r\n");
+                //            }
+                //            else
+                //            {
+                //                this.memoPcap.Items.Add(str);
+                //                strbFile.Append(str + "\r\n");
+                //            }
+                //        }
+                //        if (strBro == "IE Explorer")
+                //        {
+                //            int iResultCookies = cc.ClearAllCookies(string.Empty);
+                //            int iResultCaches = cc.ClearAllCache(string.Empty);
+                //            this.memoPcap.Items.Add(iResultCookies + " cookies, " + iResultCaches + " caches 删除...");
+                //            strbFile.Append(iResultCookies + " cookies, " + iResultCaches + " caches 删除...\r\n");
+                //        }
+                //        this.ClearDns();
+                //    }
+                //    else
+                //    {
+                //        this.memoPcap.Items.Add("Cookies/caches 未完全删除...");
+                //        strbFile.Append("Cookies/caches 未完全删除...\r\n");
+                //    }
+                //}
+                //catch (Exception ex)
+                //{
+                //    this.memoPcap.Items.Add(ex.Message);
+                //    this.memoPcap.Items.Add("Cookies/caches 未完全删除...");
+                //    strbFile.Append("Cookies/caches 未完全删除...\r\n");
+                //}
+
+                try
+                {
+                    if (iBool > 0)
                     {
                         int iResultCookies = cc.ClearAllCookies(string.Empty);
                         int iResultCaches = cc.ClearAllCache(string.Empty);
                         this.memoPcap.Items.Add(iResultCookies + " cookies, " + iResultCaches + " caches 删除...");
                         strbFile.Append(iResultCookies + " cookies, " + iResultCaches + " caches 删除...\r\n");
+                        this.ClearDns();
                     }
-                    this.ClearDns();
+                    else
+                    {
+                        this.memoPcap.Items.Add("Cookies/caches 未完全删除...");
+                        strbFile.Append("Cookies/caches 未完全删除...\r\n");
+                    }
                 }
-                else
+                catch (System.Exception ex)
                 {
+                    this.memoPcap.Items.Add(ex.Message);
                     this.memoPcap.Items.Add("Cookies/caches 未完全删除...");
                     strbFile.Append("Cookies/caches 未完全删除...\r\n");
                 }
+                
+                string ip = netDev.IpAddress;
+                this.memoPcap.Items.Add("相关浏览器关闭");
+                this.memoPcap.Items.Add("网卡: " + device.PcapDescription);
+                strbFile.Append("网卡: " + device.PcapDescription + "\r\n");
+
+                this.memoPcap.Items.Add("IP地址: " + netDev.IpAddress);
+                strbFile.Append("IP地址: " + netDev.IpAddress + "\r\n");
+
+                Thread.Sleep(100);
+                this.dtStart = DateTime.Now;
+                this.memoPcap.Items.Add("测试开始时间: " + dtStart.ToString());
+                strbFile.Append("测试开始时间: " + dtStart.ToString() + "\r\n");
+
+                //Register our handler function to the 'packet arrival' event
+                device.PcapOnPacketArrival +=
+                    new Tamir.IPLib.SharpPcap.PacketArrivalEvent(device_PcapOnPacketArrival);
+                //Open the device for capturing
+                //true -- means promiscuous mode
+                //1000 -- means a read wait of 1000ms
+                device.PcapOpen(true, 100);
+                device.PcapSetFilter("(tcp or udp) and host " + ip);     //获取IP用于过滤
+                device.PcapDumpOpen(strFile);
+
+                device.PcapStartCapture();   //开启底层抓包
+
+                //开启webbrowser
+                webEx.Visible = true;
+                string testUrl = inis.IniReadValue("Web", "WebPage");
+                Uri url = new Uri(testUrl);
+                webEx.Navigate(url);
+                //打开超时定时器
+                webTimer.Enabled = true;
+                webTimer.Start();
             }
             catch (Exception ex)
             {
-                this.memoPcap.Items.Add(ex.Message);
-                this.memoPcap.Items.Add("Cookies/caches 未完全删除...");
-                strbFile.Append("Cookies/caches 未完全删除...\r\n");
+                Log.Console(Environment.StackTrace, ex);
+                Log.Error(Environment.StackTrace, ex);
             }
+            //if (!m_AsyncWorker.IsBusy)
+            //{
+            //    m_AsyncWorker.RunWorkerAsync();
+            //}
 
-            string ip = netDev.IpAddress;
-            this.memoPcap.Items.Add("相关浏览器关闭");
-            this.memoPcap.Items.Add("网卡: " + device.PcapDescription);
-            strbFile.Append("网卡: " + device.PcapDescription + "\r\n");
-
-            this.memoPcap.Items.Add("IP地址: " + netDev.IpAddress);
-            strbFile.Append("IP地址: " + netDev.IpAddress + "\r\n");
-
-            Thread.Sleep(100);
-            this.dtStart = DateTime.Now;
-            this.memoPcap.Items.Add("测试开始时间: " + dtStart.ToString());
-            strbFile.Append("测试开始时间: " + dtStart.ToString() + "\r\n");
-
-            //Register our handler function to the 'packet arrival' event
-            device.PcapOnPacketArrival +=
-                new Tamir.IPLib.SharpPcap.PacketArrivalEvent(device_PcapOnPacketArrival);
-            //Open the device for capturing
-            //true -- means promiscuous mode
-            //1000 -- means a read wait of 1000ms
-            device.PcapOpen(true, 100);
-            device.PcapSetFilter("(tcp or udp) and host " + ip);     //获取IP用于过滤
-            device.PcapDumpOpen(strFile);
-
-            if (!m_AsyncWorker.IsBusy)
-            {
-                m_AsyncWorker.RunWorkerAsync();
-            }
-            webTimer.Enabled=true;
-            webTimer.Start();
         }
 
 
@@ -475,47 +601,24 @@ namespace NetTest
         private void timWeb_Tick(object sender, EventArgs e)
         {
             iTimeThrehold++;
-            if (iTimeThrehold * 3 <= iTimeLast)
+            if (iTimeThrehold*3 <= iTimeLast)  //3秒钟进来一次
+                return;   //没到定时时间
+
+            Log.Console("Timer trigger WebTest End!");
+            Log.Info("Timer trigger WebTest End!");
+            lock (taskLock)
             {
-                FileInfo f = new FileInfo(strFile);
-                long iLengthTemp = f.Length / 1024;
-                if (iLengthTemp < 700) return;
-                long iLengthInc = iLengthTemp - iProLength;
-                iProLength = iLengthTemp;
-                if (iLengthInc > 100)
-                {
-                    long iMemTemp = 0;
-                    int iCPUSec = 100;
-                    Process[] p = Process.GetProcessesByName(strBro);
-                    if (p.Length > 0)
-                    {
-                        iMemTemp = p[0].WorkingSet64 / 1024;// p[0].VirtualMemorySize64/1024;
-                        iCPUSec = p[0].TotalProcessorTime.Milliseconds;
-                    }
-                    else return;
-                    long iMemInc = iMemTemp - iProMem;
-                    iProMem = iMemTemp;
-                    Application.DoEvents();
-                    if ((strBro == "IE Explorer") || ((strBro == "Google")))
-                    {
-                        if (iCPUSec > 500) return;
-                        if (iMemInc > 50) return;
-                    }
-                    else
-                    {
-                        if (iCPUSec > 400) return;
-                        if (iMemInc > 20) return;
-                        iStable++;
-                        if (iStable < 2) return;
-                    }
-                }
+                if (!DoTest)   //任务被手动停止或加载结束函数已经触发了
+                    return;
+                DoTest = false;
             }
-            //一旦满足停止条件就关闭定时器
-            webTimer.Stop();
-            webTimer.Enabled = false;
-            //
             try
             {
+                //一旦满足停止条件就关闭定时器
+                webTimer.Enabled = false;
+                webTimer.Stop();              
+                //停止加载，不知道能不能阻止其结束响应函数
+                webEx.Visible = false;
                 device.PcapStopCapture();
                 device.PcapClose();
             }
@@ -524,8 +627,6 @@ namespace NetTest
                 Log.Console(ex.ToString());
                 Log.Error(ex.ToString());
             }
-
-            //this.CloseBrowser();    //终止测试或者测试完成的时候关闭浏览器，重新测试的时候要再检查，这里关容易出问题
 
             DateTime dtEnd = DateTime.Now;
             TimeSpan ts = dtEnd - dtStart;
@@ -537,7 +638,7 @@ namespace NetTest
 
             strbFile.Append("抓包文件: " + strFile + "\r\n");
 
-            DoTest = false;
+            
             try
             {
                 this.performance(ts2);
@@ -558,16 +659,13 @@ namespace NetTest
                     fs1.Close();
                 }
                 this.memoPcap.Items.Add("抓包文件: " + strFile + " 创建");
-
                 this.memoPcap.Items.Add("日志文件: " + strLogFile);
-
                 if (intCheckContinuous > 0)
                 {
-                    if (iTest < iNumContinuous)
+                    if (iTest < iNumContinuous)   //测试次数少于循环测试次数
                     {
-                        if (inis.IniReadValue("Web", "EnableLoop") == "1")
+                        if (inis.IniReadValue("Web", "EnableLoop") == "1")  //允许测试
                         {
-
                             while (true)
                             {
                                 intIndex++;
@@ -586,7 +684,6 @@ namespace NetTest
                     else
                     {
                         this.timer1.Enabled = false;
-                        //this.timWeb.Enabled = false;
                         this.sBTest.Enabled = true;
                         this.btnWebStop.Enabled = false;
                         this.iTest = 0;
@@ -599,15 +696,15 @@ namespace NetTest
                     this.sBTest.Enabled = true;
                     this.btnWebStop.Enabled = false;
                     iTest = 0;
-                }   
+                }
             }
             catch (Exception ex)
             {
                 Log.Error(Environment.StackTrace, ex);
                 Log.Console(Environment.StackTrace, ex);
             }
-            CloseBrowser();
-            Taskon = false;           
+            Taskon = false;    
+            //CloseBrowser();                    
         }
 
         /******************************************************************************
@@ -832,7 +929,6 @@ namespace NetTest
             {
                 //dump the packet to the file
                 device.PcapDump(packet);
-                //this.memoPcap.Text+="Packet dumped to file.\n";
             }
         }
 

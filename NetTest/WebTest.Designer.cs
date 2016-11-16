@@ -35,8 +35,8 @@ namespace NetTest
             this.sBTest = new DevExpress.XtraEditors.SimpleButton();
             this.panelExplore = new System.Windows.Forms.Panel();
             this.memoPcap = new System.Windows.Forms.ListBox();
-            //this.timWeb = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.webEx = new WebBrowserEx();
             ((System.ComponentModel.ISupportInitialize)(this.panelWeb)).BeginInit();
             this.panelWeb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
@@ -89,12 +89,24 @@ namespace NetTest
             // 
             // panelExplore
             // 
+            this.panelExplore.Controls.Add(this.webEx); //浏览器控件绑定到panel上
             this.panelExplore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.panelExplore.Location = new System.Drawing.Point(0, 1);
             this.panelExplore.Name = "panelExplore";
             this.panelExplore.Size = new System.Drawing.Size(367, 360);
             this.panelExplore.TabIndex = 1;
+            // 
+            // webEx
+            // 
+            this.webEx.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webEx.Location = new System.Drawing.Point(0, 1);
+            this.webEx.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webEx.Name = "webEx";
+            this.webEx.ScriptErrorsSuppressed = true;
+            this.webEx.Size = new System.Drawing.Size(367, 360);
+            this.webEx.TabIndex = 2;
+            this.webEx.LoadCompleted += webEx_LoadCompleted;
             // 
             // memoPcap
             // 
@@ -104,17 +116,12 @@ namespace NetTest
             this.memoPcap.ItemHeight = 12;
             this.memoPcap.Location = new System.Drawing.Point(0, 40);
             this.memoPcap.Name = "memoPcap";
-            this.memoPcap.Size = new System.Drawing.Size(368, 270);
+            this.memoPcap.Size = new System.Drawing.Size(368, 268);
             this.memoPcap.TabIndex = 0;
-            // 
-            // timWeb
-            // 
-            //this.timWeb.Interval = 3000;
-            //this.timWeb.Tick += new System.EventHandler(this.timWeb_Tick);
             // 
             // timer1
             // 
-            this.timer1.Interval = 180000;
+            this.timer1.Interval = 180000;     //循环测试的定时启动器
             this.timer1.Tick += new System.EventHandler(this.sBTest_Click);
             // 
             // WebTest
@@ -142,5 +149,6 @@ namespace NetTest
         //private System.Windows.Forms.Timer timWeb;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panelExplore;
+        private WebBrowserEx webEx;
     }
 }

@@ -167,6 +167,10 @@
   <ItemGroup>
     <Compile Include="AllForms.cs" />
     <Compile Include="CacheClear.cs" />
+    <Compile Include="DWebBrowserEvents2.cs" />
+    <Compile Include="DWebBrowserEvents2Helper.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ExcelProcess.cs" />
     <Compile Include="ExtractIcon.cs" />
     <Compile Include="FlvWebAnalyze.cs">
@@ -292,6 +296,9 @@
     </Compile>
     <Compile Include="WebAnalyse.Designer.cs">
       <DependentUpon>WebAnalyse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WebBrowserEx.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="WebSettings.cs">
       <SubType>UserControl</SubType>

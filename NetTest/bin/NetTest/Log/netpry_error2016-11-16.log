@@ -1,0 +1,198 @@
+2016-11-16 19:29:18,819 [9176] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-11-16 19:29:58,457 [1720] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 588
+   在 NetTest.WebTest.WebServerTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 385
+   在 NetTest.frmMain.webTaskFunc() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 326
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Runtime.InteropServices.COMException (0x800700AA): 请求的资源在使用中。 (异常来自 HRESULT:0x800700AA)
+   在 System.Windows.Forms.UnsafeNativeMethods.IWebBrowser2.Navigate2(Object& URL, Object& flags, Object& targetFrameName, Object& postData, Object& headers)
+   在 System.Windows.Forms.WebBrowser.PerformNavigate2(Object& URL, Object& flags, Object& targetFrameName, Object& postData, Object& headers)
+   在 System.Windows.Forms.WebBrowser.PerformNavigateHelper(String urlString, Boolean newWindow, String targetFrameName, Byte[] postData, String headers)
+   在 System.Windows.Forms.WebBrowser.set_Url(Uri value)
+   在 System.Windows.Forms.WebBrowser.Navigate(Uri url)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 580
+2016-11-16 19:31:26,673 [6076] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 855
+   在 NetTest.WebAnalyse.ParseWebPacket() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 222
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.AccessViolationException: 尝试读取或写入受保护的内存。这通常指示其他内存已损坏。
+   在 NetTest.WebAnalyse.pcap_file_dissect_inCS(String pathfilename)
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 850
+2016-11-16 19:31:26,865 [6076] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - 数据包打开错误，无法进行文件概要、数据包、TCP、DNS、HTTP的分析 
+
+2016-11-16 19:33:56,394 [6404] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-11-16 19:34:03,209 [4908] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-11-16 19:35:25,881 [8600] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+
+2016-11-16 19:35:32,512 [4440] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-11-16 19:35:39,229 [8900] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+
+2016-11-16 19:36:01,654 [2804] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-11-16 19:36:08,212 [8532] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-11-16 19:36:14,944 [2848] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+
+2016-11-16 19:36:24,156 [6452] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+
+2016-11-16 19:37:55,039 [1724] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 855
+   在 NetTest.WebAnalyse.ParseWebPacket() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 222
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.DllNotFoundException: 无法加载 DLL“NetpryDll.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+   在 NetTest.WebAnalyse.pcap_file_dissect_inCS(String pathfilename)
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 850
+2016-11-16 19:37:55,239 [1724] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 867
+   在 NetTest.WebAnalyse.ParseWebPacket() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 222
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.DllNotFoundException: 无法加载 DLL“NetpryDll.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+   在 NetTest.WebAnalyse.pcap_file_close_inCS()
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 863
+2016-11-16 19:37:55,320 [1724] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - 数据包打开错误，无法进行文件概要、数据包、TCP、DNS、HTTP的分析 
+
+2016-11-16 19:38:01,789 [5076] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 855
+   在 NetTest.WebAnalyse.ParseWebPacket() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 222
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.DllNotFoundException: 无法加载 DLL“NetpryDll.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+   在 NetTest.WebAnalyse.pcap_file_dissect_inCS(String pathfilename)
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 850
+2016-11-16 19:38:01,991 [5076] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 867
+   在 NetTest.WebAnalyse.ParseWebPacket() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 222
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.DllNotFoundException: 无法加载 DLL“NetpryDll.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+   在 NetTest.WebAnalyse.pcap_file_close_inCS()
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 863
+2016-11-16 19:38:02,066 [5076] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - 数据包打开错误，无法进行文件概要、数据包、TCP、DNS、HTTP的分析 
+
+2016-11-16 19:38:08,569 [7844] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 855
+   在 NetTest.WebAnalyse.ParseWebPacket() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 222
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.DllNotFoundException: 无法加载 DLL“NetpryDll.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+   在 NetTest.WebAnalyse.pcap_file_dissect_inCS(String pathfilename)
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 850
+2016-11-16 19:38:08,769 [7844] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 867
+   在 NetTest.WebAnalyse.ParseWebPacket() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 222
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.DllNotFoundException: 无法加载 DLL“NetpryDll.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+   在 NetTest.WebAnalyse.pcap_file_close_inCS()
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 863
+2016-11-16 19:38:08,842 [7844] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - 数据包打开错误，无法进行文件概要、数据包、TCP、DNS、HTTP的分析 
+
+2016-11-16 19:38:15,429 [8124] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 855
+   在 NetTest.WebAnalyse.ParseWebPacket() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 222
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.DllNotFoundException: 无法加载 DLL“NetpryDll.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+   在 NetTest.WebAnalyse.pcap_file_dissect_inCS(String pathfilename)
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 850
+2016-11-16 19:38:15,629 [8124] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 867
+   在 NetTest.WebAnalyse.ParseWebPacket() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 222
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.DllNotFoundException: 无法加载 DLL“NetpryDll.dll”: 找不到指定的模块。 (异常来自 HRESULT:0x8007007E)。
+   在 NetTest.WebAnalyse.pcap_file_close_inCS()
+   在 NetTest.WebAnalyse.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\WebAnalyse.cs:行号 863
+2016-11-16 19:38:15,706 [8124] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - 数据包打开错误，无法进行文件概要、数据包、TCP、DNS、HTTP的分析 
+
+2016-11-16 19:39:59,326 [4856] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-11-16 19:40:05,778 [3792] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-11-16 19:40:12,272 [2996] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
