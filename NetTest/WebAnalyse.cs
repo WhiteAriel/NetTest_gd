@@ -94,7 +94,7 @@ namespace NetTest
         Thread setWebParseTrd = null;
 
 
-        private volatile  bool analyzeOn = false;
+        private volatile bool analyzeOn = false;
         public volatile bool serverTest = false;
 
 
@@ -205,7 +205,7 @@ namespace NetTest
             InitializeComponent();
             this.RealTimechart();
             datalistWeb.Clear();
-            mysqlWebA = new MySQLInterface(inisWeb.IniReadValue("Mysql", "serverIp"), inisWeb.IniReadValue("Mysql", "user"), inisWeb.IniReadValue("Mysql", "passwd"), inisWeb.IniReadValue("Mysql", "dbname"));
+            mysqlWebA = new MySQLInterface(inisWeb.IniReadValue("Mysql", "serverIp"), inisWeb.IniReadValue("Mysql", "user"), inisWeb.IniReadValue("Mysql", "passwd"), inisWeb.IniReadValue("Mysql", "dbname"), null);
             if (mysqlWebA.MysqlInit(inisWeb.IniReadValue("Mysql", "dbname")))
                 mysqlWebFlagA = true;
             Init();
@@ -240,7 +240,7 @@ namespace NetTest
             btnStartWebAnaly.Enabled = true;
             btnWebSelCapWeb.Enabled = true;
             analyzeOn = false;
-            
+
         }
 
 
@@ -303,46 +303,46 @@ namespace NetTest
         public void WebTerminalAnalyzeStartFunc()
         {
 
-                    analyzeOn = true;
-                    //清除Excel进程
-                    Process[] p = Process.GetProcessesByName("EXCEL");
-                    if (p.Length > 0)
-                    {
-                        for (int i = 0; i < p.Length; i++)
-                        {
-                            p[i].CloseMainWindow();
-                            p[i].Kill();
-                        }
-                    }
+            analyzeOn = true;
+            //清除Excel进程
+            Process[] p = Process.GetProcessesByName("EXCEL");
+            if (p.Length > 0)
+            {
+                for (int i = 0; i < p.Length; i++)
+                {
+                    p[i].CloseMainWindow();
+                    p[i].Kill();
+                }
+            }
 
-                    PcapFileNameWeb = inisWeb.IniReadValue("Web", "webPcapPath");
+            PcapFileNameWeb = inisWeb.IniReadValue("Web", "webPcapPath");
 
-                    if (!File.Exists(PcapFileNameWeb))
-                    {
-                        MessageBox.Show("找不到数据包文件：" + PcapFileNameWeb);
-                        return;
-                    }
+            if (!File.Exists(PcapFileNameWeb))
+            {
+                MessageBox.Show("找不到数据包文件：" + PcapFileNameWeb);
+                return;
+            }
 
-                    IsAnalysedWeb = true;    //是否进行了分析
-                    WrongReasonWeb = null;   //清空错误信息
-                    //清空图表
-                    this.InitChart();
-                    this.InitListView();
-                    //清空上次计算的平均值
-                    AverValueWeb.InitValue();
+            IsAnalysedWeb = true;    //是否进行了分析
+            WrongReasonWeb = null;   //清空错误信息
+            //清空图表
+            this.InitChart();
+            this.InitListView();
+            //清空上次计算的平均值
+            AverValueWeb.InitValue();
 
-                    btnStartWebAnaly.Enabled = false;
-                    btnWebSelCapWeb.Enabled = false;
+            btnStartWebAnaly.Enabled = false;
+            btnWebSelCapWeb.Enabled = false;
 
-                    try
-                    {
-                        setWebParseTrd = new Thread(new ThreadStart(ParseWebPacket));
-                        setWebParseTrd.Start();
-                    }
-                    catch (System.Exception ex)
-                    {
-                        Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
-                    }         
+            try
+            {
+                setWebParseTrd = new Thread(new ThreadStart(ParseWebPacket));
+                setWebParseTrd.Start();
+            }
+            catch (System.Exception ex)
+            {
+                Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
+            }
         }
 
         public void btnStartWebAnaly_Click(object sender, EventArgs e)
@@ -884,7 +884,7 @@ namespace NetTest
                 }
                 if (!ShowTCPStream()) WrongReasonWeb += "TCP流分析异常 \n";
                 if (!ShowLVPacketAnalysWeb()) WrongReasonWeb += "数据包解析异常 \n";
-             
+
             }
             try
             {
@@ -1674,7 +1674,7 @@ namespace NetTest
 
             //txt文件压入到数据库 
             if (mysqlWebFlagA && serverTest)
-                mysqlWebA.TxTInsertMySQL("HttpAnalysis", currentId + "#" + "Web", Application.StartupPath +"\\"+ tmpfileName);
+                mysqlWebA.TxTInsertMySQL("HttpAnalysis", currentId + "#" + "Web", Application.StartupPath + "\\" + tmpfileName);
 
             //删除临时文件
 #if RELEASE
@@ -1711,6 +1711,7 @@ namespace NetTest
             int index = selectIndex;
             double scale = timeScaleWeb[index];
             string tmpfileName = "LinkAnalWeb.tmp";
+            string fileName = "InOutWeb.txt";
             int SumLine = 0;
 
             //创建临时文本文件 
@@ -1743,6 +1744,14 @@ namespace NetTest
 
             //创建文件读流
             StreamReader sr = new StreamReader(tmpfileName);
+
+            FileStream fstream = new FileStream(fileName, FileMode.Create);
+            StreamWriter sw = new StreamWriter(fstream, Encoding.Default);
+            sw.Write("序号\t时间\t流量\n");
+            int ind = 1;
+
+
+
             string strLine = sr.ReadLine();
             int counter = 1;
             //设置图像曲线上点的横纵坐标
@@ -1761,6 +1770,13 @@ namespace NetTest
                 lvsi = new ListViewItem.ListViewSubItem();
                 lvsi.Text = strLine;
                 lvi.SubItems.Add(lvsi);
+
+                //写入inout.txt
+                sw.Write("{0}\t{1}\t{2}\n", ind++, ((counter - 1) * scale).ToString(), strLine);
+
+
+
+
                 //吞吐量最值
                 if (Convert.ToDouble(strLine) >= MaxInOut)
                     MaxInOut = Convert.ToDouble(strLine);
@@ -1781,6 +1797,8 @@ namespace NetTest
 
             }
             sr.Close();
+            sw.Close();
+            fstream.Close();
 
             //计算吞吐量均值
             if (SumLine > 0)
@@ -1838,9 +1856,11 @@ namespace NetTest
             //更新图像
             this.ChartInOutWeb.Invalidate();
 
-            //txt文件压入到数据库
-           // if (mysqlWebFlagA && serverTest)
-            //mysqlWebA.TxTInsertMySQL("InOutAnalysis", currentId + "#" + "Web", Application.StartupPath + "\\" +tmpfileName);
+            //txt文件压入到数据
+            //if (mysqlWebFlagA && serverTest)
+            mysqlWebA.TxTInsertMySQL("InOutAnalysis", currentId + "#" + "Web", Application.StartupPath + "\\" + fileName);
+
+
             //删除临时文件
             //  File.Delete(tmpfileName);
             return true;
@@ -1875,6 +1895,7 @@ namespace NetTest
         {
             //清空帧长分布列表
             LVFrameLengthWeb.Items.Clear();
+            string tmpfileName = "FrameLengthWeb.txt";
 
             string[] strRange = new string[] { "0-100", "100-200", "200-300", "300-400",
                 "400-500", "500-600", "600-700", "700-800", "800-900", "900-1000", "1000-1514"};
@@ -1909,6 +1930,24 @@ namespace NetTest
             //画帧长分布的饼图
             ChartFrameLengthWeb.Series["帧长分布"].Points.DataBindXY(strRange, yValue);
             ChartFrameLengthWeb.Invalidate();
+
+            //重新生成txt
+            FileStream fs = new FileStream(tmpfileName, FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs, Encoding.Default);
+            sw.Write("序号\t帧长范围\t数量\t比率\n");
+
+            //fprintf(fp, "序号\t帧长范围\t数量\t比率\n");
+            int index = 1;
+            for (int i = 0; i < 11; i++)
+            {
+
+                sw.Write("{0}\t{1}\t{2}\t{3}\n", index++, strRange[i], rangeCountWeb[i], (rangeCountWeb[i] * 100.0 / totalPacketCntWeb).ToString("F2") + "%");
+            }
+            sw.Close();
+            fs.Close();
+
+            //if (mysqlWebFlagA && serverTest)
+            mysqlWebA.TxTInsertMySQL("FrameLengthAnalysis", currentId + "#" + "Web", Application.StartupPath + "\\" + tmpfileName);
 
             return true;
         }
@@ -1999,7 +2038,7 @@ namespace NetTest
                 }
 
                 lv[linecount] = new ListViewItem();
-                lv[linecount].Text = str[2];
+                lv[linecount].Text = str[1];
 
                 //求延时抖动最值
                 if (Convert.ToDouble(str[3]) >= MaxDelay)

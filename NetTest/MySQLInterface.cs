@@ -38,7 +38,7 @@ namespace MultiMySQL
         public string taskType { get; set; }
         public string taskUrl { get; set; }
         public string serverIp { get; set; }
-        public int  actionStatus { get; set; }
+        public int actionStatus { get; set; }
     }
     class MySQLInterface
     {
@@ -50,17 +50,20 @@ namespace MultiMySQL
         public string errorInfo { get; set; }
 
         //构造函数时就完成连接MySQL和创造数据库
-        public MySQLInterface(string server, string user, string password,string dbName)
+        public MySQLInterface(string server, string user, string password, string dbName,string port)
         {
-            this.conString = "server=" + server + ";User Id=" + user + ";password=" + password + ";Database=" + dbName+";";
+            if (string.IsNullOrEmpty(port))
+                port = "3306";
+            this.conString = "server=" + server + ";User Id=" + user + ";password=" + password + ";Port=" + port+";";
             this.mycon = new MySqlConnection(conString);
+            this.conString = "server=" + server + ";User Id=" + user + ";password=" + password + ";Database=" + dbName + ";Port=" + port + ";";
             this.errorInfo = null;
         }
-		
-		~MySQLInterface()
-		{
-			MySQLClose();		
-		}
+
+        ~MySQLInterface()
+        {
+            MySQLClose();
+        }
 
         public bool MysqlInit(string dbname)
         {
@@ -79,7 +82,7 @@ namespace MultiMySQL
             catch (Exception ex)
             {
                 errorInfo += "MySQL连接失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
                 return false;
             }
             return true;
@@ -95,7 +98,7 @@ namespace MultiMySQL
             catch (Exception ex)
             {
                 errorInfo += " MySQL断开失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
             }
         }
 
@@ -117,7 +120,7 @@ namespace MultiMySQL
             catch (Exception ex)
             {
                 errorInfo += " 创建MySQL数据库失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
                 return false;
             }
             return true;
@@ -133,12 +136,12 @@ namespace MultiMySQL
                 string creatHttp = "create table IF NOT EXISTS HttpAnalysis(TimeStamp VARCHAR(20) not null,SearchIndex INT auto_increment Unique,Guid VARCHAR(36) primary key not null,TaskId VARCHAR(36) not null,TaskType VARCHAR(20) not null,SyncStatus INT not null, SyncTime VARCHAR(20),HttpClientIp VARCHAR(20) not null,HttpMethod VARCHAR(10) not null,HttpUrl VARCHAR(2083)not null,HttpServerIp VARCHAR(20) not null,HttpVersion VARCHAR(10) not null,HttpResponseDelay VARCHAR(10) not null);";
                 //MySqlCommand creattable = new MySqlCommand(creatHttp, mycon);
                 //creattable.ExecuteNonQuery();
-				MySqlHelper.ExecuteNonQuery(conString,creatHttp);
+                MySqlHelper.ExecuteNonQuery(conString, creatHttp);
             }
             catch (Exception ex)
             {
                 errorInfo += " 创建Http表失败" + ex.Message;
-                Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
                 return false;
             }
             return true;
@@ -149,14 +152,12 @@ namespace MultiMySQL
             try
             {
                 string creatDns = "create table IF NOT EXISTS DNSAnalysis(TimeStamp VARCHAR(20) not null,SearchIndex INT auto_increment Unique,Guid VARCHAR(36) primary key not null,TaskId VARCHAR(36) not null,TaskType VARCHAR(20) not null, SyncStatus INT not null, SyncTime VARCHAR(20),DnsClientIp VARCHAR(20) not null,DnsClientPort VARCHAR(10) not null,DnsServerIp VARCHAR(20)not null,DnsServerPort VARCHAR(10) not null,DnsDomainName VARCHAR(64) not null,DnsReturnCode VARCHAR(6) not null,DnsResponseIp VARCHAR(20)not null,DnsResponseDelay VARCHAR(10) not null);";
-                //MySqlCommand creattable = new MySqlCommand(creatDns, mycon);
-                //creattable.ExecuteNonQuery();
-				MySqlHelper.ExecuteNonQuery(conString,creatDns);
+                MySqlHelper.ExecuteNonQuery(conString, creatDns);
             }
             catch (Exception ex)
             {
                 errorInfo += " 创建Dns表失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
                 return false;
             }
             return true;
@@ -167,14 +168,12 @@ namespace MultiMySQL
             try
             {
                 string creatInOut = "create table IF NOT EXISTS InOutAnalysis(TimeStamp VARCHAR(20) not null,SearchIndex INT auto_increment Unique,Guid VARCHAR(36) primary key not null,TaskId VARCHAR(36) not null,TaskType VARCHAR(20) not null, SyncStatus INT not null, SyncTime VARCHAR(20),TimeInterval VARCHAR(20) not null,Traffic VARCHAR(20) not null);";
-                //MySqlCommand creattable = new MySqlCommand(creatInOut, mycon);
-                //creattable.ExecuteNonQuery();
-				MySqlHelper.ExecuteNonQuery(conString,creatInOut);
+                MySqlHelper.ExecuteNonQuery(conString, creatInOut);
             }
             catch (Exception ex)
             {
                 errorInfo += " 创建MySQL表失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
                 return false;
             }
             return true;
@@ -184,15 +183,13 @@ namespace MultiMySQL
         {
             try
             {
-                string creatFrameLen = "create table IF NOT EXISTS FrameLengthAnalysis(TimeStamp VARCHAR(20) not null,SearchIndex INT auto_increment Unique,Guid VARCHAR(36) primary key not null,TaskId VARCHAR(36) not null,TaskType VARCHAR(20) not null, SyncStatus INT not null, SyncTime VARCHAR(20),FrameLength VARCHAR(6) not null,FrameNum VARCHAR(6) not null,FramePercent VARCHAR(6)not null);";
-                //MySqlCommand creattable = new MySqlCommand(creatFrameLen, mycon);
-                //creattable.ExecuteNonQuery();
-				MySqlHelper.ExecuteNonQuery(conString,creatFrameLen);
+                string creatFrameLen = "create table IF NOT EXISTS FrameLengthAnalysis(TimeStamp VARCHAR(20) not null,SearchIndex INT auto_increment Unique,Guid VARCHAR(36) primary key not null,TaskId VARCHAR(36) not null,TaskType VARCHAR(20) not null, SyncStatus INT not null, SyncTime VARCHAR(20),FrameLength VARCHAR(20) not null,FrameNum VARCHAR(10) not null,FramePercent VARCHAR(20) not null);";
+                MySqlHelper.ExecuteNonQuery(conString, creatFrameLen);
             }
             catch (Exception ex)
             {
                 errorInfo += " 创建MySQL表失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
                 return false;
             }
             return true;
@@ -206,12 +203,12 @@ namespace MultiMySQL
                 string creatDelayJitter = "create table IF NOT EXISTS DelayJitter(TimeStamp VARCHAR(20) not null,SearchIndex INT auto_increment Unique,Guid VARCHAR(36) primary key not null,TaskId VARCHAR(36) not null,TaskType VARCHAR(20) not null, SyncStatus INT not null, SyncTime VARCHAR(20),TcpIndex VARCHAR(10) not null,TcpSegmentIndex  VARCHAR(10) not null,Delay VARCHAR(10) not null,Jitter VARCHAR(10) not null);";
                 //MySqlCommand creattable = new MySqlCommand(DelayJitter, mycon);
                 //creattable.ExecuteNonQuery();
-				MySqlHelper.ExecuteNonQuery(conString,creatDelayJitter);
+                MySqlHelper.ExecuteNonQuery(conString, creatDelayJitter);
             }
             catch (Exception ex)
             {
                 errorInfo += " 创建MySQL表失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
                 return false;
             }
             return true;
@@ -225,12 +222,12 @@ namespace MultiMySQL
                 string creatVideoPara = "create table IF NOT EXISTS VideoPara(TimeStamp VARCHAR(20) not null,SearchIndex INT auto_increment Unique,Guid VARCHAR(36) primary key not null,TaskId VARCHAR(36) not null,TaskType VARCHAR(20) not null, SyncStatus INT not null, SyncTime VARCHAR(20),Clarity DOUBLE not null,Brightness DOUBLE not null,Chroma DOUBLE not null,Saturation DOUBLE not null ,Contrast DOUBLE not null ,ScreenStatic DOUBLE not null ,ScreenJump DOUBLE not null ,ScreenFuzzy DOUBLE not null);";
                 //MySqlCommand creattable = new MySqlCommand(creatVideoPara, mycon);
                 //creattable.ExecuteNonQuery();
-				MySqlHelper.ExecuteNonQuery(conString,creatVideoPara);
+                MySqlHelper.ExecuteNonQuery(conString, creatVideoPara);
             }
             catch (Exception ex)
             {
                 errorInfo += " 创建MySQL表失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
                 return false;
             }
             return true;
@@ -243,12 +240,12 @@ namespace MultiMySQL
                 string creatTestReport = "create table IF NOT EXISTS TestReport(TimeStamp VARCHAR(20) not null,SearchIndex INT auto_increment Unique,Guid VARCHAR(36) primary key not null,TaskId VARCHAR(36) not null,TaskType VARCHAR(20) not null, SyncStatus INT not null, SyncTime VARCHAR(20),TestKey VARCHAR(20)not null ,TestValue VARCHAR(20) not null);";
                 //MySqlCommand creattable = new MySqlCommand(creatTestReport, mycon);
                 //creattable.ExecuteNonQuery();
-				MySqlHelper.ExecuteNonQuery(conString,creatTestReport);
+                MySqlHelper.ExecuteNonQuery(conString, creatTestReport);
             }
             catch (Exception ex)
             {
                 errorInfo += " 创建MySQL表失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
                 return false;
             }
             return true;
@@ -261,12 +258,12 @@ namespace MultiMySQL
                 string creatTaskList = "create table IF NOT EXISTS TaskList(TaskIndex INT  primary key auto_increment,BatchNo VARCHAR(20) not null,TaskId VARCHAR(36) not null,TaskType VARCHAR(10) not null,TaskUrl VARCHAR(2083) not null,ServerIp VARCHAR(20) not null,SyncStatus INT not null,ActionStatus INT not null);";
                 //MySqlCommand creattable = new MySqlCommand(creatTaskList, mycon);//auto_increment
                 //creattable.ExecuteNonQuery();
-				MySqlHelper.ExecuteNonQuery(conString,creatTaskList);
+                MySqlHelper.ExecuteNonQuery(conString, creatTaskList);
             }
             catch (Exception ex)
             {
                 errorInfo += " 创建MySQL表失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
                 return false;
             }
             return true;
@@ -297,7 +294,7 @@ namespace MultiMySQL
                 //int indexnum = 0;
                 while (strLine != null)
                 {
-                    
+
                     strLine = strLine.Replace(",", "_");
                     string[] str = strLine.Split(new Char[] { '\t' });
                     DataRow dr = dt.NewRow();
@@ -325,7 +322,7 @@ namespace MultiMySQL
             catch (Exception ex)
             {
                 errorInfo += " txt写入数据表失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
                 return null;
             }
         }
@@ -361,7 +358,7 @@ namespace MultiMySQL
             catch (Exception ex)
             {
                 errorInfo += " 数据表生成csv文件失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
                 return null;
             }
 
@@ -385,7 +382,7 @@ namespace MultiMySQL
             catch (Exception ex)
             {
                 errorInfo += " datatable导入到MySQL失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
                 return false;
             }
             return true;
@@ -421,12 +418,12 @@ namespace MultiMySQL
                 string sqlInsert = "insert into VideoPara(TimeStamp,Guid,TaskId,TaskType,SyncStatus,Clarity,Brightness,Chroma,Saturation,Contrast,ScreenStatic,ScreenJump,ScreenFuzzy)" + " values('" + ts + "','" + guid + "','" + value[0] + "','" + value[1] + "'," + 0 + "," + vp.clarity + "," + vp.brightness + "," + vp.Chroma + "," + vp.saturation + "," + vp.Contrast + "," + vp.screenstatic + "," + vp.screenjump + "," + vp.screenfuzzy + ")";
                 //MySqlCommand Inserttable = new MySqlCommand(sqlInsert, mycon);
                 //Inserttable.ExecuteNonQuery();
-				MySqlHelper.ExecuteNonQuery(conString,sqlInsert);
+                MySqlHelper.ExecuteNonQuery(conString, sqlInsert);
             }
             catch (Exception ex)
             {
                 errorInfo = errorInfo + " 数据插入表失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
                 return false;
             }
             return true;
@@ -445,15 +442,15 @@ namespace MultiMySQL
                     return false;
                 }
                 //1#22c80fcd7c-f010-4fd9-b8a4-d5207f980642#Video#http://data.vod.itc.cn/?rb=1&p.mp4#192.168.50.120:16201
-                string sqlInsert = "insert into TaskList(BatchNo,TaskId,TaskType,TaskUrl,ServerIp,SyncStatus,ActionStatus)" + " values(" + "'" + value[0] + "','" + value[1] + "','" + value[2] + "','" + value[3] +"','"+value[4]+ "','-1','1')";
+                string sqlInsert = "insert into TaskList(BatchNo,TaskId,TaskType,TaskUrl,ServerIp,SyncStatus,ActionStatus)" + " values(" + "'" + value[0] + "','" + value[1] + "','" + value[2] + "','" + value[3] + "','" + value[4] + "','-1','1')";
                 //MySqlCommand Inserttable = new MySqlCommand(sqlInsert, mycon);
                 //Inserttable.ExecuteNonQuery();
-				MySqlHelper.ExecuteNonQuery(conString,sqlInsert);
+                MySqlHelper.ExecuteNonQuery(conString, sqlInsert);
             }
             catch (Exception ex)
             {
                 errorInfo = errorInfo + " 数据插入表失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
                 return false;
             }
             return true;
@@ -470,14 +467,14 @@ namespace MultiMySQL
                     string selec = "select TaskId,TaskType,TaskUrl,ServerIp,ActionStatus from  TaskList where " + filterFactor;//limit 0,2;
                     //MySqlCommand tablefilter = new MySqlCommand(selec, mycon);//auto_increment
                     //MySqlDataReader re = tablefilter.ExecuteReader();
-					DataSet dataSet=MySqlHelper.ExecuteDataset(conString,selec);
-					DataTable dtResult = null;
+                    DataSet dataSet = MySqlHelper.ExecuteDataset(conString, selec);
+                    DataTable dtResult = null;
                     if (dataSet != null && dataSet.Tables.Count > 0)
-                        dtResult = dataSet.Tables[0];   
-					
-					List<TaskItems> taskItemsList = new List<TaskItems>();
+                        dtResult = dataSet.Tables[0];
+
+                    List<TaskItems> taskItemsList = new List<TaskItems>();
                     foreach (DataRow drow in dtResult.Rows)
-					{
+                    {
                         if (dtResult.Columns.Count == 5)
                         {
                             TaskItems taskItems = new TaskItems();
@@ -488,44 +485,42 @@ namespace MultiMySQL
                             taskItems.actionStatus = Int32.Parse(drow[4].ToString());
                             taskItemsList.Add(taskItems);
                         }
-					}
+                    }
                     return taskItemsList;
                 }
             }
             catch (Exception ex)
             {
                 errorInfo = errorInfo + " 数据插入表失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
-               Console.WriteLine("TaskListFilter");
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
+                Console.WriteLine("TaskListFilter");
                 return null;
             }
         }
-      
+
         public bool UpdateTaskListColumn(string column, int value, string filterSQL)
         {
             try
             {
-               lock(mysqlUpdateLock)
+                lock (mysqlUpdateLock)
                 {
-                //update table1 set field1=value1 where 范围
-                string updateSQL = "update TaskList set " + column + "=" + value + " where " + filterSQL;//limit 0,2";
-                //MySqlCommand updSQL = new MySqlCommand(updateSQL, mycon);//auto_increment
-                //updSQL.ExecuteNonQuery();
-                MySqlHelper.ExecuteNonQuery(conString, updateSQL);
-                return true;
+                    //update table1 set field1=value1 where 范围
+                    string updateSQL = "update TaskList set " + column + "=" + value + " where " + filterSQL;//limit 0,2";
+                    //MySqlCommand updSQL = new MySqlCommand(updateSQL, mycon);//auto_increment
+                    //updSQL.ExecuteNonQuery();
+                    MySqlHelper.ExecuteNonQuery(conString, updateSQL);
+                    return true;
                 }
 
             }
             catch (Exception ex)
             {
                 errorInfo = errorInfo + " 数据插入表失败" + ex.Message;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
-               Console.WriteLine("UpdateTaskListColumn");
+                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
+                Console.WriteLine("UpdateTaskListColumn");
                 return false;
             }
         }
-    
-    
     }
 
 }

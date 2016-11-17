@@ -192,7 +192,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>DJxDfGauwwZUDtSf9eLcE9LFhmY=</dsig:DigestValue>
+        <dsig:DigestValue>ayNtOqcbVwAhdzcKJHVknfQvYHQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -204,7 +204,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>7lR8i17xSJN4Kevk2687wx1n8WI=</dsig:DigestValue>
+        <dsig:DigestValue>HACahhM0JlAEoRONm1Op/uynyB8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -216,7 +216,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>E4l+FZa238Yr8eeBEcvQm028Reg=</dsig:DigestValue>
+        <dsig:DigestValue>vC01TFkV/G8vrVyPE7TRfTuRCd0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -353,14 +353,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NetTest.exe" size="577024">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NetTest.exe" size="578560">
       <assemblyIdentity name="NetTest" version="1.0.1.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>YvYNT+rsHArm0AAiDdRa8lhYVnQ=</dsig:DigestValue>
+        <dsig:DigestValue>lmU+1XEXCJtoZY3EdAzoYRq5Y6k=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

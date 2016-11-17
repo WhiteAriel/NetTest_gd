@@ -751,7 +751,8 @@ namespace NetTest
             srPacket.ReadLine();   //第一行为解释
             string strLine = srPacket.ReadLine();
             string[] str ;//= strLine.Split(new Char[] { '\t' });  //Tcp重传率	Tcp并发特性	HTTP Get成功率	Dns响应延迟 Dns响应成功率
-            List<string> strsave=new List<string>();
+            List<string> kpi=new List<string>();
+            List<string> kpiName = new List<string>();
 
             strbFile.Append("--------------------------------------\r\n");
             strbFile.Append("|  量 化 指 标  |  数  值  |  评  分  |\r\n");
@@ -761,26 +762,32 @@ namespace NetTest
             while (strLine!=null)
             {
                 str = strLine.Split(new Char[] { '\t' });
-                 if(str.Length==3)
-                     strsave.Add(str[2]);
-                 else
-                     strsave.Add("0");
-                strLine = srPacket.ReadLine();
+                if (str.Length == 3)
+                {
+                    kpiName.Add(str[1]);
+                    kpi.Add(str[2]);
+                }
+                else
+                {
+                    kpiName.Add("Tcp重传率(%)");
+                    kpi.Add("0");
+                }
+                    strLine = srPacket.ReadLine();
             }
             srPacket.Close();
             fsPacket.Close();
-            Log.Console(strsave.Count.ToString());
-            if (strsave.Count == 5)
+            //Log.Console(strsave.Count.ToString());
+            if (kpi.Count == 5 && kpiName.Count==5)
             {
-                strbFile.Append("|  Tcp重传率(%)    |  " + strsave[0] + "|\r\n");
+                strbFile.Append("|  " + kpiName[0] + "  |" + kpi[0] + "|\r\n");
                 strbFile.Append("--------------------------------------\r\n");
-                strbFile.Append("|  Tcp并发特性(/s) |  " + strsave[1] + "|\r\n");
+                strbFile.Append("|  " + kpiName[1] + "  |" + kpi[1] + "|\r\n");
                 strbFile.Append("--------------------------------------\r\n");
-                strbFile.Append("|  HTTP Get成功率(%)|  " + strsave[2] + "|\r\n");
+                strbFile.Append("|  " + kpiName[2] + "  |" + kpi[2] + "|\r\n");
                 strbFile.Append("--------------------------------------\r\n");
-                strbFile.Append("|  Dns响应延迟    |  " + strsave[3] + "|\r\n");
+                strbFile.Append("|  " + kpiName[3] + "  |" + kpi[3] + "|\r\n");
                 strbFile.Append("--------------------------------------\r\n");
-                strbFile.Append("|  Dns响应成功率(%)|  " + strsave[4] + "|\r\n");
+                strbFile.Append("|  " + kpiName[4] + "  |" + kpi[4] + "|\r\n");
                 strbFile.Append("--------------------------------------\r\n");
 
                 this.memoPcap.Items.Add("--------------------------------------\r\n");
@@ -788,15 +795,15 @@ namespace NetTest
                 this.memoPcap.Items.Add("--------------------------------------\r\n");
                 this.memoPcap.Items.Add("|  业务延时(秒) |  " + ts2.ToString("F2") + "|\r\n");
                 this.memoPcap.Items.Add("--------------------------------------\r\n");
-                this.memoPcap.Items.Add("|  Tcp重传率(%)  |  " + strsave[0] + "|\r\n");
+                this.memoPcap.Items.Add("|  " + kpiName[0] + "  |" + kpi[0] + "|\r\n");
                 this.memoPcap.Items.Add("--------------------------------------\r\n");
-                this.memoPcap.Items.Add("|  Tcp并发特性(/s) |  " + strsave[1] + "|\r\n");
+                this.memoPcap.Items.Add("|  " + kpiName[1] + "  |" + kpi[1] + "|\r\n");
                 this.memoPcap.Items.Add("--------------------------------------\r\n");
-                this.memoPcap.Items.Add("|  HTTP Get成功率(%)|  " + strsave[2] + "|\r\n");
+                this.memoPcap.Items.Add("|  " + kpiName[2] + "  |" + kpi[2] + "|\r\n");
                 this.memoPcap.Items.Add("--------------------------------------\r\n");
-                this.memoPcap.Items.Add("|  Dns响应延迟  |  " + strsave[3] + "|\r\n");
+                this.memoPcap.Items.Add("|  " + kpiName[3] + "  |" + kpi[3] + "|\r\n");
                 this.memoPcap.Items.Add("--------------------------------------\r\n");
-                this.memoPcap.Items.Add("|  Dns响应成功率(%)|  " + strsave[4] + "|\r\n");
+                this.memoPcap.Items.Add("|  " + kpiName[4] + "  |" + kpi[4] + "|\r\n");
                 this.memoPcap.Items.Add("--------------------------------------\r\n");
             }
             

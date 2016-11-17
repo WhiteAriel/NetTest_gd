@@ -162,7 +162,7 @@ namespace NetTest
 
 
             //数据库对象初始化
-            mysqlTest = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname"));
+            mysqlTest = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname"), null);
             if (mysqlTest.MysqlInit(inis.IniReadValue("Mysql", "dbname")))
                 mysqlTestFlag = true;
             this.RealTimechart();

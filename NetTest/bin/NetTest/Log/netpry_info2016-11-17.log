@@ -1,0 +1,35 @@
+2016-11-17 09:44:31,310 INFO  - 数据初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-11-17 09:44:31,399 INFO  - 软件使用时限过期！请获取完整版！
+2016-11-17 09:44:31,408 INFO  - 数据库所有表格创建成功!
+2016-11-17 09:44:32,737 INFO  - video Task Thread Start!
+2016-11-17 09:44:32,738 INFO  - web Task Thread Start!
+2016-11-17 09:44:39,536 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-11-17 10:12:21,639 INFO  - 软件使用时限过期！请获取完整版！
+2016-11-17 10:12:22,928 INFO  - video Task Thread Start!
+2016-11-17 10:12:22,931 INFO  - web Task Thread Start!
+2016-11-17 10:17:04,795 INFO  - 数据初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-11-17 10:17:04,891 INFO  - 软件使用时限过期！请获取完整版！
+2016-11-17 10:17:11,048 INFO  - video Task Thread Start!
+2016-11-17 10:17:11,049 INFO  - web Task Thread Start!
+2016-11-17 10:20:10,016 INFO  - 数据初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-11-17 10:21:19,506 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-11-17 10:21:19,624 INFO  - 软件使用时限过期！请获取完整版！
+2016-11-17 10:21:25,700 INFO  - video Task Thread Start!
+2016-11-17 10:21:25,701 INFO  - web Task Thread Start!
+2016-11-17 10:33:53,673 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-11-17 10:33:53,785 INFO  - 软件使用时限过期！请获取完整版！
+2016-11-17 10:33:53,794 INFO  - 数据库所有表格创建成功!
+2016-11-17 10:33:55,123 INFO  - video Task Thread Start!
+2016-11-17 10:33:55,124 INFO  - web Task Thread Start!
+2016-11-17 10:35:21,922 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-11-17 10:35:22,027 INFO  - 软件使用时限过期！请获取完整版！
+2016-11-17 10:35:22,036 INFO  - 数据库所有表格创建成功!
+2016-11-17 10:35:23,286 INFO  - video Task Thread Start!
+2016-11-17 10:35:23,289 INFO  - web Task Thread Start!
+2016-11-17 10:36:01,915 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-11-17 10:36:36,253 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-11-17 10:37:47,171 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-11-17 10:37:47,275 INFO  - 软件使用时限过期！请获取完整版！
+2016-11-17 10:37:56,589 INFO  - 数据库所有表格创建成功!
+2016-11-17 10:37:57,910 INFO  - video Task Thread Start!
+2016-11-17 10:37:57,912 INFO  - web Task Thread Start!

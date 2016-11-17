@@ -60,16 +60,16 @@ namespace NetTest
         public frmMain()
         {
             InitializeComponent();
-            mysqlInit = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname"));
+            mysqlInit = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname"), null);
             if (mysqlInit.MysqlInit(inis.IniReadValue("Mysql", "dbname")))
             {
                 mysqlFlag = true;
-                Log.Info(string.Format("数据初始化成功!IP:{0};User:{1};Passwd:{2};DBName:{3}", inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname")));
+                Log.Info(string.Format("数据库初始化成功!IP:{0};User:{1};Passwd:{2};DBName:{3}", inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname")));
             }
             else
             {
                 mysqlFlag = false;
-                Log.Warn(string.Format("数据初始化成功!IP:{0};User:{1};Passwd:{2};DBName:{3}", inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname")));
+                Log.Warn(string.Format("数据库初始化失败!IP:{0};User:{1};Passwd:{2};DBName:{3}", inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname")));
             }
         }
 

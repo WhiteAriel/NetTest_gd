@@ -219,7 +219,7 @@ namespace NetTest
             InitializeComponent();
             this.RealTimechart();
             datalist.Clear();
-            mysqlWeb = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname"));
+            mysqlWeb = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname"), null);
             if (mysqlWeb.MysqlInit(inis.IniReadValue("Mysql", "dbname")))
                 mysqlWebFlag = true;
         }
@@ -242,7 +242,7 @@ namespace NetTest
             {
                 Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
             }
-            if (WrongReason != null )
+            if (WrongReason != null)
             {
                 if (!serverTest)
                 {
@@ -252,7 +252,7 @@ namespace NetTest
                 else
                     Log.Error(WrongReason);
             }
-            
+
             btnStartAnaly.Enabled = true;
             btnWebSelCap.Enabled = true;
             isSelectPcap = false;
@@ -323,51 +323,51 @@ namespace NetTest
 
         public void StartTerminalAnalyzeFunc()
         {
-                    //清除Excel进程
-                    analyzeOn = true;
-                    Process[] p = Process.GetProcessesByName("EXCEL");
-                    if (p.Length > 0)
-                    {
-                        for (int i = 0; i < p.Length; i++)
-                        {
-                            p[i].CloseMainWindow();
-                            p[i].Kill();
-                        }
-                    }
-                    if (isSelectPcap == false)              //如果没有在分析之前选择pcap文件时读取上一次的文件
-                    {
-                        PcapFileName = inis.IniReadValue("Flv", "PcapFile");
-                        TxtFileName = inis.IniReadValue("Flv", "PlayerFile");
-                    }
+            //清除Excel进程
+            analyzeOn = true;
+            Process[] p = Process.GetProcessesByName("EXCEL");
+            if (p.Length > 0)
+            {
+                for (int i = 0; i < p.Length; i++)
+                {
+                    p[i].CloseMainWindow();
+                    p[i].Kill();
+                }
+            }
+            if (isSelectPcap == false)              //如果没有在分析之前选择pcap文件时读取上一次的文件
+            {
+                PcapFileName = inis.IniReadValue("Flv", "PcapFile");
+                TxtFileName = inis.IniReadValue("Flv", "PlayerFile");
+            }
 
 
-                    if (!File.Exists(PcapFileName))
-                    {
-                        MessageBox.Show("找不到数据包文件：" + PcapFileName);
-                        Log.Warn("找不到数据包文件");
-                        return;
-                    }
+            if (!File.Exists(PcapFileName))
+            {
+                MessageBox.Show("找不到数据包文件：" + PcapFileName);
+                Log.Warn("找不到数据包文件");
+                return;
+            }
 
-                    IsAnalysed = true;    //是否进行了分析
-                    WrongReason = null;   //清空错误信息
-                    //清空图表
-                    this.InitChart();
-                    this.InitListView();
-                    //清空上次计算的平均值
-                    AverValue.InitValue();
+            IsAnalysed = true;    //是否进行了分析
+            WrongReason = null;   //清空错误信息
+            //清空图表
+            this.InitChart();
+            this.InitListView();
+            //清空上次计算的平均值
+            AverValue.InitValue();
 
-                    btnStartAnaly.Enabled = false;
-                    btnWebSelCap.Enabled = false;
+            btnStartAnaly.Enabled = false;
+            btnWebSelCap.Enabled = false;
 
-                    try
-                    {
-                        setParseTrd = new Thread(new ThreadStart(ParsePacket));
-                        setParseTrd.Start();
-                    }
-                    catch (System.Exception ex)
-                    {
-                        Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
-                    }
+            try
+            {
+                setParseTrd = new Thread(new ThreadStart(ParsePacket));
+                setParseTrd.Start();
+            }
+            catch (System.Exception ex)
+            {
+                Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
+            }
         }
 
         public void btnStartAnaly_Click(object sender, EventArgs e)
@@ -1660,6 +1660,7 @@ namespace NetTest
             int index = selectIndex;
             double scale = timeScale[index];
             string tmpfileName = "LinkAnal.tmp";
+            string fileName = "InOut.txt";
             int SumLine = 0;
 
             //创建临时文本文件 
@@ -1694,6 +1695,14 @@ namespace NetTest
 
             //创建文件读流
             StreamReader sr = new StreamReader(tmpfileName);
+
+
+            FileStream fstream = new FileStream(fileName, FileMode.Create);
+            StreamWriter sw = new StreamWriter(fstream, Encoding.Default);
+            sw.Write("序号\t时间\t流量\n");
+            int ind = 1;
+
+
             string strLine = sr.ReadLine();
             int counter = 1;
             //设置图像曲线上点的横纵坐标
@@ -1712,6 +1721,13 @@ namespace NetTest
                 lvsi = new ListViewItem.ListViewSubItem();
                 lvsi.Text = strLine;
                 lvi.SubItems.Add(lvsi);
+
+                //写入inout.txt
+                sw.Write("{0}\t{1}\t{2}\n", ind++, ((counter - 1) * scale).ToString(), strLine);
+
+
+
+
                 //吞吐量最值
                 if (Convert.ToDouble(strLine) >= MaxInOut)
                     MaxInOut = Convert.ToDouble(strLine);
@@ -1732,6 +1748,8 @@ namespace NetTest
 
             }
             sr.Close();
+            sw.Close();
+            fstream.Close();
 
             //计算吞吐量均值
             if (SumLine > 0)
@@ -1793,6 +1811,11 @@ namespace NetTest
             //此处还要修改********************************************************************
             //mysqlWeb.TxTInsertMySQL("InOutAnalysis", currentId + "#" + "Video",tmpfileName);
             //删除临时文件
+
+
+            if (mysqlWebFlag && serverTest)
+                mysqlWeb.TxTInsertMySQL("InOutAnalysis", currentId + "#" + "Video", Application.StartupPath + "\\" + fileName);
+
 #if RELEASE
             File.Delete(tmpfileName);
 #endif
@@ -1828,6 +1851,7 @@ namespace NetTest
         {
             //清空帧长分布列表
             LVFrameLength.Items.Clear();
+            string tmpfileName = "FrameLength.txt";
 
             string[] strRange = new string[] { "0-100", "100-200", "200-300", "300-400",
                 "400-500", "500-600", "600-700", "700-800", "800-900", "900-1000", "1000-1514"};
@@ -1863,6 +1887,27 @@ namespace NetTest
             ChartFrameLength.Series["帧长分布"].Points.DataBindXY(strRange, yValue);
             ChartFrameLength.Invalidate();
 
+
+            //重新生成txt
+            //FILE* fp = fopen(tmpfileName, "wt");
+            FileStream fs = new FileStream(tmpfileName, FileMode.Create);
+            StreamWriter sw = new StreamWriter(fs, Encoding.Default);
+            sw.Write("序号\t帧长范围\t数量\t比率\n");
+
+            //fprintf(fp, "序号\t帧长范围\t数量\t比率\n");
+            int index = 1;
+            for (int i = 0; i < 11; i++)
+            {
+
+                sw.Write("{0}\t{1}\t{2}\t{3}\n", index++, strRange[i], rangeCount[i], (rangeCount[i] * 100.0 / totalPacketCnt).ToString("F2") + "%");
+            }
+            sw.Close();
+            fs.Close();
+
+
+
+            if (mysqlWebFlag && serverTest)
+                mysqlWeb.TxTInsertMySQL("FrameLengthAnalysis", currentId + "#" + "Video", Application.StartupPath + "\\" + tmpfileName);
             return true;
         }
 
@@ -1952,7 +1997,7 @@ namespace NetTest
                 }
 
                 lv[linecount] = new ListViewItem();
-                lv[linecount].Text = str[2];
+                lv[linecount].Text = str[1];
 
                 //求延时抖动最值
                 if (Convert.ToDouble(str[3]) >= MaxDelay)
