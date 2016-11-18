@@ -1,0 +1,6 @@
+2016-11-18 09:13:02,063 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-11-18 09:13:02,150 INFO  - 软件使用时限过期！请获取完整版！
+2016-11-18 09:13:02,173 INFO  - 数据库所有表格创建成功!
+2016-11-18 09:13:03,825 INFO  - video Task Thread Start!
+2016-11-18 09:13:03,825 INFO  - web Task Thread Start!
+2016-11-18 09:14:26,055 INFO  - It's serverTask!

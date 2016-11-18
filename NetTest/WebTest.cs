@@ -755,10 +755,17 @@ namespace NetTest
             List<string> kpiName = new List<string>();
 
             strbFile.Append("--------------------------------------\r\n");
-            strbFile.Append("|  量 化 指 标  |  数  值  |  评  分  |\r\n");
+            strbFile.Append("|  量 化 指 标  |  数  值  |\r\n");
             strbFile.Append("--------------------------------------\r\n");
             strbFile.Append("|  业务延时(秒)    |  " + ts2.ToString("F2") + "|\r\n");
             strbFile.Append("--------------------------------------\r\n");
+
+            this.memoPcap.Items.Add("--------------------------------------\r\n");
+            this.memoPcap.Items.Add("|  量 化 指 标  |  数  值 |\r\n");
+            this.memoPcap.Items.Add("--------------------------------------\r\n");
+            this.memoPcap.Items.Add("|  业务延时(秒) |  " + ts2.ToString("F2") + "|\r\n");
+            this.memoPcap.Items.Add("--------------------------------------\r\n");
+
             while (strLine!=null)
             {
                 str = strLine.Split(new Char[] { '\t' });
@@ -776,7 +783,6 @@ namespace NetTest
             }
             srPacket.Close();
             fsPacket.Close();
-            //Log.Console(strsave.Count.ToString());
             if (kpi.Count == 5 && kpiName.Count==5)
             {
                 strbFile.Append("|  " + kpiName[0] + "  |" + kpi[0] + "|\r\n");
@@ -789,12 +795,7 @@ namespace NetTest
                 strbFile.Append("--------------------------------------\r\n");
                 strbFile.Append("|  " + kpiName[4] + "  |" + kpi[4] + "|\r\n");
                 strbFile.Append("--------------------------------------\r\n");
-
-                this.memoPcap.Items.Add("--------------------------------------\r\n");
-                this.memoPcap.Items.Add("|  量 化 指 标  |  数  值  |  评  分  |\r\n");
-                this.memoPcap.Items.Add("--------------------------------------\r\n");
-                this.memoPcap.Items.Add("|  业务延时(秒) |  " + ts2.ToString("F2") + "|\r\n");
-                this.memoPcap.Items.Add("--------------------------------------\r\n");
+               
                 this.memoPcap.Items.Add("|  " + kpiName[0] + "  |" + kpi[0] + "|\r\n");
                 this.memoPcap.Items.Add("--------------------------------------\r\n");
                 this.memoPcap.Items.Add("|  " + kpiName[1] + "  |" + kpi[1] + "|\r\n");
@@ -805,10 +806,76 @@ namespace NetTest
                 this.memoPcap.Items.Add("--------------------------------------\r\n");
                 this.memoPcap.Items.Add("|  " + kpiName[4] + "  |" + kpi[4] + "|\r\n");
                 this.memoPcap.Items.Add("--------------------------------------\r\n");
-            }
-            
 
+            }
         }
+
+
+        private double WebScore(double[] pra)
+        {
+            if (pra.Length == 6)
+            {
+                double[] praScore = new double[6];
+                //业务延时
+                if (pra[0] <= 2.0)
+                    praScore[0] = 100.0;
+                else if (pra[0] <= 10.0)
+                    praScore[0] = 100.0 - (pra[0] - 2.0) * 5.0;
+                else
+                    praScore[0] = 100.0 - (10.0 - 2.0) * 5.0 - (pra[0] - 10.0) * 10.0;
+                if (praScore[0] < 0.0) praScore[0] = 0.0;
+                //Tcp重传率
+                if (pra[1] <= 0.2)
+                    praScore[1] = 100.0;
+                else if (pra[1] <= 0.5)
+                    praScore[1] = 100.0 - ((pra[1] - 0.2) / 0.1) * 5.0;
+                else
+                    praScore[1] = 100.0 - ((0.5 - 0.2) / 0.1) * 5.0 - ((pra[1] - 0.5) / 0.1) * 10.0;
+                if (praScore[1] < 0.0) praScore[1] = 0.0;
+                //Tcp并发特性
+                if (pra[2] <= 0.5)
+                    praScore[2] = 100.0;
+                else if (pra[2] <= 1.0)
+                    praScore[2] = 100.0 - ((pra[2] - 0.5) / 0.1) * 5.0;
+                else
+                    praScore[2] = 100.0 - ((1.0 - 0.5) / 0.1) * 5.0 - ((pra[2] - 1.0) / 0.1) * 10.0;
+                if (praScore[2] < 0.0) praScore[2] = 0.0;
+                //HTTP延时
+                if (pra[3] <= 50.0)
+                    praScore[3] = 100.0;
+                else if (pra[3] <= 80.0)
+                    praScore[3] = 100.0 - ((pra[3] - 50.0) / 10.0) * 2.0;
+                else
+                    praScore[3] = 100.0 - ((80.0 - 50.0) / 10.0) * 2.0 - ((pra[3] - 80.0) / 10.0) * 5.0;
+                if (praScore[3] < 0.0) praScore[3] = 0.0;
+                //Dns响应延迟
+                if (pra[4] <= 50.0)
+                    praScore[4] = 100.0;
+                else if (pra[4] <= 80.0)
+                    praScore[4] = 100.0 - ((pra[4] - 50.0) / 10.0) * 5.0;
+                else
+                    praScore[4] = 100.0 - ((80.0 - 50.0) / 10.0) * 5.0 - ((pra[4] - 80.0) / 10.0) * 10.0;
+                if (praScore[4] < 0.0) praScore[4] = 0.0;
+                //Dns响应成功率
+                if (pra[5] >= 99.99)
+                    praScore[5] = 100.0;
+                else if (pra[5] >= 99.9)
+                    praScore[5] = 100.0 - ((99.99 - pra[5]) / 0.1) * 5.0;
+                else
+                    praScore[5] = 100.0 - ((99.99 - 99.9) / 0.1) * 5.0 - ((99.9 - pra[5]) / 0.1) * 10.0;
+                if (praScore[5] < 0) praScore[5] = 0.0;
+
+                double webScore = 0.2 * praScore[0] + 0.2 * praScore[1] + 0.1 * praScore[2] + 0.2 * praScore[3] + 0.2 * praScore[4] + 0.1 * praScore[5];
+                return webScore;
+            }
+            return 0.0;
+        }
+
+
+
+
+
+
 
         /******************************************************************************
            worker
