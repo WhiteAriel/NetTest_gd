@@ -71,7 +71,7 @@ namespace NetTest
         Thread searchWebUrl = null;
         //c#调用python的引擎
         //更新网站的引擎
-        string path = @"findIeUrl2.py";
+        static string path = @"findIeUrl2.py";
         static ScriptEngine engine =null; 
         static ScriptScope scope =null;
         //更新地址的引擎
@@ -325,7 +325,7 @@ namespace NetTest
             int tmpThreshold = int.Parse(this.textThreshold.Text);
             if (tmpThreshold < 4)
                 this.textThreshold.Text = "4";
-            else if (tmpThreshold > 20)
+            else if (tmpThreshold > 40)
                 this.textThreshold.Text = "40";
             inis.IniWriteValue("Flv", "Threshold", (this.textThreshold.Text).ToString());
             threshold = int.Parse(this.textThreshold.Text);   //检测超时门限

@@ -353,14 +353,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NetTest.exe" size="578560">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NetTest.exe" size="570368">
       <assemblyIdentity name="NetTest" version="1.0.1.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>lmU+1XEXCJtoZY3EdAzoYRq5Y6k=</dsig:DigestValue>
+        <dsig:DigestValue>NrEJyWwoRUyMz8WUygPoO8dDX38=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

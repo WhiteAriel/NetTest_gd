@@ -38,13 +38,15 @@ namespace ParseandBuildJson                    //¸ÃÃüÃû¿Õ¼äÓÃÓÚ½âÎöÖÕ¶ËÈÎÎñÏÂ·¢Ê
         public string Type;
         public string Url;
         public string BatchNo;
+        public string UrlType;
 
-        public AttributeJson(string a, string b, string c,string d)
+        public AttributeJson(string Id, string Type, string Url, string BatchNo, string UrlType)
         {
-            this.Id = a;
-            this.Type = b;
-            this.Url = c;
-            this.BatchNo = d;
+            this.Id = Id;
+            this.Type = Type;
+            this.Url = Url;
+            this.BatchNo = BatchNo;
+            this.UrlType = UrlType;
         }
 
     }
@@ -52,9 +54,9 @@ namespace ParseandBuildJson                    //¸ÃÃüÃû¿Õ¼äÓÃÓÚ½âÎöÖÕ¶ËÈÎÎñÏÂ·¢Ê
     public class RetJson
     {
         public string Id;
-        public int ErrorCode;
+        public string ErrorCode;
         public string Message;
-        public RetJson(string Id, int ErrorCode, string Message)
+        public RetJson(string Id, string ErrorCode, string Message)
         {
             this.Id = Id;
             this.ErrorCode = ErrorCode;
@@ -121,8 +123,10 @@ namespace ParseandBuildJson                    //¸ÃÃüÃû¿Õ¼äÓÃÓÚ½âÎöÖÕ¶ËÈÎÎñÏÂ·¢Ê
             }
         }
 
-        static public string BuildJson(string Id, int ErrorCode, string Message)   //ÈÎÎñÖ´ĞĞ·µ»ØÊı¾İjson¸ñÊ½
+        static public string BuildJson(string Id, string ErrorCode, string Message)   //ÈÎÎñÖ´ĞĞ·µ»ØÊı¾İjson¸ñÊ½
         {
+            if (string.IsNullOrEmpty(Message))
+                Message = "";
             RetJson retJson = new RetJson(Id, ErrorCode, Message);
             return JsonConvert.SerializeObject(retJson);;
         }

@@ -1,0 +1,15 @@
+2016-11-29 21:40:52,490 INFO  - 软件使用时限过期！请获取完整版！
+2016-11-29 21:40:54,323 INFO  - video Task Thread Start!
+2016-11-29 21:40:54,324 INFO  - web Task Thread Start!
+2016-11-29 21:44:50,971 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-11-29 21:44:51,119 INFO  - 软件使用时限过期！请获取完整版！
+2016-11-29 21:44:51,255 INFO  - 数据库所有表格创建成功!
+2016-11-29 21:44:53,064 INFO  - video Task Thread Start!
+2016-11-29 21:44:53,067 INFO  - web Task Thread Start!
+2016-11-29 21:45:41,263 INFO  - It's serverTask!
+2016-11-29 21:47:47,037 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-11-29 21:47:47,214 INFO  - 软件使用时限过期！请获取完整版！
+2016-11-29 21:47:47,225 INFO  - 数据库所有表格创建成功!
+2016-11-29 21:47:49,060 INFO  - video Task Thread Start!
+2016-11-29 21:47:49,063 INFO  - web Task Thread Start!
+2016-11-29 21:47:50,440 INFO  - It's serverTask!

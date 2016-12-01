@@ -20,7 +20,9 @@ using System.Net;
 using MultiMySQL;
 using RC.Core.Sockets;
 using NetLog;
-
+using IronPython.Hosting;
+using Microsoft.Scripting.Hosting;
+using Newtonsoft.Json;
 
 
 namespace NetTest
@@ -53,9 +55,14 @@ namespace NetTest
 
         //第一次扫描条件
         bool firstScan = true;
+        private string pythonPath = @"findIeUrl2.py";
+        private ScriptEngine taskEngine = null;
+        private ScriptScope taskScope = null;
 
-
-
+        //解析真实地址线程返回值
+        int parseThreadRet = -2;
+        //解析真实地址线程使用的临时地址
+        string parseThreadUrlTem = "";
 
         public frmMain()
         {
@@ -71,6 +78,18 @@ namespace NetTest
                 mysqlFlag = false;
                 Log.Warn(string.Format("数据库初始化失败!IP:{0};User:{1};Passwd:{2};DBName:{3}", inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname")));
             }
+            //调用python爬虫获取真实地址
+            try
+            {
+                taskEngine = Python.CreateEngine();
+                taskScope = taskEngine.CreateScope();
+            }
+            catch (System.Exception ex)
+            {
+                Log.Error(ex.ToString());
+                Log.Console(ex.ToString());
+            }
+            
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -272,7 +291,7 @@ namespace NetTest
                         if (mysqlFlag)
                         {
                             for (int listcount = 0; listcount < taskList.Count; listcount++)
-                                mysqlInit.TaskListInsertMySQL(taskList[listcount].BatchNo + "#" + taskList[listcount].Id + "#" + taskList[listcount].Type + "#" + taskList[listcount].Url + "#" + serverIp);
+                                mysqlInit.TaskListInsertMySQL(taskList[listcount].BatchNo + "#" + taskList[listcount].Id + "#" + taskList[listcount].Type + "#" + taskList[listcount].UrlType+"#"+  taskList[listcount].Url + "#" + serverIp);
                         }
                         taskList.Clear();
                         break;
@@ -322,13 +341,13 @@ namespace NetTest
                     webTest1.serverTest = true;   //服务器任务
                     webAnalyse1.serverTest = true;
                     if (mysqlFlag)
-                        mysqlInit.UpdateTaskListColumn("ActionStatus", 3, "TaskId=" + "'" + webTask.taskId + "'");  //读取任务后状态改成等待
+                        mysqlInit.UpdateTaskListColumn("ActionStatus", "3", "TaskId=" + "'" + webTask.taskId + "'");  //读取任务后状态改成等待
                     webTest1.WebServerTaskStartFunc();   //在结束条件下能自动调用停止函数，//内部做了阻塞等待
                     webTest1.serverTest = false;   //服务器任务结束
                     webAnalyse1.WebServerAnalyzeStartFunc();  //内部做了阻塞等待
                     webAnalyse1.serverTest = false;
                     if (mysqlFlag)
-                        mysqlInit.UpdateTaskListColumn("ActionStatus", 4, "TaskId=" + "'" + webTask.taskId + "'");  //读取任务后状态改成等待
+                        mysqlInit.UpdateTaskListColumn("ActionStatus", "4", "TaskId=" + "'" + webTask.taskId + "'");  //读取任务后状态改成等待
                     Thread.Sleep(4000);
                 }
                 else
@@ -353,31 +372,171 @@ namespace NetTest
                     {
                         videoTask = videoTaskQue.Dequeue();
                     }
+					                    //不是真实地址
+                    if (videoTask.taskUrlType == 1)
+                    {
+                        parseThreadUrlTem = videoTask.taskUrl;
+                        Thread ParseUrlTh = new Thread(ParseServerReal);
+                        ParseUrlTh.Start();
+                        ParseUrlTh.Join(10000);
+                        if (ParseUrlTh.IsAlive)
+                        {
+                            ParseUrlTh.Abort();
+                            if (mysqlFlag)
+                            {
+                                //增加错误备注
+                                mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
+                                mysqlInit.UpdateTaskListColumn("Remarks", "解析真实地址超时", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
+                            }
+                            continue;
+                        }
+                        if (parseThreadRet == -1)
+                        {
+                            if (mysqlFlag)
+                            {
+                                //增加错误备注
+                                mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
+                                mysqlInit.UpdateTaskListColumn("Remarks", "解析真实地址出现异常", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
+                            }
+                            continue;
+                        }
+                        else if (parseThreadRet == 0)
+                        {
+                            if (mysqlFlag)
+                            {
+                                //增加错误备注
+                                mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
+                                mysqlInit.UpdateTaskListColumn("Remarks", "无法获取视频真实地址", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
+                            }
+                            continue;
+                        }
+                        else if (parseThreadRet == 1)
+                        {
+                            string returnUriTmp = "test.txt";
+                            List<string> returnUrl = new List<string>();   //将python接出来的地址放在list中
+                            returnUrl = JsonConvert.DeserializeObject<List<string>>(System.IO.File.ReadAllText(returnUriTmp));
+                            if (returnUrl.Count > 0)
+                            {
+                                //视频第一小段地址
+                                inis.IniWriteValue("Flv", "urlPage", returnUrl[0]);    //urlPage视频播放器获取的真实地址key
+                            }
+                            else
+                            {
+                                if (mysqlFlag)
+                                {
+                                    //增加错误备注
+                                    mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
+                                    mysqlInit.UpdateTaskListColumn("Remarks", "无法获取视频真实地址", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
+                                }
+                                continue;
+                            }
+                                
+                        }                     
+                    }
+                    else if (videoTask.taskUrlType == 0 )
+                    {
+                        inis.IniWriteValue("Flv", "UrlPage", videoTask.taskUrl);
+                    }
+                    else
+                        continue;
                     inis.IniWriteValue("Task", "currentVideoId", videoTask.taskId);
-                    Console.WriteLine("Flv start,Url:{0}", videoTask.taskUrl);
-                    inis.IniWriteValue("Flv", "UrlPage", videoTask.taskUrl);
                     flvTest1.serverTest = true;   //服务器任务
                     flvWebAnalyze1.serverTest = true;
                     if (mysqlFlag)
-                        mysqlInit.UpdateTaskListColumn("ActionStatus", 3, "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
-                    //flvTest1.startFunc();   
-                    flvTest1.StartServerTaskFunc();    //2016.11.16现在为非阻塞
-                    Log.Info("flv Test start!");
-                    //仅用于测试，1分钟后停止,实际播放器停止需要播放器的信息
-                    Thread.Sleep(60000);
-                    //flvTest1.stopFunc();    //内部做了阻塞等待
-                    flvTest1.StopServerTaskFunc();
-                    Log.Info("flv Test stop!");
+                        mysqlInit.UpdateTaskListColumn("ActionStatus", "3", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始 
+                    int taskRetCode=flvTest1.StartServerTaskFunc();   //阻塞
+                    switch (taskRetCode)
+                    {
+                        case -19996:
+                            {
+								//增加错误备注
+                                mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");  
+                                mysqlInit.UpdateTaskListColumn("Remarks", "输入的采样率小于0", "TaskId=" + "'" + videoTask.taskId + "'"); 
+                            }
+                            break;
+                        case -19997:
+                            {
+                                mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");
+                                mysqlInit.UpdateTaskListColumn("Remarks", "无效参数", "TaskId=" + "'" + videoTask.taskId + "'"); 
+                            }
+                            break;
+                        case -19998:
+                            {
+                                mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");
+                                mysqlInit.UpdateTaskListColumn("Remarks", "启动播放任务失败", "TaskId=" + "'" + videoTask.taskId + "'"); 
+                            }
+                            break;
+                        case -19999:
+                            {
+                                mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");
+                                mysqlInit.UpdateTaskListColumn("Remarks", "没有任务", "TaskId=" + "'" + videoTask.taskId + "'"); 
+                            }
+                            break;
+                        case -20000:
+                            {
+                                mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");
+                                mysqlInit.UpdateTaskListColumn("Remarks", "打开url失败", "TaskId=" + "'" + videoTask.taskId + "'"); 
+                            }
+                            break;
+                        case -20001:
+                            {
+                                mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");
+                                mysqlInit.UpdateTaskListColumn("Remarks", "打开视频流失败", "TaskId=" + "'" + videoTask.taskId + "'"); 
+                            }
+                            break;
+                        case -20002:
+                            {
+                                mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");
+                                mysqlInit.UpdateTaskListColumn("Remarks", "没有视频流", "TaskId=" + "'" + videoTask.taskId + "'"); 
+                            }
+                            break;
+                        case -20003:
+                            {
+                                mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");
+                                mysqlInit.UpdateTaskListColumn("Remarks", "无法找到编码器", "TaskId=" + "'" + videoTask.taskId + "'"); 
+                            }
+                            break;
+                        case -20004:
+                            {
+                                mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");
+                                mysqlInit.UpdateTaskListColumn("Remarks", "无法打开编码器", "TaskId=" + "'" + videoTask.taskId + "'"); 
+                            }
+                            break;
+                        case -20005:
+                            {
+                                mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");
+                                mysqlInit.UpdateTaskListColumn("Remarks", "错误的SDL间隔", "TaskId=" + "'" + videoTask.taskId + "'"); 
+                            }
+                            break;
+                        default:
+                            break;
+                    }
                     flvTest1.serverTest = false;   //服务器任务结束
-                    //flvWebAnalyze1.startFunc();
                     flvWebAnalyze1.StartServerAnalyzeFunc();
                     Log.Info("Analyze start!");
                     if (mysqlFlag)
-                        mysqlInit.UpdateTaskListColumn("ActionStatus", 4, "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成结束
+                        mysqlInit.UpdateTaskListColumn("ActionStatus", "4", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成结束
                     Thread.Sleep(4000);
                 }
                 else
                     Thread.Sleep(200);    //每200ms查询队列中是否有任务           
+            }
+        }
+
+        void ParseServerReal()
+        {
+            try
+            {
+                taskScope.SetVariable("url", parseThreadUrlTem);
+                var result = taskEngine.CreateScriptSourceFromFile(pythonPath).Execute(taskScope);
+                var ParseReal = taskEngine.GetVariable<Func<string, int>>(taskScope, "entrance2");
+                parseThreadRet = ParseReal(parseThreadUrlTem);   //0表示错误，1表示正常
+            }
+            catch (Exception ex)
+            {
+                Log.Console(Environment.StackTrace, ex); 
+                Log.Error(Environment.StackTrace, ex);
+                parseThreadRet = -1;  //  异常 
             }
         }
 
@@ -404,7 +563,7 @@ namespace NetTest
                                     string[] ipAndPort = item.serverIp.Split(':');
                                     if (ipAndPort.Length == 2)
                                     {
-                                        msg = OperateJson.BuildJson(item.taskId, item.actionStatus, "") + "<EOF>";
+                                        msg = OperateJson.BuildJson(item.taskId, item.actionStatus,item.remarks) + "<EOF>";
                                         TcpSocketClient clientSocket = new TcpSocketClient(ipAndPort[0], Int32.Parse(ipAndPort[1]));
                                         Log.Console(string.Format("{0}", item.serverIp));
                                         clientSocket.ConnectToServer();
@@ -465,7 +624,7 @@ namespace NetTest
                                             webTaskQue.Enqueue(item);
                                         else if (item.taskType == "Video")
                                             videoTaskQue.Enqueue(item);
-                                        mysqlInit.UpdateTaskListColumn("ActionStatus", 2, "TaskId=" + "'" + item.taskId + "'");  //读取任务后状态改成等待2
+                                        mysqlInit.UpdateTaskListColumn("ActionStatus", "2", "TaskId=" + "'" + item.taskId + "'");  //读取任务后状态改成等待2
                                     }
                                 }
                             }

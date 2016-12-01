@@ -1,0 +1,1281 @@
+2016-11-30 09:54:27,928 [12176] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:51) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 62
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 09:55:57,851 [11696] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:51) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 62
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 15:09:45,105 [10552] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 63
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 15:20:57,173 [9916] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 63
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 16:03:29,374 [5216] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 63
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 16:04:20,023 [11556] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 63
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 16:07:16,868 [1212] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 63
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 16:16:08,949 [10492] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 63
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 16:17:14,197 [10548] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 63
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 16:18:11,453 [11524] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 63
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 16:28:02,094 [11280] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 63
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 16:41:06,776 [7348] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 63
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 17:00:51,652 [8380] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 63
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 17:10:06,876 [4572] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 63
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 17:45:39,456 [9984] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 63
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 19:23:54,617 [6276] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 63
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 21:43:56,978 [4948] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 70
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 21:49:18,379 [9280] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 70
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 21:49:21,784 [11112] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 MultiMySQL.MySQLInterface.TaskListFilter(String filterFactor) 位置 D:\GitWork\NetTest_gd\NetTest\MySQLInterface.cs:行号 499
+   在 NetTest.frmMain.taskScanFunc() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 609
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+MySql.Data.MySqlClient.MySqlException: Unknown column 'TaskUrlType' in 'field list'
+   在 MySql.Data.MySqlClient.MySqlStream.OpenPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.ReadResult(UInt64& affectedRows, Int64& lastInsertId)
+   在 MySql.Data.MySqlClient.MySqlDataReader.GetResultSet()
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(MySqlConnection connection, String commandText, MySqlParameter[] commandParameters)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(String connectionString, String commandText, MySqlParameter[] commandParameters)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(String connectionString, String commandText)
+   在 MultiMySQL.MySQLInterface.TaskListFilter(String filterFactor) 位置 D:\GitWork\NetTest_gd\NetTest\MySQLInterface.cs:行号 472
+2016-11-30 21:49:22,184 [11036] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 MultiMySQL.MySQLInterface.TaskListFilter(String filterFactor) 位置 D:\GitWork\NetTest_gd\NetTest\MySQLInterface.cs:行号 499
+   在 NetTest.frmMain.statusUploadFunc() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 555
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+MySql.Data.MySqlClient.MySqlException: Unknown column 'TaskUrlType' in 'field list'
+   在 MySql.Data.MySqlClient.MySqlStream.OpenPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.ReadResult(UInt64& affectedRows, Int64& lastInsertId)
+   在 MySql.Data.MySqlClient.MySqlDataReader.GetResultSet()
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(MySqlConnection connection, String commandText, MySqlParameter[] commandParameters)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(String connectionString, String commandText, MySqlParameter[] commandParameters)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(String connectionString, String commandText)
+   在 MultiMySQL.MySQLInterface.TaskListFilter(String filterFactor) 位置 D:\GitWork\NetTest_gd\NetTest\MySQLInterface.cs:行号 472
+2016-11-30 21:49:24,397 [11112] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 MultiMySQL.MySQLInterface.TaskListFilter(String filterFactor) 位置 D:\GitWork\NetTest_gd\NetTest\MySQLInterface.cs:行号 499
+   在 NetTest.frmMain.taskScanFunc() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 614
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+MySql.Data.MySqlClient.MySqlException: Unknown column 'TaskUrlType' in 'field list'
+   在 MySql.Data.MySqlClient.MySqlStream.OpenPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.ReadResult(UInt64& affectedRows, Int64& lastInsertId)
+   在 MySql.Data.MySqlClient.MySqlDataReader.GetResultSet()
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(MySqlConnection connection, String commandText, MySqlParameter[] commandParameters)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(String connectionString, String commandText, MySqlParameter[] commandParameters)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(String connectionString, String commandText)
+   在 MultiMySQL.MySQLInterface.TaskListFilter(String filterFactor) 位置 D:\GitWork\NetTest_gd\NetTest\MySQLInterface.cs:行号 472
+2016-11-30 21:49:24,799 [11036] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 MultiMySQL.MySQLInterface.TaskListFilter(String filterFactor) 位置 D:\GitWork\NetTest_gd\NetTest\MySQLInterface.cs:行号 499
+   在 NetTest.frmMain.statusUploadFunc() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 555
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+MySql.Data.MySqlClient.MySqlException: Unknown column 'TaskUrlType' in 'field list'
+   在 MySql.Data.MySqlClient.MySqlStream.OpenPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.ReadResult(UInt64& affectedRows, Int64& lastInsertId)
+   在 MySql.Data.MySqlClient.MySqlDataReader.GetResultSet()
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(MySqlConnection connection, String commandText, MySqlParameter[] commandParameters)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(String connectionString, String commandText, MySqlParameter[] commandParameters)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(String connectionString, String commandText)
+   在 MultiMySQL.MySQLInterface.TaskListFilter(String filterFactor) 位置 D:\GitWork\NetTest_gd\NetTest\MySQLInterface.cs:行号 472
+2016-11-30 21:49:27,009 [11112] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 MultiMySQL.MySQLInterface.TaskListFilter(String filterFactor) 位置 D:\GitWork\NetTest_gd\NetTest\MySQLInterface.cs:行号 499
+   在 NetTest.frmMain.taskScanFunc() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 614
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+MySql.Data.MySqlClient.MySqlException: Unknown column 'TaskUrlType' in 'field list'
+   在 MySql.Data.MySqlClient.MySqlStream.OpenPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.ReadResult(UInt64& affectedRows, Int64& lastInsertId)
+   在 MySql.Data.MySqlClient.MySqlDataReader.GetResultSet()
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(MySqlConnection connection, String commandText, MySqlParameter[] commandParameters)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(String connectionString, String commandText, MySqlParameter[] commandParameters)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(String connectionString, String commandText)
+   在 MultiMySQL.MySQLInterface.TaskListFilter(String filterFactor) 位置 D:\GitWork\NetTest_gd\NetTest\MySQLInterface.cs:行号 472
+2016-11-30 21:49:27,409 [11036] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 MultiMySQL.MySQLInterface.TaskListFilter(String filterFactor) 位置 D:\GitWork\NetTest_gd\NetTest\MySQLInterface.cs:行号 499
+   在 NetTest.frmMain.statusUploadFunc() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 555
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+MySql.Data.MySqlClient.MySqlException: Unknown column 'TaskUrlType' in 'field list'
+   在 MySql.Data.MySqlClient.MySqlStream.OpenPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.ReadResult(UInt64& affectedRows, Int64& lastInsertId)
+   在 MySql.Data.MySqlClient.MySqlDataReader.GetResultSet()
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(MySqlConnection connection, String commandText, MySqlParameter[] commandParameters)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(String connectionString, String commandText, MySqlParameter[] commandParameters)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(String connectionString, String commandText)
+   在 MultiMySQL.MySQLInterface.TaskListFilter(String filterFactor) 位置 D:\GitWork\NetTest_gd\NetTest\MySQLInterface.cs:行号 472
+2016-11-30 21:49:29,619 [11112] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 MultiMySQL.MySQLInterface.TaskListFilter(String filterFactor) 位置 D:\GitWork\NetTest_gd\NetTest\MySQLInterface.cs:行号 499
+   在 NetTest.frmMain.taskScanFunc() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 614
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+MySql.Data.MySqlClient.MySqlException: Unknown column 'TaskUrlType' in 'field list'
+   在 MySql.Data.MySqlClient.MySqlStream.OpenPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.ReadResult(UInt64& affectedRows, Int64& lastInsertId)
+   在 MySql.Data.MySqlClient.MySqlDataReader.GetResultSet()
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(MySqlConnection connection, String commandText, MySqlParameter[] commandParameters)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(String connectionString, String commandText, MySqlParameter[] commandParameters)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(String connectionString, String commandText)
+   在 MultiMySQL.MySQLInterface.TaskListFilter(String filterFactor) 位置 D:\GitWork\NetTest_gd\NetTest\MySQLInterface.cs:行号 472
+2016-11-30 21:49:30,019 [11036] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 MultiMySQL.MySQLInterface.TaskListFilter(String filterFactor) 位置 D:\GitWork\NetTest_gd\NetTest\MySQLInterface.cs:行号 499
+   在 NetTest.frmMain.statusUploadFunc() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 555
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.runTryCode(Object userData)
+   在 System.Runtime.CompilerServices.RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(TryCode code, CleanupCode backoutCode, Object userData)
+   在 System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+MySql.Data.MySqlClient.MySqlException: Unknown column 'TaskUrlType' in 'field list'
+   在 MySql.Data.MySqlClient.MySqlStream.OpenPacket()
+   在 MySql.Data.MySqlClient.NativeDriver.ReadResult(UInt64& affectedRows, Int64& lastInsertId)
+   在 MySql.Data.MySqlClient.MySqlDataReader.GetResultSet()
+   在 MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   在 MySql.Data.MySqlClient.MySqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   在 System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(MySqlConnection connection, String commandText, MySqlParameter[] commandParameters)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(String connectionString, String commandText, MySqlParameter[] commandParameters)
+   在 MySql.Data.MySqlClient.MySqlHelper.ExecuteDataset(String connectionString, String commandText)
+   在 MultiMySQL.MySQLInterface.TaskListFilter(String filterFactor) 位置 D:\GitWork\NetTest_gd\NetTest\MySQLInterface.cs:行号 472
+2016-11-30 21:50:11,348 [3056] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 70
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 21:51:46,334 [7576] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 70
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 21:54:41,364 [5528] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 70
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 21:56:28,704 [3660] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 70
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92
+2016-11-30 21:57:47,644 [3528] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:52) WARN  NetWarn [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 100
+   在 NetTest.frmMain.InitializeComponent() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.Designer.cs:行号 68
+   在 NetTest.frmMain..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 70
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Reflection.TargetInvocationException: Failed to load language 'IronPython 2.6': 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。 ---> System.IO.FileNotFoundException: 未能加载文件或程序集“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35”
+   在 System.ModuleHandle.ResolveType(Int32 typeToken, RuntimeTypeHandle* typeInstArgs, Int32 typeInstCount, RuntimeTypeHandle* methodInstArgs, Int32 methodInstCount)
+   在 System.ModuleHandle.ResolveTypeHandle(Int32 typeToken, RuntimeTypeHandle[] typeInstantiationContext, RuntimeTypeHandle[] methodInstantiationContext)
+   在 System.Reflection.Module.ResolveType(Int32 metadataToken, Type[] genericTypeArguments, Type[] genericMethodArguments)
+   在 System.Reflection.CustomAttribute.FilterCustomAttributeRecord(CustomAttributeRecord caRecord, MetadataImport scope, Assembly& lastAptcaOkAssembly, Module decoratedModule, MetadataToken decoratedToken, RuntimeType attributeFilterType, Boolean mustBeInheritable, Object[] attributes, IList derivedAttributes, RuntimeType& attributeType, RuntimeMethodHandle& ctor, Boolean& ctorHasParameters, Boolean& isVarArg)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Module decoratedModule, Int32 decoratedMetadataToken, Int32 pcaCount, RuntimeType attributeFilterType, Boolean mustBeInheritable, IList derivedAttributes)
+   在 System.Reflection.CustomAttribute.GetCustomAttributes(Assembly assembly, RuntimeType caType)
+   在 System.Reflection.Assembly.GetCustomAttributes(Type attributeType, Boolean inherit)
+   在 IronPython.Runtime.PythonContext.LoadBuiltins(Dictionary`2 builtinTable, Assembly assem)
+   在 IronPython.Runtime.PythonContext.CreateBuiltinTable()
+   在 IronPython.Runtime.PythonContext..ctor(ScriptDomainManager manager, IDictionary`2 options)
+
+=== 预绑定状态信息 ===
+日志: 用户 = DADI\Administrator
+日志: DisplayName = Microsoft.Scripting.ExtensionAttribute, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35
+ (Fully-specified)
+日志: Appbase = file:///D:/GitWork/NetTest_gd/NetTest/bin/NetTest/
+日志: 初始 PrivatePath = NULL
+调用程序集: IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.vshost.exe.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v2.0.50727\config\machine.config 的计算机配置文件。
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 Microsoft.Scripting.Runtime.LanguageConfiguration.LoadLanguageContext(ScriptDomainManager domainManager, Boolean& alreadyLoaded)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.LoadLanguageContext(ScriptDomainManager manager, LanguageConfiguration config)
+   在 Microsoft.Scripting.Runtime.DlrConfiguration.TryLoadLanguage(ScriptDomainManager manager, AssemblyQualifiedTypeName providerName, LanguageContext& language)
+   在 Microsoft.Scripting.Runtime.ScriptDomainManager.GetLanguageByTypeName(String providerAssemblyQualifiedTypeName)
+   在 Microsoft.Scripting.Hosting.ScriptRuntime.GetEngineByTypeName(String assemblyQualifiedTypeName)
+   在 IronPython.Hosting.Python.GetEngine(ScriptRuntime runtime)
+   在 IronPython.Hosting.Python.CreateEngine()
+   在 NetTest.FlvSetting..ctor() 位置 D:\GitWork\NetTest_gd\NetTest\FlvSetting.cs:行号 92

@@ -20,25 +20,27 @@ namespace MultiMySQL
         public double screenstatic;
         public double screenjump;
         public double screenfuzzy;
-        public videoPara(double a, double b, double c, double d, double e, double f, double g, double h)
+        public videoPara(double clarity, double brightness, double Chroma, double saturation, double Contrast, double screenstatic, double screenjump, double screenfuzzy)
         {
-            this.clarity = a;
-            this.brightness = b;
-            this.Chroma = c;
-            this.saturation = d;
-            this.Contrast = e;
-            this.screenstatic = f;
-            this.screenjump = g;
-            this.screenfuzzy = h;
+            this.clarity = clarity;
+            this.brightness = brightness;
+            this.Chroma = Chroma;
+            this.saturation = saturation;
+            this.Contrast = Contrast;
+            this.screenstatic = screenstatic;
+            this.screenjump = screenjump;
+            this.screenfuzzy = screenfuzzy;
         }
     }
     class TaskItems
     {
         public string taskId { get; set; }
         public string taskType { get; set; }
+        public int taskUrlType { get; set; }
         public string taskUrl { get; set; }
         public string serverIp { get; set; }
-        public int actionStatus { get; set; }
+        public string actionStatus { get; set; }
+        public string remarks { get; set; }
     }
     class MySQLInterface
     {
@@ -255,7 +257,7 @@ namespace MultiMySQL
         {
             try
             {
-                string creatTaskList = "create table IF NOT EXISTS TaskList(TaskIndex INT  primary key auto_increment,BatchNo VARCHAR(20) not null,TaskId VARCHAR(36) not null,TaskType VARCHAR(10) not null,TaskUrl VARCHAR(2083) not null,ServerIp VARCHAR(20) not null,SyncStatus INT not null,ActionStatus INT not null);";
+                string creatTaskList = "create table IF NOT EXISTS TaskList(TaskIndex INT  primary key auto_increment,BatchNo VARCHAR(20) not null,TaskId VARCHAR(36) not null,TaskType VARCHAR(10) not null,TaskUrlType INT not null,TaskUrl VARCHAR(2083) not null,ServerIp VARCHAR(20) not null,SyncStatus VARCHAR(5) not null,ActionStatus VARCHAR(5) not null,Remarks VARCHAR(100));";
                 //MySqlCommand creattable = new MySqlCommand(creatTaskList, mycon);//auto_increment
                 //creattable.ExecuteNonQuery();
                 MySqlHelper.ExecuteNonQuery(conString, creatTaskList);
@@ -431,18 +433,18 @@ namespace MultiMySQL
 
 
         //插入单条任务列表
-        public bool TaskListInsertMySQL(string batchnoIdTypeUrlIp)
+        public bool TaskListInsertMySQL(string batchnoIdTypeRealUrlIp)
         {
             try
             {
-                string[] value = batchnoIdTypeUrlIp.Split(new char[] { '#' });
-                if (value.Length != 5)
+                string[] value = batchnoIdTypeRealUrlIp.Split(new char[] { '#' });
+                if (value.Length != 6)
                 {
                     errorInfo = errorInfo + " Input values fail!";
                     return false;
                 }
                 //1#22c80fcd7c-f010-4fd9-b8a4-d5207f980642#Video#http://data.vod.itc.cn/?rb=1&p.mp4#192.168.50.120:16201
-                string sqlInsert = "insert into TaskList(BatchNo,TaskId,TaskType,TaskUrl,ServerIp,SyncStatus,ActionStatus)" + " values(" + "'" + value[0] + "','" + value[1] + "','" + value[2] + "','" + value[3] + "','" + value[4] + "','-1','1')";
+                string sqlInsert = "insert into TaskList(BatchNo,TaskId,TaskType,TaskUrlType,TaskUrl,ServerIp,SyncStatus,ActionStatus)" + " values(" + "'" + value[0] + "','" + value[1] + "','" + value[2] + "','" + value[3] + "','" + value[4] + "','" + value[5] + "','-1','1')";
                 //MySqlCommand Inserttable = new MySqlCommand(sqlInsert, mycon);
                 //Inserttable.ExecuteNonQuery();
                 MySqlHelper.ExecuteNonQuery(conString, sqlInsert);
@@ -464,7 +466,7 @@ namespace MultiMySQL
             {
                 lock (mysqlFilterLock)
                 {
-                    string selec = "select TaskId,TaskType,TaskUrl,ServerIp,ActionStatus from  TaskList where " + filterFactor;//limit 0,2;
+                    string selec = "select TaskId,TaskType,TaskUrlType,TaskUrl,ServerIp,ActionStatus,Remarks from  TaskList where " + filterFactor;//limit 0,2;
                     //MySqlCommand tablefilter = new MySqlCommand(selec, mycon);//auto_increment
                     //MySqlDataReader re = tablefilter.ExecuteReader();
                     DataSet dataSet = MySqlHelper.ExecuteDataset(conString, selec);
@@ -475,14 +477,16 @@ namespace MultiMySQL
                     List<TaskItems> taskItemsList = new List<TaskItems>();
                     foreach (DataRow drow in dtResult.Rows)
                     {
-                        if (dtResult.Columns.Count == 5)
+                        if (dtResult.Columns.Count == 7)
                         {
                             TaskItems taskItems = new TaskItems();
                             taskItems.taskId = drow[0].ToString();
                             taskItems.taskType = drow[1].ToString();
-                            taskItems.taskUrl = drow[2].ToString();
-                            taskItems.serverIp = drow[3].ToString();
-                            taskItems.actionStatus = Int32.Parse(drow[4].ToString());
+                            taskItems.taskUrlType = Int32.Parse(drow[2].ToString());
+                            taskItems.taskUrl = drow[3].ToString();
+                            taskItems.serverIp = drow[4].ToString();
+                            taskItems.actionStatus = drow[5].ToString();
+                            taskItems.remarks = drow[6].ToString();
                             taskItemsList.Add(taskItems);
                         }
                     }
@@ -498,14 +502,14 @@ namespace MultiMySQL
             }
         }
 
-        public bool UpdateTaskListColumn(string column, int value, string filterSQL)
+        public bool UpdateTaskListColumn(string column, string value, string filterSQL)
         {
             try
             {
                 lock (mysqlUpdateLock)
                 {
                     //update table1 set field1=value1 where 范围
-                    string updateSQL = "update TaskList set " + column + "=" + value + " where " + filterSQL;//limit 0,2";
+                    string updateSQL = "update TaskList set " + column + "='" + value + "' where " + filterSQL;//limit 0,2";
                     //MySqlCommand updSQL = new MySqlCommand(updateSQL, mycon);//auto_increment
                     //updSQL.ExecuteNonQuery();
                     MySqlHelper.ExecuteNonQuery(conString, updateSQL);

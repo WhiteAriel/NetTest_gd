@@ -1,4 +1,0 @@
-序号	客户端	交互	URL	服务器	版本	响应延时
-1	192.168.50.113:13087	GET	/?rb=1&prot=1&key=jbZhEJhlqlUN-Wj_HEI8BjaVqKNFvDrn&prod=flash&pt=1&new=/30/4/9h59R6u5kgAh2D920UjG0T.mp4	121.46.19.90:80	HTTP/1.1	0.053472
-2	192.168.50.113:13088	GET	/30/4/9h59R6u5kgAh2D920UjG0T.mp4?key=0PaC3TL2TEa1Vfuv9YzCpXR73MfCguaU&n=1&a=1601&cip=59.172.176.89&pt=1&rb=1&prod=flash	121.63.247.132:80	HTTP/1.1	0.022774
-3	192.168.50.113:13089	GET	/sohu/s26h23eab6/xdispatch/sohu.vod.qingcdn.com/30/4/9h59R6u5kgAh2D920UjG0T.mp4?key=0PaC3TL2TEa1Vfuv9YzCpXR73MfCguaU&n=1&a=1601&cip=59.172.176.89&pt=1&rb=1&prod=flash	121.63.247.134:80	HTTP/1.1	0.077643

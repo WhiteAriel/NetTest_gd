@@ -2044,3 +2044,46 @@ C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTes
 C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\bin\NetTest\Interop.VBIDE.dll
 C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Release\NetTest.exe.manifest
 C:\Users\Administrator\Desktop\RequestBusi（20161028）\Request Busi\obj\Release\NetTest.application
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.exe.config
+D:\GitWork\NetTest_gd\NetTest\obj\Release\Interop.Microsoft.Office.Core.dll
+D:\GitWork\NetTest_gd\NetTest\obj\Release\Interop.Shell32.dll
+D:\GitWork\NetTest_gd\NetTest\obj\Release\Interop.VBIDE.dll
+D:\GitWork\NetTest_gd\NetTest\obj\Release\Request Busi.csproj.ResolveComReference.cache
+D:\GitWork\NetTest_gd\NetTest\obj\Release\NetTest.exe
+D:\GitWork\NetTest_gd\NetTest\obj\Release\NetTest.pdb
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\findIeUrl.py
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\findIeUrl2.py
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\parseUrl.py
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.exe.manifest
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.application
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.exe
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\NetTest.pdb
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\csExWB.dll
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\CSockets.dll
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\FTPCom.dll
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\log4net.dll
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\MIMEParser.dll
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\MySql.Data.dll
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\Newtonsoft.Json.dll
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\OpenPOP.dll
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\SQLite.NET.dll
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\Newtonsoft.Json.pdb
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\Newtonsoft.Json.xml
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\Interop.Microsoft.Office.Core.dll
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\Interop.Shell32.dll
+D:\GitWork\NetTest_gd\NetTest\bin\NetTest\Interop.VBIDE.dll
+D:\GitWork\NetTest_gd\NetTest\obj\Release\ResolveAssemblyReference.cache
+D:\GitWork\NetTest_gd\NetTest\obj\Release\NetTest.FlvWebAnalyze.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Release\NetTest.FlvTest.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Release\NetTest.FlvSetting.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Release\NetTest.frmAbout.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Release\NetTest.frmMain.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Release\NetTest.frmTips.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Release\NetTest.Properties.Resources.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Release\NetTest.WebAnalyse.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Release\NetTest.WebSettings.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Release\NetTest.WebTest.resources
+D:\GitWork\NetTest_gd\NetTest\obj\Release\Request Busi.csproj.GenerateResource.Cache
+D:\GitWork\NetTest_gd\NetTest\obj\Release\NetTest.exe.licenses
+D:\GitWork\NetTest_gd\NetTest\obj\Release\NetTest.exe.manifest
+D:\GitWork\NetTest_gd\NetTest\obj\Release\NetTest.application

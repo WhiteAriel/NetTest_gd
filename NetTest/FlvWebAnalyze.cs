@@ -429,7 +429,7 @@ namespace NetTest
                 sReader = new StreamReader(path, Encoding.Default);
                 while ((lineContent = sReader.ReadLine()) != null)
                 {
-                    TransferFiles.SendVarData(lineContent + "\n");
+                   
                 }
                 sReader.Close();
             }
@@ -444,61 +444,6 @@ namespace NetTest
             }
 
             return;
-        }
-
-        class TransferFiles
-        {
-
-            public TransferFiles()
-            {
-
-            }
-
-            public static int SendVarData(string data) // return integer indicate how many data sent.
-            {
-                byte[] info = System.Text.Encoding.Default.GetBytes(data);
-                if (FlvTest.hasClient)
-                {
-                    try
-                    {
-                        FlvTest.mysock.Send(info);
-                    }
-                    catch (System.Exception ex)
-                    {
-                        //MessageBox.Show(ex.Message.ToString());
-                        Log.Error(Environment.StackTrace, ex);
-                    }
-                }
-
-
-                return 0;
-            }
-
-            public static byte[] ReceiveVarData(Socket s) // return array that store the received data.
-            {
-                int total = 0;
-                int recv;
-                byte[] datasize = new byte[4];
-                recv = s.Receive(datasize, 0, 4, SocketFlags.None);//receive the size of data array for initialize a array.
-                int size = BitConverter.ToInt32(datasize, 0);
-                int dataleft = size;
-                byte[] data = new byte[size];
-
-                while (total < size)
-                {
-                    recv = s.Receive(data, total, dataleft, SocketFlags.None);
-                    if (recv == 0)
-                    {
-                        data = null;
-                        break;
-                    }
-                    total += recv;
-                    dataleft -= recv;
-                }
-
-                return data;
-
-            }
         }
 
 

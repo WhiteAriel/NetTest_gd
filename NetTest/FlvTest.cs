@@ -27,7 +27,28 @@ using MultiMySQL;
 using NetLog;
 
 namespace NetTest
-{
+{   
+    //需要确定播放器端的内存对齐字节数
+    [StructLayoutAttribute(LayoutKind.Sequential, CharSet = CharSet.Unicode, Pack = 4)]
+    public struct ParaStuct
+    {
+        public ulong videotime;		//视频时刻
+        public int systime;			//系统时间
+        public int still; 				//静帧	
+        public int blur;				//模糊
+        public int skip;				//跳帧
+        public int black;				//黑场
+        public int definition;			//清晰度
+        public int brightness;			//亮度
+        public int chroma;				//色度
+        public int saturation;			//饱和度
+        public int contraction;		//对比度
+        public int dev;				///标准差
+        public int entro;				//熵
+        public double block;			//块效应值
+        public double highenerge;		//高频分量
+    };  
+
 
     public partial class FlvTest : DevExpress.XtraEditors.XtraUserControl
     {
@@ -39,10 +60,6 @@ namespace NetTest
         public volatile  bool taskon = false;    //表示任务没有运行
         public volatile bool serverTest = false;   //表示执行的是服务器任务还是终端自己的任务
 
-
-        ArrayList player_list = new ArrayList();    //保存播放器进程信息
-        ArrayList port_list = new ArrayList();      //保存播放器的端口号
-
         private int iTest = 0;              //连续播放了多少次
         private static int intCheckContinuous;     //是否连续播放
         private static int iNumContinuous = 0;     //连续播放总次数
@@ -52,35 +69,29 @@ namespace NetTest
         public int iDevice = 0;                 //网卡索引
         public int lastPlayerIndex = 0;
         public LibPcapLiveDevice device;
-        private ArrayList StartTimeList = new ArrayList();           //开始测试的时间
+        private DateTime StartTime =new DateTime();         //开始测试的时间
 
         private string strPlayFile;         //qoe文件
         private string strLogResult = null;
         private string strXlsLogFile;       //log file path (xls file(xls格式) path)
-        private ArrayList strbFileList = new ArrayList();    //contents of log file (content of xls file)
+        private StringBuilder strbFile = new StringBuilder();    //contents of log file (content of xls file)
         private StringBuilder ScoreParam = new StringBuilder();  //百分制参数提取
 
         public static bool DoTest = false;
-        public bool IsStartPlay;
-        public bool StartStopTest;
 
         private static PacketCap pcap_packet;
 
-
         private MySQLInterface mysqlTest = null;
         private bool mysqlTestFlag = false;
-        //判断一定时间内是否进程管道有数据过来的定时器
-        System.Timers.Timer myTimer;
 
+        //事件用来控制阻塞
+        private AutoResetEvent videoEndEvent = new AutoResetEvent(true); 
+        private int videoHandle = 0;  //StartPlay函数的句柄，需要保存便于停止 
 
-        //播放视频文件
-        private BackgroundWorker m_AsyncWorker = new BackgroundWorker();
-        //管道线程列表，每个播放器对应一个单独的管道
-        ArrayList pipeList = new ArrayList();
         //抓包进程
         private BackgroundWorker m_AsyncWorker_cap = new BackgroundWorker();
 
-        private double Definition;          //清晰度
+        /*private double Definition;          //清晰度
         private double Brightness;          //亮度
         private double Color;               //色度
         private double Saturation;          //饱和度
@@ -88,34 +99,7 @@ namespace NetTest
 
         private int Static = 0;              //静帧
         private int Skip = 0;                //跳帧
-        private int Blur = 0;                //模糊
-
-        //[DllImport("user32.dll", EntryPoint = "GetWindowThreadProcessId", SetLastError = true,CharSet = CharSet.Unicode, ExactSpelling = true,CallingConvention = CallingConvention.StdCall)]
-        //private static extern long GetWindowThreadProcessId(long hWnd, long lpdwProcessId);
-
-        //[DllImport("user32.dll", SetLastError = true)]
-        //private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-
-        //[DllImport("user32.dll", EntryPoint = "GetWindowLongA", SetLastError = true)]
-        //private static extern long GetWindowLong(IntPtr hwnd, int nIndex);
-
-        //[DllImport("user32.dll", EntryPoint = "SetWindowLongA", SetLastError = true)]
-        //private static extern long SetWindowLong(IntPtr hwnd, int nIndex, long dwNewLong);
-
-        //[DllImport("user32.dll", SetLastError = true)]
-        //private static extern long SetWindowPos(IntPtr hwnd, long hWndInsertAfter, long x, long y, long cx, long cy, long wFlags);
-
-        //[DllImport("user32.dll", EntryPoint = "PostMessageA", SetLastError = true)]
-        //private static extern bool PostMessage(IntPtr hwnd, uint Msg, long wParam, long lParam);
-
-        //[DllImport("user32.dll")]
-        //public static extern void SetForegroundWindow(IntPtr hwnd);
-
-        //[DllImport("user32.dll")]
-        //public static extern long SetWindowPos(long hwnd, long hWndInsertAfter, long X, long y, long cx, long cy, long wFlagslong);
-
-        //[DllImport("user32.dll", CharSet = CharSet.Auto)]
-        //public static extern IntPtr SendMessage(IntPtr hwnd, int msg, int wParam, int lParam);
+        private int Blur = 0;                //模糊*/
 
         [DllImport("user32.dll", SetLastError = true)]
         private static extern long SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
@@ -126,21 +110,20 @@ namespace NetTest
         [DllImport("VideoScore.dll")]
         public static extern double vScore(string strlog, string result, int width, int height);
 
-        //[DllImport("CapturePacket.dll")]
-        //public static extern int StartCapture(int intf, string filename);
-
-        //[DllImport("CapturePacket.dll")]
-        //public static extern void StopCapture();
-
-        //[DllImport("CapturePacket.dll")]
-        //public static extern ushort GetPortByPID(int pid);
-
         [DllImport("CapturePacket.dll")]
         public static extern int StartDispatch(int n, string ini);
 
         [DllImport("user32.dll", EntryPoint = "ShowWindow", SetLastError = true)]
         public static extern bool ShowWindow(IntPtr hwnd, uint cmdshow);
 
+
+        //播放器封装
+        [DllImport("VideoPlayer.dll")]
+        public static extern int StartPlay(string url, IntPtr hwnd, VideoCallBack cb, IntPtr user_data,int sample);
+
+        [DllImport("VideoPlayer.dll")]
+        public static extern int StopPlay(int handle);
+        
         /******************************************************************************
            init the user components FlvTest 
         /*******************************************************************************/
@@ -149,9 +132,6 @@ namespace NetTest
             InitializeComponent();
 
             //将几个自定义函数的句柄分配给BackgroundWorker的DoWork、RunWorkerCompleted事件
-            m_AsyncWorker.WorkerSupportsCancellation = true;
-            m_AsyncWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bwAsync_RunWorkerCompleted);
-            m_AsyncWorker.DoWork += new DoWorkEventHandler(bwAsync_DoWork);
 
             m_AsyncWorker_cap.WorkerSupportsCancellation = true;
             m_AsyncWorker_cap.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bwAsync_cap_RunWorkerCompleted);
@@ -160,6 +140,7 @@ namespace NetTest
             Control.CheckForIllegalCrossThreadCalls = false;
             DoTest = false;
 
+            videoEndEvent.Reset();
 
             //数据库对象初始化
             mysqlTest = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname"), null);
@@ -227,242 +208,12 @@ namespace NetTest
                     return;
                 }
             }
-
-            //播放器所在目录
-            inis.IniWriteValue("Flv", "Player", Application.StartupPath + "\\VideoPlayer");
-            //获取播放器信息
-            strPlayer = inis.IniReadValue("Flv", "Player") + "\\VLCDialog.exe";
-            //this.dataGridView1.Visible = false;
-
             if (iDevice < 0)
             {
                 iDevice = 0;
             }
             pcap_packet = new PacketCap(iDevice);
 
-            //命名管道定时器
-            myTimer = new System.Timers.Timer(1000);//定时周期50毫秒
-            myTimer.Elapsed += myTimer_Elapsed;//到2秒了做的事件
-            myTimer.AutoReset = false; //是否不断重复定时器操作
-
-        }
-
-
-        //50毫秒后的定时器操作
-        void myTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            gaugeContainer1.Values["Default"].Value = 100;
-        }
-
-        /******************************************************************************
-        pipe worker
-        /*******************************************************************************/
-        private void bwAsync_pipe_DoWork(object sender, DoWorkEventArgs e)     //完成后引发bwAsync_pipe_RunWorkerCompleted
-        {
-            BackgroundWorker bw = sender as BackgroundWorker;
-            bool createVideoPara = false;
-            if (mysqlTestFlag)
-                createVideoPara = mysqlTest.CreatVideoPara();
-            videoPara vp = new videoPara();
-            string ipandtype = inis.IniReadValue("Task", "currentVideoId") + "#" + "Video";
-            try
-            {
-                //新建管道
-                NamedPipeServerStream pipeServer = new NamedPipeServerStream("MyPipe", PipeDirection.InOut, 10);
-                //等待连接
-                pipeServer.WaitForConnection();
-                //读管道流
-                StreamReader sr = new StreamReader(pipeServer);
-
-                //记录管道传送数据
-                char[] buffer = new char[256];
-                int n;
-
-                string[] arrErro = new string[5];
-                Queue<string> qTime = new Queue<string>();
-                Queue<int> qStatic = new Queue<int>();     //静止
-                Queue<int> qSkip = new Queue<int>();      //跳帧
-                Queue<int> qBlur = new Queue<int>();      //模糊
-
-                bool cleared = false;
-                while (pipeServer.IsConnected)
-                {
-
-                    n = sr.Read(buffer, 0, buffer.Length);  //这个Read是个阻塞函数，很明显在该程序里播放器回传的抽样参数间隔是大于while循环的，所以网络在中断的时候Read函数是不返回的
-                    myTimer.Enabled = false; //喂狗，时间超过1s认为视频不播放
-                    if (n == 0)
-                    {
-                        if (pipeServer != null)
-                        {
-                            if (pipeServer.IsConnected)
-                            {
-                                pipeServer.Disconnect();
-                                Thread.Sleep(1000);//必须延迟，等待管道内的while循环探测到连接断开，不再进行数据读写
-                            }
-                            pipeServer.Close();
-                        }
-
-                        return;
-                    }
-
-                    string x = null;
-                    for (int i = 0; i <= n - 1; i++)
-                    {
-                        x += buffer[i].ToString();      //x为记录数据的长字符串
-                    }
-
-                    char[] seper = { '\t', ' ' };
-                    string[] ld = x.Split(seper);      //将x中数据按"\t"作为分隔，提取地数据存入ld数组
-
-                    if (ld.Length >= 13)          //人为设置，假设ld中数据长度大于13则开始播放
-                    {
-                        myTimer.Enabled = true;  //开启看门狗
-                        IsStartPlay = true;
-
-                        if (IsStartPlay && !vlcStart)
-                        {
-                            startTime = DateTime.Now;
-                            vlcStart = true;
-                        }
-
-                        //仪表和曲线图清理
-                        if (!cleared)
-                        {
-                            chart1.Invoke(clearDataDel, this.chart1);
-                            chart2.Invoke(clearDataDel, this.chart2);
-                            chart3.Invoke(clearDataDel, this.chart3);
-                            chart4.Invoke(clearDataDel, this.chart4);
-                            chart5.Invoke(clearDataDel, this.chart5);
-                            this.Static = 0;
-                            this.Skip = 0;
-                            this.Blur = 0;
-                            cleared = true;
-                        }
-
-                        //更新曲线图，获取数据
-                        this.Definition = Convert.ToDouble(ld[7 - 1]);        //ld[7-1]: ld数组第一行第七列的元素
-                        this.Brightness = Convert.ToDouble(ld[8 - 1]);
-                        this.Color = Convert.ToDouble(ld[9 - 1]);
-                        this.Saturation = Convert.ToDouble(ld[10 - 1]);
-                        this.Contrast = Convert.ToDouble(ld[11 - 1]);
-
-                        vp.clarity = this.Definition;
-                        vp.brightness = this.Brightness;
-                        vp.Chroma = this.Color;
-                        vp.saturation = this.Saturation;
-                        vp.Contrast = this.Saturation;
-
-                        chart1.Invoke(addDataDel, this.chart1, this.Definition);     //清晰度
-                        chart2.Invoke(addDataDel, this.chart2, this.Brightness);    //亮度
-                        chart3.Invoke(addDataDel, this.chart3, this.Color);          //色度
-                        chart4.Invoke(addDataDel, this.chart4, this.Saturation);    //饱和度
-                        chart5.Invoke(addDataDel, this.chart5, this.Contrast);      //对比度
-                        frameNum++;
-
-                        //更新仪表盘（队列操作）
-                        DateTime time = DateTime.Now;
-                        arrErro[0] = time.ToLongTimeString();
-
-                        int offset = 2;
-                        for (int i = offset; i <= offset + 3; i++)
-                        {
-                            arrErro[i + 1 - offset] = ld[i];
-                        }
-
-                        qTime.Enqueue(arrErro[0]);
-                        qStatic.Enqueue(Convert.ToInt32(arrErro[1]));
-                        qSkip.Enqueue(Convert.ToInt32(arrErro[2]));
-                        qBlur.Enqueue(Convert.ToInt32(arrErro[3]));
-
-                        this.Static += Convert.ToInt32(arrErro[1]);
-                        this.Skip += Convert.ToInt32(arrErro[2]);
-                        this.Blur += Convert.ToInt32(arrErro[3]);
-
-                        string videoInfo = null;
-                        if (qTime.Count > 0)
-                        {
-                            double thrSencond = 5;
-                            for (; Convert.ToDateTime(qTime.Peek()).AddSeconds(thrSencond) <= Convert.ToDateTime(arrErro[0]) && qTime.Count > 1; qTime.Dequeue())
-                            {
-                                this.Static -= qStatic.Dequeue();
-                                this.Skip -= qSkip.Dequeue();
-                                this.Blur -= qBlur.Dequeue();
-                            }
-                            gaugeContainer1.Values["Default"].Value = vp.screenstatic = ((double)this.Static) / qTime.Count * 100;
-                            gaugeContainer2.Values["Default"].Value = vp.screenjump = ((double)this.Skip) / qTime.Count * 100;
-                            gaugeContainer3.Values["Default"].Value = vp.screenfuzzy = ((double)this.Blur) / qTime.Count * 100;
-
-                            videoInfo = "3-" + this.Definition.ToString() + "-" + this.Brightness + "-" + this.Color + "-" + this.Saturation + "-" +
-                        this.Contrast + "-" + (Convert.ToInt32(((double)this.Static) / qTime.Count * 100)).ToString() + "-" + (Convert.ToInt32(((double)this.Skip) / qTime.Count * 100)).ToString() +
-                        "-" + (Convert.ToInt32(((double)this.Blur) / qTime.Count * 100)).ToString();
-
-                            //记录插入mysql表中VideoPara
-                            if (createVideoPara == true && serverTest)
-                                mysqlTest.VideoParaInsertMySQL(ipandtype, vp);
-                        }
-                        else
-                        {
-                            videoInfo = "3-" + this.Definition.ToString() + "-" + this.Brightness + "-" + this.Color + "-" + this.Saturation + "-" +
-                        this.Contrast + "-" + "0" + "-" + "0" + "-" + "0";
-                        }
-
-                    }
-
-                    if (bw.CancellationPending)
-                    {
-                        e.Cancel = true;
-                        if (pipeServer != null)
-                        {
-                            if (pipeServer.IsConnected)
-                            {
-                                pipeServer.Disconnect();
-                                Thread.Sleep(1000);//必须延迟，等待管道内的while循环探测到连接断开，不再进行数据读写
-                            }
-                            pipeServer.Close();
-
-                        }
-                        //释放定时器资源
-                        myTimer.Close(); //释放Timer占用的资源
-                        myTimer.Dispose();
-                        return;
-                    }
-                }
-            }
-            catch (IOException ioEx)
-            {
-                DisplayState(ioEx.Message);
-
-            }
-            catch (Exception ex)
-            {//    此处很容易出错，认真研究
-                Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
-                DisplayState(" 命名管道被主程序销毁！");
-                return;
-            }
-            //释放定时器资源
-            myTimer.Close(); //释放Timer占用的资源
-            myTimer.Dispose();
-        }
-
-        /******************************************************************************
-           pipe worker instance complete
-        /*******************************************************************************/
-        private void bwAsync_pipe_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (e.Error != null)
-            {
-                DisplayState("命名管道错误");
-                return;
-            }
-
-            // Check to see if the background process was cancelled.
-            if (e.Cancelled)
-            {
-                //if (this.m_pipeServer != null)
-                //    this.m_pipeServer.Close();
-                DisplayState("命名管道撤销");
-                return;
-            }
         }
 
         /******************************************************************************
@@ -509,12 +260,10 @@ namespace NetTest
 
         }
 
-        //Thread auotoStopThread = null;
-
         /******************************************************************************
            start the test single or loop, the main process call WebTesting() 
         /*******************************************************************************/
-        public void StartServerTaskFunc()   //兼容服务器任务和终端任务，如果终端任务在执行，服务器任务等待
+        public int StartServerTaskFunc()   //如果终端任务在执行，服务器任务等待
         {
             while (true)
             {
@@ -531,23 +280,11 @@ namespace NetTest
                         Log.Warn("错误的视频解析地址,请重新设置!");
                         this.btnFlvStart.Enabled = true;
                         this.btnFlvStop.Enabled = false;
-                        return;
+                        return -1;
                     }
 
                     this.iTest++;
-
-                    timer1.Enabled = true;
-                    timer1.Start();
-
-                    vlcStart = false;
-                    startTime = DateTime.Now;
-
                     frameNum = 1;
-
-                    //播放器还未开始播放，也即播放器画面中还没有数据
-                    this.IsStartPlay = false;
-                    //设置停止测试的标示位
-                    this.StartStopTest = false;
 
                     //指定播放日志文件、xls文件、抓包文件名
                     string strtmp = null;
@@ -598,12 +335,169 @@ namespace NetTest
                         memoPcap.Items.Clear();
                     }
                     this.ClearDns();
-                    this.FlvTesting();
-                    break;
+                    int flvTestRet=this.FlvTesting();
+                    if (flvTestRet == 0)
+                    {
+                        videoEndEvent.WaitOne();   //wait for end of stream
+                        StopServerTaskFunc();
+                        return 0;
+                    }
+                    else
+                        return flvTestRet;
                 }
                 else
                     Thread.Sleep(2000);  //wait 2s if handon task is running 
             }
+        }
+
+        /******************************************************************************
+          interrupt the test whether loop or not 
+       /*******************************************************************************/
+        public void StopServerTaskFunc()
+        {
+            //stop button的设置
+            this.btnFlvStart.Enabled = true;
+            this.btnFlvStop.Enabled = false;
+
+            //停止播放，关掉播放器，退出抓包、播放、管道进程
+            this.StopClosePlayer();
+
+            Thread.Sleep(500);
+
+            inis.IniWriteValue("Flv", "counts", iTest.ToString());
+            //播放次数置零
+            iTest = 0;
+
+            //memoPcap信息输出
+            DateTime EndTime = DateTime.Now;
+            memoPcap.Items.Clear();
+
+            //清空检测静帧跳帧模糊的表盘
+            this.ClearGuageData();
+
+            TimeSpan ts = EndTime - StartTime;
+            float ts2 = ts.Seconds + (float)ts.Milliseconds / 1000;
+
+            //无参考模式的打分，输出打分结果
+            string strpcap = inis.IniReadValue("Flv", "PcapFile");
+            strbFile.Append("测试结束,耗时 " + ts.Minutes + "分 " + ts2.ToString() + "秒" + "\r\n");
+            strbFile.Append("抓包文件: " + strpcap + "\r\n");
+            DisplayState("抓包文件: " + strpcap + "创建\r\n");
+
+            //对参数文件处理，给出评分
+            /*string strfScore = "qoe_score.txt";   //这个文件只有在正常测试的时候才会有
+            if (File.Exists(strfScore))     //删除的是上一次测试的qoe_score.txt文件
+            {
+                File.Delete(strfScore);
+            }
+            Thread.Sleep(500);*/
+
+            ////打分
+            //try
+            //{
+            //    double score = this.UnRefScore(i + 1, strfScore);      //成功调用UnRefScore函数后会生成本次测试的qoe_score.txt文件
+            //    StreamWriter ResultTmp = new StreamWriter(File.Create("ResultTxt.tmp"), Encoding.Default);
+            //    //临时总结报告文件，用于满足特定的格式压入数据库
+            //    ResultTmp.Write("Index\tColumn\tValue\r\n");
+            //    int resultIndex = 0;
+            //    if (score >= 0 && score <= 10)
+            //    {
+            //        int index = this.dataGridView1.Rows.Add();
+            //        this.dataGridView1.Rows[index].Cells[0].Value = i + 1;
+            //        this.dataGridView1.Rows[index].Cells[1].Value = inis.IniReadValue("Flv", "Envir");
+            //        this.dataGridView1.Rows[index].Cells[2].Value = (score * 10).ToString().Substring(0, 5);
+            //        FileStream fs1 = new FileStream(strfScore, FileMode.Open, FileAccess.Read);
+            //        StreamReader sr1 = new StreamReader(fs1, Encoding.Default);
+            //        sr1.ReadLine();    //可以查看qoe_score.txt的格式
+            //        int[] columns = { 7, 5, 2, 5, 5, 2, 4 };
+            //        string videoInfo = null;
+            //        string[] infoNames = null;
+            //        string[] infoValues = null;
+            //        for (int ind = 0; ind < columns.Length; ind++)
+            //        {
+            //            videoInfo = sr1.ReadLine();
+            //            infoNames = videoInfo.Split('\t');
+            //            videoInfo = sr1.ReadLine();
+            //            infoValues = videoInfo.Split('\t');
+            //            if (infoNames.Length == columns[ind] && infoNames.Length == infoValues.Length)
+            //            {
+            //                for (int k = 0; k < infoNames.Length; k++)
+            //                    ResultTmp.WriteLine((++resultIndex).ToString() + "\t" + infoNames[k] + "\t" + infoValues[k]);
+            //            }
+            //        }
+            //        //视觉缺陷-指标评分(100分制):	98.60
+            //        //块效应-高频分量评分(100分制):	47.80
+            //        int[] column2s = { 2, 2 };
+            //        for (int j = 0; j < column2s.Length; j++)
+            //        {
+            //            videoInfo = sr1.ReadLine();
+            //            infoNames = videoInfo.Split(':');
+            //            if (infoNames.Length == 2)
+            //                ResultTmp.WriteLine((++resultIndex).ToString() + "\t" + infoNames[0] + infoNames[1]);
+            //        }
+            //        //综合评分(100分制):	63.04
+            //        videoInfo = sr1.ReadLine();
+            //        infoNames = videoInfo.Split(':');
+            //        if (infoNames.Length == 2)
+            //            ResultTmp.WriteLine((++resultIndex).ToString() + "\tVideoScore" + infoNames[1]);
+            //        sr1.Close();
+            //        fs1.Close();
+            //        ResultTmp.Close();
+            //    }
+            //    else
+            //    {
+            //        int index = this.dataGridView1.Rows.Add();
+            //        this.dataGridView1.Rows[index].Cells[0].Value = i + 1;
+            //        this.dataGridView1.Rows[index].Cells[1].Value = inis.IniReadValue("Flv", "Envir");
+            //        this.dataGridView1.Rows[index].Cells[2].Value = 0;
+            //    }
+
+            //}
+            //catch (System.Exception ex)
+            //{
+            //    Log.Error(Environment.StackTrace, ex);
+            //}
+
+            //播放结束,写xls文件
+            strbFile.Append("测试结束\r\n");
+            //获取评分模块处理结果,写入xls文件缓存
+            /*if (File.Exists(strfScore))       //将本次测试生成的qoe_score.txt中的内容写入strbFile
+            {
+                strbFile.Append("\r\n");
+                FileStream fs1 = new FileStream(strfScore, FileMode.Open, FileAccess.Read);
+                StreamReader sr = new StreamReader(fs1, Encoding.Default);
+                strbFile.Append(sr.ReadToEnd());
+                sr.Close();
+                fs1.Close();
+            }*/
+
+            //写入xls(txt格式)文件
+            string strLogResult = strpcap.Replace(".pcap", "-log.txt");
+            if (File.Exists(strLogResult))
+            {
+                File.Delete(strLogResult);
+            }
+            FileStream fs3 = new FileStream(strLogResult, FileMode.Create, FileAccess.Write);
+            StreamWriter sw3 = new StreamWriter(fs3, Encoding.Default);
+            sw3.Write(strbFile);
+            sw3.Close();
+            fs3.Close();
+            DisplayState("日志文件:" + strLogResult + "生成成功\r\n");
+            DisplayState("测试结束,耗时 " + ts.Minutes + "分 " + ts.ToString() + "秒" + "\r\n");
+            DisplayState("---------------测试完成---------------\r\n");
+
+            comboBox1.Items.Clear();
+            comboBox1.Text = "";
+            this.dataGridView1.Visible = true;
+            //设置正在测试的标示位
+            DoTest = false;
+            //停止控制，为了不让手动和自动冲突
+            taskon = false;
+        }
+
+        private void btnFlvStart_Click(object sender, EventArgs e)
+        {
+            StartTerminalTaskFunc();
         }
 
         public void StartTerminalTaskFunc()   //兼容服务器任务和终端任务，如果终端任务在执行，服务器任务等待
@@ -623,17 +517,7 @@ namespace NetTest
                     }
 
                     this.iTest++;
-
-                    timer1.Enabled = true;
-                    timer1.Start();
-                    vlcStart = false;
-                    startTime = DateTime.Now;
                     frameNum = 1;
-
-                    //播放器还未开始播放，也即播放器画面中还没有数据
-                    this.IsStartPlay = false;
-                    //设置停止测试的标示位
-                    this.StartStopTest = false;
 
                     //指定播放日志文件、xls文件、抓包文件名
                     string strtmp = null;
@@ -684,263 +568,22 @@ namespace NetTest
                         memoPcap.Items.Clear();
                     }
                     this.ClearDns();
-                    this.FlvTesting();
+                    if (this.FlvTesting() < 0)  //播放异常
+                    {
+                        PlayException();
+                    }
         }
 
-        private void btnFlvStart_Click(object sender, EventArgs e)
+        private void btnFlvStop_Click(object sender, EventArgs e)
         {
-            //startFunc();
-            StartTerminalTaskFunc();
+            StopTerminalTaskFunc();
         }
-
-        /******************************************************************************
-           interrupt the test whether loop or not 
-        /*******************************************************************************/
-        public void StopServerTaskFunc()
-        {
-            //stop button的设置
-            this.btnFlvStart.Enabled = true;
-            this.btnFlvStop.Enabled = false;
-            //设置停止测试标识位
-            StartStopTest = true;
-
-            //停止播放，关掉播放器，退出抓包、播放、管道进程
-            this.StopClosePlayer();
-
-            Thread.Sleep(500);
-
-            inis.IniWriteValue("Flv", "counts", iTest.ToString());
-            //播放次数置零
-            iTest = 0;
-            timer1.Stop();
-            timer1.Enabled = false;
-
-            //memoPcap信息输出
-            DateTime dtEnd = DateTime.Now;
-            memoPcap.Items.Clear();
-
-            //清空检测静帧跳帧模糊的表盘
-            this.ClearGuageData();
-
-
-            if (inis.IniReadValue("Flv", "Envir").Equals("web"))
-            {
-                //无参考模式的打分，输出打分结果
-                for (int i = 0; i <= port_list.Count; i++)
-                {
-                    //将播放器的端口号写入配置文件，供分包程序使用
-                    //ushort port = (ushort)(port_list[i]);
-                    //inis.IniWriteValue("port", "test" + (i + 1), Convert.ToString(port));
-
-                    DateTime dtStart = (DateTime)(StartTimeList[i]);
-                    StringBuilder strbFile = (StringBuilder)(strbFileList[i]);
-                    //string strpcap = inis.IniReadValue("result", "test" + (i + 1));
-                    string strpcap = inis.IniReadValue("Flv", "PcapFile");
-                    TimeSpan ts = dtEnd - dtStart;
-                    float ts2 = ts.Seconds + (float)ts.Milliseconds / 1000;
-
-                    strbFile.Append("测试结束,耗时 " + ts.Minutes + "分 " + ts2.ToString() + "秒" + "\r\n");
-                    strbFile.Append("抓包文件: " + strpcap + "\r\n");
-                    DisplayState("抓包文件: " + strpcap + "创建\r\n");
-
-                    //对参数文件处理，给出评分
-                    string strfScore = "qoe_score.txt";   //这个文件只有在正常测试的时候才会有
-                    if (File.Exists(strfScore))     //删除的是上一次测试的qoe_score.txt文件
-                    {
-                        File.Delete(strfScore);
-                    }
-                    Thread.Sleep(500);
-
-                    //打分
-                    try
-                    {
-                        double score = this.UnRefScore(i + 1, strfScore);      //成功调用UnRefScore函数后会生成本次测试的qoe_score.txt文件
-                        StreamWriter ResultTmp = new StreamWriter(File.Create("ResultTxt.tmp"), Encoding.Default);
-                        //临时总结报告文件，用于满足特定的格式压入数据库
-                        ResultTmp.Write("Index\tColumn\tValue\r\n");
-                        int resultIndex = 0;
-                        if (score >= 0 && score <= 10)
-                        {
-                            int index = this.dataGridView1.Rows.Add();
-                            this.dataGridView1.Rows[index].Cells[0].Value = i + 1;
-                            this.dataGridView1.Rows[index].Cells[1].Value = inis.IniReadValue("Flv", "Envir");
-                            this.dataGridView1.Rows[index].Cells[2].Value = (score * 10).ToString().Substring(0, 5);
-                            FileStream fs1 = new FileStream(strfScore, FileMode.Open, FileAccess.Read);
-                            StreamReader sr1 = new StreamReader(fs1, Encoding.Default);
-                            sr1.ReadLine();    //可以查看qoe_score.txt的格式
-                            int[] columns = { 7, 5, 2, 5, 5, 2, 4 };
-                            string videoInfo = null;
-                            string[] infoNames = null;
-                            string[] infoValues = null;
-                            for (int ind = 0; ind < columns.Length; ind++)
-                            {
-                                videoInfo = sr1.ReadLine();
-                                infoNames = videoInfo.Split('\t');
-                                videoInfo = sr1.ReadLine();
-                                infoValues = videoInfo.Split('\t');
-                                if (infoNames.Length == columns[ind] && infoNames.Length == infoValues.Length)
-                                {
-                                    for (int k = 0; k < infoNames.Length; k++)
-                                        ResultTmp.WriteLine((++resultIndex).ToString() + "\t" + infoNames[k] + "\t" + infoValues[k]);
-                                }
-                            }
-                            //视觉缺陷-指标评分(100分制):	98.60
-                            //块效应-高频分量评分(100分制):	47.80
-                            int[] column2s = { 2, 2 };
-                            for (int j = 0; j < column2s.Length; j++)
-                            {
-                                videoInfo = sr1.ReadLine();
-                                infoNames = videoInfo.Split(':');
-                                if (infoNames.Length == 2)
-                                    ResultTmp.WriteLine((++resultIndex).ToString() + "\t" + infoNames[0] + infoNames[1]);
-                            }
-                            //综合评分(100分制):	63.04
-                            videoInfo = sr1.ReadLine();
-                            infoNames = videoInfo.Split(':');
-                            if (infoNames.Length == 2)
-                                ResultTmp.WriteLine((++resultIndex).ToString() + "\tVideoScore" + infoNames[1]);
-                            sr1.Close();
-                            fs1.Close();
-                            ResultTmp.Close();
-                        }
-                        else
-                        {
-                            int index = this.dataGridView1.Rows.Add();
-                            this.dataGridView1.Rows[index].Cells[0].Value = i + 1;
-                            this.dataGridView1.Rows[index].Cells[1].Value = inis.IniReadValue("Flv", "Envir");
-                            this.dataGridView1.Rows[index].Cells[2].Value = 0;
-                        }
-
-                    }
-                    catch (System.Exception ex)
-                    {
-                        Log.Error(Environment.StackTrace, ex);
-                    }
-
-
-
-                    //播放结束,写xls文件
-                    strbFile.Append("测试被用户中断\r\n");
-                    //获取评分模块处理结果,写入xls文件缓存
-                    if (File.Exists(strfScore))       //将本次测试生成的qoe_score.txt中的内容写入strbFile
-                    {
-                        strbFile.Append("\r\n");
-                        FileStream fs1 = new FileStream(strfScore, FileMode.Open, FileAccess.Read);
-                        StreamReader sr = new StreamReader(fs1, Encoding.Default);
-                        strbFile.Append(sr.ReadToEnd());
-                        sr.Close();
-                        fs1.Close();
-                    }
-
-                    //写入xls(txt格式)文件
-                    string strLogResult = strpcap.Replace(".pcap", "-log.txt");
-                    if (File.Exists(strLogResult))
-                    {
-                        File.Delete(strLogResult);
-                    }
-                    FileStream fs3 = new FileStream(strLogResult, FileMode.Create, FileAccess.Write);
-                    StreamWriter sw3 = new StreamWriter(fs3, Encoding.Default);
-                    sw3.Write(strbFile);
-                    sw3.Close();
-                    fs3.Close();
-                    DisplayState("日志文件:" + strLogResult + "生成成功\r\n");
-                }
-            }
-            else
-            {
-                //for (int i = 0; i < StartTimeList.Count; i++)
-                //{
-                //    DateTime dtStart = (DateTime)(StartTimeList[i]);
-                //    StringBuilder strbFile = (StringBuilder)(strbFileList[i]);
-                //    string strpcap = inis.IniReadValue("result", "test" + (i + 1));
-                //    TimeSpan ts = dtEnd - dtStart;
-                //    float ts2 = ts.Seconds + (float)ts.Milliseconds / 1000;
-
-                //    strbFile.Append("测试结束,耗时 " + ts.Minutes + "分 " + ts2.ToString() + "秒" + "\r\n");
-                //    //对参数文件处理，给出评分
-                //    string strfScore = "qoe_score.txt";
-                //    if (File.Exists(strfScore))     //删除的是上一次测试的qoe_score.txt文件
-                //    {
-                //        File.Delete(strfScore);
-                //    }
-                //    Thread.Sleep(500);
-                //    //打分
-                //    double score = this.UnRefScore(i + 1, strfScore);      //成功调用UnRefScore函数后会生成本次测试的qoe_score.txt文件
-
-                //    if (score >= 0 && score <= 10)
-                //    {
-                //        int index = this.dataGridView1.Rows.Add();
-                //        this.dataGridView1.Rows[index].Cells[0].Value = i + 1;
-                //        this.dataGridView1.Rows[index].Cells[1].Value = inis.IniReadValue("Flv", "Envir");
-                //        this.dataGridView1.Rows[index].Cells[2].Value = (score * 10).ToString().Substring(0, 5);
-                //    }
-                //    else
-                //    {
-                //        int index = this.dataGridView1.Rows.Add();
-                //        this.dataGridView1.Rows[index].Cells[0].Value = i + 1;
-                //        this.dataGridView1.Rows[index].Cells[1].Value = inis.IniReadValue("Flv", "Envir");
-                //        this.dataGridView1.Rows[index].Cells[2].Value = 0;
-                //        Log.Warn(string.Format("评分有误!分数:{0}", score.ToString()));
-                //    }
-
-
-                //    //播放结束,写xls文件
-                //    strbFile.Append("测试被用户中断\r\n");
-                //    //获取评分模块处理结果,写入xls文件缓存
-                //    if (File.Exists(strfScore))       //将本次测试生成的qoe_score.txt中的内容写入strbFile
-                //    {
-                //        strbFile.Append("\r\n");
-                //        FileStream fs1 = new FileStream(strfScore, FileMode.Open, FileAccess.Read);
-                //        StreamReader sr = new StreamReader(fs1, Encoding.Default);
-                //        strbFile.Append(sr.ReadToEnd());
-                //        sr.Close();
-                //        fs1.Close();
-                //    }
-
-                //    //写入xls(txt格式)文件
-                //    string strLogResult = strpcap.Replace(".pcap", "-log.txt");
-                //    if (File.Exists(strLogResult))
-                //    {
-                //        File.Delete(strLogResult);
-                //    }
-                //    FileStream fs3 = new FileStream(strLogResult, FileMode.Create, FileAccess.Write);
-                //    StreamWriter sw3 = new StreamWriter(fs3, Encoding.Default);
-                //    sw3.Write(strbFile);
-                //    sw3.Close();
-                //    fs3.Close();
-                //    DisplayState("日志文件:" + strLogResult + "生成成功\r\n");
-                //}
-            }
-
-            DateTime start = (DateTime)(StartTimeList[0]);
-            TimeSpan timediff = dtEnd - start;
-            float timediff2 = timediff.Seconds + (float)timediff.Milliseconds / 1000;
-            DisplayState("测试结束,耗时 " + timediff.Minutes + "分 " + timediff2.ToString() + "秒" + "\r\n");
-            DisplayState("---------------测试完成---------------\r\n");
-
-            port_list.Clear();
-            player_list.Clear();
-            StartTimeList.Clear();
-            strbFileList.Clear();
-            comboBox1.Items.Clear();
-            comboBox1.Text = "";
-            this.dataGridView1.Visible = true;
-            //设置正在测试的标示位
-            DoTest = false;
-            //设置开始停止测试的标识位
-            StartStopTest = false;
-            //停止控制，为了不让手动和自动冲突
-            taskon = false;
-        }
-
 
         public void StopTerminalTaskFunc()
         {
             //stop button的设置
             this.btnFlvStart.Enabled = true;
             this.btnFlvStop.Enabled = false;
-            //设置停止测试标识位
-            StartStopTest = true;
 
             //停止播放，关掉播放器，退出抓包、播放、管道进程
             this.StopClosePlayer();
@@ -950,245 +593,186 @@ namespace NetTest
             inis.IniWriteValue("Flv", "counts", iTest.ToString());
             //播放次数置零
             iTest = 0;
-            timer1.Stop();
-            timer1.Enabled = false;
 
             //memoPcap信息输出
-            DateTime dtEnd = DateTime.Now;
+            DateTime EndTime = DateTime.Now;
             memoPcap.Items.Clear();
 
             //清空检测静帧跳帧模糊的表盘
             this.ClearGuageData();
 
+            TimeSpan ts = EndTime - StartTime;
+            float ts2 = ts.Seconds + (float)ts.Milliseconds / 1000;
 
-            if (inis.IniReadValue("Flv", "Envir").Equals("web"))
+            //无参考模式的打分，输出打分结果
+            string strpcap = inis.IniReadValue("Flv", "PcapFile");
+            strbFile.Append("测试结束,耗时 " + ts.Minutes + "分 " + ts2.ToString() + "秒" + "\r\n");
+            strbFile.Append("抓包文件: " + strpcap + "\r\n");
+            DisplayState("抓包文件: " + strpcap + "创建\r\n");
+
+            //对参数文件处理，给出评分
+            string strfScore = "qoe_score.txt";   //这个文件只有在正常测试的时候才会有
+            if (File.Exists(strfScore))     //删除的是上一次测试的qoe_score.txt文件
             {
-                //无参考模式的打分，输出打分结果
-                for (int i = 0; i <= port_list.Count; i++)
-                {
-                    //将播放器的端口号写入配置文件，供分包程序使用
-                    //ushort port = (ushort)(port_list[i]);
-                    //inis.IniWriteValue("port", "test" + (i + 1), Convert.ToString(port));
-
-                    DateTime dtStart = (DateTime)(StartTimeList[i]);
-                    StringBuilder strbFile = (StringBuilder)(strbFileList[i]);
-                    //string strpcap = inis.IniReadValue("result", "test" + (i + 1));
-                    string strpcap = inis.IniReadValue("Flv", "PcapFile");
-                    TimeSpan ts = dtEnd - dtStart;
-                    float ts2 = ts.Seconds + (float)ts.Milliseconds / 1000;
-
-                    strbFile.Append("测试结束,耗时 " + ts.Minutes + "分 " + ts2.ToString() + "秒" + "\r\n");
-                    strbFile.Append("抓包文件: " + strpcap + "\r\n");
-                    DisplayState("抓包文件: " + strpcap + "创建\r\n");
-
-                    //对参数文件处理，给出评分
-                    string strfScore = "qoe_score.txt";   //这个文件只有在正常测试的时候才会有
-                    if (File.Exists(strfScore))     //删除的是上一次测试的qoe_score.txt文件
-                    {
-                        File.Delete(strfScore);
-                    }
-                    Thread.Sleep(500);
-
-                    //打分
-                    try
-                    {
-                        double score = this.UnRefScore(i + 1, strfScore);      //成功调用UnRefScore函数后会生成本次测试的qoe_score.txt文件
-                        StreamWriter ResultTmp = new StreamWriter(File.Create("ResultTxt.tmp"), Encoding.Default);
-                        //临时总结报告文件，用于满足特定的格式压入数据库
-                        ResultTmp.Write("Index\tColumn\tValue\r\n");
-                        int resultIndex = 0;
-                        if (score >= 0 && score <= 10)
-                        {
-                            int index = this.dataGridView1.Rows.Add();
-                            this.dataGridView1.Rows[index].Cells[0].Value = i + 1;
-                            this.dataGridView1.Rows[index].Cells[1].Value = inis.IniReadValue("Flv", "Envir");
-                            this.dataGridView1.Rows[index].Cells[2].Value = (score * 10).ToString().Substring(0, 5);
-                            FileStream fs1 = new FileStream(strfScore, FileMode.Open, FileAccess.Read);
-                            StreamReader sr1 = new StreamReader(fs1, Encoding.Default);
-                            sr1.ReadLine();    //可以查看qoe_score.txt的格式
-                            int[] columns = { 7, 5, 2, 5, 5, 2, 4 };
-                            string videoInfo = null;
-                            string[] infoNames = null;
-                            string[] infoValues = null;
-                            for (int ind = 0; ind < columns.Length; ind++)
-                            {
-                                videoInfo = sr1.ReadLine();
-                                infoNames = videoInfo.Split('\t');
-                                videoInfo = sr1.ReadLine();
-                                infoValues = videoInfo.Split('\t');
-                                if (infoNames.Length == columns[ind] && infoNames.Length == infoValues.Length)
-                                {
-                                    for (int k = 0; k < infoNames.Length; k++)
-                                        ResultTmp.WriteLine((++resultIndex).ToString() + "\t" + infoNames[k] + "\t" + infoValues[k]);
-                                }
-                            }
-                            //视觉缺陷-指标评分(100分制):	98.60
-                            //块效应-高频分量评分(100分制):	47.80
-                            int[] column2s = { 2, 2 };
-                            for (int j = 0; j < column2s.Length; j++)
-                            {
-                                videoInfo = sr1.ReadLine();
-                                infoNames = videoInfo.Split(':');
-                                if (infoNames.Length == 2)
-                                    ResultTmp.WriteLine((++resultIndex).ToString() + "\t" + infoNames[0] + infoNames[1]);
-                            }
-                            //综合评分(100分制):	63.04
-                            videoInfo = sr1.ReadLine();
-                            infoNames = videoInfo.Split(':');
-                            if (infoNames.Length == 2)
-                                ResultTmp.WriteLine((++resultIndex).ToString() + "\tVideoScore" + infoNames[1]);
-                            sr1.Close();
-                            fs1.Close();
-                            ResultTmp.Close();
-                        }
-                        else
-                        {
-                            int index = this.dataGridView1.Rows.Add();
-                            this.dataGridView1.Rows[index].Cells[0].Value = i + 1;
-                            this.dataGridView1.Rows[index].Cells[1].Value = inis.IniReadValue("Flv", "Envir");
-                            this.dataGridView1.Rows[index].Cells[2].Value = 0;
-                        }
-
-                    }
-                    catch (System.Exception ex)
-                    {
-                        Log.Error(Environment.StackTrace, ex);
-                    }
-
-
-
-                    //播放结束,写xls文件
-                    strbFile.Append("测试被用户中断\r\n");
-                    //获取评分模块处理结果,写入xls文件缓存
-                    if (File.Exists(strfScore))       //将本次测试生成的qoe_score.txt中的内容写入strbFile
-                    {
-                        strbFile.Append("\r\n");
-                        FileStream fs1 = new FileStream(strfScore, FileMode.Open, FileAccess.Read);
-                        StreamReader sr = new StreamReader(fs1, Encoding.Default);
-                        strbFile.Append(sr.ReadToEnd());
-                        sr.Close();
-                        fs1.Close();
-                    }
-
-                    //写入xls(txt格式)文件
-                    string strLogResult = strpcap.Replace(".pcap", "-log.txt");
-                    if (File.Exists(strLogResult))
-                    {
-                        File.Delete(strLogResult);
-                    }
-                    FileStream fs3 = new FileStream(strLogResult, FileMode.Create, FileAccess.Write);
-                    StreamWriter sw3 = new StreamWriter(fs3, Encoding.Default);
-                    sw3.Write(strbFile);
-                    sw3.Close();
-                    fs3.Close();
-                    DisplayState("日志文件:" + strLogResult + "生成成功\r\n");
-                }
+                File.Delete(strfScore);
             }
-            else
+            Thread.Sleep(500);
+
+            ////打分
+            //try
+            //{
+            //    double score = this.UnRefScore(i + 1, strfScore);      //成功调用UnRefScore函数后会生成本次测试的qoe_score.txt文件
+            //    StreamWriter ResultTmp = new StreamWriter(File.Create("ResultTxt.tmp"), Encoding.Default);
+            //    //临时总结报告文件，用于满足特定的格式压入数据库
+            //    ResultTmp.Write("Index\tColumn\tValue\r\n");
+            //    int resultIndex = 0;
+            //    if (score >= 0 && score <= 10)
+            //    {
+            //        int index = this.dataGridView1.Rows.Add();
+            //        this.dataGridView1.Rows[index].Cells[0].Value = i + 1;
+            //        this.dataGridView1.Rows[index].Cells[1].Value = inis.IniReadValue("Flv", "Envir");
+            //        this.dataGridView1.Rows[index].Cells[2].Value = (score * 10).ToString().Substring(0, 5);
+            //        FileStream fs1 = new FileStream(strfScore, FileMode.Open, FileAccess.Read);
+            //        StreamReader sr1 = new StreamReader(fs1, Encoding.Default);
+            //        sr1.ReadLine();    //可以查看qoe_score.txt的格式
+            //        int[] columns = { 7, 5, 2, 5, 5, 2, 4 };
+            //        string videoInfo = null;
+            //        string[] infoNames = null;
+            //        string[] infoValues = null;
+            //        for (int ind = 0; ind < columns.Length; ind++)
+            //        {
+            //            videoInfo = sr1.ReadLine();
+            //            infoNames = videoInfo.Split('\t');
+            //            videoInfo = sr1.ReadLine();
+            //            infoValues = videoInfo.Split('\t');
+            //            if (infoNames.Length == columns[ind] && infoNames.Length == infoValues.Length)
+            //            {
+            //                for (int k = 0; k < infoNames.Length; k++)
+            //                    ResultTmp.WriteLine((++resultIndex).ToString() + "\t" + infoNames[k] + "\t" + infoValues[k]);
+            //            }
+            //        }
+            //        //视觉缺陷-指标评分(100分制):	98.60
+            //        //块效应-高频分量评分(100分制):	47.80
+            //        int[] column2s = { 2, 2 };
+            //        for (int j = 0; j < column2s.Length; j++)
+            //        {
+            //            videoInfo = sr1.ReadLine();
+            //            infoNames = videoInfo.Split(':');
+            //            if (infoNames.Length == 2)
+            //                ResultTmp.WriteLine((++resultIndex).ToString() + "\t" + infoNames[0] + infoNames[1]);
+            //        }
+            //        //综合评分(100分制):	63.04
+            //        videoInfo = sr1.ReadLine();
+            //        infoNames = videoInfo.Split(':');
+            //        if (infoNames.Length == 2)
+            //            ResultTmp.WriteLine((++resultIndex).ToString() + "\tVideoScore" + infoNames[1]);
+            //        sr1.Close();
+            //        fs1.Close();
+            //        ResultTmp.Close();
+            //    }
+            //    else
+            //    {
+            //        int index = this.dataGridView1.Rows.Add();
+            //        this.dataGridView1.Rows[index].Cells[0].Value = i + 1;
+            //        this.dataGridView1.Rows[index].Cells[1].Value = inis.IniReadValue("Flv", "Envir");
+            //        this.dataGridView1.Rows[index].Cells[2].Value = 0;
+            //    }
+
+            //}
+            //catch (System.Exception ex)
+            //{
+            //    Log.Error(Environment.StackTrace, ex);
+            //}
+
+            //播放结束,写xls文件
+            strbFile.Append("测试被用户中断\r\n");
+            //获取评分模块处理结果,写入xls文件缓存
+            if (File.Exists(strfScore))       //将本次测试生成的qoe_score.txt中的内容写入strbFile
             {
-                for (int i = 0; i < StartTimeList.Count; i++)
-                {
-                    DateTime dtStart = (DateTime)(StartTimeList[i]);
-                    StringBuilder strbFile = (StringBuilder)(strbFileList[i]);
-                    string strpcap = inis.IniReadValue("result", "test" + (i + 1));
-                    TimeSpan ts = dtEnd - dtStart;
-                    float ts2 = ts.Seconds + (float)ts.Milliseconds / 1000;
-
-                    strbFile.Append("测试结束,耗时 " + ts.Minutes + "分 " + ts2.ToString() + "秒" + "\r\n");
-                    //对参数文件处理，给出评分
-                    string strfScore = "qoe_score.txt";
-                    if (File.Exists(strfScore))     //删除的是上一次测试的qoe_score.txt文件
-                    {
-                        File.Delete(strfScore);
-                    }
-                    Thread.Sleep(500);
-                    //打分
-                    double score = this.UnRefScore(i + 1, strfScore);      //成功调用UnRefScore函数后会生成本次测试的qoe_score.txt文件
-
-                    if (score >= 0 && score <= 10)
-                    {
-                        int index = this.dataGridView1.Rows.Add();
-                        this.dataGridView1.Rows[index].Cells[0].Value = i + 1;
-                        this.dataGridView1.Rows[index].Cells[1].Value = inis.IniReadValue("Flv", "Envir");
-                        this.dataGridView1.Rows[index].Cells[2].Value = (score * 10).ToString().Substring(0, 5);
-                    }
-                    else
-                    {
-                        int index = this.dataGridView1.Rows.Add();
-                        this.dataGridView1.Rows[index].Cells[0].Value = i + 1;
-                        this.dataGridView1.Rows[index].Cells[1].Value = inis.IniReadValue("Flv", "Envir");
-                        this.dataGridView1.Rows[index].Cells[2].Value = 0;
-                        Log.Warn(string.Format("评分有误!分数:{0}", score.ToString()));
-                    }
-
-
-                    //播放结束,写xls文件
-                    strbFile.Append("测试被用户中断\r\n");
-                    //获取评分模块处理结果,写入xls文件缓存
-                    if (File.Exists(strfScore))       //将本次测试生成的qoe_score.txt中的内容写入strbFile
-                    {
-                        strbFile.Append("\r\n");
-                        FileStream fs1 = new FileStream(strfScore, FileMode.Open, FileAccess.Read);
-                        StreamReader sr = new StreamReader(fs1, Encoding.Default);
-                        strbFile.Append(sr.ReadToEnd());
-                        sr.Close();
-                        fs1.Close();
-                    }
-
-                    //写入xls(txt格式)文件
-                    string strLogResult = strpcap.Replace(".pcap", "-log.txt");
-                    if (File.Exists(strLogResult))
-                    {
-                        File.Delete(strLogResult);
-                    }
-                    FileStream fs3 = new FileStream(strLogResult, FileMode.Create, FileAccess.Write);
-                    StreamWriter sw3 = new StreamWriter(fs3, Encoding.Default);
-                    sw3.Write(strbFile);
-                    sw3.Close();
-                    fs3.Close();
-                    DisplayState("日志文件:" + strLogResult + "生成成功\r\n");
-                }
+                strbFile.Append("\r\n");
+                FileStream fs1 = new FileStream(strfScore, FileMode.Open, FileAccess.Read);
+                StreamReader sr = new StreamReader(fs1, Encoding.Default);
+                strbFile.Append(sr.ReadToEnd());
+                sr.Close();
+                fs1.Close();
             }
-            //显示得分
-            this.dataGridView1.Visible = true;
 
-            DateTime start = (DateTime)(StartTimeList[0]);
-            TimeSpan timediff = dtEnd - start;
-            float timediff2 = timediff.Seconds + (float)timediff.Milliseconds / 1000;
-            DisplayState("测试结束,耗时 " + timediff.Minutes + "分 " + timediff2.ToString() + "秒" + "\r\n");
+            //写入xls(txt格式)文件
+            string strLogResult = strpcap.Replace(".pcap", "-log.txt");
+            if (File.Exists(strLogResult))
+            {
+                File.Delete(strLogResult);
+            }
+            FileStream fs3 = new FileStream(strLogResult, FileMode.Create, FileAccess.Write);
+            StreamWriter sw3 = new StreamWriter(fs3, Encoding.Default);
+            sw3.Write(strbFile);
+            sw3.Close();
+            fs3.Close();
+            DisplayState("日志文件:" + strLogResult + "生成成功\r\n");
+            DisplayState("测试结束,耗时 " + ts.Minutes + "分 " + ts.ToString() + "秒" + "\r\n");
             DisplayState("---------------测试完成---------------\r\n");
 
-            port_list.Clear();
-            player_list.Clear();
-            StartTimeList.Clear();
-            strbFileList.Clear();
             comboBox1.Items.Clear();
             comboBox1.Text = "";
-           
+            this.dataGridView1.Visible = true;
             //设置正在测试的标示位
             DoTest = false;
-            //设置开始停止测试的标识位
-            StartStopTest = false;
             //停止控制，为了不让手动和自动冲突
             taskon = false;
         }
 
-
-
-        private void btnFlvStop_Click(object sender, EventArgs e)
+        private void VideoParaGuageShow(IntPtr para,int callbackType,IntPtr user_data)
         {
-            //stopFunc();      
-            StopTerminalTaskFunc();
+            try
+            {
+                /*if (callbackType == 20001)   //normal callback
+                {
+                    ParaStuct ps = (ParaStuct)Marshal.PtrToStructure(para, typeof(ParaStuct));
+                    bool createVideoPara = false;
+                    if (mysqlTestFlag)
+                        createVideoPara = mysqlTest.CreatVideoPara();
+                    string ipandtype = inis.IniReadValue("Task", "currentVideoId") + "#" + "Video";
+                    //添加chart数据
+                    chart1.Invoke(addDataDel, this.chart1, (ps.definition > 100 ? 100 : ps.definition));    //清晰度
+                    chart2.Invoke(addDataDel, this.chart2, (ps.brightness > 100 ? 100 : ps.brightness));    //亮度
+                    chart3.Invoke(addDataDel, this.chart3, (ps.chroma > 100 ? 100 : ps.chroma));        //色度
+                    chart4.Invoke(addDataDel, this.chart4, (ps.saturation > 100 ? 100 : ps.saturation));    //饱和度
+                    chart5.Invoke(addDataDel, this.chart5, (ps.contraction > 100 ? 100 : ps.contraction));   //对比度
+                    frameNum++;
+                    //添加gauge data,0/1取值
+                    gaugeContainer1.Values["Default"].Value = ps.still * 80;
+                    gaugeContainer2.Values["Default"].Value = ps.skip * 80;
+                    gaugeContainer3.Values["Default"].Value = ps.blur * 80;
+
+                    Log.Console(String.Format("{0},{1},{2},{3},{4}", ps.brightness, ps.contraction, ps.still, ps.skip, ps.blur));
+                    videoPara vp = new videoPara(ps.definition, ps.brightness, ps.chroma, ps.saturation, ps.contraction, ps.still, ps.skip, ps.blur);
+                    //记录插入mysql表中VideoPara
+                    if (createVideoPara == true && serverTest)
+                        mysqlTest.VideoParaInsertMySQL(ipandtype, vp);
+                }
+                else if (callbackType == 20000)   //stream end
+                {
+                    videoEndEvent.Set();
+                } */             
+                Console.WriteLine("callback");
+            }
+            catch (System.Exception ex)
+            {
+                Log.Error(ex.ToString());
+                Log.Console(ex.ToString());
+            }
+
         }
 
         /******************************************************************************
            the test itself
         /*******************************************************************************/
-        private void FlvTesting()
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)] //回调告诉的调用约定，C#默认stdcall，C++是默认的cdcall
+        public delegate void VideoCallBack(IntPtr para, int callBackType,IntPtr user_data); //定义播放器委托
+        public VideoCallBack vcb;
+        private int  FlvTesting()
         {
-            StringBuilder strbFile = new StringBuilder();
             DoTest = true;
-
             //清空图表
             this.InitChart();
             this.ClearGuageData();
@@ -1198,25 +782,6 @@ namespace NetTest
             DisplayState("第 " + iTest + " 次测试......\r\n");
             strbFile.Append("第 " + iTest + " 次测试......\r\n");
 
-            //启动播放器
-            try
-            {
-                if (!File.Exists(strPlayer))
-                {
-                    DisplayState("测试中断，无法找到播放器");
-                    //如果找不到播放器，那么就直接中断程序
-                    btnFlvStart.Enabled = true;
-                    this.btnFlvStop.Enabled = false;
-                    DoTest = false;
-                    return;
-                }
-            }
-            catch (Exception ex)
-            {
-                DisplayState(ex.Message);
-                Log.Error(Environment.StackTrace, ex);
-            }
-
             //获取网卡、IP信息
             if (inis.IniReadValue("Flv", "Envir").Equals("web"))   //zc
             {
@@ -1225,11 +790,9 @@ namespace NetTest
             }
 
             Thread.Sleep(100);
-            DateTime dtStart = DateTime.Now;
-            DisplayState("测试开始时间: " + dtStart.ToString());
-            strbFile.Append("测试开始时间: " + dtStart.ToString() + "\r\n");
-            strbFileList.Add(strbFile);
-            StartTimeList.Add(dtStart);
+            StartTime = DateTime.Now;
+            DisplayState("测试开始时间: " + StartTime.ToString());
+            strbFile.Append("测试开始时间: " + StartTime.ToString() + "\r\n");
 
             //Open the device for capturing
             //true -- means promiscuous mode
@@ -1237,127 +800,65 @@ namespace NetTest
             int capTimeOut = Convert.ToInt32(inis.IniReadValue("Flv", "captimeout"));
             int delay = Convert.ToInt32(inis.IniReadValue("Flv", "delay"));
 
-            BackgroundWorker m_AsyncWorker_pipe = new BackgroundWorker();
-            m_AsyncWorker_pipe.WorkerSupportsCancellation = true;
-            m_AsyncWorker_pipe.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bwAsync_pipe_RunWorkerCompleted);
-            m_AsyncWorker_pipe.DoWork += new DoWorkEventHandler(bwAsync_pipe_DoWork);
-
-            if (inis.IniReadValue("Flv", "Envir").Equals("web"))    //抓包的后台线程
-            {
-                if (!m_AsyncWorker_cap.IsBusy)
-                {
-                    m_AsyncWorker_cap.RunWorkerAsync();         //引发bwAsync_cap_DoWork事件
-                }
-                Thread.Sleep(100);
-            }
-
-            //开通与播放模块的管道
-            if (!m_AsyncWorker_pipe.IsBusy)
-            {
-                m_AsyncWorker_pipe.RunWorkerAsync();         //引发bwAsync_pipe_DoWork事件
-                Thread.Sleep(delay);
-            }
-            pipeList.Add(m_AsyncWorker_pipe);
-
-            //下载视频文件并播放
-            if (!m_AsyncWorker.IsBusy)                 //下载视频文件的后台线程
-            {
-                m_AsyncWorker.RunWorkerAsync();       //引发bwAsync_DoWork事件
-            }
-        }
-
-
-        /******************************************************************************
-           播放视频文件
-        /*******************************************************************************/
-        private void bwAsync_DoWork(object sender, DoWorkEventArgs e)       //完成后引发bwAsync_RunWorkerCompleted
-        {                                                                                                             //视频播放线程
+            //调用播放器接口，同时在回调里处理返回的参数
             ////定义url地址，用于传入数据给vlc
-            string strfplay = null;
+            string strfplay="";
             if (inis.IniReadValue("Flv", "Envir").Equals("web"))
             {
                 strfplay = inis.IniReadValue("Flv", "urlPage");     //不管是什么ie地址还是真实地址都存在urlPage下
             }
-
-
-            //写入播放链接真实地址
-            string keyname = "relurl" + iTest;
-            inisvlc.IniWriteValue("URL", keyname, strfplay);
-            Thread.Sleep(500);
-
-            //注：此处直接从strPlayer读取播放器名字是正确的，因为在set界面中，在web、rtsp选择切换时(不用点击确定)
-            //就已经把"Flv""Envir"修改了，而在从设置到播放过程的切换时，会执行Init(),在其中strPlayer就会被修改
+            strfplay = "E:\\test.rmvb";
+            this.videoPictureBox.Visible = true;
             try
             {
-                string strProcessFile = strPlayer;
-                ProcessStartInfo psi = new ProcessStartInfo(strPlayer);
-                psi = new ProcessStartInfo(strPlayer);
-                psi.FileName = strProcessFile;
-                psi.RedirectStandardInput = true;
-                psi.RedirectStandardOutput = true;
-                psi.UseShellExecute = false;
-                psi.WindowStyle = ProcessWindowStyle.Hidden;
-
-                Process ps = new Process();
-                ps.StartInfo = psi;
-                ps.EnableRaisingEvents = true;
-
-                StringBuilder strbFile = (StringBuilder)(strbFileList[iTest - 1]);
-                if (inis.IniReadValue("Flv", "Envir").Equals("web"))
+                vcb = VideoParaGuageShow;
+                //int usrdata = 1;
+                IntPtr pA = new IntPtr(0);
+                //int lenght = Marshal.SizeOf(usrdata);
+                //IntPtr pA = Marshal.AllocHGlobal(lenght);
+                videoHandle = StartPlay(strfplay, this.videoPictureBox.Handle, vcb, pA,5);
+                //Marshal.FreeHGlobal(pA);
+                if (videoHandle >= 0)
                 {
-                    DisplayState("页面: " + inis.IniReadValue("Flv", "urlPage"));
-                    strbFile.Append("页面: " + inis.IniReadValue("Flv", "urlPage") + "\r\n");
-                }
-
-                //启动vlc
-                ps.Start();
-
-                if (ps.WaitForInputIdle())
-                {
-                    while (ps.MainWindowHandle.ToInt32() == 0)
+                    if (inis.IniReadValue("Flv", "Envir").Equals("web"))    //抓包的后台线程
                     {
+                        if (!m_AsyncWorker_cap.IsBusy)
+                        {
+                            m_AsyncWorker_cap.RunWorkerAsync();         //引发bwAsync_cap_DoWork事件
+                        }
                         Thread.Sleep(100);
-                        ps.Refresh();//必须刷新状态才能重新获得
-                        ps.StartInfo = psi;
                     }
-
-                    ShowWindow(ps.MainWindowHandle, 5);
-                    SetParent(ps.MainWindowHandle, this.PanelVI.Handle);
-                    MoveWindow(ps.MainWindowHandle, -19, -41, 522, 475, true);
-
-                    this.splitContainerControl1.Panel1.Refresh();
-                    player_list.Add(ps);
-                    string player = "播放器" + iTest;
-                    comboBox1.Items.Add(player);
-                    comboBox1.SelectedItem = player;
+                    return 0;
                 }
+                else    //播放异常
+                {
+                    PlayException();
+                    return videoHandle;
+                }
+                
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
-                DisplayState(ex.Message);
-                Log.Error(Environment.StackTrace, ex);
-                return;
+                PlayException();
+                Log.Error(ex.ToString());
+                Log.Console(ex.ToString());
             }
-
+            return -2;
         }
 
-        /******************************************************************************
-           worker instance complete
-        /*******************************************************************************/
-        private void bwAsync_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void PlayException()
         {
-            if (e.Error != null)
-            {
-                DisplayState("播放器错误");
-                return;
-            }
-
-            // Check to see if the background process was cancelled.
-            if (e.Cancelled)
-            {
-                DisplayState("任务撤销");
-                return;
-            }
+            this.videoPictureBox.Visible = false;
+            DisplayState("播放异常\r\n");
+            //stop button的设置
+            this.btnFlvStart.Enabled = true;
+            this.btnFlvStop.Enabled = false;
+            comboBox1.Items.Clear();
+            comboBox1.Text = "";
+            //设置正在测试的标示位
+            DoTest = false;
+            //停止控制，为了不让手动和自动冲突
+            taskon = false;
         }
 
         /******************************************************************************
@@ -1365,49 +866,12 @@ namespace NetTest
         /*******************************************************************************/
         public void StopClosePlayer()
         {
-            if (strPlayer == "")
-                return;
-            //考虑到VI播放器有很多异常处理没有完成,在运行时可能会报错,推荐通过直接杀进程来退出
-            string strProcessFile = "VLCDialog";
-            Process[] p = Process.GetProcessesByName(strProcessFile);
-            if (p.Length > 0)
-            {
-                foreach (Process pro in p)
-                {
-                    try
-                    {
-                        pro.Kill();
-                        Thread.Sleep(100);
-                    }
-                    catch (System.Exception ex)
-                    {
-                        Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
-                        pro.Kill();
-                        Thread.Sleep(100);
-                    }
-
-                }
-            }
-
-            //取消播放线程
-            Thread.Sleep(2000);
-            this.m_AsyncWorker.CancelAsync();
-            this.m_AsyncWorker.Dispose();
-
-            //取消管道线程
-            BackgroundWorker bw;
-            for (int i = 0; i < pipeList.Count; i++)
-            {
-                bw = (BackgroundWorker)(pipeList[i]);
-                bw.CancelAsync();
-                bw.Dispose();
-            }
-            pipeList.Clear();
-
+            //这里需要控制是否需要停止
+            StopPlay(videoHandle);
+            this.videoPictureBox.Visible = false;
             //停止抓包
             if (DoTest && (inis.IniReadValue("Flv", "Envir").Equals("web")))
             {
-                //StopCapture();
                 pcap_packet.Stop();
             }
             //取消抓包线程
@@ -1559,8 +1023,11 @@ namespace NetTest
             gaugeContainer1.Values["Default"].Value = 0;
             gaugeContainer2.Values["Default"].Value = 0;
             gaugeContainer3.Values["Default"].Value = 0;
+            /*this.Static = 0;
+            this.Skip = 0;
+            this.Blur = 0;*/   
         }
-
+         
         public void InitChart()
         {
             chart1.Invoke(clearDataDel, this.chart1);
@@ -1574,39 +1041,13 @@ namespace NetTest
             this.chart3.Invoke(addDataDel, this.chart3, 0);
             this.chart4.Invoke(addDataDel, this.chart4, 0);
             this.chart5.Invoke(addDataDel, this.chart5, 0);
+
+            /*this.Definition=0;
+            this.Brightness=0;
+            this.Color=0;
+            this.Saturation=0;
+            this.Contrast=0; */
         }
-
-        //public static Thread serverThread = null;  //用于接收远程控制端发送的配置参数
-        //TcpListener mylsn;      //服务器监听 
-        public static Socket mysock;          //服务器套接字
-
-        string destIp = "127.0.0.1";           //目的ip地址
-        int destPort = 8002;                   //目的端口
-        string localIp = "127.0.0.1";          //本地Ip
-        int localPort = 8001;                  //本地端口
-
-        //string score = "100";
-        public static bool isAutoTest = false;
-        public static bool hasClient = false;
-
-        //Socket serverSocket = null;
-
-        private void FlvTest_Load(object sender, EventArgs e)
-        {
-            start.Enabled = false;
-            try
-            {
-                localIp = inis.IniReadValue("Flv", "localIP");
-                localPort = Convert.ToInt32(inis.IniReadValue("Flv", "localPort"));
-                destIp = inis.IniReadValue("Flv", "destIP");
-                destPort = Convert.ToInt32(inis.IniReadValue("Flv", "destPort"));
-            }
-            catch (System.Exception ex)
-            {
-                Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
-            }
-        }
-
         delegate void deleShow(string s);
         public void DisplayState(string info)
         {
@@ -1625,52 +1066,11 @@ namespace NetTest
             memoPcap.SelectedIndex = memoPcap.Items.Count - 1;
         }
 
-        public static TcpClient playClient;   //客户端，用于向服务器传输播放器的实时数据
-        DateTime startTime;     //开始播放时刻
-        //DateTime endTime;       //停止播放时刻
-        //static int playTime;           //播放时长
-        bool vlcStart = false;
 
-        delegate void deleScore(string s);
-
-        // 定时器timer1 每秒触发一次，用来检测播放器下载视频使用的端口号
-        private void timer1_Elapsed(object sender, System.Timers.ElapsedEventArgs e)    //1s定时器，用来获取端口号
-        {
-            int i;
-            ushort port = 0;
-            Process ps;
-            for (i = 0; i < player_list.Count; i++)
-            {
-                ps = (Process)(player_list[i]);
-                //port = GetPortByPID(ps.Id);
-                if (port != 0)
-                {
-                    if (port_list.Count == i)
-                    {
-                        port_list.Add(port);
-                    }
-                    else
-                    {
-                        port_list[i] = port;
-                    }
-                }
-            }
-        }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int i = comboBox1.SelectedIndex;
-            if (player_list.Count > 1)
-            {
-                Process plast = (Process)(player_list[lastPlayerIndex]);
-                ShowWindow(plast.MainWindowHandle, 0);
-            }
-            Process p = (Process)(player_list[i]);
-            IntPtr pwnd = p.MainWindowHandle;
-            ShowWindow(pwnd, 5);
-            SetParent(pwnd, this.PanelVI.Handle);
-            MoveWindow(pwnd, -19, -41, 522, 475, true);
-            lastPlayerIndex = i;
+
         }
 
     }

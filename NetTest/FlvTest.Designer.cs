@@ -68,7 +68,8 @@ namespace NetTest
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PanelVI = new System.Windows.Forms.Panel();
+            //this.PanelVI = new System.Windows.Forms.Panel();
+            this.videoPictureBox = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnFlvStop = new DevExpress.XtraEditors.SimpleButton();
             this.btnFlvStart = new DevExpress.XtraEditors.SimpleButton();
@@ -176,7 +177,8 @@ namespace NetTest
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.panel1);
-            this.splitContainerControl1.Panel1.Controls.Add(this.PanelVI);
+            //this.splitContainerControl1.Panel1.Controls.Add(this.PanelVI);
+            this.splitContainerControl1.Panel1.Controls.Add(this.videoPictureBox);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.comboBox1);
             this.splitContainerControl1.Panel2.Controls.Add(this.btnFlvStop);
@@ -198,11 +200,19 @@ namespace NetTest
             // 
             // PanelVI
             // 
-            this.PanelVI.AutoSize = true;
-            this.PanelVI.Location = new System.Drawing.Point(60, 1);
-            this.PanelVI.Name = "PanelVI";
-            this.PanelVI.Size = new System.Drawing.Size(480, 322);
-            this.PanelVI.TabIndex = 0;
+            //this.PanelVI.AutoSize = true;
+            //this.PanelVI.Location = new System.Drawing.Point(60, 1);
+            //this.PanelVI.Name = "PanelVI";
+            //this.PanelVI.Size = new System.Drawing.Size(480, 322);
+            //this.PanelVI.TabIndex = 0;
+
+            //videoPictureBox
+            this.videoPictureBox.AutoSize = true;
+            this.videoPictureBox.Location = new System.Drawing.Point(60, 1);
+            this.videoPictureBox.Name = "videoPictureBox";
+            this.videoPictureBox.Size = new System.Drawing.Size(480, 322);
+            this.videoPictureBox.TabIndex = 0;
+            this.videoPictureBox.Visible = true;
             // 
             // comboBox1
             // 
@@ -575,7 +585,7 @@ namespace NetTest
             // 
             this.timer1.Interval = 1000;
             this.timer1.SynchronizingObject = this;
-            this.timer1.Elapsed += new System.Timers.ElapsedEventHandler(this.timer1_Elapsed);
+            //this.timer1.Elapsed += new System.Timers.ElapsedEventHandler(this.timer1_Elapsed);
             // 
             // startTimer
             // 
@@ -611,7 +621,7 @@ namespace NetTest
             this.Controls.Add(this.panelFlv);
             this.Name = "FlvTest";
             this.Size = new System.Drawing.Size(900, 650);
-            this.Load += new System.EventHandler(this.FlvTest_Load);
+            //this.Load += new System.EventHandler(this.FlvTest_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelFlv)).EndInit();
             this.panelFlv.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl3)).EndInit();
@@ -660,6 +670,7 @@ namespace NetTest
         private Dundas.Charting.WinControl.Chart chart3;
         private Dundas.Charting.WinControl.Chart chart2;
         private System.Windows.Forms.Panel PanelVI;
+        private System.Windows.Forms.PictureBox videoPictureBox;
         private System.Windows.Forms.Panel panel1;
         private System.Timers.Timer timerCheckData;
         public System.Timers.Timer timFlv;
