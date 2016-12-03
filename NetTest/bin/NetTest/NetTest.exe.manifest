@@ -192,7 +192,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Fl0szztFGvXkmBE+JbWxtk9PBuQ=</dsig:DigestValue>
+        <dsig:DigestValue>B+jxflsXzKDhG1qF75yQ2LdqGRw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -204,7 +204,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>u9cLyLpKWHx/EcZ7WxAaEFFm80s=</dsig:DigestValue>
+        <dsig:DigestValue>jSkuUNxgV3pyeBxrhWQeAAz/3SE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -216,7 +216,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>vOw3j+b5+2nYRpTdrimJNhOenVU=</dsig:DigestValue>
+        <dsig:DigestValue>OmQh2wwqecBEfjyaGkb02A0NmFY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -329,6 +329,18 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Scripting.ExtensionAttribute.dll" size="11096">
+      <assemblyIdentity name="Microsoft.Scripting.ExtensionAttribute" version="2.0.0.0" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>FiyJueriVpJe9IbIs/weTYwbZvw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MIMEParser.dll" size="69632">
       <assemblyIdentity name="MIMEParser" version="2004.5.8.12" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -353,14 +365,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NetTest.exe" size="555520">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="NetTest.exe" size="579584">
       <assemblyIdentity name="NetTest" version="1.0.1.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>yo8foVSu0d2Xy9Y3tTab3zmHXik=</dsig:DigestValue>
+        <dsig:DigestValue>0v1ukOVqWGwGUc88ETiY0hpsK2A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

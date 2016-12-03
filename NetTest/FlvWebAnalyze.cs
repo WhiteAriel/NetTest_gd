@@ -219,7 +219,7 @@ namespace NetTest
             InitializeComponent();
             this.RealTimechart();
             datalist.Clear();
-            mysqlWeb = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname"), null);
+            mysqlWeb = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname"), inis.IniReadValue("Mysql", "port"));
             if (mysqlWeb.MysqlInit(inis.IniReadValue("Mysql", "dbname")))
                 mysqlWebFlag = true;
         }
@@ -831,7 +831,8 @@ namespace NetTest
             catch (System.Exception ex)
             {
                 i = -1;
-                Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
+                Log.Console(Environment.StackTrace, ex); 
+                Log.Error(Environment.StackTrace, ex);
             }
 
             if (i < 0)
@@ -877,7 +878,7 @@ namespace NetTest
         }
 
         //打开Pcap文件(用于文件概要、数据包解析、TCP解析、DNS解析、HTTP解析)
-        [DllImport("NetpryDll.dll")]
+        [DllImport("NetpryDll.dll", EntryPoint = "pcap_file_dissect_inCS", CallingConvention = CallingConvention.Cdecl)]
         public extern static int pcap_file_dissect_inCS(string pathfilename);
 
         //关闭Pcap文件(用于文件概要、数据包解析、TCP解析、DNS解析、HTTP解析)
@@ -2273,6 +2274,9 @@ namespace NetTest
 
                     swlog.Write("平均抖动(秒)\t" + AverValue.AverJitter.ToString() + "\t\r\n");
                     ResultTmp.Write((++index).ToString() + "\t" + "平均抖动(s)\t" + AverValue.AverJitter.ToString() + "\r\n");
+
+                    //swlog.Write("VideoScore\t" + "66" + "\t\r\n");
+                    ResultTmp.Write((++index).ToString() + "\t" + "VideoScore\t66" + "\r\n");
                     //写TCP连接信息
                     swlog.Write("\r\n" + AverValue.TcpInfo + "\r\n");
                     string[] tcpInfo = AverValue.TcpInfo.Split(new string[] { "\t\r\n" }, StringSplitOptions.RemoveEmptyEntries); ;
@@ -2294,12 +2298,12 @@ namespace NetTest
                     ResultTmp.Close();
                     fs3.Close();
                     //txt文件压入到数据库
-                    if (mysqlWebFlag && serverTest)
-                        mysqlWeb.TxTInsertMySQL("TestReport", currentId + "#" + "Video", Application.StartupPath + "\\" + resultTxt);
-                    //删除临时文件
-                    File.Delete(resultTxt);
                 }
             }
+            if (mysqlWebFlag && serverTest)
+                mysqlWeb.TxTInsertMySQL("TestReport", currentId + "#" + "Video", Application.StartupPath + "\\" + resultTxt);
+            //删除临时文件
+            //File.Delete(resultTxt);
         }
 
         private void btnWebSelCap_Click(object sender, EventArgs e)

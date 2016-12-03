@@ -213,7 +213,7 @@ namespace NetTest
                 webTimer.Stop();
                 this.timer1.Stop();
                 //停止webbrowser
-                webEx.Visible = false;
+                //webEx.Visible = false;
                 //CloseBrowser();
                 DoTest = false;
             }
@@ -251,7 +251,7 @@ namespace NetTest
                     webTimer.Enabled = false;
                     device.PcapStopCapture();
                     device.PcapClose();
-                    webEx.Visible = false;
+                    //webEx.Visible = false;
                 }
                 catch (System.Exception ex)
                 {
@@ -471,60 +471,7 @@ namespace NetTest
             this.memoPcap.Items.Add("第 " + iTest + " 次测试......");
             strbFile.Append("第 " + iTest + " 次测试......\r\n");
 
-            try
-            {
-                //this.CloseBrowser();
-                //    if (iBool > 0)
-                //    {
-                //        if (strBro == "Google")
-                //        {
-                //            Thread.Sleep(400);
-                //            //this.CleanFiles(inis.IniReadValue("Web", "GoogleCookies"));
-                //            string dir = System.Environment.GetEnvironmentVariable("AppData");   //获取的值后有个Roarming
-                //            int n = dir.LastIndexOf("\\");
-                //            dir = dir.Substring(0, n) + @"\Local\Google\Chrome\User Data\Default\Cache";
-
-                //            this.CleanFiles(dir);    //删除缓冲文件夹
-                //            Thread.Sleep(400);
-                //            this.memoPcap.Items.Add(" cookies, caches 删除操作完成...");
-                //           strbFile.Append(" cookies, caches 删除操作完成...");
-                //        }
-                //        if (strBro == "Firefox")
-                //        {
-                //            string str = this.ClearFirefoxCookies();
-                //            if (str == "Cookies成功删除...")
-                //            {
-                //                this.memoPcap.Items.Add(" cookies, caches 删除操作完成...");
-                //                strbFile.Append(" cookies, caches 删除操作完成...\r\n");
-                //            }
-                //            else
-                //            {
-                //                this.memoPcap.Items.Add(str);
-                //                strbFile.Append(str + "\r\n");
-                //            }
-                //        }
-                //        if (strBro == "IE Explorer")
-                //        {
-                //            int iResultCookies = cc.ClearAllCookies(string.Empty);
-                //            int iResultCaches = cc.ClearAllCache(string.Empty);
-                //            this.memoPcap.Items.Add(iResultCookies + " cookies, " + iResultCaches + " caches 删除...");
-                //            strbFile.Append(iResultCookies + " cookies, " + iResultCaches + " caches 删除...\r\n");
-                //        }
-                //        this.ClearDns();
-                //    }
-                //    else
-                //    {
-                //        this.memoPcap.Items.Add("Cookies/caches 未完全删除...");
-                //        strbFile.Append("Cookies/caches 未完全删除...\r\n");
-                //    }
-                //}
-                //catch (Exception ex)
-                //{
-                //    this.memoPcap.Items.Add(ex.Message);
-                //    this.memoPcap.Items.Add("Cookies/caches 未完全删除...");
-                //    strbFile.Append("Cookies/caches 未完全删除...\r\n");
-                //}
-
+ 
                 try
                 {
                     if (iBool > 0)
@@ -547,7 +494,7 @@ namespace NetTest
                     this.memoPcap.Items.Add("Cookies/caches 未完全删除...");
                     strbFile.Append("Cookies/caches 未完全删除...\r\n");
                 }
-                
+
                 string ip = netDev.IpAddress;
                 this.memoPcap.Items.Add("相关浏览器关闭");
                 this.memoPcap.Items.Add("网卡: " + device.PcapDescription);
@@ -560,37 +507,54 @@ namespace NetTest
                 this.dtStart = DateTime.Now;
                 this.memoPcap.Items.Add("测试开始时间: " + dtStart.ToString());
                 strbFile.Append("测试开始时间: " + dtStart.ToString() + "\r\n");
+                
+            
+            
+            try
+                {
+                    //开启webbrowser
+                    webEx.Visible = true;
+                    string testUrl = inis.IniReadValue("Web", "WebPage");
+                    Uri url = new Uri(testUrl);
+                    webEx.Navigate(url);
+                }
+                catch (Exception ex)
+                {
+                    Log.Console(Environment.StackTrace, ex);
+                    Log.Error(Environment.StackTrace, ex);
+                    this.sBTest.Enabled = true;
+                    this.btnWebStop.Enabled = false;
+                    //this.timer1.Stop();
+                    DoTest = false;
+                    this.memoPcap.Items.Add("——————————播放异常——————————\r\n");
 
-                //Register our handler function to the 'packet arrival' event
-                device.PcapOnPacketArrival +=
-                    new Tamir.IPLib.SharpPcap.PacketArrivalEvent(device_PcapOnPacketArrival);
-                //Open the device for capturing
-                //true -- means promiscuous mode
-                //1000 -- means a read wait of 1000ms
-                device.PcapOpen(true, 100);
-                device.PcapSetFilter("(tcp or udp) and host " + ip);     //获取IP用于过滤
-                device.PcapDumpOpen(strFile);
+                    return;
+                }    
+            
+            
+            try
+                {
+                    //打开超时定时器
+                    webTimer.Enabled = true;
+                    webTimer.Start();
+                    //Register our handler function to the 'packet arrival' event
+                    device.PcapOnPacketArrival +=
+                        new Tamir.IPLib.SharpPcap.PacketArrivalEvent(device_PcapOnPacketArrival);
+                    //Open the device for capturing
+                    //true -- means promiscuous mode
+                    //1000 -- means a read wait of 1000ms
+                    device.PcapOpen(true, 100);
+                    device.PcapSetFilter("(tcp or udp) and host " + ip);     //获取IP用于过滤
+                    device.PcapDumpOpen(strFile);
 
-                device.PcapStartCapture();   //开启底层抓包
-
-                //开启webbrowser
-                webEx.Visible = true;
-                string testUrl = inis.IniReadValue("Web", "WebPage");
-                Uri url = new Uri(testUrl);
-                webEx.Navigate(url);
-                //打开超时定时器
-                webTimer.Enabled = true;
-                webTimer.Start();
-            }
-            catch (Exception ex)
-            {
-                Log.Console(Environment.StackTrace, ex);
-                Log.Error(Environment.StackTrace, ex);
-            }
-            //if (!m_AsyncWorker.IsBusy)
-            //{
-            //    m_AsyncWorker.RunWorkerAsync();
-            //}
+                    device.PcapStartCapture();   //开启底层抓包
+                }
+                catch (Exception ex)
+                {
+                    Log.Console(Environment.StackTrace, ex);
+                    Log.Error(Environment.StackTrace, ex);
+                }
+            
 
         }
 
@@ -618,7 +582,7 @@ namespace NetTest
                 webTimer.Enabled = false;
                 webTimer.Stop();              
                 //停止加载，不知道能不能阻止其结束响应函数
-                webEx.Visible = false;
+                //webEx.Visible = false;
                 device.PcapStopCapture();
                 device.PcapClose();
             }

@@ -1,0 +1,450 @@
+2016-12-03 16:36:15,182 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 16:36:15,632 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 16:36:15,640 INFO  - 数据库所有表格创建成功!
+2016-12-03 16:36:17,032 INFO  - video Task Thread Start!
+2016-12-03 16:36:17,054 INFO  - web Task Thread Start!
+2016-12-03 16:36:45,020 INFO  - It's serverTask!
+2016-12-03 16:37:11,370 INFO  - Seng Message:{"Id":"186b522d-c8f9-43f8-ba15-23bed725efcc","ErrorCode":"1","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 16:37:11,403 INFO  - It's serverTask!
+2016-12-03 16:37:13,691 INFO  - Seng Message:{"Id":"186b522d-c8f9-43f8-ba15-23bed725efcc","ErrorCode":"3","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 16:37:16,010 INFO  - Seng Message:{"Id":"186b522d-c8f9-43f8-ba15-23bed725efcc","ErrorCode":"5","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 16:42:08,380 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 16:42:08,840 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 16:42:08,851 INFO  - 数据库所有表格创建成功!
+2016-12-03 16:42:10,236 INFO  - video Task Thread Start!
+2016-12-03 16:42:10,237 INFO  - web Task Thread Start!
+2016-12-03 16:42:20,572 INFO  - Seng Message:{"Id":"186b522d-c8f9-43f8-ba15-23bed725efcc","ErrorCode":"1","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 16:42:20,597 INFO  - It's serverTask!
+2016-12-03 16:42:22,892 INFO  - Seng Message:{"Id":"186b522d-c8f9-43f8-ba15-23bed725efcc","ErrorCode":"3","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 16:42:25,200 INFO  - Seng Message:{"Id":"186b522d-c8f9-43f8-ba15-23bed725efcc","ErrorCode":"5","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 16:42:38,236 INFO  - Seng Message:{"Id":"b8f10bd3-3dbe-4f3e-9662-0f75f3b651a0","ErrorCode":"1","Message":""}<EOF>
+2016-12-03 16:42:40,621 INFO  - Seng Message:{"Id":"b8f10bd3-3dbe-4f3e-9662-0f75f3b651a0","ErrorCode":"3","Message":""}<EOF>
+2016-12-03 16:44:58,792 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 16:44:59,223 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 16:44:59,232 INFO  - 数据库所有表格创建成功!
+2016-12-03 16:45:00,613 INFO  - video Task Thread Start!
+2016-12-03 16:45:00,613 INFO  - web Task Thread Start!
+2016-12-03 16:45:00,971 INFO  - Seng Message:{"Id":"186b522d-c8f9-43f8-ba15-23bed725efcc","ErrorCode":"1","Message":""}<EOF>
+2016-12-03 16:45:00,978 INFO  - It's serverTask!
+2016-12-03 16:45:07,519 INFO  - Seng Message:{"Id":"b8f10bd3-3dbe-4f3e-9662-0f75f3b651a0","ErrorCode":"1","Message":""}<EOF>
+2016-12-03 16:45:09,880 INFO  - Seng Message:{"Id":"186b522d-c8f9-43f8-ba15-23bed725efcc","ErrorCode":"3","Message":""}<EOF>
+2016-12-03 16:45:10,240 INFO  - Seng Message:{"Id":"b8f10bd3-3dbe-4f3e-9662-0f75f3b651a0","ErrorCode":"2","Message":""}<EOF>
+2016-12-03 16:45:49,256 INFO  - Seng Message:{"Id":"186b522d-c8f9-43f8-ba15-23bed725efcc","ErrorCode":"5","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 16:48:54,107 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 16:48:54,619 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 16:48:54,628 INFO  - 数据库所有表格创建成功!
+2016-12-03 16:48:55,947 INFO  - video Task Thread Start!
+2016-12-03 16:48:55,951 INFO  - web Task Thread Start!
+2016-12-03 16:48:56,331 INFO  - It's serverTask!
+2016-12-03 16:49:02,480 INFO  - Seng Message:{"Id":"b8f10bd3-3dbe-4f3e-9662-0f75f3b651a0","ErrorCode":"3","Message":""}<EOF>
+2016-12-03 16:49:17,066 INFO  - Seng Message:{"Id":"186b522d-c8f9-43f8-ba15-23bed725efcc","ErrorCode":"1","Message":""}<EOF>
+2016-12-03 16:49:19,415 INFO  - Seng Message:{"Id":"186b522d-c8f9-43f8-ba15-23bed725efcc","ErrorCode":"2","Message":""}<EOF>
+2016-12-03 16:50:55,301 INFO  - Analyze start!
+2016-12-03 16:50:55,795 INFO  - Seng Message:{"Id":"b8f10bd3-3dbe-4f3e-9662-0f75f3b651a0","ErrorCode":"4","Message":""}<EOF>
+2016-12-03 16:50:59,581 INFO  - It's serverTask!
+2016-12-03 16:51:00,032 INFO  - Seng Message:{"Id":"186b522d-c8f9-43f8-ba15-23bed725efcc","ErrorCode":"3","Message":""}<EOF>
+2016-12-03 16:51:04,267 INFO  - Seng Message:{"Id":"186b522d-c8f9-43f8-ba15-23bed725efcc","ErrorCode":"5","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 16:51:12,542 INFO  - It's serverTask!
+2016-12-03 16:51:12,593 INFO  - Seng Message:{"Id":"b8f10bd3-3dbe-4f3e-9662-0f75f3b651a0","ErrorCode":"1","Message":""}<EOF>
+2016-12-03 16:51:14,861 INFO  - Seng Message:{"Id":"b8f10bd3-3dbe-4f3e-9662-0f75f3b651a0","ErrorCode":"3","Message":""}<EOF>
+2016-12-03 16:53:00,143 INFO  - Analyze start!
+2016-12-03 16:53:01,319 INFO  - Seng Message:{"Id":"b8f10bd3-3dbe-4f3e-9662-0f75f3b651a0","ErrorCode":"4","Message":""}<EOF>
+2016-12-03 16:53:29,601 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"1","Message":""}<EOF>
+2016-12-03 16:53:30,670 INFO  - It's serverTask!
+2016-12-03 16:53:31,872 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"3","Message":""}<EOF>
+2016-12-03 16:57:11,803 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 16:57:12,257 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 16:57:12,265 INFO  - 数据库所有表格创建成功!
+2016-12-03 16:57:13,585 INFO  - video Task Thread Start!
+2016-12-03 16:57:13,590 INFO  - web Task Thread Start!
+2016-12-03 16:57:14,003 INFO  - It's serverTask!
+2016-12-03 16:57:18,037 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"5","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 16:57:48,061 INFO  - It's serverTask!
+2016-12-03 16:57:48,280 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"3","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:00:16,460 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 17:00:16,941 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 17:00:16,950 INFO  - 数据库所有表格创建成功!
+2016-12-03 17:00:18,245 INFO  - video Task Thread Start!
+2016-12-03 17:00:18,246 INFO  - web Task Thread Start!
+2016-12-03 17:00:18,536 INFO  - It's serverTask!
+2016-12-03 17:00:18,604 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"1","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:00:20,847 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"3","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:03:27,976 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 17:03:28,497 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 17:03:28,506 INFO  - 数据库所有表格创建成功!
+2016-12-03 17:03:29,810 INFO  - video Task Thread Start!
+2016-12-03 17:03:29,811 INFO  - web Task Thread Start!
+2016-12-03 17:03:30,166 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"1","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:03:30,246 INFO  - It's serverTask!
+2016-12-03 17:03:32,525 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"3","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:05:30,353 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 17:05:30,857 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 17:05:30,866 INFO  - 数据库所有表格创建成功!
+2016-12-03 17:05:32,170 INFO  - video Task Thread Start!
+2016-12-03 17:05:32,171 INFO  - web Task Thread Start!
+2016-12-03 17:05:32,483 INFO  - It's serverTask!
+2016-12-03 17:05:32,520 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"1","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:05:34,766 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"3","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:08:01,311 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 17:08:01,833 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 17:08:01,844 INFO  - 数据库所有表格创建成功!
+2016-12-03 17:08:03,137 INFO  - video Task Thread Start!
+2016-12-03 17:08:03,138 INFO  - web Task Thread Start!
+2016-12-03 17:08:03,483 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"1","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:08:03,503 INFO  - It's serverTask!
+2016-12-03 17:08:05,797 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"3","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:11:46,466 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 17:11:46,965 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 17:11:46,973 INFO  - 数据库所有表格创建成功!
+2016-12-03 17:11:48,276 INFO  - video Task Thread Start!
+2016-12-03 17:11:48,277 INFO  - web Task Thread Start!
+2016-12-03 17:11:48,623 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"1","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:11:48,623 INFO  - It's serverTask!
+2016-12-03 17:11:50,915 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"3","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:12:51,892 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 17:12:52,413 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 17:12:52,422 INFO  - 数据库所有表格创建成功!
+2016-12-03 17:12:53,716 INFO  - video Task Thread Start!
+2016-12-03 17:12:53,719 INFO  - web Task Thread Start!
+2016-12-03 17:12:54,071 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"4","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:13:49,701 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 17:13:50,170 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 17:13:50,179 INFO  - 数据库所有表格创建成功!
+2016-12-03 17:13:51,473 INFO  - video Task Thread Start!
+2016-12-03 17:13:51,474 INFO  - web Task Thread Start!
+2016-12-03 17:13:51,822 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"1","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:13:51,993 INFO  - It's serverTask!
+2016-12-03 17:13:54,342 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"3","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:13:56,699 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"5","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:14:07,984 INFO  - It's serverTask!
+2016-12-03 17:14:09,559 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"3","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:20:19,616 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 17:20:20,115 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 17:20:20,124 INFO  - 数据库所有表格创建成功!
+2016-12-03 17:20:21,459 INFO  - video Task Thread Start!
+2016-12-03 17:20:21,461 INFO  - web Task Thread Start!
+2016-12-03 17:20:21,819 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"1","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:20:21,842 INFO  - It's serverTask!
+2016-12-03 17:20:24,277 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"3","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:21:26,971 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 17:21:27,465 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 17:21:27,473 INFO  - 数据库所有表格创建成功!
+2016-12-03 17:21:28,775 INFO  - video Task Thread Start!
+2016-12-03 17:21:28,777 INFO  - web Task Thread Start!
+2016-12-03 17:21:29,144 INFO  - Seng Message:{"Id":"3dc56e59-a592-4e36-a211-73e50172d8fd","ErrorCode":"4","Message":"PlayTaskFailed"}<EOF>
+2016-12-03 17:21:53,691 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 17:21:54,191 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 17:21:54,201 INFO  - 数据库所有表格创建成功!
+2016-12-03 17:21:55,502 INFO  - video Task Thread Start!
+2016-12-03 17:21:55,503 INFO  - web Task Thread Start!
+2016-12-03 17:24:24,248 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 17:24:24,508 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 17:24:24,517 INFO  - 数据库所有表格创建成功!
+2016-12-03 17:24:25,809 INFO  - video Task Thread Start!
+2016-12-03 17:24:25,811 INFO  - web Task Thread Start!
+2016-12-03 17:32:15,723 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 17:32:16,020 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 17:32:16,029 INFO  - 数据库所有表格创建成功!
+2016-12-03 17:32:20,415 INFO  - video Task Thread Start!
+2016-12-03 17:32:20,417 INFO  - web Task Thread Start!
+2016-12-03 17:37:10,755 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 17:37:11,025 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 17:37:11,035 INFO  - 数据库所有表格创建成功!
+2016-12-03 17:37:12,425 INFO  - video Task Thread Start!
+2016-12-03 17:37:12,427 INFO  - web Task Thread Start!
+2016-12-03 17:37:43,536 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 17:37:43,823 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 17:37:43,831 INFO  - 数据库所有表格创建成功!
+2016-12-03 17:37:45,118 INFO  - video Task Thread Start!
+2016-12-03 17:37:45,121 INFO  - web Task Thread Start!
+2016-12-03 18:02:19,644 INFO  - Seng Message:{"Id":"f057e290-7016-4b98-908a-9dd217bd253f","ErrorCode":"1","Message":""}<EOF>
+2016-12-03 18:02:21,555 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:02:22,400 INFO  - Seng Message:{"Id":"f057e290-7016-4b98-908a-9dd217bd253f","ErrorCode":"3","Message":""}<EOF>
+2016-12-03 18:02:22,753 INFO  - Seng Message:{"Id":"b48b6829-658d-4401-b9eb-ac63c9f777e3","ErrorCode":"2","Message":""}<EOF>
+2016-12-03 18:02:25,036 INFO  - Seng Message:{"Id":"f057e290-7016-4b98-908a-9dd217bd253f","ErrorCode":"4","Message":""}<EOF>
+2016-12-03 18:02:29,185 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:02:29,371 INFO  - Seng Message:{"Id":"b48b6829-658d-4401-b9eb-ac63c9f777e3","ErrorCode":"3","Message":""}<EOF>
+2016-12-03 18:02:31,730 INFO  - Seng Message:{"Id":"b48b6829-658d-4401-b9eb-ac63c9f777e3","ErrorCode":"4","Message":""}<EOF>
+2016-12-03 18:02:56,266 INFO  - Seng Message:{"Id":"4816c13e-a103-451e-94bf-263bff4cdc01","ErrorCode":"3","Message":""}<EOF>
+2016-12-03 18:02:56,611 INFO  - Seng Message:{"Id":"92af5d72-5e23-43a7-8853-e615e5a167e2","ErrorCode":"2","Message":""}<EOF>
+2016-12-03 18:02:56,628 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:03:00,936 INFO  - Seng Message:{"Id":"4816c13e-a103-451e-94bf-263bff4cdc01","ErrorCode":"4","Message":""}<EOF>
+2016-12-03 18:03:01,357 INFO  - Seng Message:{"Id":"a71f5c25-c204-404b-ab75-009305c52a4a","ErrorCode":"1","Message":""}<EOF>
+2016-12-03 18:03:01,659 INFO  - Seng Message:{"Id":"a4d7a83c-73b8-45b3-803b-bb99c45b742b","ErrorCode":"1","Message":""}<EOF>
+2016-12-03 18:03:03,954 INFO  - Seng Message:{"Id":"92af5d72-5e23-43a7-8853-e615e5a167e2","ErrorCode":"3","Message":""}<EOF>
+2016-12-03 18:03:05,129 INFO  - Seng Message:{"Id":"a71f5c25-c204-404b-ab75-009305c52a4a","ErrorCode":"2","Message":""}<EOF>
+2016-12-03 18:03:05,440 INFO  - Seng Message:{"Id":"a4d7a83c-73b8-45b3-803b-bb99c45b742b","ErrorCode":"2","Message":""}<EOF>
+2016-12-03 18:03:05,861 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:03:09,813 INFO  - Seng Message:{"Id":"92af5d72-5e23-43a7-8853-e615e5a167e2","ErrorCode":"4","Message":""}<EOF>
+2016-12-03 18:03:12,571 INFO  - Seng Message:{"Id":"a71f5c25-c204-404b-ab75-009305c52a4a","ErrorCode":"3","Message":""}<EOF>
+2016-12-03 18:03:13,113 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:03:16,922 INFO  - Seng Message:{"Id":"a71f5c25-c204-404b-ab75-009305c52a4a","ErrorCode":"4","Message":""}<EOF>
+2016-12-03 18:03:19,905 INFO  - Seng Message:{"Id":"a4d7a83c-73b8-45b3-803b-bb99c45b742b","ErrorCode":"3","Message":""}<EOF>
+2016-12-03 18:03:20,133 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:03:24,206 INFO  - Seng Message:{"Id":"a4d7a83c-73b8-45b3-803b-bb99c45b742b","ErrorCode":"4","Message":""}<EOF>
+2016-12-03 18:28:47,458 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 18:28:47,699 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 18:28:47,707 INFO  - 数据库所有表格创建成功!
+2016-12-03 18:28:49,075 INFO  - video Task Thread Start!
+2016-12-03 18:28:49,077 INFO  - web Task Thread Start!
+2016-12-03 18:29:17,449 INFO  - It's serverTask!
+2016-12-03 18:31:06,729 INFO  - Analyze start!
+2016-12-03 18:31:22,685 INFO  - It's serverTask!
+2016-12-03 18:31:30,796 INFO  - It's serverTask!
+2016-12-03 18:32:00,199 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:33:14,409 INFO  - Analyze start!
+2016-12-03 18:33:18,651 INFO  - It's serverTask!
+2016-12-03 18:33:26,121 INFO  - It's serverTask!
+2016-12-03 18:33:41,560 INFO  - It's serverTask!
+2016-12-03 18:35:21,156 INFO  - Analyze start!
+2016-12-03 18:36:04,358 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 18:36:04,604 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 18:36:04,612 INFO  - 数据库所有表格创建成功!
+2016-12-03 18:36:06,014 INFO  - video Task Thread Start!
+2016-12-03 18:36:06,017 INFO  - web Task Thread Start!
+2016-12-03 18:36:50,672 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:37:49,493 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 18:37:49,742 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 18:37:49,750 INFO  - 数据库所有表格创建成功!
+2016-12-03 18:37:51,046 INFO  - video Task Thread Start!
+2016-12-03 18:37:51,047 INFO  - web Task Thread Start!
+2016-12-03 18:38:24,201 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:48:55,308 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 18:48:55,568 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 18:48:55,577 INFO  - 数据库所有表格创建成功!
+2016-12-03 18:48:56,961 INFO  - video Task Thread Start!
+2016-12-03 18:48:56,962 INFO  - web Task Thread Start!
+2016-12-03 18:49:25,613 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:50:25,207 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 18:50:25,470 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 18:50:25,479 INFO  - 数据库所有表格创建成功!
+2016-12-03 18:50:26,778 INFO  - video Task Thread Start!
+2016-12-03 18:50:26,782 INFO  - web Task Thread Start!
+2016-12-03 18:50:27,919 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:50:49,766 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:52:21,206 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 18:52:22,167 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 18:52:22,176 INFO  - 数据库所有表格创建成功!
+2016-12-03 18:52:23,469 INFO  - video Task Thread Start!
+2016-12-03 18:52:23,472 INFO  - web Task Thread Start!
+2016-12-03 18:52:24,737 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:56:10,355 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 18:56:10,625 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 18:56:10,633 INFO  - 数据库所有表格创建成功!
+2016-12-03 18:56:11,964 INFO  - video Task Thread Start!
+2016-12-03 18:56:11,964 INFO  - web Task Thread Start!
+2016-12-03 18:56:13,534 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:56:17,988 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:56:23,571 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:56:27,722 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:56:32,314 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:56:36,582 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:57:30,082 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:57:34,349 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:57:40,488 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:57:44,819 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:57:49,409 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 18:57:53,620 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:00:10,581 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 19:00:10,903 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 19:00:10,910 INFO  - 数据库所有表格创建成功!
+2016-12-03 19:00:12,200 INFO  - video Task Thread Start!
+2016-12-03 19:00:12,201 INFO  - web Task Thread Start!
+2016-12-03 19:00:27,388 INFO  - It's serverTask!
+2016-12-03 19:00:44,337 INFO  - It's serverTask!
+2016-12-03 19:00:47,585 INFO  - It's serverTask!
+2016-12-03 19:01:02,113 INFO  - It's serverTask!
+2016-12-03 19:01:30,696 INFO  - It's serverTask!
+2016-12-03 19:01:43,577 INFO  - It's serverTask!
+2016-12-03 19:04:50,044 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 19:04:50,320 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 19:04:50,328 INFO  - 数据库所有表格创建成功!
+2016-12-03 19:04:51,617 INFO  - video Task Thread Start!
+2016-12-03 19:04:51,617 INFO  - web Task Thread Start!
+2016-12-03 19:09:14,093 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 19:09:14,428 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 19:09:14,438 INFO  - 数据库所有表格创建成功!
+2016-12-03 19:09:15,729 INFO  - video Task Thread Start!
+2016-12-03 19:09:15,733 INFO  - web Task Thread Start!
+2016-12-03 19:09:16,242 INFO  - It's serverTask!
+2016-12-03 19:09:17,000 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:09:20,771 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:09:23,838 INFO  - It's serverTask!
+2016-12-03 19:09:24,461 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:09:28,429 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:09:32,164 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:09:36,019 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:17:48,671 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 19:17:48,935 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 19:17:48,944 INFO  - 数据库所有表格创建成功!
+2016-12-03 19:17:50,237 INFO  - video Task Thread Start!
+2016-12-03 19:17:50,239 INFO  - web Task Thread Start!
+2016-12-03 19:25:25,137 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:35:07,230 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 19:35:07,494 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 19:35:07,503 INFO  - 数据库所有表格创建成功!
+2016-12-03 19:35:08,877 INFO  - video Task Thread Start!
+2016-12-03 19:35:08,880 INFO  - web Task Thread Start!
+2016-12-03 19:35:30,868 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:38:52,572 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 19:38:52,834 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 19:38:52,842 INFO  - 数据库所有表格创建成功!
+2016-12-03 19:38:54,232 INFO  - video Task Thread Start!
+2016-12-03 19:38:54,233 INFO  - web Task Thread Start!
+2016-12-03 19:45:27,855 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 19:45:28,124 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 19:45:28,133 INFO  - 数据库所有表格创建成功!
+2016-12-03 19:45:29,511 INFO  - video Task Thread Start!
+2016-12-03 19:45:29,512 INFO  - web Task Thread Start!
+2016-12-03 19:47:07,250 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 19:47:07,523 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 19:47:07,532 INFO  - 数据库所有表格创建成功!
+2016-12-03 19:47:08,898 INFO  - video Task Thread Start!
+2016-12-03 19:47:08,899 INFO  - web Task Thread Start!
+2016-12-03 19:52:17,161 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 19:52:17,452 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 19:52:17,460 INFO  - 数据库所有表格创建成功!
+2016-12-03 19:52:18,830 INFO  - video Task Thread Start!
+2016-12-03 19:52:18,832 INFO  - web Task Thread Start!
+2016-12-03 19:52:50,421 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:53:13,725 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:55:45,765 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:56:08,761 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 19:56:09,049 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 19:56:09,058 INFO  - 数据库所有表格创建成功!
+2016-12-03 19:56:10,430 INFO  - video Task Thread Start!
+2016-12-03 19:56:10,432 INFO  - web Task Thread Start!
+2016-12-03 19:56:24,026 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:58:17,238 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 19:58:17,508 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 19:58:17,516 INFO  - 数据库所有表格创建成功!
+2016-12-03 19:58:18,895 INFO  - video Task Thread Start!
+2016-12-03 19:58:18,903 INFO  - web Task Thread Start!
+2016-12-03 19:58:53,548 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:59:36,199 INFO  - It's serverTask!
+2016-12-03 19:59:37,116 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:59:42,971 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:59:44,257 INFO  - It's serverTask!
+2016-12-03 19:59:47,209 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:59:51,952 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 19:59:56,663 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:00:01,094 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:01:29,237 INFO  - Analyze start!
+2016-12-03 20:01:33,367 INFO  - It's serverTask!
+2016-12-03 20:02:04,487 INFO  - Analyze start!
+2016-12-03 20:02:08,650 INFO  - It's serverTask!
+2016-12-03 20:03:36,738 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 20:03:37,022 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 20:03:37,031 INFO  - 数据库所有表格创建成功!
+2016-12-03 20:03:38,409 INFO  - video Task Thread Start!
+2016-12-03 20:03:38,409 INFO  - web Task Thread Start!
+2016-12-03 20:03:38,826 INFO  - It's serverTask!
+2016-12-03 20:04:23,416 INFO  - Analyze start!
+2016-12-03 20:21:09,292 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 20:21:09,560 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 20:21:09,569 INFO  - 数据库所有表格创建成功!
+2016-12-03 20:21:10,942 INFO  - video Task Thread Start!
+2016-12-03 20:21:10,945 INFO  - web Task Thread Start!
+2016-12-03 20:29:49,082 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 20:29:49,367 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 20:29:49,375 INFO  - 数据库所有表格创建成功!
+2016-12-03 20:29:50,744 INFO  - video Task Thread Start!
+2016-12-03 20:29:50,745 INFO  - web Task Thread Start!
+2016-12-03 20:30:09,567 INFO  - It's serverTask!
+2016-12-03 20:31:43,640 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 20:31:43,904 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 20:31:43,913 INFO  - 数据库所有表格创建成功!
+2016-12-03 20:31:45,282 INFO  - video Task Thread Start!
+2016-12-03 20:31:45,283 INFO  - web Task Thread Start!
+2016-12-03 20:31:47,863 INFO  - It's serverTask!
+2016-12-03 20:32:13,508 INFO  - It's serverTask!
+2016-12-03 20:34:46,376 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 20:34:46,637 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 20:34:46,646 INFO  - 数据库所有表格创建成功!
+2016-12-03 20:34:48,018 INFO  - video Task Thread Start!
+2016-12-03 20:34:48,019 INFO  - web Task Thread Start!
+2016-12-03 20:34:53,080 INFO  - It's serverTask!
+2016-12-03 20:35:08,371 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:35:35,157 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:35:37,074 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:35:39,616 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:35:40,679 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:35:41,739 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:35:42,759 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:35:44,017 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:35:44,976 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:35:45,961 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:35:50,408 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:36:12,365 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:36:17,970 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:36:27,595 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:42:03,476 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 20:42:03,761 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 20:42:03,770 INFO  - 数据库所有表格创建成功!
+2016-12-03 20:42:05,167 INFO  - video Task Thread Start!
+2016-12-03 20:42:05,167 INFO  - web Task Thread Start!
+2016-12-03 20:42:14,714 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 20:42:33,199 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 20:42:33,478 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 20:42:33,487 INFO  - 数据库所有表格创建成功!
+2016-12-03 20:42:34,781 INFO  - video Task Thread Start!
+2016-12-03 20:42:34,783 INFO  - web Task Thread Start!
+2016-12-03 20:42:42,036 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:03:12,847 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 21:03:13,125 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 21:03:13,134 INFO  - 数据库所有表格创建成功!
+2016-12-03 21:03:14,467 INFO  - video Task Thread Start!
+2016-12-03 21:03:14,471 INFO  - web Task Thread Start!
+2016-12-03 21:03:20,488 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:04:11,507 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:04:22,166 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:04:26,141 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:04:30,091 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:04:45,128 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:05:03,489 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:05:31,178 INFO  - Timer trigger WebTest End!
+2016-12-03 21:05:52,033 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:06:16,249 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:06:32,423 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:06:37,182 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:06:46,175 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:06:57,185 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:10:35,758 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:10:52,460 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:10:57,530 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:12:22,188 INFO  - Timer trigger WebTest End!
+2016-12-03 21:13:11,017 INFO  - Timer trigger WebTest End!
+2016-12-03 21:14:37,158 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 21:14:37,457 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 21:14:37,466 INFO  - 数据库所有表格创建成功!
+2016-12-03 21:14:38,780 INFO  - video Task Thread Start!
+2016-12-03 21:14:38,787 INFO  - web Task Thread Start!
+2016-12-03 21:15:06,729 INFO  - Timer trigger WebTest End!
+2016-12-03 21:15:18,924 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:15:24,819 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:15:29,095 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:22:01,338 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 21:22:01,643 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 21:22:01,652 INFO  - 数据库所有表格创建成功!
+2016-12-03 21:22:02,952 INFO  - video Task Thread Start!
+2016-12-03 21:22:02,954 INFO  - web Task Thread Start!
+2016-12-03 21:22:08,666 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:23:44,595 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 21:23:44,900 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 21:23:44,908 INFO  - 数据库所有表格创建成功!
+2016-12-03 21:23:46,207 INFO  - video Task Thread Start!
+2016-12-03 21:23:46,208 INFO  - web Task Thread Start!
+2016-12-03 21:23:51,588 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:26:49,307 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:34:22,854 INFO  - 数据库初始化成功!IP:127.0.0.1;User:hgh;Passwd:123;DBName:videoresult
+2016-12-03 21:34:23,168 INFO  - 软件使用时限过期！请获取完整版！
+2016-12-03 21:34:23,177 INFO  - 数据库所有表格创建成功!
+2016-12-03 21:34:24,561 INFO  - video Task Thread Start!
+2016-12-03 21:34:24,563 INFO  - web Task Thread Start!
+2016-12-03 21:34:36,078 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:34:41,695 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:34:48,488 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:34:52,956 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:35:06,899 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:35:24,316 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!
+2016-12-03 21:37:13,319 INFO  -  WebBrowserDocumentCompletedEvent trigger WebTest End!

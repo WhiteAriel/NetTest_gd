@@ -205,7 +205,7 @@ namespace NetTest
             InitializeComponent();
             this.RealTimechart();
             datalistWeb.Clear();
-            mysqlWebA = new MySQLInterface(inisWeb.IniReadValue("Mysql", "serverIp"), inisWeb.IniReadValue("Mysql", "user"), inisWeb.IniReadValue("Mysql", "passwd"), inisWeb.IniReadValue("Mysql", "dbname"), null);
+            mysqlWebA = new MySQLInterface(inisWeb.IniReadValue("Mysql", "serverIp"), inisWeb.IniReadValue("Mysql", "user"), inisWeb.IniReadValue("Mysql", "passwd"), inisWeb.IniReadValue("Mysql", "dbname"), inisWeb.IniReadValue("Mysql", "port"));
             if (mysqlWebA.MysqlInit(inisWeb.IniReadValue("Mysql", "dbname")))
                 mysqlWebFlagA = true;
             Init();

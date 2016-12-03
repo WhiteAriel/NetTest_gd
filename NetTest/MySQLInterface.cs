@@ -12,24 +12,37 @@ namespace MultiMySQL
 {
     public struct videoPara
     {
-        public double clarity;
-        public double brightness;
-        public double Chroma;
-        public double saturation;
-        public double Contrast;
-        public double screenstatic;
-        public double screenjump;
-        public double screenfuzzy;
-        public videoPara(double clarity, double brightness, double Chroma, double saturation, double Contrast, double screenstatic, double screenjump, double screenfuzzy)
+        public int still;
+        public int blur;
+        public int skip;
+        public int black;
+        public int definition;
+        public int brightness;
+        public int chroma;
+        public int saturation;
+        public int contraction;
+        public int dev;
+        public int entro;
+        public double block;
+        public double highEnerge;
+        public double score;
+
+        public videoPara(int still,int blur,int skip,int black,int definition,int brightness,int chroma,int saturation,int contraction,int dev,int entro,double block,double highEnerge,double score)
         {
-            this.clarity = clarity;
-            this.brightness = brightness;
-            this.Chroma = Chroma;
-            this.saturation = saturation;
-            this.Contrast = Contrast;
-            this.screenstatic = screenstatic;
-            this.screenjump = screenjump;
-            this.screenfuzzy = screenfuzzy;
+            this.still=still;
+            this.blur=blur;
+            this.skip=skip;
+            this.black=black;
+            this.definition=definition;
+            this.brightness=brightness;
+            this.chroma=chroma;
+            this.saturation=saturation;
+            this.contraction=contraction;
+            this.dev=dev;
+            this.entro=entro;
+            this.block=block;
+            this.highEnerge=highEnerge;
+            this.score = score;
         }
     }
     class TaskItems
@@ -111,8 +124,8 @@ namespace MultiMySQL
         {
             try
             {
-                string DBhead = "CREATE DATABASE IF NOT EXISTS ";
-                string creatDB = DBhead + DBname + ";";
+                string DBhead = "CREATE DATABASE IF NOT EXISTS   ";
+                string creatDB = DBhead + DBname + " CHARACTER SET utf8;";
                 MySqlCommand creatdatabase = new MySqlCommand(creatDB, mycon);
                 creatdatabase.ExecuteNonQuery();
                 string usedb = "use " + DBname;
@@ -175,7 +188,8 @@ namespace MultiMySQL
             catch (Exception ex)
             {
                 errorInfo += " 创建MySQL表失败" + ex.Message;
-                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
+                Log.Console(Environment.StackTrace, ex); 
+                Log.Warn(Environment.StackTrace, ex);
                 return false;
             }
             return true;
@@ -221,7 +235,7 @@ namespace MultiMySQL
         {
             try
             {
-                string creatVideoPara = "create table IF NOT EXISTS VideoPara(TimeStamp VARCHAR(20) not null,SearchIndex INT auto_increment Unique,Guid VARCHAR(36) primary key not null,TaskId VARCHAR(36) not null,TaskType VARCHAR(20) not null, SyncStatus INT not null, SyncTime VARCHAR(20),Clarity DOUBLE not null,Brightness DOUBLE not null,Chroma DOUBLE not null,Saturation DOUBLE not null ,Contrast DOUBLE not null ,ScreenStatic DOUBLE not null ,ScreenJump DOUBLE not null ,ScreenFuzzy DOUBLE not null);";
+                string creatVideoPara = "create table IF NOT EXISTS VideoPara(TimeStamp VARCHAR(20) not null,SearchIndex INT auto_increment Unique,Guid VARCHAR(36) primary key not null,TaskId VARCHAR(36) not null,TaskType VARCHAR(20) not null, SyncStatus INT not null, SyncTime VARCHAR(20),Still INT not null,Blur INT not null,Skip INT not null,Black INT not null,Definition INT not null,Brightness INT not null,Chroma INT not null,Saturation INT not null,Contraction INT not null,Dev INT not null,Entro INT not null,Block DOUBLE not null,HighEnerge DOUBLE not null,Score DOUBLE not null);";      //,Clarity DOUBLE not null,Brightness DOUBLE not null,Chroma DOUBLE not null,Saturation DOUBLE not null ,Contrast DOUBLE not null ,ScreenStatic DOUBLE not null ,ScreenJump DOUBLE not null ,ScreenFuzzy DOUBLE not null
                 //MySqlCommand creattable = new MySqlCommand(creatVideoPara, mycon);
                 //creattable.ExecuteNonQuery();
                 MySqlHelper.ExecuteNonQuery(conString, creatVideoPara);
@@ -417,10 +431,9 @@ namespace MultiMySQL
                     errorInfo = errorInfo + " Input idandtype fail!";
                     return false;
                 }
-                string sqlInsert = "insert into VideoPara(TimeStamp,Guid,TaskId,TaskType,SyncStatus,Clarity,Brightness,Chroma,Saturation,Contrast,ScreenStatic,ScreenJump,ScreenFuzzy)" + " values('" + ts + "','" + guid + "','" + value[0] + "','" + value[1] + "'," + 0 + "," + vp.clarity + "," + vp.brightness + "," + vp.Chroma + "," + vp.saturation + "," + vp.Contrast + "," + vp.screenstatic + "," + vp.screenjump + "," + vp.screenfuzzy + ")";
-                //MySqlCommand Inserttable = new MySqlCommand(sqlInsert, mycon);
-                //Inserttable.ExecuteNonQuery();
-                MySqlHelper.ExecuteNonQuery(conString, sqlInsert);
+                //string sqlInsert = "insert into VideoPara(TimeStamp,Guid,TaskId,TaskType,SyncStatus,Clarity,Brightness,Chroma,Saturation,Contrast,ScreenStatic,ScreenJump,ScreenFuzzy)" + " values('" + ts + "','" + guid + "','" + value[0] + "','" + value[1] + "'," + 0 + "," + vp.clarity + "," + vp.brightness + "," + vp.Chroma + "," + vp.saturation + "," + vp.Contrast + "," + vp.screenstatic + "," + vp.screenjump + "," + vp.screenfuzzy + ")";
+                string sqlInsert = "insert into VideoPara(TimeStamp,Guid,TaskId,TaskType,SyncStatus,Still,Blur,Skip,Black,Definition,Brightness,Chroma,Saturation,Contraction,Dev,Entro,Block,HighEnerge,Score)" + " values('" + ts + "','" + guid + "','" + value[0] + "','" + value[1] + "'," + 0 + "," + vp.still + "," + vp.blur + "," + vp.skip + "," + vp.black + "," + vp.definition + "," + vp.brightness + "," + vp.chroma + "," + vp.saturation + "," + vp.contraction + "," + vp.dev + "," + vp.entro + "," + vp.block + "," + vp.highEnerge+","+vp.score+ ")";
+                    MySqlHelper.ExecuteNonQuery(conString, sqlInsert);
             }
             catch (Exception ex)
             {
@@ -525,6 +538,27 @@ namespace MultiMySQL
                 return false;
             }
         }
+
+        //public bool WrongInfInsertTaskList(string wrongInf)
+        //{
+        //    try
+        //    {
+               
+        //        //1#22c80fcd7c-f010-4fd9-b8a4-d5207f980642#Video#http://data.vod.itc.cn/?rb=1&p.mp4#192.168.50.120:16201
+        //        string sqlInsert = "insert into TaskList(Remarks)" + " values(" + "'" + wrongInf + "'" + ")";
+        //        //MySqlCommand Inserttable = new MySqlCommand(sqlInsert, mycon);
+        //        //Inserttable.ExecuteNonQuery();
+        //        MySqlHelper.ExecuteNonQuery(conString, sqlInsert);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        errorInfo = errorInfo + " 数据插入表失败" + ex.Message;
+        //        Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
+        //        return false;
+        //    }
+        //    return true;
+        //}
+
     }
 
 }

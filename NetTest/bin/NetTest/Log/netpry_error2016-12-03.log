@@ -1,0 +1,1027 @@
+2016-12-03 16:37:14,570 [9032] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - PlayTaskFailed
+2016-12-03 16:42:23,812 [8584] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - PlayTaskFailed
+2016-12-03 16:45:40,930 [10412] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - PlayTaskFailed
+2016-12-03 16:50:55,298 [11432] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - 播放文件不是flv/f4v/hlv格式，web解析无法完成 
+
+2016-12-03 16:51:02,758 [9508] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - PlayTaskFailed
+2016-12-03 16:53:00,141 [12132] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - 播放文件不是flv/f4v/hlv格式，web解析无法完成 
+
+2016-12-03 16:57:17,377 [14832] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - PlayTaskFailed
+2016-12-03 17:13:55,458 [7076] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - PlayTaskFailed
+2016-12-03 17:37:56,704 [13956] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - 播放文件不是flv/f4v/hlv格式，web解析无法完成 
+
+2016-12-03 17:38:25,361 [5408] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - 播放文件不是flv/f4v/hlv格式，web解析无法完成 
+
+2016-12-03 18:02:31,359 [11516] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 18:02:59,462 [9512] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+
+2016-12-03 18:03:07,648 [4260] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+
+2016-12-03 18:03:15,232 [12012] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+
+2016-12-03 18:03:22,350 [6680] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 18:31:26,130 [3900] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - PlayTaskFailed
+2016-12-03 18:32:07,927 [11428] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 588
+   在 NetTest.WebTest.WebServerTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 385
+   在 NetTest.frmMain.webTaskFunc() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 345
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Runtime.InteropServices.COMException (0x8001010D): 因为应用程序正在发送一个输入同步呼叫，所以无法执行传出的呼叫。 (异常来自 HRESULT:0x8001010D (RPC_E_CANTCALLOUT_ININPUTSYNCCALL))
+   在 System.Windows.Forms.UnsafeNativeMethods.IOleInPlaceObject.SetObjectRects(COMRECT lprcPosRect, COMRECT lprcClipRect)
+   在 System.Windows.Forms.WebBrowserBase.OnBoundsUpdate(Int32 x, Int32 y, Int32 width, Int32 height)
+   在 System.Windows.Forms.Control.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)
+   在 System.Windows.Forms.Control.System.Windows.Forms.Layout.IArrangedElement.SetBounds(Rectangle bounds, BoundsSpecified specified)
+   在 System.Windows.Forms.Layout.DefaultLayout.xLayoutDockedControl(IArrangedElement element, Rectangle newElementBounds, Boolean measureOnly, Size& preferredSize, Rectangle& remainingBounds)
+   在 System.Windows.Forms.Layout.DefaultLayout.LayoutDockedControls(IArrangedElement container, Boolean measureOnly)
+   在 System.Windows.Forms.Layout.DefaultLayout.xLayout(IArrangedElement container, Boolean measureOnly, Size& preferredSize)
+   在 System.Windows.Forms.Layout.DefaultLayout.LayoutCore(IArrangedElement container, LayoutEventArgs args)
+   在 System.Windows.Forms.Layout.LayoutEngine.Layout(Object container, LayoutEventArgs layoutEventArgs)
+   在 System.Windows.Forms.Control.OnLayout(LayoutEventArgs levent)
+   在 System.Windows.Forms.ScrollableControl.OnLayout(LayoutEventArgs levent)
+   在 System.Windows.Forms.Control.PerformLayout(LayoutEventArgs args)
+   在 System.Windows.Forms.Control.PerformLayout()
+   在 System.Windows.Forms.Control.ResumeLayout(Boolean performLayout)
+   在 System.Windows.Forms.Layout.LayoutTransaction.Dispose()
+   在 System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   在 System.Windows.Forms.Control.set_Visible(Boolean value)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 577
+2016-12-03 18:33:21,806 [3900] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - PlayTaskFailed
+2016-12-03 18:33:29,808 [3900] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - PlayTaskFailed
+2016-12-03 18:37:20,037 [14068] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 588
+   在 NetTest.WebTest.WebServerTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 385
+   在 NetTest.frmMain.webTaskFunc() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 345
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Runtime.InteropServices.COMException (0x8001010D): 因为应用程序正在发送一个输入同步呼叫，所以无法执行传出的呼叫。 (异常来自 HRESULT:0x8001010D (RPC_E_CANTCALLOUT_ININPUTSYNCCALL))
+   在 System.Windows.Forms.UnsafeNativeMethods.IOleInPlaceObject.SetObjectRects(COMRECT lprcPosRect, COMRECT lprcClipRect)
+   在 System.Windows.Forms.WebBrowserBase.OnBoundsUpdate(Int32 x, Int32 y, Int32 width, Int32 height)
+   在 System.Windows.Forms.Control.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)
+   在 System.Windows.Forms.Control.System.Windows.Forms.Layout.IArrangedElement.SetBounds(Rectangle bounds, BoundsSpecified specified)
+   在 System.Windows.Forms.Layout.DefaultLayout.xLayoutDockedControl(IArrangedElement element, Rectangle newElementBounds, Boolean measureOnly, Size& preferredSize, Rectangle& remainingBounds)
+   在 System.Windows.Forms.Layout.DefaultLayout.LayoutDockedControls(IArrangedElement container, Boolean measureOnly)
+   在 System.Windows.Forms.Layout.DefaultLayout.xLayout(IArrangedElement container, Boolean measureOnly, Size& preferredSize)
+   在 System.Windows.Forms.Layout.DefaultLayout.LayoutCore(IArrangedElement container, LayoutEventArgs args)
+   在 System.Windows.Forms.Layout.LayoutEngine.Layout(Object container, LayoutEventArgs layoutEventArgs)
+   在 System.Windows.Forms.Control.OnLayout(LayoutEventArgs levent)
+   在 System.Windows.Forms.ScrollableControl.OnLayout(LayoutEventArgs levent)
+   在 System.Windows.Forms.Control.PerformLayout(LayoutEventArgs args)
+   在 System.Windows.Forms.Control.PerformLayout()
+   在 System.Windows.Forms.Control.ResumeLayout(Boolean performLayout)
+   在 System.Windows.Forms.Layout.LayoutTransaction.Dispose()
+   在 System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   在 System.Windows.Forms.Control.set_Visible(Boolean value)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 577
+2016-12-03 18:39:12,458 [13624] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 588
+   在 NetTest.WebTest.WebServerTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 385
+   在 NetTest.frmMain.webTaskFunc() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 345
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Runtime.InteropServices.COMException (0x8001010D): 因为应用程序正在发送一个输入同步呼叫，所以无法执行传出的呼叫。 (异常来自 HRESULT:0x8001010D (RPC_E_CANTCALLOUT_ININPUTSYNCCALL))
+   在 System.Windows.Forms.UnsafeNativeMethods.IOleInPlaceObject.SetObjectRects(COMRECT lprcPosRect, COMRECT lprcClipRect)
+   在 System.Windows.Forms.WebBrowserBase.OnBoundsUpdate(Int32 x, Int32 y, Int32 width, Int32 height)
+   在 System.Windows.Forms.Control.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)
+   在 System.Windows.Forms.Control.System.Windows.Forms.Layout.IArrangedElement.SetBounds(Rectangle bounds, BoundsSpecified specified)
+   在 System.Windows.Forms.Layout.DefaultLayout.xLayoutDockedControl(IArrangedElement element, Rectangle newElementBounds, Boolean measureOnly, Size& preferredSize, Rectangle& remainingBounds)
+   在 System.Windows.Forms.Layout.DefaultLayout.LayoutDockedControls(IArrangedElement container, Boolean measureOnly)
+   在 System.Windows.Forms.Layout.DefaultLayout.xLayout(IArrangedElement container, Boolean measureOnly, Size& preferredSize)
+   在 System.Windows.Forms.Layout.DefaultLayout.LayoutCore(IArrangedElement container, LayoutEventArgs args)
+   在 System.Windows.Forms.Layout.LayoutEngine.Layout(Object container, LayoutEventArgs layoutEventArgs)
+   在 System.Windows.Forms.Control.OnLayout(LayoutEventArgs levent)
+   在 System.Windows.Forms.ScrollableControl.OnLayout(LayoutEventArgs levent)
+   在 System.Windows.Forms.Control.PerformLayout(LayoutEventArgs args)
+   在 System.Windows.Forms.Control.PerformLayout()
+   在 System.Windows.Forms.Control.ResumeLayout(Boolean performLayout)
+   在 System.Windows.Forms.Layout.LayoutTransaction.Dispose()
+   在 System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   在 System.Windows.Forms.Control.set_Visible(Boolean value)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 577
+2016-12-03 18:49:35,974 [2860] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 536
+   在 NetTest.WebTest.WebServerTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 385
+   在 NetTest.frmMain.webTaskFunc() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 345
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Runtime.InteropServices.COMException (0x8001010D): 因为应用程序正在发送一个输入同步呼叫，所以无法执行传出的呼叫。 (异常来自 HRESULT:0x8001010D (RPC_E_CANTCALLOUT_ININPUTSYNCCALL))
+   在 System.Windows.Forms.UnsafeNativeMethods.IOleInPlaceObject.SetObjectRects(COMRECT lprcPosRect, COMRECT lprcClipRect)
+   在 System.Windows.Forms.WebBrowserBase.OnBoundsUpdate(Int32 x, Int32 y, Int32 width, Int32 height)
+   在 System.Windows.Forms.Control.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)
+   在 System.Windows.Forms.Control.System.Windows.Forms.Layout.IArrangedElement.SetBounds(Rectangle bounds, BoundsSpecified specified)
+   在 System.Windows.Forms.Layout.DefaultLayout.xLayoutDockedControl(IArrangedElement element, Rectangle newElementBounds, Boolean measureOnly, Size& preferredSize, Rectangle& remainingBounds)
+   在 System.Windows.Forms.Layout.DefaultLayout.LayoutDockedControls(IArrangedElement container, Boolean measureOnly)
+   在 System.Windows.Forms.Layout.DefaultLayout.xLayout(IArrangedElement container, Boolean measureOnly, Size& preferredSize)
+   在 System.Windows.Forms.Layout.DefaultLayout.LayoutCore(IArrangedElement container, LayoutEventArgs args)
+   在 System.Windows.Forms.Layout.LayoutEngine.Layout(Object container, LayoutEventArgs layoutEventArgs)
+   在 System.Windows.Forms.Control.OnLayout(LayoutEventArgs levent)
+   在 System.Windows.Forms.ScrollableControl.OnLayout(LayoutEventArgs levent)
+   在 System.Windows.Forms.Control.PerformLayout(LayoutEventArgs args)
+   在 System.Windows.Forms.Control.PerformLayout()
+   在 System.Windows.Forms.Control.ResumeLayout(Boolean performLayout)
+   在 System.Windows.Forms.Layout.LayoutTransaction.Dispose()
+   在 System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   在 System.Windows.Forms.Control.set_Visible(Boolean value)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 525
+2016-12-03 18:50:52,852 [15244] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+
+2016-12-03 18:50:54,637 [12392] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 536
+   在 NetTest.WebTest.WebServerTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 385
+   在 NetTest.frmMain.webTaskFunc() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 345
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Runtime.InteropServices.COMException (0x8001010D): 因为应用程序正在发送一个输入同步呼叫，所以无法执行传出的呼叫。 (异常来自 HRESULT:0x8001010D (RPC_E_CANTCALLOUT_ININPUTSYNCCALL))
+   在 System.Windows.Forms.UnsafeNativeMethods.IOleInPlaceObject.SetObjectRects(COMRECT lprcPosRect, COMRECT lprcClipRect)
+   在 System.Windows.Forms.WebBrowserBase.OnBoundsUpdate(Int32 x, Int32 y, Int32 width, Int32 height)
+   在 System.Windows.Forms.Control.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)
+   在 System.Windows.Forms.Control.System.Windows.Forms.Layout.IArrangedElement.SetBounds(Rectangle bounds, BoundsSpecified specified)
+   在 System.Windows.Forms.Layout.DefaultLayout.xLayoutDockedControl(IArrangedElement element, Rectangle newElementBounds, Boolean measureOnly, Size& preferredSize, Rectangle& remainingBounds)
+   在 System.Windows.Forms.Layout.DefaultLayout.LayoutDockedControls(IArrangedElement container, Boolean measureOnly)
+   在 System.Windows.Forms.Layout.DefaultLayout.xLayout(IArrangedElement container, Boolean measureOnly, Size& preferredSize)
+   在 System.Windows.Forms.Layout.DefaultLayout.LayoutCore(IArrangedElement container, LayoutEventArgs args)
+   在 System.Windows.Forms.Layout.LayoutEngine.Layout(Object container, LayoutEventArgs layoutEventArgs)
+   在 System.Windows.Forms.Control.OnLayout(LayoutEventArgs levent)
+   在 System.Windows.Forms.ScrollableControl.OnLayout(LayoutEventArgs levent)
+   在 System.Windows.Forms.Control.PerformLayout(LayoutEventArgs args)
+   在 System.Windows.Forms.Control.PerformLayout()
+   在 System.Windows.Forms.Control.ResumeLayout(Boolean performLayout)
+   在 System.Windows.Forms.Layout.LayoutTransaction.Dispose()
+   在 System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   在 System.Windows.Forms.Control.set_Visible(Boolean value)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 525
+2016-12-03 18:53:26,588 [14512] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 536
+   在 NetTest.WebTest.WebServerTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 385
+   在 NetTest.frmMain.webTaskFunc() 位置 D:\GitWork\NetTest_gd\NetTest\frmMain.cs:行号 345
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.Runtime.InteropServices.COMException (0x8001010D): 因为应用程序正在发送一个输入同步呼叫，所以无法执行传出的呼叫。 (异常来自 HRESULT:0x8001010D (RPC_E_CANTCALLOUT_ININPUTSYNCCALL))
+   在 System.Windows.Forms.UnsafeNativeMethods.IOleInPlaceObject.SetObjectRects(COMRECT lprcPosRect, COMRECT lprcClipRect)
+   在 System.Windows.Forms.WebBrowserBase.OnBoundsUpdate(Int32 x, Int32 y, Int32 width, Int32 height)
+   在 System.Windows.Forms.Control.SetBoundsCore(Int32 x, Int32 y, Int32 width, Int32 height, BoundsSpecified specified)
+   在 System.Windows.Forms.Control.System.Windows.Forms.Layout.IArrangedElement.SetBounds(Rectangle bounds, BoundsSpecified specified)
+   在 System.Windows.Forms.Layout.DefaultLayout.xLayoutDockedControl(IArrangedElement element, Rectangle newElementBounds, Boolean measureOnly, Size& preferredSize, Rectangle& remainingBounds)
+   在 System.Windows.Forms.Layout.DefaultLayout.LayoutDockedControls(IArrangedElement container, Boolean measureOnly)
+   在 System.Windows.Forms.Layout.DefaultLayout.xLayout(IArrangedElement container, Boolean measureOnly, Size& preferredSize)
+   在 System.Windows.Forms.Layout.DefaultLayout.LayoutCore(IArrangedElement container, LayoutEventArgs args)
+   在 System.Windows.Forms.Layout.LayoutEngine.Layout(Object container, LayoutEventArgs layoutEventArgs)
+   在 System.Windows.Forms.Control.OnLayout(LayoutEventArgs levent)
+   在 System.Windows.Forms.ScrollableControl.OnLayout(LayoutEventArgs levent)
+   在 System.Windows.Forms.Control.PerformLayout(LayoutEventArgs args)
+   在 System.Windows.Forms.Control.PerformLayout()
+   在 System.Windows.Forms.Control.ResumeLayout(Boolean performLayout)
+   在 System.Windows.Forms.Layout.LayoutTransaction.Dispose()
+   在 System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   在 System.Windows.Forms.Control.set_Visible(Boolean value)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 525
+2016-12-03 18:56:21,211 [9324] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 18:56:25,950 [3836] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 18:56:30,517 [13112] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 18:56:34,801 [14500] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 18:56:39,059 [14060] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 18:57:32,699 [13788] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+
+2016-12-03 18:57:38,745 [11520] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 18:57:43,097 [6916] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 18:57:47,664 [6120] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 18:57:51,732 [2140] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 18:57:56,109 [7496] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 19:03:59,085 [12536] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 536
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 527
+2016-12-03 19:04:36,268 [12536] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 536
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 527
+2016-12-03 19:05:11,821 [14592] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 536
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 527
+2016-12-03 19:06:35,946 [14592] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 536
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 527
+2016-12-03 19:09:19,687 [15292] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - PlayTaskFailed
+2016-12-03 19:09:22,846 [11980] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 19:09:26,614 [6440] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 19:09:30,469 [12152] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 19:09:34,333 [11484] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 19:09:38,168 [13432] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 19:18:13,119 [10732] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 536
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 527
+2016-12-03 19:23:48,225 [10732] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 536
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 527
+2016-12-03 19:24:56,479 [10732] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 536
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 527
+2016-12-03 19:35:21,242 [13580] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 543
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 534
+2016-12-03 19:35:43,574 [13580] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 543
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 534
+2016-12-03 19:39:18,733 [8352] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 543
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 534
+2016-12-03 19:45:46,142 [14396] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 527
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 518
+2016-12-03 19:47:30,120 [13252] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 527
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 518
+2016-12-03 19:52:37,131 [4916] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 527
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 518
+2016-12-03 19:53:06,486 [4916] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 527
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 518
+2016-12-03 19:56:34,386 [8360] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 527
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 518
+2016-12-03 19:58:26,822 [668] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 524
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 518
+2016-12-03 19:59:39,408 [3900] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - PlayTaskFailed
+2016-12-03 19:59:45,321 [4968] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 19:59:49,747 [3028] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+
+2016-12-03 19:59:54,673 [7076] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 19:59:59,138 [15320] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 20:00:03,532 [13116] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-03 20:01:29,234 [8408] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - 播放文件不是flv/f4v/hlv格式，web解析无法完成 
+
+2016-12-03 20:02:04,483 [11932] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] -  数据包传输不是采用http协议传输，web解析无法完成 
+DNS分析异常 
+HTTP分析异常 
+
+2016-12-03 20:04:23,413 [14636] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] -  数据包传输不是采用http协议传输，web解析无法完成 
+DNS分析异常 
+HTTP分析异常 
+
+2016-12-03 20:05:02,367 [7940] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] -  数据包传输不是采用http协议传输，web解析无法完成 
+DNS分析异常 
+HTTP分析异常 
+
+2016-12-03 20:06:06,084 [5692] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] -  数据包传输不是采用http协议传输，web解析无法完成 
+DNS分析异常 
+HTTP分析异常 
+
+2016-12-03 20:06:50,530 [11072] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] -  数据包传输不是采用http协议传输，web解析无法完成 
+DNS分析异常 
+HTTP分析异常 
+
+2016-12-03 20:07:51,956 [11096] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] -  数据包传输不是采用http协议传输，web解析无法完成 
+DNS分析异常 
+HTTP分析异常 
+
+2016-12-03 20:21:42,212 [5764] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] -  数据包传输不是采用http协议传输，web解析无法完成 
+DNS分析异常 
+HTTP分析异常 
+
+2016-12-03 20:28:16,796 [14700] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] -  数据包传输不是采用http协议传输，web解析无法完成 
+DNS分析异常 
+HTTP分析异常 
+
+2016-12-03 20:35:55,879 [11784] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 524
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 518
+2016-12-03 20:35:57,619 [11784] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 524
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 518
+2016-12-03 20:35:59,209 [11784] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 524
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 518
+2016-12-03 20:36:00,139 [11784] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 524
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 518
+2016-12-03 20:36:01,009 [11784] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 524
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 518
+2016-12-03 20:36:01,760 [11784] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 524
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 518
+2016-12-03 20:36:02,512 [11784] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 524
+   在 NetTest.WebTest.WebTerminalTaskStartFunc() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 424
+   在 NetTest.WebTest.sBTest_Click(Object sender, EventArgs e) 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 431
+   在 System.Windows.Forms.Control.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnClick(EventArgs e)
+   在 DevExpress.XtraEditors.BaseButton.OnMouseUp(MouseEventArgs e)
+   在 System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   在 System.Windows.Forms.Control.WndProc(Message& m)
+   在 DevExpress.Utils.Controls.ControlBase.WndProc(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   在 System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   在 System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(Int32 dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 NetTest.Program.Main() 位置 D:\GitWork\NetTest_gd\NetTest\Program.cs:行号 25
+   在 System.AppDomain._nExecuteAssembly(Assembly assembly, String[] args)
+   在 System.AppDomain.ExecuteAssembly(String assemblyFile, Evidence assemblySecurity, String[] args)
+   在 Microsoft.VisualStudio.HostingProcess.HostProc.RunUsersAssembly()
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.UriFormatException: 无效的 URI: 无法确定 URI 的格式。
+   在 System.Uri.CreateThis(String uri, Boolean dontEscape, UriKind uriKind)
+   在 System.Uri..ctor(String uriString)
+   在 NetTest.WebTest.WebTesting() 位置 D:\GitWork\NetTest_gd\NetTest\WebTest.cs:行号 518
+2016-12-03 21:35:54,220 [3968] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - DNS分析异常 
+

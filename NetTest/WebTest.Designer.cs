@@ -101,7 +101,7 @@ namespace NetTest
             // 
             this.webEx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webEx.Location = new System.Drawing.Point(0, 1);
-            this.webEx.MinimumSize = new System.Drawing.Size(20, 20);
+            //this.webEx.MinimumSize = new System.Drawing.Size(20, 20);
             this.webEx.Name = "webEx";
             this.webEx.ScriptErrorsSuppressed = true;
             this.webEx.Size = new System.Drawing.Size(367, 360);
