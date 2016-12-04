@@ -691,8 +691,9 @@ namespace NetTest
             catch (System.Exception ex)
             {
                 i = -1;
-                Console.WriteLine("{0},{1}",Environment.StackTrace, ex);
-                Log.Console(Environment.StackTrace, ex); Log.Warn(Environment.StackTrace, ex);
+                //Console.WriteLine("{0},{1}",Environment.StackTrace, ex);
+                Log.Console(Environment.StackTrace, ex); 
+                Log.Warn(Environment.StackTrace, ex);
             }
 
             if (i < 0)

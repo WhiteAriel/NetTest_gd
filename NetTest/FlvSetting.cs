@@ -37,14 +37,9 @@ namespace NetTest
     {
         IniFile inis = new IniFile(Application.StartupPath + "\\settings.ini");
         IniFile inisvlc = new IniFile(Application.StartupPath + "\\VideoPlayer\\vlc.ini");
-        //IniFile inisref = new IniFile(Application.StartupPath + "\\RefTool" + "\\referencesetup.ini");
-
         //删除操作时要使用
         ArrayList listtemp = new ArrayList();
         ArrayList list_temp_aid = new ArrayList();
-
-
-
         //网卡信息
         public SharpPcap.LibPcap.PcapDevice device;
         //web播放所选地址类型
@@ -79,9 +74,6 @@ namespace NetTest
         static ScriptScope scope2 =null; 
         //解析地址门限
         int threshold=4;
-
-
-
        // private int iTest = 1;              //连续播放了多少次
 
         public FlvSetting()
@@ -89,6 +81,7 @@ namespace NetTest
             InitializeComponent();
             try
             {
+                Log.Info("python engine of flv setting initialize.....");
                 engine=Python.CreateEngine();
                 scope =engine.CreateScope();
                 engine2 =Python.CreateEngine();
@@ -96,8 +89,9 @@ namespace NetTest
             }
             catch(Exception ex)
             {
+                Log.Info("python engine of flv setting initialize fail!Please check the python dll.");
                 Log.Console(Environment.StackTrace,ex); 
-                Log.Warn(Environment.StackTrace,ex);
+                Log.Error(Environment.StackTrace,ex);
             }
 
         }
@@ -317,8 +311,6 @@ namespace NetTest
         private void setOK()
         {
             this.btnSetCancel.Enabled = false;
-            //inis.IniWriteValue("Flv", "PlayPcapPath", this.txtPlayPcapPath.Text);
-            //inis.IniWriteValue("Flv", "RefResultPath", this.txtResultPath.Text);
             inis.IniWriteValue("Flv", "NumContinuous", this.txtContinueNo.Text);
             inis.IniWriteValue("Flv", "Adapter", this.cbAdapter.SelectedIndex.ToString());
 
@@ -345,7 +337,8 @@ namespace NetTest
             //
             if (this.txtPlayPcapPath.Text.Length == 0)
             {
-                MessageBox.Show("请指定抓包和日志文件的正确输出路径！");
+                MessageBox.Show("请指定抓包和日志文件的正确输出路径!");
+                Log.Warn("请指定抓包和日志文件的正确输出路径!");
                 this.btnSetCancel.Enabled = true;
                 return;
             }
@@ -359,9 +352,11 @@ namespace NetTest
                 }
                 catch (System.Exception ex)
                 {
-                   Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                    Log.Console(Environment.StackTrace,ex); 
+                    Log.Error(Environment.StackTrace,ex);
                     this.txtPlayPcapPath.Text = inis.IniReadValue("Flv", "PlayPcapPath"); //读上一次的
                     MessageBox.Show("抓包和日志文件输出路径错误！");   //出错不写入配置
+                    Log.Info("抓包和日志文件输出路径错误!");
                     return;
                 }
             }
@@ -381,7 +376,8 @@ namespace NetTest
                 }
                 catch
                 {
-                    MessageBox.Show("请正确输入连续次数！");
+                    MessageBox.Show("请正确输入连续次数!");
+                    Log.Warn("无效的连续次数.");
                     inis.IniWriteValue("Flv", "NumContinuous", "3");
                     return;
                 }
@@ -415,12 +411,14 @@ namespace NetTest
                             {
                                 WebFindSuc = WEBFINDSUC.unfinish;
                                 findreladd.Abort();
+                                Log.Info("解析地址超时.");
+                                Log.Warn("解析地址超时.");
                             }
-                            //MessageBox.Show("解析超时，请稍后再试或直接输入真实文件地址！");
                         }
                         catch (ThreadAbortException ExFind)
                         {
-                            Console.WriteLine(ExFind.Message);
+                            Log.Info("解析地址超时.");
+                            Log.Error(Environment.StackTrace, ExFind);
                             Thread.ResetAbort();
                         }
                         findreladd.Join(100);  //如果Abort不成功,那么就执行Join,(调用线程挂起，等待被调用线程ThreadProcFindAdd执行完毕后，继续执行)
@@ -437,9 +435,8 @@ namespace NetTest
                             btnSetCancel.Enabled = true;
                             rBtnweb.Enabled = true;
                             rAutoCheck.Enabled = true;
-                            //if (setTrd.IsAlive)
-                            //    setTrd.Abort();
-                            //Thread.Sleep(1000);
+                            Log.Info("解析地址异常!请稍后再试或直接输入真实文件地址.");
+                            Log.Warn("解析异常!请稍后再试或直接输入真实文件地址.");
                             return;
                         }
                         else if (WebFindSuc == WEBFINDSUC.fail)
@@ -451,9 +448,8 @@ namespace NetTest
                             btnSetCancel.Enabled = true;
                             rBtnweb.Enabled = true;
                             rAutoCheck.Enabled = true;
-                            //if (setTrd.IsAlive)
-                            //    setTrd.Abort();
-                            //Thread.Sleep(1000);
+                            Log.Info("解析地址失败！请稍后再试或直接输入真实文件地址.");
+                            Log.Warn("解析地址失败！请稍后再试或直接输入真实文件地址.");
                             return;
                         }
 
@@ -466,10 +462,8 @@ namespace NetTest
                             btnSetCancel.Enabled = true;
                             rBtnweb.Enabled = true;
                             rAutoCheck.Enabled = true;
-                            //if (setTrd.IsAlive)
-                            //    setTrd.Abort();
-                            //Thread.Sleep(1000);
-                            
+                            Log.Info("解析地址超时，请稍后再试或直接输入真实文件地址.");
+                            Log.Warn("解析地址超时，请稍后再试或直接输入真实文件地址.");
                             return;
                         }
                         
@@ -483,13 +477,19 @@ namespace NetTest
                                 {
                                     //视频第一小段地址
                                     inis.IniWriteValue("Flv", "urlPage", returnUrl[0]);    //urlPage视频播放器获取的真实地址key
+                                    Log.Info("解析地址成功.真实链接地址:" + returnUrl[0]);
                                 }
+                                else
+                                    Log.Info("解析地址成功.但没用的返回地址。");
                                 UpdateList(WebFindSuc);
+                                
                         }
                     }
                     catch (System.Exception ex)
                     {
-                       Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                        Log.Console(Environment.StackTrace,ex);
+                        Log.Error(Environment.StackTrace,ex);
+                        Log.Info("解析地址异常,请查看error日志.");
                         this.btnSetCancel.Enabled = true;
                         return;
                     }                      
@@ -520,8 +520,6 @@ namespace NetTest
             btnSetCancel.Enabled = true;
             rBtnweb.Enabled = true;
             rAutoCheck.Enabled = true;
-            //if (setTrd.IsAlive)
-            //    setTrd.Abort();
   }
 
 
@@ -593,102 +591,6 @@ namespace NetTest
                 inis.IniWriteValue("Flv", "ieurl" + (num + 1), (string)ieUrlList[num]);
             for (int num = 0; num < relUrlList.Count; num++)
                 inis.IniWriteValue("Flv", "relurl" + (num + 1), (string)relUrlList[num]);
-
-
-  
-
-            //if (inis.IniReadValue("Flv", "Envir") == "web")      //ie地址记录信息和真实地址记录信息同时变化
-            //{
-
-            //    //web时在此处单独处理
-            //    //读取本次测试信息
-            //    string temp2 = inis.IniReadValue("Flv", "urltemp");
-            //    string temp3 = inis.IniReadValue("Flv", "urlPage");
-
-            //    //读settings.ini中以前的测试记录信息
-            //    //liststore存ie地址记录，list_store_aid存真实地址记录
-            //    for (int i = 0; i < 6; i++)
-            //    {
-            //        if (inis.IniReadValue("Flv", "ieurl" + (i + 1)) != "")
-            //            liststore.Add(inis.IniReadValue("Flv", "ieurl" + (i + 1)));
-            //    }
-                //for (int m = 0; m < 10; m++)
-                //{
-                //    if (inis.IniReadValue("Flv", "relurl" + (m + 1)) != "")
-                //        list_store_aid.Add(inis.IniReadValue("Flv", "relurl" + (m + 1)));
-                //}
-
-                //数据处理，全部后移
-                //if (inis.IniReadValue("Flv", "isurl") == "ieurl")     //IE时可更新，且IE地址与真实地址可同步变化
-                //{
-                //    int n = liststore.Count;
-                //    int parseNumTemp=0;
-                //     while (n >= 1)
-                //     {
-                //         liststore[n] = liststore[n - 1];
-                //         parseNumTemp=int.Parse(inis.IniReadValue("Flv", "parseNum" + (n-1)));
-                //         for (int m = 0; m < parseNumTemp;m++)
-                //         {
-                //         }
-                //         n--;
-                //     }
-                //     liststore.Insert(0, temp2);
-
-                    //if (liststore.Contains(temp2))
-                    //{
-                    //    int n = liststore.IndexOf(temp2);    //在IE记录中搜索相同项
-                    //    int m = n;
-                    //    if (n >= 1)
-                    //    {
-                    //        string temp4 = (string)liststore[n];
-                    //        string temp5 = (string)list_store_aid[m];
-                    //        while (n >= 1)
-                    //        {
-                    //            liststore[n] = liststore[n - 1];
-                    //            list_store_aid[m] = list_store_aid[m - 1];
-                    //            n--;
-                    //            m--;
-                    //        }
-                    //        liststore[0] = temp4;
-                    //        list_store_aid[0] = temp5;            //后移，空出第一个位置
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    liststore.Insert(0, temp2);              //如果没有就插到第一个
-                    //    list_store_aid.Insert(0, temp3);
-                    //}
-                //}
-
-                //else        //真实地址时不支持更新，从真实地址记录中选择，
-                ////保证真实地址与IE地址同步变化
-                //{
-                //    if (list_store_aid.Contains(temp3))
-                //    {
-                //        int m = list_store_aid.IndexOf(temp3);      //在真实记录中搜索相同项
-                //        int n = m;                   //标记IE记录中对应标号
-                //        if (m >= 1)
-                //        {
-                //            string temp5 = (string)list_store_aid[m];
-                //            string temp4 = (string)liststore[n];
-                //            while (m >= 1)
-                //            {
-                //                list_store_aid[m] = list_store_aid[m - 1];
-                //                liststore[n] = liststore[n - 1];
-                //                m--;
-                //                n--;
-                //            }
-                //            list_store_aid[0] = temp5;
-                //            liststore[0] = temp4;
-                //        }
-                //    }
-                //}
-
-                //将liststore与list_store_aid中更新后的内容写入ini文件
-                //for (int num = 0; num < liststore.Count; num++)
-                //    inis.IniWriteValue("Flv", "ieurl" + (num + 1), (string)liststore[num]);
-                //for (int num = 0; num < list_store_aid.Count; num++)
-                //    inis.IniWriteValue("Flv", "relurl" + (num + 1), (string)list_store_aid[num]);
             }
 
 
@@ -741,6 +643,7 @@ namespace NetTest
 
         private void searchAdapter()
         {
+            Log.Info("flv setting搜索可用联网网卡....");
             System.Version ver = System.Environment.OSVersion.Version;
 
             var devices = LibPcapLiveDeviceList.Instance;
@@ -834,6 +737,8 @@ namespace NetTest
                 cbAdapter.SelectedIndex = Convert.ToInt32(inis.IniReadValue("Flv", "Adapter"));
             else    //当前机器上没有联网网卡时
             {
+                Log.Info("当前没有可用的联网网卡!");
+                Log.Warn("当前没有可用的联网网卡!");
                 cbAdapter.SelectedIndex = -1;
                 inis.IniWriteValue("Flv", "Adapter", "-1");
             }
@@ -906,9 +811,6 @@ namespace NetTest
             //调用地址解析函数
             try
             {
-                //string path = @"parseUrl.py";
-                //ScriptEngine engine = Python.CreateEngine();
-                //ScriptScope scope = engine.CreateScope();
                 string url = inis.IniReadValue("Flv", "urltemp");
                 scope.SetVariable("url", url);
                 var result = engine.CreateScriptSourceFromFile(path).Execute(scope);
@@ -919,33 +821,26 @@ namespace NetTest
                 if (returnUri == 0)
                 {
                     WebFindSuc = WEBFINDSUC.fail;
-                    
-
                 }
                 else if (returnUri == 1)    //地址解析成功
                 {
                     WebFindSuc = WEBFINDSUC.suc;
                 }
-                //myEvent.Set();
             }
             catch (System.Exception ex)
             {
                 WebFindSuc = WEBFINDSUC.excep;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Console(Environment.StackTrace,ex);
+                Log.Info("解析线程ThreadProcFindAdd出现异常,请查看error日志.");
+                Log.Error(Environment.StackTrace,ex);
             }
-
             return;
    
         }
 
         private void txtResultPath_EditValueChanged(object sender, EventArgs e)
         {
-            //有参考分析结果文件路径
-            //if (this.txtResultPath.Text.Length == 0)
-            //{
-            //    this.btnSetCancel.Enabled = true;
-            //    return;
-            //}
+
         }
 
         private void txtContinueNo_EditValueChanged(object sender, EventArgs e)
@@ -1043,13 +938,16 @@ namespace NetTest
             }
             catch (System.Exception ex)
             {
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Info("搜索网址可用链接线程searchFunc发生异常,请查看error日志.");
+                Log.Console(Environment.StackTrace,ex); 
+                Log.Warn(Environment.StackTrace,ex);
                 WebFindSuc = WEBFINDSUC.excep;
             }
        }
 
         private void searchWebFunc()            //直接在这里做检测也可以，不过要放一个定时器做超时检测
         {
+            Log.Info("搜索网站可用链接线程开始....");
             Thread search = new Thread(new ThreadStart(searchFunc));     //新开线程做超时检测
             search.Start();
             search.Join(threshold * 1000);   //超时设置
@@ -1059,58 +957,60 @@ namespace NetTest
                 {
                     WebFindSuc = WEBFINDSUC.unfinish;
                     search.Abort();
+                    Log.Info("搜索网站可用链接线程超时.");
+                    Log.Warn("搜索网站可用链接线程超时.");
                 }
             }
             catch (ThreadAbortException ExFind)
             {
-                Console.WriteLine(ExFind.Message);
+                Log.Info("搜索网站可用链接线程abort异常,该异常已捕获处理.");
+                Log.Warn("搜索网站可用链接线程abort异常,请查看error日志.");
                 Thread.ResetAbort();
             }
             search.Join(100);  //如果Abort不成功,那么就执行Join,(调用线程挂起，等待被调用线程ThreadProcFindAdd执行完毕后，继续执行)
 
             
-       try             //创建线程去解析地址
+       try             
        {
 
            if (WebFindSuc == WEBFINDSUC.excep)
             {
                 MessageBox.Show("网站更新异常！请稍后重试");
-                //if (searchWeb.IsAlive)
-                //    searchWeb.Abort();
-                //Thread.Sleep(1000);
                 btnSetOK.Enabled = true;
                 btnSetCancel.Enabled = true;
                 btnAutoReal.Enabled = true;
                 rAutoCheck.Enabled = true;
                 rBtnweb.Enabled = true;
                 btnAutoWebSite.Enabled = true;
-                
+                Log.Info("网站更新异常！请稍后重试.");
+                Log.Warn("网站更新异常！请稍后重试.");
                 return;
             }
 
            else if (WebFindSuc == WEBFINDSUC.unfinish)
            {
                MessageBox.Show("网站更新超时,请增加超时门限后重试");
-               if (searchWeb.IsAlive)
-                   searchWeb.Abort();
-               Thread.Sleep(1000);
+               //if (searchWeb.IsAlive)
+               //    searchWeb.Abort();
+               //Thread.Sleep(1000);
                btnSetOK.Enabled = true;
                btnSetCancel.Enabled = true;
+               Log.Info("网站更新超时,请增加超时门限后重试.");
+               Log.Warn("网站更新超时,请增加超时门限后重试.");
                return;
            }
 
            else if (WebFindSuc == WEBFINDSUC.fail)
            {
                MessageBox.Show("网站更新失败,请稍后重试！");
-               //if (searchWeb.IsAlive)
-               //    searchWeb.Abort();
-               //Thread.Sleep(1000);
                btnSetOK.Enabled = true;
                btnSetCancel.Enabled = true;
                btnAutoReal.Enabled = true;
                rAutoCheck.Enabled = true;
                rBtnweb.Enabled = true;
                btnAutoWebSite.Enabled = true;
+               Log.Info("网站更新失败,请稍后重试.");
+               Log.Warn("网站更新失败,请稍后重试.");
                return;
            }
 
@@ -1121,32 +1021,34 @@ namespace NetTest
                 string returnUriTmp = "links.txt";
                 List<string> returnUrl = new List<string>();   //将python接出来的地址放在list中
                 returnUrl = JsonConvert.DeserializeObject<List<string>>(System.IO.File.ReadAllText(returnUriTmp));
-                if (returnUrl.Count==0)
-                      MessageBox.Show("无可用测试网站，请更新地址检测模块！");
+                if (returnUrl.Count == 0)
+                {
+                    MessageBox.Show("无可用测试网站，请更新地址检测模块！");
+                    Log.Info("网站更新成功！但无可用测试网站！");
+                    Log.Warn("网站更新成功！但无可用测试网站！");
+                }
                 else
                 {
-                    for (int i=0;i<4;i++)
+                    for (int i = 0; i < 4; i++)
                     {
-                        inis.IniWriteValue("Flv", "website"+ (i + 1),"");   //清空保存的记录
+                        inis.IniWriteValue("Flv", "website" + (i + 1), "");   //清空保存的记录
                     }
-                    for (int i=0;i<returnUrl.Count;i++)
+                    for (int i = 0; i < returnUrl.Count; i++)
                     {
-                        inis.IniWriteValue("Flv", "website"+ (i + 1),returnUrl[i]);
+                        inis.IniWriteValue("Flv", "website" + (i + 1), returnUrl[i]);
                     }//更新ini
                     if (this.IniAutoWebSiteSel())     //重新从配置文件中加载资源
                     {
                         //this.refleshWebsite(returnUrl);    //真实地址写到配置文件
                         this.IniAutoRealSel();    //如果存在网站资源就根据网站类型填充真实地址
                     }
-                    //if (searchWeb.IsAlive)
-                    //    searchWeb.Abort();
-                    //Thread.Sleep(1000);
                     btnSetOK.Enabled = true;
                     btnSetCancel.Enabled = true;
                     btnAutoReal.Enabled = true;
                     rAutoCheck.Enabled = true;
                     rBtnweb.Enabled = true;
                     btnAutoWebSite.Enabled = true;
+                    Log.Info("网站更新成功!");
                     return;
                 }
 
@@ -1155,7 +1057,9 @@ namespace NetTest
         }
             catch (System.Exception ex)
             {
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex); ;
+                Log.Info("异常,请查看error日志");
+                Log.Console(Environment.StackTrace,ex); 
+                Log.Warn(Environment.StackTrace,ex);
                 btnSetOK.Enabled = true;
                 btnSetCancel.Enabled = true;
                 btnAutoReal.Enabled = true;
@@ -1259,6 +1163,7 @@ namespace NetTest
 
         private void searchFunc2()
         {
+            Log.Info("获取网址链接线程searchFunc2开启.....");
             int index = this.cbAutoWebSite.SelectedIndex;
             string url = inis.IniReadValue("Flv", "website" + (index + 1));   //获取网站链接
             Console.Write(url);
@@ -1278,7 +1183,9 @@ namespace NetTest
             catch (System.Exception ex)
             {
                 WebFindSuc = WEBFINDSUC.excep;
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Info("获取网址链接线程searchFunc2异常,请查看error日志");
+                Log.Console(Environment.StackTrace,ex);
+                Log.Warn(Environment.StackTrace,ex);
             }
 
         }
@@ -1290,8 +1197,6 @@ namespace NetTest
             Thread searchUrl = new Thread(new ThreadStart(searchFunc2));     //新开线程做超时检测
             searchUrl.Start();
             searchUrl.Join(threshold * 1000);    //超时设置
-            
-
             try
             {
                 if (searchUrl.IsAlive)//如果网站更新线程还没返回，解析超时
@@ -1303,7 +1208,9 @@ namespace NetTest
             catch (ThreadAbortException ExFind)
             {
                 Thread.ResetAbort();
-                Console.WriteLine(ExFind.Message);
+                Log.Info("searchFunc2线程abort异常,已捕获处理");
+                Log.Console(Environment.StackTrace, ExFind);
+                Log.Warn(Environment.StackTrace, ExFind);
             }
             searchUrl.Join(100);  //如果Abort不成功,那么就执行Join,(调用线程挂起，等待被调用线程ThreadProcFindAdd执行完毕后，继续执行)
             try             //创建线程去解析地址
@@ -1311,71 +1218,66 @@ namespace NetTest
 
                 if (WebFindSuc == WEBFINDSUC.excep)
                 {
-                    MessageBox.Show("地址更新异常！");
-                    //if (searchWebUrl.IsAlive)
-                    //    searchWebUrl.Abort();
-                    //Thread.Sleep(1000);
+                    MessageBox.Show("可用网站更新异常！");
                     btnSetOK.Enabled = true;
                     btnSetCancel.Enabled = true;
                     btnAutoReal.Enabled = true;
                     btnAutoWebSite.Enabled = true;
                     rAutoCheck.Enabled = true;
                     rBtnweb.Enabled = true;
+                    Log.Info("可用网站更新异常！");
+                    Log.Warn("可用网站更新异常！");
                     return;
                 }
                 else if (WebFindSuc == WEBFINDSUC.unfinish)
                 {
                     MessageBox.Show("地址更新超时，请重试！");
-                    //if (searchWebUrl.IsAlive)
-                    //    searchWebUrl.Abort();
-                    //Thread.Sleep(1000);
                     btnSetOK.Enabled = true;
                     btnSetCancel.Enabled = true;
                     btnAutoReal.Enabled = true;
                     btnAutoWebSite.Enabled = true;
                     rAutoCheck.Enabled = true;
                     rBtnweb.Enabled = true;
+                    Log.Info("可用网站更新超时，请重试！");
+                    Log.Warn("可用网站更新超时，请重试！");
                     return;
                 }
                 else if (WebFindSuc == WEBFINDSUC.fail)
                 {
                     MessageBox.Show("没有可用地址链接！");
-                    //if (searchWebUrl.IsAlive)
-                    //    searchWebUrl.Abort();
-                    //Thread.Sleep(1000);
                     btnSetOK.Enabled = true;
                     btnSetCancel.Enabled = true;
                     btnAutoReal.Enabled = true;
                     btnAutoWebSite.Enabled = true;
                     rAutoCheck.Enabled = true;
                     rBtnweb.Enabled = true;
+                    Log.Info("没有可用地址链接！");
+                    Log.Warn("没有可用地址链接！");
                     return;
 
                 }
                 else if (WebFindSuc == WEBFINDSUC.suc)
                 {
-                       MessageBox.Show("地址更新成功！！");
+                       MessageBox.Show("地址更新成功！");
                        int index = this.cbAutoWebSite.SelectedIndex;
                        string url = inis.IniReadValue("Flv", "website" + (index + 1));   //获取网站链接
-                       //List<string> ListUrl = new List<string>();
-                       //ListUrl.Add(url);
                        this.refleshWebsite(url);    //真实地址写到配置文件
                        this.IniAutoRealSel();    //如果存在网站资源就根据网站类型填充真实地址
-                       // if (searchWeb.IsAlive)
-                           // searchWeb.Abort();
-                        //Thread.Sleep(1000);
                        btnSetOK.Enabled = true;
                        btnSetCancel.Enabled = true;
                        btnAutoReal.Enabled = true;
                        btnAutoWebSite.Enabled = true;
                        rAutoCheck.Enabled = true;
                        rBtnweb.Enabled = true;
+                       Log.Info("地址更新成功！");
                         return;
                 }
             }
             catch (System.Exception ex)
             {
-               Log.Console(Environment.StackTrace,ex); Log.Warn(Environment.StackTrace,ex);
+                Log.Info("异常,请查看error日志");
+                Log.Console(Environment.StackTrace,ex); 
+                Log.Warn(Environment.StackTrace,ex);
                 btnSetOK.Enabled = true;
                 btnSetCancel.Enabled = true;
                 btnAutoReal.Enabled = true;
@@ -1399,7 +1301,6 @@ namespace NetTest
             this.btnAutoWebSite.Enabled = false;
             this.btnAutoReal.Enabled = false;
             inis.IniWriteValue("Flv", "LinksType", "Manual");
-            //inis.IniWriteValue("Flv", "webindex", "0");
         }
 
         private void rAutoCheck_Click(object sender, EventArgs e)

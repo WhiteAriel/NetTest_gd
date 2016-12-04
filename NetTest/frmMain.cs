@@ -38,10 +38,6 @@ namespace NetTest
         Queue<TaskItems> webTaskQue = new Queue<TaskItems>();   //网页测评队列
         object videoQueLocker = new object();
         object webQueLocker = new object();
-        //TcpClient对象
-        //TcpListener client = null;
-        //TcpClient clientSocket = null;
-        //TcpServer对象,需要讨论下是不是需要
 
         string serverIp = null;
         int recycle = 0;
@@ -71,23 +67,26 @@ namespace NetTest
             if (mysqlInit.MysqlInit(inis.IniReadValue("Mysql", "dbname")))
             {
                 mysqlFlag = true;
-                Log.Info(string.Format("数据库初始化成功!IP:{0};User:{1};Passwd:{2};DBName:{3}", inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname")));
+                Log.Info(string.Format("数据库初始化成功!IP:{0};User:{1};Passwd:{2};Port:{3};DBName:{4}", inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "port"), inis.IniReadValue("Mysql", "dbname")));
             }
             else
             {
                 mysqlFlag = false;
-                Log.Warn(string.Format("数据库初始化失败!IP:{0};User:{1};Passwd:{2};DBName:{3}", inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname")));
+                Log.Info(string.Format("数据库初始化失败!IP:{0};User:{1};Passwd:{2};Port:{3};DBName:{4}", inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "port"), inis.IniReadValue("Mysql", "dbname")));
+                Log.Error(string.Format("数据库初始化失败!IP:{0};User:{1};Passwd:{2};Port:{3};DBName:{4}", inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "port"), inis.IniReadValue("Mysql", "dbname")));
             }
             //调用python爬虫获取真实地址
             try
             {
+                Log.Info("初始化python engine.");
                 taskEngine = Python.CreateEngine();
                 taskScope = taskEngine.CreateScope();
             }
             catch (System.Exception ex)
             {
-                Log.Error(ex.ToString());
-                Log.Console(ex.ToString());
+                Log.Info("初始化python engine异常,请查看error日志");
+                Log.Console(Environment.StackTrace, ex);
+                Log.Error(Environment.StackTrace, ex);
             }
             
         }
@@ -129,6 +128,7 @@ namespace NetTest
             }
             catch (Exception ex)
             {
+                Log.Info("操作注册表异常,请查看error日志.");
                 Log.Console(Environment.StackTrace, ex);
                 Log.Error(Environment.StackTrace, ex);
                 MessageBox.Show("注册表操作异常,程序退出!");
@@ -147,31 +147,31 @@ namespace NetTest
                 if (string.IsNullOrEmpty(mysqlInit.errorInfo))
                     Log.Info("数据库所有表格创建成功!");
                 else
-                    Log.Warn(mysqlInit.errorInfo);
+                {
+                    Log.Info("数据库部分表格创建失败!");
+                    Log.Error(mysqlInit.errorInfo);
+                }
             }
-
-            //mysqlInit.CreatVideoPara();
-
-
 
             //启动主程序时，必须保证将点播类的播放器进程先杀掉！！！
-            string strProcessFile = "VLCDialog";
-            Process[] pro = Process.GetProcessesByName(strProcessFile);
-            foreach (Process ProCe in pro)
-            {
-                ProCe.Kill();
-                Thread.Sleep(100);
-            }
-            //如果进程没法杀死，那就直接退出主程序
-            if (pro.Length > 0)
-            {
-                Log.Error("播放器进程无法关闭！软件退出！");
-                Application.Exit();
-            }
+            //string strProcessFile = "VLCDialog";
+            //Process[] pro = Process.GetProcessesByName(strProcessFile);
+            //foreach (Process ProCe in pro)
+            //{
+            //    ProCe.Kill();
+            //    Thread.Sleep(100);
+            //}
+            ////如果进程没法杀死，那就直接退出主程序
+            //if (pro.Length > 0)
+            //{
+            //    Log.Error("播放器进程无法关闭！软件退出！");
+            //    Application.Exit();
+            //}
             string strPcap = System.Environment.GetFolderPath(Environment.SpecialFolder.System) + "\\wpcap.dll";
             if (!File.Exists(strPcap))
             {
                 MessageBox.Show("运行本程序前请先安装WinPcap！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Log.Info("未安装WinPcap!软件退出！");
                 Log.Error("未安装WinPcap!软件退出！");
                 Application.Exit();
             }
@@ -210,6 +210,7 @@ namespace NetTest
             if (devices.Count < 1)
             {
                 MessageBox.Show("未发现有效网卡,程序退出！\r\n可能是因为WireShark没有安装成功导致的！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Log.Info("未发现有效网卡,程序退出！可能是因为WireShark没有安装成功导致的！");
                 Log.Error("未发现有效网卡,程序退出！可能是因为WireShark没有安装成功导致的！");
                 Application.Exit();
             }
@@ -240,10 +241,12 @@ namespace NetTest
             serverConfig.ReadExceptionCallback = serverReadExceptionFunc;
             try
             {
+                Log.Info("Tcp socket监听服务开启.......");
                 new TcpSocketServer(serverConfig).StartListening();
             }
             catch (System.Exception ex)
             {
+                Log.Info("Tcp socket监听服务开启异常,请查看error日志");
                 Log.Console(Environment.StackTrace, ex);
                 Log.Error(Environment.StackTrace, ex);
             }
@@ -252,10 +255,9 @@ namespace NetTest
             //20161029  task线程
             Thread videoTaskThread = new Thread(videoTaskFunc);
             videoTaskThread.Start();
-            Log.Info("video Task Thread Start!");
             Thread webTaskThread = new Thread(webTaskFunc);
             webTaskThread.Start();
-            Log.Info("web Task Thread Start!");
+           
             //任务状态上传线程，过滤为“同步状态！=执行状态”
             Thread statusUploadThread = new Thread(statusUploadFunc);
             statusUploadThread.Start();
@@ -320,6 +322,7 @@ namespace NetTest
 
         void webTaskFunc()
         {
+            Log.Info("web Task Thread Start!");
             TaskItems webTask = null;
             while (true)
             {
@@ -336,7 +339,7 @@ namespace NetTest
                         webTask = webTaskQue.Dequeue();
                     }
                     inis.IniWriteValue("Task", "currentWebId", webTask.taskId);
-                    Console.WriteLine("Web start,Url:{0}", webTask.taskUrl);
+                    //Console.WriteLine("Web start,Url:{0}", webTask.taskUrl);
                     inis.IniWriteValue("Web", "WebPage", webTask.taskUrl);
                     webTest1.serverTest = true;   //服务器任务
                     webAnalyse1.serverTest = true;
@@ -357,6 +360,7 @@ namespace NetTest
 
         void videoTaskFunc()
         {
+            Log.Info("video Task Thread Start!");
             TaskItems videoTask = null;
             while (true)
             {
@@ -592,7 +596,8 @@ namespace NetTest
                                 }
                                 catch (Exception ex)
                                 {
-                                    Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
+                                    Log.Console(Environment.StackTrace, ex); 
+                                    Log.Error(Environment.StackTrace, ex);
                                 }
                             }
                         }
@@ -605,7 +610,11 @@ namespace NetTest
                 }
             }
             else
-                Console.WriteLine("Mysql Init fail! StatusUpload Thread end!");
+                //Console.WriteLine("Mysql Init fail! StatusUpload Thread end!");
+            {
+                Log.Info("Mysql Init fail! StatusUpload Thread end!");
+                Log.Error("Mysql Init fail! StatusUpload Thread end!");
+            }
         }
 
         void taskScanFunc()
@@ -652,7 +661,11 @@ namespace NetTest
                 }
             }
             else
-                Console.WriteLine("Mysql Init fail! taskScan Thread end!");
+            {
+                Log.Info("Mysql Init fail! StatusUpload Thread end!");
+                Log.Error("Mysql Init fail! StatusUpload Thread end!");
+            }
+                //Console.WriteLine("Mysql Init fail! taskScan Thread end!");
         }
 
 

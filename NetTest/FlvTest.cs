@@ -55,7 +55,6 @@ namespace NetTest
         public static IniFile inis = new IniFile(Application.StartupPath + "\\settings.ini");  //ini class
         public static IniFile inisvlcout = new IniFile(Application.StartupPath + "\\vlc.ini"); //和一些库行为有关，播放器默认读\\VideoPlayer\\vlc.ini，评分读\\vlc.ini
         public static IniFile inisvlc = new IniFile(Application.StartupPath + "\\VideoPlayer\\vlc.ini"); //ini class
-        //IniFile inisref = new IniFile(Application.StartupPath + "\\RefTool" + "\\referencesetup.ini");
 
         public volatile  bool taskon = false;    //表示任务没有运行
         public volatile bool serverTest = false;   //表示执行的是服务器任务还是终端自己的任务
@@ -93,10 +92,6 @@ namespace NetTest
 
         Queue<ParaStuct> paraQue = new Queue<ParaStuct>();
         object queLock = new object();
-
-        //写文件用于评分
-        //FileStream scoreInfile = null;
-        //StreamWriter scoreInWriter = null; 
 
         //参数线程
         Thread paraShowThread = null;
@@ -155,11 +150,17 @@ namespace NetTest
             //数据库对象初始化
             mysqlTest = new MySQLInterface(inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "dbname"), inis.IniReadValue("Mysql", "port"));
             if (mysqlTest.MysqlInit(inis.IniReadValue("Mysql", "dbname")))
+            {
                 mysqlTestFlag = true;
-            this.RealTimechart();
-
-            
-            
+                Log.Info(string.Format("数据库初始化成功!IP:{0};User:{1};Passwd:{2};Port:{3};DBName:{4}", inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"),inis.IniReadValue("Mysql", "port"), inis.IniReadValue("Mysql", "dbname")));
+            }
+            else
+            {
+                mysqlTestFlag = false;
+                Log.Info(string.Format("数据库初始化失败!IP:{0};User:{1};Passwd:{2};Port:{3};DBName:{4}", inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "port"), inis.IniReadValue("Mysql", "dbname")));
+                Log.Error(string.Format("数据库初始化失败!IP:{0};User:{1};Passwd:{2};Port:{3};DBName:{4}", inis.IniReadValue("Mysql", "serverIp"), inis.IniReadValue("Mysql", "user"), inis.IniReadValue("Mysql", "passwd"), inis.IniReadValue("Mysql", "port"), inis.IniReadValue("Mysql", "dbname")));
+            }
+            this.RealTimechart();           
         }
 
         /******************************************************************************
@@ -181,8 +182,9 @@ namespace NetTest
             }
             catch (Exception ex)
             {
-                MessageBox.Show("请检查连续测试参数的设置！");
-                Log.Error(Environment.StackTrace, ex);
+                //MessageBox.Show("请检查连续测试参数的设置！");
+                Log.Info("Flv Test初始化异常,请查看error日志");
+                Log.Warn(Environment.StackTrace, ex);
             }
 
             if (intCheckContinuous > 0)     //是连续测试
@@ -210,13 +212,17 @@ namespace NetTest
                     }
                     catch (Exception ex)
                     {
-                        Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
+                        Log.Info("异常,请查看error日志");
+                        Log.Console(Environment.StackTrace, ex); 
+                        Log.Error(Environment.StackTrace, ex);
                         MessageBox.Show("网卡序号:" + iDevice.ToString());
                     }
                 }
                 else
                 {
                     MessageBox.Show("请首先正确选择网卡，再重新进行测试！");
+                    Log.Info("请首先正确选择网卡，再重新进行测试！");
+                    Log.Warn("请首先正确选择网卡，再重新进行测试！");
                     return;
                 }
             }
@@ -232,18 +238,17 @@ namespace NetTest
            pcap worker
         /*******************************************************************************/
         private void bwAsync_cap_DoWork(object sender, DoWorkEventArgs e)      //完成后引发bwAsync_cap_RunWorkerCompleted
-        {                                                                                                                   //抓包线程
+        {
+            Log.Info("抓包线程启动...");
+            //抓包线程
             try
             {
-
-                pcap_packet.Start(strPcapFile);
-                //StartCapture(iDevice, strPcapFile);
+                pcap_packet.Start(strPcapFile);              
             }
             catch (Exception ex)
             {
+                Log.Info("抓包线程异常,请查看error日志");
                 DisplayState(ex.Message);
-                //btnFlvStart.Enabled = true;
-                //this.btnFlvStop.Enabled = false;
                 Log.Error(Environment.StackTrace, ex);
                 return;
             }
@@ -258,6 +263,8 @@ namespace NetTest
             if (e.Error != null)
             {
                 DisplayState("抓包错误\r\n");
+                Log.Info("抓包错误！");
+                Log.Warn("抓包错误！");
                 return;
             }
 
@@ -265,7 +272,7 @@ namespace NetTest
             if (e.Cancelled)
             {
                 pcap_packet.Stop();
-                //StopCapture();
+                Log.Info("抓包任务撤销！");
                 DisplayState("抓包任务撤销\r\n");
                 return;
             }
@@ -277,18 +284,20 @@ namespace NetTest
         /*******************************************************************************/
         public int StartServerTaskFunc()   //如果终端任务在执行，服务器任务等待
         {
+            Log.Info("服务器任务触发.");
             while (true)
             {
                 if (!taskon)
                 {
-                    Log.Info("It's serverTask!");
+                    Log.Info("StartServerTaskFunc 启动.....");
                     this.btnFlvStart.Enabled = false;
                     this.btnFlvStop.Enabled = false;   //服务器任务不允许终端停止
                     this.taskon = true;
 
                     if (inis.IniReadValue("Flv", "urlPage").Equals(""))
                     {
-                        DisplayState("错误的视频解析地址,请重新设置！！");
+                        DisplayState("错误的视频解析地址,请重新设置！");
+                        Log.Info("错误的视频解析地址,请重新设置!");
                         Log.Warn("错误的视频解析地址,请重新设置!");
                         this.btnFlvStart.Enabled = true;
                         this.btnFlvStop.Enabled = false;
@@ -313,7 +322,9 @@ namespace NetTest
 
                         catch (System.Exception ex)
                         {
-                            Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
+                            Log.Console(Environment.StackTrace, ex);
+                            Log.Info("CreateDirectory:"+resultPath+"异常,请查看error日志");
+                            Log.Error(Environment.StackTrace, ex);
                             resultPath = "C:\\TestLog";
                             Directory.CreateDirectory(resultPath);
                         }
@@ -347,21 +358,28 @@ namespace NetTest
                         memoPcap.Items.Clear();
                     }
                     this.ClearDns();
-                    int flvTestRet=this.FlvTesting();
+                    int flvTestRet = this.FlvTesting();
                     if (flvTestRet == 0)
                     {
+                        Log.Info("等待服务器任务结束中.....");
                         videoEndEvent.WaitOne();   //wait for end of stream
                         StopServerTaskFunc();
+                        Log.Info("等待服务器任务结束");
                         return 0;
                     }
                     else
                     {
+                        Log.Info("任务异常,请查看总控备注.");
+                        Log.Warn("任务异常,请查看总控备注.");
                         PlayException();
                         return flvTestRet;
                     }
                 }
                 else
+                {
+                    Log.Info("终端任务在运行,服务器任务等待2s.....");
                     Thread.Sleep(2000);  //wait 2s if handon task is running 
+                }
             }
         }
 
@@ -370,6 +388,7 @@ namespace NetTest
        /*******************************************************************************/
         public void StopServerTaskFunc()
         {
+            Log.Info("服务器任务结束触发.");
             //停止播放，关掉播放器，退出抓包、播放、管道进程
             this.StopClosePlayer();
 
@@ -397,7 +416,7 @@ namespace NetTest
 
             //设置正在测试的标示位
             DoTest = false;
-            paraShowThread.Join(1000);   //wait for exit of paraShowThread
+            paraShowThread.Join(300);   //wait for exit of paraShowThread
             try
             {
                 if (paraShowThread.IsAlive)
@@ -405,7 +424,9 @@ namespace NetTest
             }
             catch (System.Exception ex)
             {
-                Log.Warn(ex.ToString());
+                Log.Info("paraShowThread线程abort异常,已捕获处理");
+                Log.Console(Environment.StackTrace, ex);
+                Log.Error(Environment.StackTrace, ex);
             }
   
             //对参数文件处理，给出评分
@@ -479,6 +500,7 @@ namespace NetTest
             }
             catch (System.Exception ex)
             {
+                Log.Info("视频打分异常,请查看error日志");
                 Log.Error(Environment.StackTrace, ex);
             }
 
@@ -522,12 +544,13 @@ namespace NetTest
 
         private void btnFlvStart_Click(object sender, EventArgs e)
         {
+            Log.Info("终端flv任务触发.");
             StartTerminalTaskFunc();
         }
 
         public void StartTerminalTaskFunc()   //兼容服务器任务和终端任务，如果终端任务在执行，服务器任务等待
         {
-                    Log.Info("It's serverTask!");
+                    Log.Info("终端flv任务启动.......");
                     this.btnFlvStart.Enabled = false;
                     this.btnFlvStop.Enabled = true;     //终端任务可以暂停
                     this.taskon = true;
@@ -535,6 +558,7 @@ namespace NetTest
                     if (inis.IniReadValue("Flv", "urlPage").Equals(""))
                     {
                         DisplayState("错误的视频解析地址,请重新设置！！");
+                        Log.Info("错误的视频解析地址,请重新设置!");
                         Log.Warn("错误的视频解析地址,请重新设置!");
                         this.btnFlvStart.Enabled = true;
                         this.btnFlvStop.Enabled = false;
@@ -559,7 +583,9 @@ namespace NetTest
 
                         catch (System.Exception ex)
                         {
-                            Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
+                            Log.Console(Environment.StackTrace, ex); 
+                            Log.Info("CreateDirectory:"+resultPath+"异常,请查看error日志");
+                            Log.Error(Environment.StackTrace, ex);
                             resultPath = "C:\\TestLog";
                             Directory.CreateDirectory(resultPath);
                         }
@@ -601,45 +627,67 @@ namespace NetTest
                             case -19996:
                                 //增加错误备注
                                  DisplayState("无效的采样率参数");
+                                 Log.Info("无效的采样率参数！");
+                                 Log.Warn("无效的采样率参数！");
                                 break;
                             case -19997:
                                 //增加错误备注
                                 DisplayState("无效的参数");
+                                 Log.Info("无效的参数！");
+                                 Log.Warn("无效的参数！");
                                 break;
                             case -19998:
                                 //增加错误备注
                                 DisplayState("启动播放器任务失败");
+                                 Log.Info("启动播放器任务失败！");
+                                 Log.Warn("启动播放器任务失败！");
                                 break;
                             case -19999:
                                     //增加错误备注
                                     DisplayState("没有可执行任务");
+                                  Log.Info("没有可执行任务！");
+                                 Log.Warn("没有可执行任务！");
                                     break;
                             case -20000:
                                     //增加错误备注
                                     DisplayState("打开URL错误");
+                                Log.Info("打开URL错误！");
+                                 Log.Warn("打开URL错误！");
                                     break;
                             case -20001:
                                     //增加错误备注
                                     DisplayState("打开视频流出错");
+                                Log.Info("打开视频流出错！");
+                                 Log.Warn("打开视频流出错！");
                                     break;
                             case -20002:
                                     //增加错误备注
                                     DisplayState("没有可用视频流");
+                                Log.Info("没有可用视频流！");
+                                 Log.Warn("没有可用视频流！");
                                     break;
                             case -20003:
                                     //增加错误备注
                                     DisplayState("找不到编码器");
+                                Log.Info("找不到编码器！");
+                                 Log.Warn("找不到编码器！");
                                     break;
                             case -20004:
                                     //增加错误备注
                                     DisplayState("无法打开编码器");
+                                Log.Info("无法打开编码器！");
+                                 Log.Warn("无法打开编码器！");
                                     break;
                             case -20005:
                                     //增加错误备注
                                     DisplayState("错误的SDL间隔");
+                                Log.Info("错误的SDL间隔！");
+                                 Log.Warn("错误的SDL间隔！");
                                     break;
                             default:
                                     DisplayState("代码异常");
+                                  Log.Info("代码异常！");
+                                   Log.Warn("代码异常！");
                                 break; 
                         }
                         PlayException();
@@ -648,17 +696,19 @@ namespace NetTest
 
         private void btnFlvStop_Click(object sender, EventArgs e)
         {
+            Log.Info("用户手动停止终端任务.");
             StopTerminalTaskFunc();
         }
 
         public void StopTerminalTaskFunc()
         {
+
             //停止播放，关掉播放器，退出抓包、播放、管道进程
             this.StopClosePlayer();
             Thread.Sleep(500);
             //设置正在测试的标示位
             DoTest = false;
-            paraShowThread.Join(1000);   //wait for exit of paraShowThread
+            paraShowThread.Join(300);   //wait for exit of paraShowThread
             try
             {
                 if (paraShowThread.IsAlive)
@@ -666,7 +716,8 @@ namespace NetTest
             }
             catch (System.Exception ex)
             {
-                Log.Warn(ex.ToString());
+                Log.Info("paraShowThread线程abort异常,已捕获处理");
+                Log.Error(Environment.StackTrace, ex);
             }
             inis.IniWriteValue("Flv", "counts", iTest.ToString());
             //播放次数置零
@@ -798,6 +849,7 @@ namespace NetTest
 
         private void videoParaShow()
         {
+            Log.Info("参数显示线程启动............"); 
             bool createVideoPara = false;
             if (mysqlTestFlag)
                 createVideoPara = mysqlTest.CreatVideoPara();
@@ -835,7 +887,7 @@ namespace NetTest
                         Thread.Sleep(50);
                 }
             }
-
+            Log.Info("参数显示线程结束."); 
         }
 
 
@@ -852,6 +904,7 @@ namespace NetTest
                 else if (callbackType == 20000)   //stream end
                 {
                     user_act = USER_ACT.STREAM_END;
+                    Log.Info("stream end触发.");
                     if (serverTest)
                         videoEndEvent.Set();
                     else
@@ -863,19 +916,18 @@ namespace NetTest
                 else if (callbackType == -20001)  //ERROR_STREAM_EXCEPTION
                 {
                     user_act = USER_ACT.STREAM_EXC;
+                    Log.Info("ERROR_STREAM_EXCEPTION触发.");
                     if (serverTest)
                         videoEndEvent.Set();
                     else
                     {
                         DisplayState("取帧异常,播放器退出");
-                       
-                        //StopTerminalTaskFunc();
                     }
                 }
             }
             catch (System.Exception ex)
             {
-                //StopTerminalTaskFunc();
+                Log.Info("异常,请查看error日志");
                 Log.Error(ex.ToString());
                 Log.Console(ex.ToString());
             }
@@ -885,20 +937,20 @@ namespace NetTest
 
         void ListenTerminent()
         {
+            Log.Info("终端任务监听线程开启......");
             while (true)
             {
                 if (!serverTest && (user_act == USER_ACT.STREAM_END || user_act == USER_ACT.STREAM_EXC))
                 {
                     StopTerminalTaskFunc();
+                    Log.Info("STREAM_END或STREAM_EXC触发.");
                     break;
                 }
                 else
                     Thread.Sleep(50);
             }
+            Log.Info("终端任务监听线程结束");
         }
-
-
-
         /******************************************************************************
            the test itself
         /*******************************************************************************/
@@ -914,17 +966,19 @@ namespace NetTest
 
             //记录多次测试信息                           
             DisplayState("--------------------------------\r\n");
+            Log.Info("------------------------------------------------------");
             DisplayState("第 " + iTest + " 次测试......\r\n");
             strbFile.Append("第 " + iTest + " 次测试......\r\n");
 
             //获取网卡、IP信息
-
+            Log.Info("网卡: " + inis.IniReadValue("Flv", "IpAddress"));
             DisplayState("网卡: " + inis.IniReadValue("Flv", "IpAddress"));
             strbFile.Append("网卡: " + inis.IniReadValue("Flv", "IpAddress") + "\r\n");
  
 
             Thread.Sleep(100);
             StartTime = DateTime.Now;
+            Log.Info("测试开始时间: " + StartTime.ToString());
             DisplayState("测试开始时间: " + StartTime.ToString());
             strbFile.Append("测试开始时间: " + StartTime.ToString() + "\r\n");
 
@@ -939,6 +993,7 @@ namespace NetTest
             string strfplay="";
             strfplay = inis.IniReadValue("Flv", "urlPage");     //不管是什么ie地址还是真实地址都存在urlPage下
             DisplayState("测试url: " + strfplay);
+            Log.Info("测试url: " + strfplay);
             strbFile.Append("测试url: " + strfplay + "\r\n");
 
             this.videoPictureBox.Visible = true;
@@ -953,7 +1008,7 @@ namespace NetTest
                 //Marshal.FreeHGlobal(pA);
                 if (videoHandle >= 0)
                 {
-                                      
+                    Log.Info("播放器成功启动........");                 
                     if (inis.IniReadValue("Flv", "Envir").Equals("web"))    //抓包的后台线程
                     {
                         if (!m_AsyncWorker_cap.IsBusy)
@@ -961,6 +1016,7 @@ namespace NetTest
                             m_AsyncWorker_cap.RunWorkerAsync();         //引发bwAsync_cap_DoWork事件
                         }
                         Thread.Sleep(100);
+                      
                         paraShowThread = new Thread(videoParaShow);
                         paraShowThread.Start();
                         Thread listenTerminentThread = new Thread(ListenTerminent);
@@ -971,6 +1027,8 @@ namespace NetTest
                 else    //播放异常
                 {
                     //PlayException();
+                    Log.Info("播放器启动异常,error code:" + videoHandle.ToString());
+                    Log.Error("播放器启动异常,error code:" + videoHandle.ToString());
                     return videoHandle;
                 }
                 
@@ -978,14 +1036,17 @@ namespace NetTest
             catch (System.Exception ex)
             {
                 //PlayException();
-                Log.Error(ex.ToString());
-                Log.Console(ex.ToString());
+                Log.Info("异常,请查看error日志");
+                Log.Console(Environment.StackTrace, ex);
+                Log.Error(Environment.StackTrace, ex);
             }
             return -2;
         }
 
         private void PlayException()
         {
+            Log.Info("播放器异常,已捕获处理.");
+            Log.Warn("播放器异常,已捕获处理.");
             this.videoPictureBox.Visible = false;
             DisplayState("播放异常\r\n");
             //stop button的设置
@@ -1007,13 +1068,17 @@ namespace NetTest
         /*******************************************************************************/
         public void StopClosePlayer()
         {
+            Log.Info("播放器停止.");
             //这里需要控制是否需要停止
             if (user_act != USER_ACT.STREAM_END && user_act != USER_ACT.STREAM_EXC)
             {
                 StopPlay(videoHandle);                
             }
+            else
+                Log.Info("播放器自动触发停止.");
             user_act = USER_ACT.DEFAULT;
             this.videoPictureBox.Visible = false;
+            Log.Info("停止抓包.");
             //停止抓包
             pcap_packet.Stop();
             //取消抓包线程
@@ -1026,6 +1091,7 @@ namespace NetTest
         /*******************************************************************************/
         private void ClearDns()
         {
+            Log.Info("清除DNS缓存中......");
             System.Diagnostics.Process p = new System.Diagnostics.Process();
             p.StartInfo.UseShellExecute = false;
             p.StartInfo.RedirectStandardInput = true;
@@ -1037,10 +1103,13 @@ namespace NetTest
             {
                 p.Start();
                 p.WaitForExit();
+                Log.Info("清除DNS缓存完毕.");
             }
             catch (System.Exception ex)
             {
-                Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
+                Log.Info("清除DNS异常,请查看error日志");
+                Log.Console(Environment.StackTrace, ex); 
+                Log.Error(Environment.StackTrace, ex);
             }
 
         }
@@ -1051,7 +1120,6 @@ namespace NetTest
         public double UnRefScore(string strfOut)
         {
             double score = 0;
-
             string strfIn = inisvlc.IniReadValue("result", "test1");  //读入播放器播放日志文件
             //string resolution = inisvlc.IniReadValue("resolution", "test" + i);
             //int n = resolution.IndexOf("*");
@@ -1063,10 +1131,13 @@ namespace NetTest
             try
             {
                 score = vScore(strfIn, strfOut, width, height);
+                Log.Info("视频打分:"+score.ToString());
             }
             catch (Exception ex)
             {
-                Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
+                Log.Info("vScore打分模块异常,请查看error日志");
+                Log.Console(Environment.StackTrace, ex); 
+                Log.Error(Environment.StackTrace, ex);
                 return -1;
             }
             return score;
