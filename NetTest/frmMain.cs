@@ -289,11 +289,14 @@ namespace NetTest
             {
                 case 1://任务数据，向服务器返回json格式的数据，并将数据写入流中
                     {
-                        //foreach (AttributeJson taskItem in taskList)
+                        //Log.Info("接收到服务的json命令.");
                         if (mysqlFlag)
                         {
                             for (int listcount = 0; listcount < taskList.Count; listcount++)
-                                mysqlInit.TaskListInsertMySQL(taskList[listcount].BatchNo + "#" + taskList[listcount].Id + "#" + taskList[listcount].Type + "#" + taskList[listcount].UrlType+"#"+  taskList[listcount].Url + "#" + serverIp);
+                            {
+                                Log.Info("服务器json串:BatchNo:" + taskList[listcount].BatchNo + "#TaskId:" + taskList[listcount].Id + "#Type:" + taskList[listcount].Type + "#UrlType:" + taskList[listcount].UrlType + "#Url:" + taskList[listcount].Url + "#ServerIp:" + serverIp);
+                                mysqlInit.TaskListInsertMySQL(taskList[listcount].BatchNo + "#" + taskList[listcount].Id + "#" + taskList[listcount].Type + "#" + taskList[listcount].UrlType + "#" + taskList[listcount].Url + "#" + serverIp);
+                            }
                         }
                         taskList.Clear();
                         break;
@@ -301,17 +304,22 @@ namespace NetTest
                 case 220:   //start task
                     {
                         mEvent.Set();
+                        Log.Info("启动任务.");
                         break;
                     }
                 case 221:   //stop task
                     {
                         mEvent.Reset();
+                        Log.Info("结束任务.");
                         break;
                     }
                 case 0:
                 case 3:
                 case 300:
-                default: break;
+                default:
+                    Log.Info("Json串解析其他异常，请查看info日志中接收到的字符串格式.");
+                    Log.Warn("Json串解析其他异常，请查看info日志中接收到的字符串格式.");
+                break;
             }
         }
 
@@ -322,7 +330,7 @@ namespace NetTest
 
         void webTaskFunc()
         {
-            Log.Info("web Task Thread Start!");
+            Log.Info("web任务扫描执行线程开启!");
             TaskItems webTask = null;
             while (true)
             {
@@ -335,8 +343,9 @@ namespace NetTest
                 if (countWeb > 0)
                 {
                     lock (webQueLocker)
-                    {
+                    {                        
                         webTask = webTaskQue.Dequeue();
+                        Log.Info("web任务扫描执行线程取出任务:Url:" + webTask.taskUrl+"#ServerIp:"+webTask.serverIp);
                     }
                     inis.IniWriteValue("Task", "currentWebId", webTask.taskId);
                     //Console.WriteLine("Web start,Url:{0}", webTask.taskUrl);
@@ -354,13 +363,16 @@ namespace NetTest
                     Thread.Sleep(1000);
                 }
                 else
-                    Thread.Sleep(200);    //每200ms查询队列中是否有任务 
+                {
+                    //Log.Info("web终端任务在执行，等待200ms.");
+                    Thread.Sleep(200);    //每200ms查询队列中是否有任务
+                }
             }
         }
 
         void videoTaskFunc()
         {
-            Log.Info("video Task Thread Start!");
+            Log.Info("Flv 任务扫描执行线程开启!");
             TaskItems videoTask = null;
             while (true)
             {
@@ -375,10 +387,12 @@ namespace NetTest
                     lock (videoQueLocker)
                     {
                         videoTask = videoTaskQue.Dequeue();
+                        Log.Info("web任务扫描执行线程取出任务:Url:" + videoTask.taskUrl + "#ServerIp:" + videoTask.serverIp);
                     }
 					                    //不是真实地址
                     if (videoTask.taskUrlType == 1)
                     {
+                        Log.Info("取出任务为ie链接,启动解析地址线程ParseServerReal.");
                         parseThreadUrlTem = videoTask.taskUrl;
                         Thread ParseUrlTh = new Thread(ParseServerReal);
                         ParseUrlTh.Start();
@@ -389,6 +403,8 @@ namespace NetTest
                             if (mysqlFlag)
                             {
                                 //增加错误备注
+                                Log.Info("解析地址:" + videoTask.taskUrl + "超时");
+                                Log.Error("解析地址:" + videoTask.taskUrl + "超时");
                                 mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
                                 mysqlInit.UpdateTaskListColumn("Remarks", "ParseUrlTimeOut", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
                             }
@@ -398,6 +414,8 @@ namespace NetTest
                         {
                             if (mysqlFlag)
                             {
+                                Log.Info("解析地址:" + videoTask.taskUrl + "异常");
+                                Log.Error("解析地址:" + videoTask.taskUrl + "异常");
                                 //增加错误备注
                                 mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
                                 mysqlInit.UpdateTaskListColumn("Remarks", "ParseUrlException", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
@@ -409,6 +427,8 @@ namespace NetTest
                             if (mysqlFlag)
                             {
                                 //增加错误备注
+                                Log.Info("无法获取解析地址:" + videoTask.taskUrl );
+                                Log.Error("无法获取解析地址:" + videoTask.taskUrl );
                                 mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
                                 mysqlInit.UpdateTaskListColumn("Remarks", "CannotGetRealUrl", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
                             }
@@ -422,6 +442,7 @@ namespace NetTest
                             if (returnUrl.Count > 0)
                             {
                                 //视频第一小段地址
+                                Log.Info("获取解析真实地址:" + returnUrl[0]);
                                 inis.IniWriteValue("Flv", "urlPage", returnUrl[0]);    //urlPage视频播放器获取的真实地址key
                             }
                             else
@@ -429,6 +450,8 @@ namespace NetTest
                                 if (mysqlFlag)
                                 {
                                     //增加错误备注
+                                    Log.Info("无法获取解析地址:" + videoTask.taskUrl);
+                                    Log.Error("无法获取解析地址:" + videoTask.taskUrl);
                                     mysqlInit.UpdateTaskListColumn("ActionStatus", "5", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
                                     mysqlInit.UpdateTaskListColumn("Remarks", "CannotGetRealUrl", "TaskId=" + "'" + videoTask.taskId + "'");  //读取任务后状态改成开始
                                 }
@@ -437,12 +460,17 @@ namespace NetTest
                                 
                         }                     
                     }
-                    else if (videoTask.taskUrlType == 0 )
+                    else if (videoTask.taskUrlType == 0)
                     {
+                        Log.Info("真实地址:" + videoTask.taskUrl);
                         inis.IniWriteValue("Flv", "UrlPage", videoTask.taskUrl);
                     }
                     else
+                    {
+                        Log.Info("未定义测试地址类型:" + videoTask.taskUrlType);
+                        Log.Error("未定义测试地址类型:" + videoTask.taskUrlType);
                         continue;
+                    }
                     inis.IniWriteValue("Task", "currentVideoId", videoTask.taskId);
                     flvTest1.serverTest = true;   //服务器任务
                     flvWebAnalyze1.serverTest = true;
@@ -543,6 +571,7 @@ namespace NetTest
 
         void ParseServerReal()
         {
+            Log.Info("解析链接地址线程启动.");
             try
             {
                 taskScope.SetVariable("url", parseThreadUrlTem);
@@ -552,6 +581,8 @@ namespace NetTest
             }
             catch (Exception ex)
             {
+                Log.Info("解析链接地址线程异常.");
+                Log.Error("解析链接地址线程异常.");
                 Log.Console(Environment.StackTrace, ex); 
                 Log.Error(Environment.StackTrace, ex);
                 parseThreadRet = -1;  //  异常 
@@ -562,8 +593,10 @@ namespace NetTest
         //每5s会进来一次
         void statusUploadFunc()
         {
+          
             if (mysqlFlag)
             {
+                Log.Info("任务状态上传线程启动......");
                 while (true)
                 {
                     //遍历：将taskid和执行状态上传,修改对应记录的同步状态字段为执行状态
@@ -584,18 +617,24 @@ namespace NetTest
                                         msg = OperateJson.BuildJson(item.taskId, item.actionStatus,item.remarks) + "<EOF>";
                                         TcpSocketClient clientSocket = new TcpSocketClient(ipAndPort[0], Int32.Parse(ipAndPort[1]));
                                         Log.Console(string.Format("{0}", item.serverIp));
+                                        
                                         clientSocket.ConnectToServer();
                                         if (clientSocket.IsConnect())
                                         {
                                             clientSocket.SendMessage(msg);
                                             clientSocket.ShutConnect();
-                                            mysqlInit.UpdateTaskListColumn("SyncStatus", item.actionStatus, "TaskId=" + "'" + item.taskId + "'");
+                                            if (mysqlFlag)
+                                            {
+                                                mysqlInit.UpdateTaskListColumn("SyncStatus", item.actionStatus, "TaskId=" + "'" + item.taskId + "'");
+                                                Log.Info("上传状态:任务id:" + item.taskId + "#任务url:" + item.taskUrl + "#执行状态:" + item.actionStatus + "#备注:" + item.remarks);
+                                            }                                           
                                         }                                      
                                     }
                                    
                                 }
                                 catch (Exception ex)
                                 {
+                                    Log.Info("任务状态上传线程异常，请查看error日志");
                                     Log.Console(Environment.StackTrace, ex); 
                                     Log.Error(Environment.StackTrace, ex);
                                 }
@@ -604,7 +643,9 @@ namespace NetTest
                     }
                     catch (Exception ex)
                     {
-                        Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
+                        Log.Info("任务状态上传线程异常，请查看error日志");
+                        Log.Console(Environment.StackTrace, ex); 
+                        Log.Error(Environment.StackTrace, ex);
                     }
                     Thread.Sleep(2000);
                 }
@@ -621,6 +662,7 @@ namespace NetTest
         {
             if (mysqlFlag)
             {
+                Log.Info("任务扫描线程启动......");
                 while (true)
                 {
                     try
@@ -648,6 +690,7 @@ namespace NetTest
                                         else if (item.taskType == "Video")
                                             videoTaskQue.Enqueue(item);
                                         mysqlInit.UpdateTaskListColumn("ActionStatus", "2", "TaskId=" + "'" + item.taskId + "'");  //读取任务后状态改成等待2
+                                        Log.Info("任务扫描线程取到任务:"+"#任务url:"+item.taskUrl+"#执行状态:"+item.actionStatus+"#备注:"+item.remarks);
                                     }
                                 }
                             }
@@ -655,7 +698,9 @@ namespace NetTest
                     }
                     catch (Exception ex)
                     {
-                        Log.Console(Environment.StackTrace, ex); Log.Error(Environment.StackTrace, ex);
+                        Log.Info("任务扫描线程异常，请查看error日志");
+                        Log.Console(Environment.StackTrace, ex); 
+                        Log.Error(Environment.StackTrace, ex);
                     }
                     Thread.Sleep(2000);
                 }

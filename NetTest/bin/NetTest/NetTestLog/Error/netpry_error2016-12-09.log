@@ -1,0 +1,48 @@
+2016-12-09 18:01:06,356 [6432] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] -  数据包传输不是采用http协议传输，web解析无法完成 
+DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-09 18:39:34,094 [5184] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - 播放文件不是flv/f4v/hlv格式，web解析无法完成 
+
+2016-12-09 18:39:48,021 [1252] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - 播放文件不是flv/f4v/hlv格式，web解析无法完成 
+
+2016-12-09 18:39:59,972 [7728] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - 播放文件不是flv/f4v/hlv格式，web解析无法完成 
+
+2016-12-09 18:41:38,210 [7288] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] -  数据包传输不是采用http协议传输，web解析无法完成 
+DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-09 18:44:16,399 [1752] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:65) ERROR NetError [(null)] -    在 System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   在 System.Environment.get_StackTrace()
+   在 NetTest.FlvWebAnalyze.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\FlvWebAnalyze.cs:行号 874
+   在 NetTest.FlvWebAnalyze.ParsePacket() 位置 D:\GitWork\NetTest_gd\NetTest\FlvWebAnalyze.cs:行号 237
+   在 System.Threading.ThreadHelper.ThreadStart_Context(Object state)
+   在 System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   在 System.Threading.ThreadHelper.ThreadStart()
+System.AccessViolationException: 尝试读取或写入受保护的内存。这通常指示其他内存已损坏。
+   在 NetTest.FlvWebAnalyze.pcap_file_close_inCS()
+   在 NetTest.FlvWebAnalyze.PcapTcpDnsHttpAnalys() 位置 D:\GitWork\NetTest_gd\NetTest\FlvWebAnalyze.cs:行号 870
+2016-12-09 18:45:29,477 [1752] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] -  数据包传输不是采用http协议传输，web解析无法完成 
+DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-09 18:51:33,207 [3288] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] -  数据包传输不是采用http协议传输，web解析无法完成 
+DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+
+2016-12-09 18:51:52,239 [8952] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] - 播放文件不是flv/f4v/hlv格式，web解析无法完成 
+
+2016-12-09 18:57:49,743 [4508] (D:\GitWork\NetTest_gd\NetTest\NetLog.cs:58) ERROR NetError [(null)] -  数据包传输不是采用http协议传输，web解析无法完成 
+DNS分析异常 
+HTTP分析异常 
+延时抖动分析异常 
+TCP流分析异常 
+

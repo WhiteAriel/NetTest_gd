@@ -377,7 +377,7 @@ namespace NetTest
                 }
                 else
                 {
-                    Log.Info("终端任务在运行,服务器任务等待2s.....");
+                    //Log.Info("终端任务在运行,服务器任务等待2s.....");
                     Thread.Sleep(2000);  //wait 2s if handon task is running 
                 }
             }
@@ -854,6 +854,7 @@ namespace NetTest
             if (mysqlTestFlag)
                 createVideoPara = mysqlTest.CreatVideoPara();
             string ipandtype = inis.IniReadValue("Task", "currentVideoId") + "#" + "Video";
+            int sample = 0;
             while (true)
             {
                 if (!DoTest)
@@ -862,26 +863,28 @@ namespace NetTest
                 {
                     if (paraQue.Count > 0)
                     {
-                        ParaStuct ps = paraQue.Dequeue();
-                        //添加chart数据
-                        chart1.Invoke(addDataDel, this.chart1, (ps.definition ));    //清晰度
-                        chart2.Invoke(addDataDel, this.chart2, (ps.brightness ));    //亮度
-                        chart3.Invoke(addDataDel, this.chart3, (ps.chroma));        //色度
-                        chart4.Invoke(addDataDel, this.chart4, (ps.saturation ));    //饱和度
-                        chart5.Invoke(addDataDel, this.chart5, (ps.contraction ));   //对比度
-                        frameNum++;
-                        //添加gauge data,0/1取值
-                        gaugeContainer1.Values["Default"].Value = ps.still * 80;
-                        gaugeContainer2.Values["Default"].Value = ps.skip * 80;
-                        gaugeContainer3.Values["Default"].Value = ps.blur * 80;
+                        if (++sample > 5)    //抽帧显示
+                        {
+                            ParaStuct ps = paraQue.Dequeue();
+                            //添加chart数据
+                            chart1.Invoke(addDataDel, this.chart1, (ps.definition));    //清晰度
+                            chart2.Invoke(addDataDel, this.chart2, (ps.brightness));    //亮度
+                            chart3.Invoke(addDataDel, this.chart3, (ps.chroma));        //色度
+                            chart4.Invoke(addDataDel, this.chart4, (ps.saturation));    //饱和度
+                            chart5.Invoke(addDataDel, this.chart5, (ps.contraction));   //对比度
+                            frameNum++;
+                            //添加gauge data,0/1取值
+                            gaugeContainer1.Values["Default"].Value = ps.still * 80;
+                            gaugeContainer2.Values["Default"].Value = ps.skip * 80;
+                            gaugeContainer3.Values["Default"].Value = ps.blur * 80;
 
-                        Log.Console(String.Format("{0},{1},{2},{3},{4}", ps.brightness, ps.contraction, ps.still, ps.skip, ps.blur));
-                        videoPara vp = new videoPara(ps.still, ps.blur, ps.skip, ps.black, ps.definition, ps.brightness, ps.chroma, ps.saturation, ps.contraction, ps.dev, ps.entro, ps.block, ps.highenerge, -1);
-
-                        //scoreInWriter.WriteLine(String.Format("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}\t{10}\t{11}\t{12}\t{13}\t{14}\t{15}\t{16}\t{17}\t{18}\t{19}", ps.systime, ps.videotime, ps.still, ps.skip, ps.blur, ps.black, ps.definition, ps.brightness, ps.chroma, ps.saturation, ps.contraction, ps.dev, ps.dev, ps.block, ps.entro, ps.highenerge, ps.highenergeLU, ps.highenergeRU, ps.highenergeLD, ps.highenergeRD));
-                        //记录插入mysql表中VideoPara
-                        if (createVideoPara == true && serverTest)
-                            mysqlTest.VideoParaInsertMySQL(ipandtype, vp);
+                            Log.Console(String.Format("{0},{1},{2},{3},{4}", ps.brightness, ps.contraction, ps.still, ps.skip, ps.blur));
+                            videoPara vp = new videoPara(ps.still, ps.blur, ps.skip, ps.black, ps.definition, ps.brightness, ps.chroma, ps.saturation, ps.contraction, ps.dev, ps.entro, ps.block, ps.highenerge, -1);
+                            //记录插入mysql表中VideoPara
+                            if (createVideoPara == true && serverTest)
+                                mysqlTest.VideoParaInsertMySQL(ipandtype, vp);
+                            sample = 0;
+                        }                      
                     }
                     else
                         Thread.Sleep(50);
@@ -913,7 +916,7 @@ namespace NetTest
                         
                     }
                 }
-                else if (callbackType == -20001)  //ERROR_STREAM_EXCEPTION
+                else                     //if (callbackType == -20001)  //ERROR_STREAM_EXCEPTION
                 {
                     user_act = USER_ACT.STREAM_EXC;
                     Log.Info("ERROR_STREAM_EXCEPTION触发.");
@@ -1000,12 +1003,11 @@ namespace NetTest
             try
             {
                 vcb = VideoCallBackFunc;
-                //int usrdata = 1;
-                IntPtr pA = new IntPtr(0);
-                //int lenght = Marshal.SizeOf(usrdata);
-                //IntPtr pA = Marshal.AllocHGlobal(lenght);
+                int usrdata = 1;
+                int lenght = Marshal.SizeOf(usrdata);
+                IntPtr pA = Marshal.AllocHGlobal(lenght);
                 videoHandle = StartPlay(strfplay, this.videoPictureBox.Handle, vcb, pA,5);
-                //Marshal.FreeHGlobal(pA);
+                Marshal.FreeHGlobal(pA);
                 if (videoHandle >= 0)
                 {
                     Log.Info("播放器成功启动........");                 
